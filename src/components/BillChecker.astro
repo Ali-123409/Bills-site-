@@ -148,9 +148,21 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
     }
 
     const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
-    lastBillURL = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${validation.value}`;
+    const pitcURL = `https://bill.pitc.com.pk/${disco}bill/general`;
+    lastBillURL = pitcURL;
 
-    window.open(lastBillURL, '_blank');
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = pitcURL;
+    form.target = '_blank';
+    const field = document.createElement('input');
+    field.type = 'hidden';
+    field.name = inputType;
+    field.value = validation.value;
+    form.appendChild(field);
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
 
     hideStatus();
     document.getElementById('bill-opened').classList.remove('hidden');

@@ -7,23 +7,11 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      // 🚀 SEO Settings Kept
+      // 🚀 SEO Settings
       changefreq: 'monthly',
       priority: 0.7,
-      // 🛠️ Stable Filter Logic
-      filter: (page) => {
-        // Only include pages that start with your domain and are not 404
-        return page.startsWith('https://pakistanbill.online/') && !page.endsWith('/404/');
-      },
-      serialize(item) {
-        // High priority for the homepage
-        if (item.url === 'https://pakistanbill.online/') {
-          item.priority = 1.0;
-          item.changefreq = 'daily';
-        }
-        return item;
-      },
     }),
   ],
+  // Explicitly setting output to static
   output: 'static',
 });

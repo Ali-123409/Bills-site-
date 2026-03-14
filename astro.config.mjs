@@ -9,7 +9,8 @@ export default defineConfig({
     sitemap({
       changefreq: 'monthly',
       priority: 0.7,
-      filter: (page) => !page.includes('/api/'),
+      // Removes the 404 page from the sitemap for cleaner SEO
+      filter: (page) => page !== 'https://pakistanbill.online/404/'
     }),
   ],
   output: 'static',

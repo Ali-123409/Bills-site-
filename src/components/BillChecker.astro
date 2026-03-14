@@ -8,11 +8,18 @@ interface Props {
 const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props;
 ---
 
-<div class="bg-white rounded-2xl shadow-xl shadow-neutral-200/50 border border-neutral-100 overflow-hidden">
+<div 
+  class="bg-white rounded-2xl shadow-xl border border-neutral-100 overflow-hidden"
+  data-disco={disco}
+  data-reflen={refnoLength}
+  id="checker-container"
+>
   <div class="p-6 border-b border-neutral-50 bg-neutral-50/50">
     <div class="flex items-center gap-4">
-      <div class="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-200">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <div class="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center text-white shadow-lg">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
       </div>
       <div>
         <h2 class="text-xl font-bold text-neutral-900">{discoName} Bill Online</h2>
@@ -24,98 +31,104 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
   <div class="p-6 space-y-6">
     {hasCustomerID && (
       <div class="flex p-1 bg-neutral-100 rounded-xl">
-        <button id="tab-refno" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition-all bg-white text-primary-600 shadow-sm" onclick="switchTab('refno')">Reference No</button>
-        <button id="tab-custid" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition-all text-neutral-500 hover:text-neutral-700" onclick="switchTab('custid')">Consumer ID</button>
+        <button id="tab-refno" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition-all bg-white text-primary-600 shadow-sm">Reference No</button>
+        <button id="tab-custid" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition-all text-neutral-500 hover:text-neutral-700">Consumer ID</button>
       </div>
     )}
 
     <div class="space-y-3">
-      <label class="text-sm font-bold text-neutral-700 ml-1" id="input-label">Enter 14-Digit Reference Number</label>
-      <div class="relative">
-        <input type="text" id="bill-input" maxlength={refnoLength} placeholder="e.g. 01123456789012" class="w-full px-5 py-4 bg-neutral-50 border-2 border-neutral-100 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-mono text-lg tracking-wider placeholder:text-neutral-300"/>
-      </div>
+      <label class="text-sm font-bold text-neutral-700 ml-1" id="input-label">
+        Enter {refnoLength}-Digit Reference Number
+      </label>
+      <input 
+        type="text" 
+        id="bill-input" 
+        maxlength={refnoLength} 
+        placeholder="01123456789012" 
+        class="w-full px-5 py-4 bg-neutral-50 border-2 border-neutral-100 rounded-xl focus:border-primary-500 outline-none font-mono text-lg"
+      />
     </div>
 
-    <button onclick="checkBill()" id="check-btn" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary-200 flex items-center justify-center gap-2 group">
+    <button id="check-btn" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
       <span>View Duplicate Bill</span>
-      <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
     </button>
 
     <div id="status-container" class="hidden p-4 rounded-xl border flex items-start gap-3">
-      <div id="status-icon"></div>
       <p id="status-message" class="text-sm font-medium"></p>
     </div>
   </div>
 </div>
 
-<script is:inline define:vars={{ disco, refnoLength }}>
+<script>
+  const container = document.getElementById('checker-container');
+  const disco = container?.dataset.disco;
+  const refnoLength = container?.dataset.reflen;
+
   let currentTab = 'refno';
 
-  window.switchTab = function(tab) {
+  // Tab Switching Logic
+  const refBtn = document.getElementById('tab-refno');
+  const custBtn = document.getElementById('tab-custid');
+  const label = document.getElementById('input-label');
+  const input = document.getElementById('bill-input');
+
+  function updateUI(tab) {
     currentTab = tab;
-    const refBtn = document.getElementById('tab-refno');
-    const custBtn = document.getElementById('tab-custid');
-    const label = document.getElementById('input-label');
-    const input = document.getElementById('bill-input');
-
     if (tab === 'refno') {
-      refBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition-all bg-white text-primary-600 shadow-sm";
-      custBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition-all text-neutral-500";
+      refBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg bg-white text-primary-600 shadow-sm";
+      custBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg text-neutral-500";
       label.innerText = `Enter ${refnoLength}-Digit Reference Number`;
-      input.placeholder = "01123456789012";
     } else {
-      custBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition-all bg-white text-primary-600 shadow-sm";
-      refBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition-all text-neutral-500";
+      custBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg bg-white text-primary-600 shadow-sm";
+      refBtn.className = "flex-1 py-2.5 text-sm font-bold rounded-lg text-neutral-500";
       label.innerText = "Enter 10-Digit Consumer ID";
-      input.placeholder = "1234567890";
     }
-  };
+  }
 
-  window.checkBill = async function() {
-    const input = document.getElementById('bill-input');
-    const status = document.getElementById('status-container');
-    const msg = document.getElementById('status-message');
-    const btn = document.getElementById('check-btn');
+  refBtn?.addEventListener('click', () => updateUI('refno'));
+  custBtn?.addEventListener('click', () => updateUI('custid'));
 
-    if (!input.value.trim()) {
-      status.className = "p-4 rounded-xl border bg-red-50 text-red-700 border-red-100 flex items-start gap-3";
-      status.classList.remove('hidden');
-      msg.innerText = "Please enter your number first.";
-      return;
-    }
+  // Bill Fetching Logic
+  const checkBtn = document.getElementById('check-btn');
+  const statusContainer = document.getElementById('status-container');
+  const statusMsg = document.getElementById('status-message');
 
-    // Show Loading
-    btn.disabled = true;
-    btn.innerHTML = '<span class="animate-spin mr-2">⏳</span> Processing...';
-    status.className = "p-4 rounded-xl border bg-blue-50 text-blue-700 border-blue-100 flex items-start gap-3";
-    status.classList.remove('hidden');
-    msg.innerText = "Connecting to PITC servers...";
+  checkBtn?.addEventListener('click', async () => {
+    const val = input.value.trim();
+    if (!val) return;
+
+    // Loading State
+    checkBtn.disabled = true;
+    checkBtn.innerText = "Connecting...";
+    statusContainer.className = "p-4 rounded-xl border bg-blue-50 text-blue-700 border-blue-100";
+    statusContainer.classList.remove('hidden');
+    statusMsg.innerText = "Fetching bill from PITC servers...";
 
     const type = currentTab === 'refno' ? 'refno' : 'cust_id';
-    const target = `https://bill.pitc.com.pk/${disco}bill/general?${type}=${input.value.trim()}`;
+    const target = `https://bill.pitc.com.pk/${disco}bill/general?${type}=${val}`;
     const apiURL = `/api/bill?url=${encodeURIComponent(target)}`;
 
     try {
       const response = await fetch(apiURL);
-      if (!response.ok) throw new Error("Could not find bill.");
+      if (!response.ok) throw new Error("Bill not found.");
 
       const html = await response.text();
-      const billWindow = window.open('', '_blank');
-      if (billWindow) {
-        billWindow.document.open();
-        billWindow.document.write(html);
-        billWindow.document.close();
-        status.className = "p-4 rounded-xl border bg-green-50 text-green-700 border-green-100 flex items-start gap-3";
-        msg.innerText = "Success! Bill opened in new tab.";
+      const win = window.open('', '_blank');
+      if (win) {
+        win.document.open();
+        win.document.write(html);
+        win.document.close();
+        statusContainer.className = "p-4 rounded-xl border bg-green-50 text-green-700 border-green-100";
+        statusMsg.innerText = "Success! Opening bill...";
       } else {
-        throw new Error("Popup blocked! Please allow popups.");
+        throw new Error("Popup blocked!");
       }
     } catch (e) {
-      status.className = "p-4 rounded-xl border bg-red-50 text-red-700 border-red-100 flex items-start gap-3";
-      msg.innerText = e.message;
+      statusContainer.className = "p-4 rounded-xl border bg-red-50 text-red-700 border-red-100";
+      statusMsg.innerText = e.message;
     } finally {
-      btn.disabled = false;
-      btn.innerHTML = '<span>View Duplicate Bill</span>';
+      checkBtn.disabled = false;
+      checkBtn.innerText = "View Duplicate Bill";
     }
-  };
+  });
 </script>

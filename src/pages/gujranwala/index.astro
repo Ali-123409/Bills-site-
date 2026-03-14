@@ -15,7 +15,7 @@ const hasCustomerID = true;
       </div>
       <div>
         <h2 class="text-lg font-heading font-bold text-neutral-900">{discoName} Bill Checker</h2>
-        <p class="text-sm text-neutral-500">Enter your details to view your bill instantly</p>
+        <p class="text-sm text-neutral-500">Enter details to view your bill instantly</p>
       </div>
     </div>
 
@@ -55,7 +55,7 @@ const hasCustomerID = true;
           </svg>
         </div>
         <div class="flex-1">
-          <p class="font-semibold text-green-900 text-sm">Opening bill in a new tab...</p>
+          <p class="font-semibold text-green-900 text-sm">Opening {discoName} portal...</p>
           <button class="check-again-btn text-xs text-green-700 mt-2 underline">Check Another Bill</button>
         </div>
       </div>
@@ -92,30 +92,30 @@ const hasCustomerID = true;
 
       const doCheckBill = () => {
         const val = input.value.replace(/\s/g, '');
-        if (currentTab === 'refno' && val.length !== refnoLength) {
-            statusBox.innerText = `⚠️ Enter exactly ${refnoLength} digits`;
-            statusBox.classList.remove('hidden');
-            return;
-        }
-        if (currentTab === 'custid' && val.length !== 10) {
-            statusBox.innerText = `⚠️ Enter exactly 10 digits`;
-            statusBox.classList.remove('hidden');
-            return;
-        }
+        if (!/^\d+$/.test(val)) return;
 
-        // THE FINAL FIX: Construct URL exactly like the official working link
-        const param = currentTab === 'refno' ? 'refno' : 'appno';
-        const finalURL = `https://bill.pitc.com.pk/${disco}bill/general?${param}=${val}`;
+        // 1. Create a "REAL" form that PITC cannot ignore
+        const form = document.createElement('form');
+        form.method = 'GET';
+        // We use the same URL you provided
+        form.action = `https://bill.pitc.com.pk/${disco}bill/general`;
+        form.target = '_blank';
 
-        // THE SECURITY BYPASS (Hiding Referrer)
-        const newWindow = window.open('', '_blank');
-        if (newWindow) {
-            newWindow.opener = null; // Bypasses PITC domain detection
-            newWindow.location.href = finalURL;
-        }
+        // 2. Create a "REAL" input field for the reference number
+        const hiddenInput = document.createElement('input');
+        hiddenInput.name = currentTab === 'refno' ? 'refno' : 'appno';
+        hiddenInput.value = val;
+        
+        // 3. Add input to form, and form to page
+        form.appendChild(hiddenInput);
+        document.body.appendChild(form);
 
+        // 4. Submit it!
+        form.submit();
+
+        // 5. Clean up
+        document.body.removeChild(form);
         openedBox.classList.remove('hidden');
-        statusBox.classList.add('hidden');
       };
 
       checkBtn.addEventListener('click', doCheckBill);

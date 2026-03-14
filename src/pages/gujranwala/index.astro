@@ -1,11 +1,8 @@
 ---
-interface Props {
-  disco: string;
-  discoName: string;
-  refnoLength?: number;
-  hasCustomerID?: boolean;
-}
-const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props;
+const disco = "gepco";
+const discoName = "GEPCO";
+const refnoLength = 14;
+const hasCustomerID = true;
 ---
 
 <bill-checker-component data-disco={disco} data-length={refnoLength}>

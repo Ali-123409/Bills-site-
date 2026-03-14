@@ -1,5 +1,8 @@
 ---
 // BillChecker.astro
+// Uses user's browser IP directly — no proxy needed
+// Form submits to PITC with target=iframe -> bill loads from user's Pakistani IP
+
 interface Props {
   disco: string;
   discoName: string;
@@ -7,6 +10,7 @@ interface Props {
   hasCustomerID?: boolean;
 }
 const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props;
+const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
 ---
 
 <div class="bill-checker" id="bill-checker-tool">
@@ -33,6 +37,17 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
       </button>
     </div>
   )}
+
+  <!-- Hidden form — submits directly to PITC using user's IP, result loads in iframe -->
+  <form
+    id="pitc-form"
+    method="GET"
+    action={pitcBase}
+    target="bill-frame"
+    style="display:none"
+  >
+    <input type="hidden" id="pitc-input-field" name="refno" value="" />
+  </form>
 
   <div class="flex flex-col sm:flex-row gap-3">
     <div class="flex-1">
@@ -61,17 +76,17 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
 
   <div id="bill-display" class="bill-display hidden mt-6">
     <div class="bill-actions">
-      <button onclick="downloadPDF()" class="btn-secondary text-sm py-2 px-4">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-        </svg>
-        Download PDF
-      </button>
-      <button onclick="printBill()" class="btn-outline text-sm py-2 px-4">
+      <button onclick="printBill()" class="btn-secondary text-sm py-2 px-4">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
         </svg>
         Print Bill
+      </button>
+      <button onclick="downloadPDF()" class="btn-outline text-sm py-2 px-4">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download PDF
       </button>
       <button onclick="checkAgain()" class="text-sm text-neutral-500 hover:text-neutral-700 px-3 py-2 transition-colors">
         Check Another Bill
@@ -80,16 +95,16 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
     <div class="overflow-auto">
       <iframe
         id="bill-frame"
+        name="bill-frame"
         class="bill-frame"
         title={`${discoName} Electricity Bill`}
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
       ></iframe>
     </div>
   </div>
 
 </div>
 
-<script define:vars={{ disco, discoName, refnoLength }}>
+<script define:vars={{ disco, discoName, refnoLength, pitcBase }}>
 
   let currentTab = 'refno';
 
@@ -99,16 +114,20 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
     const hint = document.getElementById('input-hint');
     const tabRefno = document.getElementById('tab-refno');
     const tabCustid = document.getElementById('tab-custid');
+    const pitcField = document.getElementById('pitc-input-field');
+
     if (tab === 'refno') {
       input.placeholder = `Enter ${refnoLength}-digit Reference Number`;
       input.maxLength = refnoLength;
       hint.textContent = 'Found on top-right of your printed bill';
+      pitcField.name = 'refno';
       tabRefno.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
       tabCustid.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
     } else {
       input.placeholder = 'Enter 10-digit Customer ID';
       input.maxLength = 10;
       hint.textContent = 'Found below your name on the printed bill';
+      pitcField.name = 'cust_id';
       tabCustid.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
       tabRefno.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
     }
@@ -150,7 +169,7 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
     `;
   }
 
-  async function checkBill() {
+  function checkBill() {
     const input = document.getElementById('bill-input');
     const validation = validateInput(input.value);
 
@@ -164,9 +183,7 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
       return;
     }
 
-    const refno = validation.value;
     const btn = document.getElementById('check-btn');
-
     btn.disabled = true;
     btn.innerHTML = `
       <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -184,78 +201,42 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
       Fetching your ${discoName} bill — please wait...
     `);
 
-    try {
-      const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
-      const pitcURL = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${refno}`;
-      const proxyURL = `/api/bill?url=${encodeURIComponent(pitcURL)}`;
+    // Put value in hidden form and submit to PITC
+    // Browser sends from USER's own Pakistani IP — no proxy needed
+    const pitcField = document.getElementById('pitc-input-field');
+    const pitcForm = document.getElementById('pitc-form');
+    pitcField.value = validation.value;
 
-      const response = await fetch(proxyURL);
-
-      if (!response.ok) {
-        const err = await response.json().catch(() => ({ error: `Server error ${response.status}` }));
-        throw new Error(err.error || `Server error ${response.status}`);
-      }
-
-      const html = await response.text();
-
-      // Detect if PITC returned its input form instead of a bill
-      const isFormPage = html.includes('Enter Reference No') ||
-                         html.includes('Enter Ref No') ||
-                         html.includes('id="refno"') ||
-                         html.includes('name="refno"') ||
-                         (html.includes('<form') && !html.includes('Amount Payable') && !html.includes('Due Date') && !html.includes('Units Consumed'));
-
-      if (isFormPage) {
-        showStatus('error', `
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-          Bill not found. Please check your reference number and try again.
-        `);
-        resetBtn();
-        return;
-      }
-
-      const frame = document.getElementById('bill-frame');
-      frame.srcdoc = html;
-
+    const frame = document.getElementById('bill-frame');
+    frame.onload = function() {
       document.getElementById('bill-display').classList.remove('hidden');
       hideStatus();
       resetBtn();
       document.getElementById('bill-display').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
-    } catch (error) {
-      showStatus('error', `
-        <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-        </svg>
-        ${error.message || 'Could not load bill. Please try again.'}
-      `);
-      resetBtn();
-    }
+    pitcForm.submit();
   }
 
   function printBill() {
-    const frame = document.getElementById('bill-frame');
-    frame.contentWindow?.print();
+    document.getElementById('bill-frame').contentWindow?.print();
   }
 
   function downloadPDF() {
     const frame = document.getElementById('bill-frame');
     if (!frame.contentWindow) return;
-    const printWindow = frame.contentWindow;
-    const style = printWindow.document.createElement('style');
+    const style = frame.contentWindow.document.createElement('style');
     style.textContent = '@media print { @page { size: A4; margin: 10mm; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
-    printWindow.document.head.appendChild(style);
-    printWindow.print();
+    frame.contentWindow.document.head.appendChild(style);
+    frame.contentWindow.print();
   }
 
   function checkAgain() {
     document.getElementById('bill-display').classList.add('hidden');
-    document.getElementById('bill-frame').srcdoc = '';
     document.getElementById('bill-input').value = '';
     document.getElementById('bill-input').focus();
     hideStatus();
+    resetBtn();
   }
 
   document.getElementById('bill-input')?.addEventListener('keydown', (e) => {

@@ -8,227 +8,220 @@ interface Props {
 const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props;
 ---
 
-<div class="bill-checker" id="bill-checker-tool" data-disco={disco} data-refnolength={refnoLength}>
+<bill-checker-component data-disco={disco} data-length={refnoLength}>
+  <div class="bill-checker bg-white">
 
-  <div class="flex items-center gap-3 mb-6">
-    <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
-      <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-      </svg>
-    </div>
-    <div>
-      <h2 class="text-lg font-heading font-bold text-neutral-900">{discoName} Bill Checker</h2>
-      <p class="text-sm text-neutral-500">Enter your reference number to view your bill instantly</p>
-    </div>
-  </div>
-
-  {hasCustomerID && (
-    <div class="flex gap-2 mb-4">
-      <button id="tab-refno" class="tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white">
-        Reference Number
-      </button>
-      <button id="tab-custid" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200">
-        Customer ID
-      </button>
-    </div>
-  )}
-
-  <div class="flex flex-col sm:flex-row gap-3">
-    <div class="flex-1">
-      <input
-        type="text"
-        id="bill-input"
-        class="bill-input w-full px-5 py-3 bg-neutral-50 border-2 border-neutral-100 rounded-xl focus:border-primary-500 outline-none font-mono text-lg"
-        placeholder={`Enter ${refnoLength}-digit Reference Number`}
-        inputmode="numeric"
-        pattern="[0-9]*"
-        autocomplete="off"
-      />
-      <p class="mt-1 text-xs text-neutral-400" id="input-hint">Found on top-right of your printed bill</p>
-    </div>
-    <button id="check-btn" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 sm:w-auto">
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-      </svg>
-      Check Bill
-    </button>
-  </div>
-
-  <div id="bill-status" class="mt-4 hidden p-4 rounded-xl text-sm font-medium"></div>
-
-  <div id="bill-opened" class="hidden mt-6 bg-green-50 border border-green-200 rounded-2xl p-5">
-    <div class="flex items-start gap-3">
-      <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
         </svg>
       </div>
+      <div>
+        <h2 class="text-lg font-heading font-bold text-neutral-900">{discoName} Bill Checker</h2>
+        <p class="text-sm text-neutral-500">Enter your reference number to view your bill instantly</p>
+      </div>
+    </div>
+
+    {hasCustomerID && (
+      <div class="flex gap-2 mb-4">
+        <button class="tab-refno px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white">
+          Reference Number
+        </button>
+        <button class="tab-custid px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200">
+          Customer ID
+        </button>
+      </div>
+    )}
+
+    <div class="flex flex-col sm:flex-row gap-3">
       <div class="flex-1">
-        <p class="font-semibold text-green-900 text-sm">Your {discoName} bill is opening in a new tab</p>
-        <p class="text-green-700 text-xs mt-1">If it did not open, tap the button below.</p>
-        <div class="flex gap-3 mt-3 flex-wrap">
-          <button id="open-again-btn" class="bg-green-600 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
-            Open Bill Again
-          </button>
-          <button id="check-again-btn" class="text-sm text-green-700 px-4 py-2 rounded-lg border border-green-300 hover:bg-green-100 transition-colors">
-            Check Another Bill
-          </button>
+        <input
+          type="text"
+          class="bill-input w-full px-5 py-3 bg-neutral-50 border-2 border-neutral-100 rounded-xl focus:border-primary-500 outline-none font-mono text-lg"
+          placeholder={`Enter ${refnoLength}-digit Reference Number`}
+          inputmode="numeric"
+          pattern="[0-9]*"
+          autocomplete="off"
+        />
+        <p class="input-hint mt-1 text-xs text-neutral-400">Found on top-right of your printed bill</p>
+      </div>
+      <button class="check-btn bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 sm:w-auto">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        Check Bill
+      </button>
+    </div>
+
+    <div class="bill-status mt-4 hidden p-4 rounded-xl text-sm font-medium"></div>
+
+    <div class="bill-opened hidden mt-6 bg-green-50 border border-green-200 rounded-2xl p-5">
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <p class="font-semibold text-green-900 text-sm">Your {discoName} bill is opening in a new tab</p>
+          <p class="text-green-700 text-xs mt-1">If it did not open, tap the button below.</p>
+          <div class="flex gap-3 mt-3 flex-wrap">
+            <button class="open-again-btn bg-green-600 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+              Open Bill Again
+            </button>
+            <button class="check-again-btn text-sm text-green-700 px-4 py-2 rounded-lg border border-green-300 hover:bg-green-100 transition-colors">
+              Check Another Bill
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
+</bill-checker-component>
 
 <script>
-  // This approach is 100% standard JavaScript. No Astro syntax mixed in.
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('bill-checker-tool');
-    if (!container) return;
+  // Astro Web Component Pattern
+  class BillCheckerComponent extends HTMLElement {
+    connectedCallback() {
+      // Safely grab the variables directly from the HTML element
+      const disco = this.dataset.disco;
+      const refnoLength = parseInt(this.dataset.length || '14', 10);
 
-    // Retrieve variables from the HTML
-    const disco = container.getAttribute('data-disco') || '';
-    const refnoLength = parseInt(container.getAttribute('data-refnolength') || '14', 10);
+      let currentTab = 'refno';
+      let lastBillURL = '';
 
-    let currentTab = 'refno';
-    let lastBillURL = '';
+      // Grab elements using 'this.querySelector' so they never clash
+      const input = this.querySelector('.bill-input');
+      const hint = this.querySelector('.input-hint');
+      const tabRefno = this.querySelector('.tab-refno');
+      const tabCustid = this.querySelector('.tab-custid');
+      const checkBtn = this.querySelector('.check-btn');
+      const statusBox = this.querySelector('.bill-status');
+      const openedBox = this.querySelector('.bill-opened');
+      const openAgainBtn = this.querySelector('.open-again-btn');
+      const checkAgainBtn = this.querySelector('.check-again-btn');
 
-    const input = document.getElementById('bill-input');
-    const hint = document.getElementById('input-hint');
-    const tabRefno = document.getElementById('tab-refno');
-    const tabCustid = document.getElementById('tab-custid');
-    const checkBtn = document.getElementById('check-btn');
-    const statusBox = document.getElementById('bill-status');
-    const openedBox = document.getElementById('bill-opened');
-    const openAgainBtn = document.getElementById('open-again-btn');
-    const checkAgainBtn = document.getElementById('check-again-btn');
-
-    // Tab switching functionality
-    function switchTab(tab) {
-      currentTab = tab;
-      if (tab === 'refno') {
-        if (input) {
-          input.placeholder = 'Enter ' + refnoLength + '-digit Reference Number';
-          input.maxLength = refnoLength;
+      const switchTab = (tab) => {
+        currentTab = tab;
+        if (tab === 'refno') {
+          if (input) {
+            input.placeholder = 'Enter ' + refnoLength + '-digit Reference Number';
+            input.maxLength = refnoLength;
+          }
+          if (hint) hint.textContent = 'Found on top-right of your printed bill';
+          if (tabRefno) tabRefno.className = 'tab-refno px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
+          if (tabCustid) tabCustid.className = 'tab-custid px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
+        } else {
+          if (input) {
+            input.placeholder = 'Enter 10-digit Customer ID';
+            input.maxLength = 10;
+          }
+          if (hint) hint.textContent = 'Found below your name on the printed bill';
+          if (tabCustid) tabCustid.className = 'tab-custid px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
+          if (tabRefno) tabRefno.className = 'tab-refno px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
         }
-        if (hint) hint.textContent = 'Found on top-right of your printed bill';
-        if (tabRefno) tabRefno.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
-        if (tabCustid) tabCustid.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
-      } else {
-        if (input) {
-          input.placeholder = 'Enter 10-digit Customer ID';
-          input.maxLength = 10;
+        if (input) input.value = '';
+      };
+
+      if (tabRefno) tabRefno.addEventListener('click', () => switchTab('refno'));
+      if (tabCustid) tabCustid.addEventListener('click', () => switchTab('custid'));
+
+      const showStatus = (type, message) => {
+        if (!statusBox) return;
+        if (type === 'loading') {
+          statusBox.className = 'bill-status mt-4 p-4 rounded-xl text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200';
+        } else if (type === 'error') {
+          statusBox.className = 'bill-status mt-4 p-4 rounded-xl text-sm font-medium bg-red-50 text-red-700 border border-red-200';
+          message = '⚠️ ' + message;
         }
-        if (hint) hint.textContent = 'Found below your name on the printed bill';
-        if (tabCustid) tabCustid.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
-        if (tabRefno) tabRefno.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
-      }
-      if (input) input.value = '';
-    }
+        statusBox.innerText = message;
+        statusBox.classList.remove('hidden');
+      };
 
-    if (tabRefno) tabRefno.addEventListener('click', () => switchTab('refno'));
-    if (tabCustid) tabCustid.addEventListener('click', () => switchTab('custid'));
+      const hideStatus = () => {
+        if (statusBox) statusBox.classList.add('hidden');
+      };
 
-    // Form Validation
-    function validateInput(value) {
-      const cleaned = value.replace(/\s/g, '');
-      if (!/^\d+$/.test(cleaned)) {
-        return { valid: false, msg: 'Please enter numbers only — no letters or spaces.' };
-      }
-      if (currentTab === 'refno' && cleaned.length !== refnoLength) {
-        return { valid: false, msg: 'Reference number must be exactly ' + refnoLength + ' digits.' };
-      }
-      if (currentTab === 'custid' && cleaned.length !== 10) {
-        return { valid: false, msg: 'Customer ID must be exactly 10 digits.' };
-      }
-      return { valid: true, value: cleaned };
-    }
+      const doCheckBill = () => {
+        if (!input) return;
+        const val = input.value.replace(/\s/g, '');
 
-    // Status UI Updates
-    function showStatus(type, message) {
-      if (!statusBox) return;
-      if (type === 'loading') {
-        statusBox.className = 'mt-4 p-4 rounded-xl text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200';
-      } else if (type === 'error') {
-        statusBox.className = 'mt-4 p-4 rounded-xl text-sm font-medium bg-red-50 text-red-700 border border-red-200';
-        message = '⚠️ ' + message;
-      }
-      statusBox.innerText = message;
-      statusBox.classList.remove('hidden');
-    }
-
-    function hideStatus() {
-      if (statusBox) statusBox.classList.add('hidden');
-    }
-
-    // Execute Bill Fetch
-    function doCheckBill() {
-      if (!input) return;
-      
-      const validation = validateInput(input.value);
-      
-      if (!validation.valid) {
-        showStatus('error', validation.msg);
-        return;
-      }
-
-      showStatus('loading', 'Connecting securely to PITC servers...');
-
-      const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
-      const pitcURL = 'https://bill.pitc.com.pk/' + disco + 'bill/general';
-      lastBillURL = pitcURL;
-
-      // Submit via hidden form to use local Pakistani IP
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = pitcURL;
-      form.target = '_blank';
-      
-      const field = document.createElement('input');
-      field.type = 'hidden';
-      field.name = inputType;
-      field.value = validation.value;
-      
-      form.appendChild(field);
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-
-      hideStatus();
-      if (openedBox) openedBox.classList.remove('hidden');
-    }
-
-    if (checkBtn) checkBtn.addEventListener('click', doCheckBill);
-
-    // Reset and retry actions
-    if (openAgainBtn) {
-      openAgainBtn.addEventListener('click', () => {
-        if (lastBillURL) window.open(lastBillURL, '_blank');
-      });
-    }
-
-    if (checkAgainBtn) {
-      checkAgainBtn.addEventListener('click', () => {
-        if (openedBox) openedBox.classList.add('hidden');
-        if (input) {
-          input.value = '';
-          input.focus();
+        if (!/^\d+$/.test(val)) {
+          showStatus('error', 'Please enter numbers only.');
+          return;
         }
+        if (currentTab === 'refno' && val.length !== refnoLength) {
+          showStatus('error', 'Reference number must be exactly ' + refnoLength + ' digits.');
+          return;
+        }
+        if (currentTab === 'custid' && val.length !== 10) {
+          showStatus('error', 'Customer ID must be exactly 10 digits.');
+          return;
+        }
+
+        showStatus('loading', 'Connecting securely to PITC servers...');
+
+        const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
+        
+        // Constructs the final URL beautifully
+        const pitcURL = 'https://bill.pitc.com.pk/' + disco + 'bill/general';
+        lastBillURL = pitcURL;
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = pitcURL;
+        form.target = '_blank';
+
+        const field = document.createElement('input');
+        field.type = 'hidden';
+        field.name = inputType;
+        field.value = val;
+
+        form.appendChild(field);
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+
         hideStatus();
-        lastBillURL = '';
-      });
-    }
+        if (openedBox) openedBox.classList.remove('hidden');
+      };
 
-    // Enter key listener
-    if (input) {
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') doCheckBill();
-      });
-      // Prevent typing non-numbers
-      input.addEventListener('input', (e) => {
-        const target = e.target;
-        if (target) target.value = target.value.replace(/[^0-9]/g, '');
-      });
+      if (checkBtn) checkBtn.addEventListener('click', doCheckBill);
+
+      if (openAgainBtn) {
+        openAgainBtn.addEventListener('click', () => {
+          if (lastBillURL) window.open(lastBillURL, '_blank');
+        });
+      }
+
+      if (checkAgainBtn) {
+        checkAgainBtn.addEventListener('click', () => {
+          if (openedBox) openedBox.classList.add('hidden');
+          if (input) {
+            input.value = '';
+            input.focus();
+          }
+          hideStatus();
+          lastBillURL = '';
+        });
+      }
+
+      if (input) {
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') doCheckBill();
+        });
+        input.addEventListener('input', (e) => {
+          const target = e.target;
+          if (target) target.value = target.value.replace(/[^0-9]/g, '');
+        });
+      }
     }
-  });
+  }
+
+  // Define the component
+  if (!customElements.get('bill-checker-component')) {
+    customElements.define('bill-checker-component', BillCheckerComponent);
+  }
 </script>

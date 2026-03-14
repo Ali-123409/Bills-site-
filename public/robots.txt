@@ -1,0 +1,35 @@
+# PakistanBill.online — Pakistan's Only Complete Utility Bill Platform
+# Covering all 19 utility providers: electricity, gas, water, telecom
+# Updated: 2026-03-12
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# SEO crawlers — allow all
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# AEO (AI Engine Optimization) — allowed for brand visibility
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# Block training scrapers
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+
+Sitemap: https://pakistanbill.online/sitemap.xml
+Sitemap: https://pakistanbill.online/sitemap-core.xml
+Sitemap: https://pakistanbill.online/sitemap-electricity.xml
+Sitemap: https://pakistanbill.online/sitemap-cities.xml
+Sitemap: https://pakistanbill.online/sitemap-blog.xml

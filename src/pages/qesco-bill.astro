@@ -1,0 +1,142 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="qesco"
+  discoName="QESCO"
+  discoFull="Quetta Electric Supply Company"
+  city="Quetta"
+  province="Balochistan"
+  established="1998"
+  ceo="Engr. Abdul Karim Jamali"
+  customers="2.5 million"
+  employees="11,000+"
+  revenue="$0.7 billion USD"
+  helpline="118"
+  uan="081-9201445"
+  website="https://qesco.com.pk"
+  headOffice="Zarghoon Road, Cantt, Quetta, Balochistan"
+  refnoLength={14}
+  hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM"
+  peakHourWinter="6:00 PM – 10:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="QESCO Bill Online — Check & Download Duplicate Bill March 2026"
+  metaDescription="Check your QESCO bill online by 14-digit reference number. View, download PDF, and print your QESCO Quetta Balochistan electricity duplicate bill instantly — free, no login required."
+  canonical="/qesco-bill/"
+
+  introContent={`
+    <p>Quetta Electric Supply Company (QESCO) is the sole electricity distribution company for <strong>Balochistan</strong> — Pakistan's largest province by area, covering 44% of the country's total landmass. QESCO supplies power to over 2.5 million consumers across all 34 districts of Balochistan, with the sole exception of <strong>Lasbela district</strong> which is served by K-Electric. Established in 1998, QESCO's service territory spans some of Pakistan's most geographically challenging terrain — from the high-altitude plateau of <strong>Quetta</strong> (Pakistan's ninth-largest city and the provincial capital at 1,680 metres elevation) to the deep valleys of <strong>Zhob</strong>, the coastal plains of <strong>Makran</strong>, and the desert expanses of <strong>Chagai</strong>.</p>
+    <p>QESCO covers major cities including <strong>Quetta</strong> (all city sectors including Satellite Town, Jinnah Town, Sariab, Brewery Road, and all cantonments), <strong>Turbat</strong> (Kech district — the largest city of Makran coastal belt), <strong>Khuzdar</strong> (central Balochistan's mineral hub), <strong>Hub</strong> (Lasbela's industrial zone — note: Hub City electricity is K-Electric, not QESCO), <strong>Chaman</strong> (border city with Afghanistan), <strong>Zhob</strong>, <strong>Loralai</strong>, <strong>Sibi</strong>, <strong>Dera Bugti</strong>, <strong>Naseerabad</strong>, and all districts along the CPEC route including <strong>Gwadar</strong> and its surrounding areas.</p>
+    <p>QESCO plays a central role in the <strong>China-Pakistan Economic Corridor (CPEC)</strong>. Gwadar Port, the CPEC's crown jewel, is within QESCO's service area. Industrial and infrastructure development along the CPEC Western Alignment — passing through Quetta, Kalat, Khuzdar, and down to Gwadar — has significantly increased QESCO's consumer base and industrial load. New CPEC Special Economic Zones across Balochistan are QESCO consumers.</p>
+    <p>To check your QESCO bill online, enter your <strong>14-digit QESCO reference number</strong> in the bill checker above. This is the same PITC server system used by all WAPDA DISCOs. Your reference number is printed at the top of every QESCO electricity bill. You can also use your <strong>10-digit Consumer ID</strong> (click the Customer ID tab). For SMS bill checking, send your reference number to <strong>8334</strong>.</p>
+    <p>Important note: QESCO's service area includes parts of <strong>Jafarabad and Naseerabad districts</strong> that are actually supplied by <strong>SEPCO</strong> — if you live in those areas and your bill shows SEPCO, visit the <a href="/sepco-bill/">SEPCO bill page</a>. All remaining Balochistan districts are QESCO.</p>
+  
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Also check: <a href="/hesco-bill/">HESCO bill</a> for Hyderabad | <a href="/sepco-bill/">SEPCO bill</a> for Sukkur | <a href="/ssgc-bill/">SSGC gas bill</a> (covers all Balochistan). Use our <a href="/electricity-bill-calculator/">electricity bill calculator</a>, visit our <a href="/dashboard/">bill dashboard</a>, or read the <a href="/blog/how-to-find-nepra-tariff-hike/">NEPRA tariff 2026 guide</a>. See our complete <a href="/quetta/">Quetta utility bills guide</a>.</p>
+  `}
+
+  howToSteps={[
+    "Find your 14-digit QESCO reference number — printed in bold at the top section of your QESCO electricity bill, near your consumer name. It may also appear as a barcode below the reference number.",
+    "Open the bill checker tool at the top of this page. The Reference Number tab is selected by default.",
+    "Enter your 14-digit QESCO reference number carefully in the input field. Enter numbers only — no spaces, dashes, or any other characters.",
+    "Click the green Check Bill button. The tool connects directly to the official PITC server (bill.pitc.com.pk/qescobill) and fetches your latest bill.",
+    "Your complete QESCO bill appears on screen within 3 to 5 seconds — showing total amount due, due date, units consumed, meter readings, and all charges including FPA, FC Surcharge, and GST.",
+    "Click Download PDF to save your QESCO bill as a PDF file to your phone or computer. Click Print to immediately get a paper duplicate bill."
+  ]}
+
+  billReadingTips={[
+    "Your QESCO reference number (14 digits) is permanent — it never changes for your connection. Save it in your phone contacts so you can check your bill every month without searching for a paper copy.",
+    "Quetta's high altitude (1,680m) means cold winters. Electric heaters add 200–500 units per month in Quetta winters. Monitor your consumption carefully in January and February — heavy heating use can push you from Protected to Unprotected status.",
+    "QESCO bills in remote Balochistan districts often arrive late or not at all by post. Use this tool every month to check your bill online — your payment obligation exists regardless of whether a paper bill is delivered.",
+    "Check the Category field on your QESCO bill. D-Protected means subsidized rates (average ≤200 units/6 months). D-Unprotected means full slab rates starting at Rs 23.59/unit from the very first unit. If you believe you qualify as Protected but show Unprotected, file a complaint at your nearest QESCO subdivision office.",
+    "Gwadar and Makran coastal consumers: QESCO supplies all of Makran division. High summer humidity in coastal areas combined with AC usage can spike bills dramatically in July and August.",
+    "If your bill shows 'Estimated' instead of 'Actual', QESCO's meter reader could not access your premises. Request an actual reading by calling 081-9201445 — estimated bills can cause large catch-up charges the following month.",
+    "CPEC zone consumers and Gwadar industrial consumers: monitor your Maximum Demand (MD) indicator closely. Industrial connections that exceed sanctioned load face MDI penalties that can double your monthly bill.",
+  ]}
+
+  savingTips={[
+    "Quetta winter heating is QESCO's biggest consumer cost driver. Switch from electric room heaters (2,000W each) to gas heaters (if gas is available), bukhari wood stoves, or heavy insulation — you can save 300–600 units per month in a Quetta winter.",
+    "Balochistan's extraordinary solar potential: Chagai, Nushki, Kharan, and all central Balochistan districts receive Pakistan's highest solar irradiance. Annual solar generation in these areas exceeds any other Pakistani province. QESCO net metering is available and highly lucrative here.",
+    "Gwadar and Turbat (Makran) consumers: sea breeze cooling reduces AC load significantly if you open windows at night (temperatures drop 8–12°C after midnight on the Makran coast). Use natural cooling for as many hours as possible.",
+    "Zhob, Loralai, and northern Balochistan (elevation 1,200–2,000m): cool summers mean most consumers can maintain Protected status without AC at all. Ceiling fans and open windows suffice for most summer days.",
+    "QESCO consumers in areas with frequent load shedding: install a UPS with efficient LED load rather than running a generator for long load shedding hours. LED lights draw 80% less power, making UPS batteries last 4–6 hours instead of 1–2 hours.",
+    "Review your QESCO bill monthly using this tool. Remote Balochistan billing errors are common due to meter reading difficulties — early detection prevents large accumulations.",
+    "Apply for QESCO net metering if you install solar panels. Balochistan has over 300 sunny days per year — solar returns in Quetta are excellent compared to other Pakistani cities.",
+  ]}
+
+  complaintProcess={[
+    "Call QESCO helpline 118 or 081-9201445 (Quetta office) with your 14-digit reference number ready. State the complaint clearly — overbilling, wrong category, TP penalty, meter fault, or incorrect reading.",
+    "Demand a Complaint Registration Number (CRN) from the QESCO agent. Write it down immediately. This is your legal proof that the complaint was filed.",
+    "Visit your nearest QESCO subdivision office in Quetta, Turbat, Khuzdar, Chaman, Zhob, Loralai, Sibi, or your district headquarters for billing disputes that require document review or meter inspection.",
+    "QESCO must resolve billing complaints within 14 working days under NEPRA Consumer Protection Regulations 2020. If your complaint is ignored beyond this window, escalate to NEPRA at 0800-63000 (toll-free).",
+    "File at nepra.org.pk online for a permanent digital record. For cases involving large amounts or repeated QESCO non-response, escalate to the Federal Ombudsman (Wafaqi Mohtasib) at mohtasib.gov.pk — this is legally binding and free.",
+  ]}
+
+  smsService="Type pitc followed by a space and your 14-digit QESCO reference number, then send to 8334. You receive your current bill amount, due date, and units consumed by return SMS within seconds. Standard SMS charges apply."
+
+  coverageAreas={[
+    { region: "Quetta Division", district: "Quetta", cities: "Quetta City, Satellite Town, Jinnah Town, Sariab, Brewery Road, Quetta Cantt, Kuchlak, Mastung, Kalat" },
+    { region: "Makran Division", district: "Kech (Turbat)", cities: "Turbat City, Mand, Buleda, Dasht — coastal Makran" },
+    { region: "Makran Division", district: "Gwadar", cities: "Gwadar Port City, Jiwani, Pasni, Ormara — CPEC hub" },
+    { region: "Makran Division", district: "Panjgur", cities: "Panjgur City, Miri, Basima" },
+    { region: "Zhob Division", district: "Zhob", cities: "Zhob City, Sherani, Muslim Bagh" },
+    { region: "Zhob Division", district: "Loralai", cities: "Loralai City, Bori, Duki, Mekhtar" },
+    { region: "Sibi Division", district: "Sibi", cities: "Sibi City, Lehri, Sangan" },
+    { region: "Sibi Division", district: "Dera Bugti", cities: "Dera Bugti City, Sui, Pir Koh" },
+    { region: "Naseerabad Division", district: "Naseerabad", cities: "Tamboo, Chattar — note: some areas are SEPCO" },
+    { region: "Kalat Division", district: "Khuzdar", cities: "Khuzdar City, Zehri, Ornach" },
+    { region: "Chagai & Nushki", district: "Chagai", cities: "Dalbandin, Nushki City, Kharan — solar belt" },
+    { region: "Pishin & Qila Abdullah", district: "Pishin", cities: "Pishin City, Qila Saifullah, Chaman border" },
+  ]}
+
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "Quetta Office", detail: "081-9201445" },
+    { type: "Head Office", detail: "Zarghoon Road, Cantt, Quetta" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Complaint Email", detail: "info@qesco.com.pk" },
+    { type: "New Connection", detail: "enc.com.pk → Select QESCO" },
+    { type: "Official Website", detail: "qesco.com.pk" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter 14-digit reference" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free)" },
+  ]}
+
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+
+  faqs={[
+    { question: "How do I check my QESCO bill online in March 2026?", answer: "Enter your 14-digit QESCO reference number in the bill checker tool at the top of this page and click Check Bill. Your complete QESCO electricity bill for March 2026 appears within seconds — showing amount due, due date, units consumed, and all charges. This is completely free, requires no login or registration, and works 24 hours a day, 7 days a week from anywhere in Pakistan or abroad." },
+    { question: "What is the QESCO 14-digit reference number and where do I find it?", answer: "Your QESCO reference number is a permanent 14-digit number that uniquely identifies your electricity connection. It is printed in bold at the top section of every QESCO electricity bill — usually on the right side near your consumer name and address, above the barcode. Save it in your phone — this number never changes for your connection, even if you change address within the same area." },
+    { question: "How do I check my QESCO bill for Gwadar?", answer: "Gwadar district is within QESCO's service area. Enter your 14-digit QESCO reference number in the bill checker above — it works for all Gwadar City, Jiwani, Pasni, and Ormara consumers. Gwadar is part of QESCO's Makran Division circle. As a CPEC-priority area, Gwadar has seen significant infrastructure investment in QESCO's transmission and distribution network." },
+    { question: "How do I check my QESCO bill for Turbat (Kech)?", answer: "Turbat, the largest city of Makran and headquarter of Kech district, is under QESCO's service territory. Enter your 14-digit reference number in the checker above — the same tool works for Turbat, Mand, Buleda, and all Kech district connections. If you live in Turbat and your bill shows QESCO, this is the correct page." },
+    { question: "Does QESCO cover all of Balochistan?", answer: "QESCO covers all 34 districts of Balochistan EXCEPT Lasbela district — which is served by K-Electric. Hub City's industrial area, which is in Lasbela, uses K-Electric. Additionally, Jafarabad and Naseerabad districts (border with Sindh) have some consumers under SEPCO. Check your bill heading to confirm your supplier. All remaining Balochistan consumers are QESCO." },
+    { question: "Why is load shedding very high in my QESCO area?", answer: "QESCO experiences Pakistan's highest load shedding durations among all DISCOs for several reasons: (1) Remote areas with long transmission lines have higher losses; (2) Balochistan has historically lower bill collection rates which reduces QESCO's revenue; (3) The geographic vastness makes infrastructure maintenance challenging. Urban Quetta sees 4–8 hours; rural and remote areas can see 12–20 hours. Paying bills regularly is the single most impactful action consumers can take — QESCO prioritizes supply to high-recovery feeders." },
+    { question: "How do I download my QESCO duplicate bill as PDF?", answer: "After your QESCO bill loads in the checker above, click Download PDF. Your browser opens the print dialog — select Save as PDF as the printer destination and click Save. Your QESCO duplicate bill downloads as a PDF instantly. You can then share it by WhatsApp, email it to yourself, or print it at any shop in Quetta, Turbat, Gwadar, or your city." },
+    { question: "How do I pay my QESCO bill online?", answer: "Pay through JazzCash, Easypaisa, or any bank mobile app. Open the app, go to Bill Payments, select Electricity, choose QESCO or WAPDA, enter your 14-digit reference number, verify the amount displayed, and confirm payment. You receive an instant SMS confirmation. JazzCash and Easypaisa agents are available across all major QESCO cities including Quetta, Turbat, Khuzdar, Chaman, and Zhob." },
+    { question: "What is the grace period for QESCO bill payment?", answer: "QESCO gives consumers 7 days after the due date printed on the bill to pay without a late payment surcharge. After the 7-day grace period, a 10% surcharge applies to the entire unpaid amount. In remote Balochistan areas where paper bills arrive late, always check your due date online using this tool before the deadline to avoid this penalty." },
+    { question: "Can I check my QESCO bill by SMS?", answer: "Yes. Type pitc followed by a space and your 14-digit QESCO reference number, then send to 8334. For example: pitc 12345678901234. You receive your current bill amount, due date, and units consumed as an SMS reply within seconds. Standard SMS charges apply from your mobile operator — works for all networks in Balochistan." },
+    { question: "How do I apply for QESCO net metering for solar panels?", answer: "Apply at qesco.com.pk or visit the nearest QESCO division office. You need a NEPRA-licensed solar installer to do the installation, technical drawings, and a load approval letter. QESCO installs a bidirectional meter — surplus solar units you export to the grid credit your monthly bill. Balochistan has Pakistan's highest solar irradiance, making QESCO net metering one of the most profitable solar investments in the country." },
+    { question: "How do I file a billing complaint with QESCO?", answer: "Call QESCO helpline 118 or 081-9201445 with your 14-digit reference number. Clearly describe the billing issue — overbilling, wrong category, TP penalty, or meter fault — and note down the Complaint Registration Number (CRN) you receive. QESCO must resolve within 14 working days under NEPRA Consumer Protection Regulations. If unresolved, escalate to NEPRA at 0800-63000 (toll-free). Filing at nepra.org.pk creates a permanent digital record." },
+  ]}
+
+  relatedPages={[
+    { name: "PESCO Bill Online", url: "/pesco-bill/" },
+    { name: "TESCO Bill Online", url: "/tesco-bill/" },
+    { name: "K-Electric Bill Online (Lasbela)", url: "/k-electric-bill/" },
+    { name: "HESCO Bill Online", url: "/hesco-bill/" },
+    { name: "SEPCO Bill Online", url: "/sepco-bill/" },
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "MEPCO Bill Online", url: "/mepco-bill/" },
+    { name: "SSGC Gas Bill", url: "/ssgc-bill/" },
+  ]}
+/>

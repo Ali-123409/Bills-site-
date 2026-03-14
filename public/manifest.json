@@ -1,0 +1,28 @@
+{
+  "name": "PakistanBill — Utility Bill Checker",
+  "short_name": "PakistanBill",
+  "description": "Check LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, SNGPL, SSGC, PTCL bills online. Free, instant, no login.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#01411C",
+  "orientation": "portrait-primary",
+  "categories": ["utilities", "finance", "productivity"],
+  "lang": "en-PK",
+  "icons": [
+    { "src": "/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "screenshots": [
+    { "src": "/images/screenshot-home.png", "sizes": "1280x720", "type": "image/png", "label": "PakistanBill Homepage — All 19 Utility Providers" }
+  ],
+  "shortcuts": [
+    { "name": "LESCO Bill", "url": "/lesco-bill/", "description": "Check LESCO Lahore electricity bill" },
+    { "name": "MEPCO Bill", "url": "/mepco-bill/", "description": "Check MEPCO South Punjab bill" },
+    { "name": "SNGPL Gas", "url": "/sngpl-bill/", "description": "Check SNGPL gas bill" },
+    { "name": "K-Electric", "url": "/k-electric-bill/", "description": "Check K-Electric Karachi bill" },
+    { "name": "Bill Calculator", "url": "/electricity-bill-calculator/", "description": "Calculate your electricity bill" }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

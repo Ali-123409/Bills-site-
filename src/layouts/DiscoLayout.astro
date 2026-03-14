@@ -1,0 +1,903 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BillChecker from '../components/BillChecker.astro';
+
+interface CoverageArea {
+  region: string;
+  district: string;
+  cities: string;
+}
+interface ContactInfo {
+  type: string;
+  detail: string;
+}
+interface TariffSlab {
+  units: string;
+  rate: string;
+  category: string;
+}
+interface FAQ {
+  question: string;
+  answer: string;
+}
+interface RelatedPage {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  disco: string;
+  discoName: string;
+  discoFull: string;
+  city: string;
+  province: string;
+  established: string;
+  ceo: string;
+  customers: string;
+  employees: string;
+  revenue: string;
+  helpline: string;
+  uan: string;
+  website: string;
+  headOffice: string;
+  refnoLength?: number;
+  hasCustomerID?: boolean;
+  peakHourSummer: string;
+  peakHourWinter: string;
+  coverageAreas: CoverageArea[];
+  contacts: ContactInfo[];
+  tariffSlabs: TariffSlab[];
+  faqs: FAQ[];
+  relatedPages: RelatedPage[];
+  metaTitle: string;
+  metaDescription: string;
+  canonical: string;
+  lastmod: string;
+  // New rich content props
+  introContent: string;
+  howToSteps: string[];
+  billSectionsExplained: { section: string; explanation: string }[];
+  complaintProcess: string[];
+  billReadingTips: string[];
+  savingTips: string[];
+  smsService?: string;
+}
+
+const props = Astro.props;
+const {
+  disco, discoName, discoFull, city, province, metaTitle,
+  metaDescription, canonical, lastmod
+} = props;
+
+const currentMonth = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' });
+const currentYear = new Date().getFullYear();
+
+const toolSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": `${discoName} Bill Checker`,
+  "url": `https://pakistanbill.online${canonical}`,
+  "description": `Check your ${discoName} electricity bill online. View, download PDF, and print your duplicate bill instantly for free.`,
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" },
+  "publisher": { "@id": "https://pakistanbill.online/#organization" }
+};
+
+const howtoSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": `How to Check ${discoName} Bill Online`,
+  "description": `Step-by-step guide to check your ${discoName} electricity bill online in ${currentYear} — free, no login, no registration.`,
+  "totalTime": "PT1M",
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "PKR", "value": "0" },
+  "step": (props.howToSteps || [
+    `Locate your 14-digit ${discoName} reference number on the top-right of your electricity bill.`,
+    `Enter the 14-digit reference number in the bill checker tool at the top of this page.`,
+    `Click the Check Bill button. Your complete bill appears on screen instantly.`,
+    `Click Download PDF to save your bill or click Print to get a paper copy.`
+  ]).map((text, i) => ({
+    "@type": "HowToStep",
+    "name": `Step ${i + 1}`,
+    "text": text,
+    "position": i + 1
+  }))
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": props.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakistanbill.online/" },
+    { "@type": "ListItem", "position": 2, "name": "Electricity Bills", "item": "https://pakistanbill.online/#electricity" },
+    { "@type": "ListItem", "position": 3, "name": `${discoName} Bill`, "item": `https://pakistanbill.online${canonical}` }
+  ]
+};
+
+const webpageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `https://pakistanbill.online${canonical}#webpage`,
+  "url": `https://pakistanbill.online${canonical}`,
+  "name": metaTitle,
+  "description": metaDescription,
+  "isPartOf": { "@id": "https://pakistanbill.online/#website" },
+  "about": {
+    "@type": "Thing",
+    "name": `${discoName} Electricity Bill`,
+    "description": `${discoFull} (${discoName}) electricity bill checking, download, and payment for ${city}, ${province}, Pakistan`
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://pakistanbill.online/images/og-default.png"
+  },
+  "dateModified": lastmod,
+  "datePublished": "2026-01-01",
+  "inLanguage": "en-PK",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".prose-content p:first-child", ".section-title"]
+  },
+  "breadcrumb": { "@id": `https://pakistanbill.online${canonical}#breadcrumb` }
+};
+
+const defaultHowToSteps = [
+  `Find your 14-digit ${discoName} reference number — it is printed in bold on the top-right corner of any previous ${discoName} electricity bill.`,
+  `Go to the bill checker tool at the top of this page. Click the "Reference Number" tab.`,
+  `Type your 14-digit reference number carefully into the input field. Numbers only — no spaces or dashes.`,
+  `Click the green "Check Bill" button. The system connects to the official PITC server and fetches your bill.`,
+  `Your complete ${discoName} bill appears on screen within 3 to 5 seconds — showing amount, due date, units consumed, and all charges.`,
+  `Click "Download PDF" to save your bill as a PDF file, or click "Print" to get a paper copy directly.`
+];
+
+const defaultBillSections = [
+  { section: "Reference Number", explanation: "Your unique 14-digit identifier that never changes. Use this to check your bill every month." },
+  { section: "Consumer Name & Address", explanation: "Your registered name and supply address. If incorrect, visit your nearest sub-division office to correct it." },
+  { section: "Units Consumed (kWh)", explanation: "The difference between your current and previous meter reading. This is the most important number on your bill." },
+  { section: "Amount Payable", explanation: "The total amount you must pay before the due date. Includes all taxes, surcharges, and fixed charges." },
+  { section: "Due Date", explanation: "The last date to pay without penalty. DISCO gives 7 days grace after this date before applying late surcharge." },
+  { section: "Fuel Price Adjustment (FPA)", explanation: "A monthly variable charge based on NEPRA's decision about fuel costs. High fuel prices = high FPA on your bill." },
+  { section: "GST (General Sales Tax)", explanation: "17% tax levied by the government on your electricity consumption charges." },
+  { section: "FC Surcharge", explanation: "Fixed Charge Surcharge — Rs 0.43 per unit added to all bills to fund power sector capacity payments." },
+  { section: "TV Fee", explanation: "A Rs 35/month government fee added to all domestic electricity bills regardless of TV ownership." },
+  { section: "Meter Rent", explanation: "A monthly rental charge (typically Rs 1,000+) for the electricity meter installed at your premises." },
+];
+
+const defaultSavingTips = [
+  `Run heavy appliances (washing machine, iron, AC) after 11 PM — outside ${discoName} peak hours — to reduce your bill.`,
+  "Use LED bulbs instead of incandescent ones. LED bulbs use 80% less electricity for the same brightness.",
+  "Set your air conditioner to 26°C. Each degree below 26 increases AC power consumption by 6-8%.",
+  "Turn off appliances from the wall socket, not just the remote. Standby power consumption adds up over a month.",
+  "Run your electric geyser only when needed. Geysers on timer switches save 20-30% on electricity bills.",
+  "Keep your fridge at 3-5°C and freezer at -15 to -18°C. Colder settings waste electricity.",
+  "Use a pressure cooker for cooking — it reduces cooking time by 60% and cuts gas or electric stove use significantly.",
+  "Check your bill for 'TP' (Theft Penalty). If it appears, dispute it immediately at your DISCO subdivision office.",
+];
+
+const steps = props.howToSteps || defaultHowToSteps;
+const sections = props.billSectionsExplained || defaultBillSections;
+const saving = props.savingTips || defaultSavingTips;
+const complaints = props.complaintProcess || [
+  `Call ${discoName} helpline ${props.helpline} and state your 14-digit reference number.`,
+  "Request a complaint registration number (CRN). Note this down — it is your proof of complaint.",
+  `${discoName} is legally required to resolve billing complaints within 7-14 working days under NEPRA regulations.`,
+  "If unresolved after 14 working days, escalate to NEPRA directly at nepra.org.pk or call 0800-63000.",
+  "For meter disputes, request an official meter test. DISCO must test within 15 days of your written request.",
+];
+const reading = props.billReadingTips || [
+  "Your bill has two meter readings: Previous Reading and Current Reading. Subtract Previous from Current to get units consumed.",
+  "The Connection Type field shows whether you are Domestic (D), Commercial (C), or Industrial (I) — affecting your tariff rate.",
+  "A 'U' next to your category means Unprotected. A 'P' means Protected — Protected consumers pay lower rates.",
+  "The Billing Month field shows which month the bill covers. If it shows last month, your current bill is not yet generated.",
+  "Sanctioned Load shows the maximum load (in kW) your connection is approved for. Exceeding it can result in penalties.",
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonical={canonical}
+  schema={[toolSchema, howtoSchema, faqSchema, breadcrumbSchema, webpageSchema]}
+  lastmod={lastmod}
+  pageType="tool"
+>
+
+  <!-- Breadcrumb -->
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/#electricity" class="hover:text-primary-600 transition-colors">Electricity Bills</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium">{discoName} Bill Online</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <div class="lg:col-span-2 space-y-12">
+
+        <!-- SECTION 1: Hero + Bill Checker Tool -->
+        <section id="bill-checker-tool">
+          <div class="mb-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="badge badge-green">{currentMonth}</span>
+              <span class="badge badge-amber">Free</span>
+              <span class="badge badge-blue">No Login</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-4 text-balance">
+              {discoName} Bill Online — Check & Download Duplicate Bill {currentMonth}
+            </h1>
+            <p class="text-lg text-neutral-600 leading-relaxed mb-4">
+              Check your <strong>{discoName} ({discoFull})</strong> electricity bill online in seconds. Enter your 14-digit reference number below to view your complete bill, download it as a PDF, or print a duplicate copy — completely free, no login required, available 24/7.
+            </p>
+            <p class="text-base text-neutral-500 leading-relaxed">
+              This tool fetches your bill directly from the official PITC/WAPDA server. You see the exact same bill as the official portal — faster, with a one-click PDF download added. PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers: all 11 WAPDA DISCOs, <a href="/k-electric-bill/" class="text-primary-600 hover:underline">K-Electric</a>, <a href="/sngpl-bill/" class="text-primary-600 hover:underline">SNGPL gas</a>, <a href="/ssgc-bill/" class="text-primary-600 hover:underline">SSGC gas</a>, <a href="/ptcl-bill/" class="text-primary-600 hover:underline">PTCL</a>, and <a href="/water/" class="text-primary-600 hover:underline">WASA water bills</a> for Lahore, Rawalpindi and Faisalabad.
+            </p>
+          </div>
+          <BillChecker disco={disco} discoName={discoName} refnoLength={props.refnoLength || 14} hasCustomerID={props.hasCustomerID || true} />
+          <!-- Trust & Safety Box — YMYL Signal -->
+          <div class="flex gap-3 items-start bg-green-50 border border-green-200 rounded-xl p-4 mt-4">
+            <span class="text-2xl flex-shrink-0">🔒</span>
+            <div>
+              <h3 class="font-semibold text-green-800 text-sm mb-1">Your Data is Safe — We Store Nothing</h3>
+              <p class="text-xs text-green-700 leading-relaxed">We do not store your reference number, consumer ID, or personal information. Your bill is fetched directly from the official PITC/WAPDA server and displayed only to you. No account, no registration, no data retention. <a href="/privacy-policy/" class="underline">Read our Privacy Policy</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: Rich Intro Content (SEO-critical, DISCO-specific) -->
+        <section id="about-disco">
+          <h2 class="section-title">About <span>{discoName}</span> — {discoFull}</h2>
+          <div class="prose-content" set:html={props.introContent} />
+        </section>
+
+        <!-- SECTION 3: How to Check Bill (HowTo Schema target) -->
+        <section id="how-to-check">
+          <h2 class="section-title">How to Check <span>{discoName} Bill</span> Online — Step by Step</h2>
+          <p class="text-neutral-600 mb-6">Follow these steps to check your {discoName} electricity bill online. The entire process takes under 60 seconds.</p>
+
+          <div class="space-y-4">
+            {steps.map((step, i) => (
+              <div class="flex gap-4 p-4 bg-white rounded-xl border border-neutral-100 shadow-sm">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg">
+                  {i + 1}
+                </div>
+                <div class="flex-1 pt-1">
+                  <p class="text-neutral-700 leading-relaxed">{step}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {props.smsService && (
+            <div class="alert-info mt-5">
+              <strong>Alternative — SMS Method:</strong> {props.smsService}
+            </div>
+          )}
+        </section>
+
+        <!-- SECTION 4: How to Read Your Bill -->
+        <section id="read-bill">
+          <h2 class="section-title">How to Read Your <span>{discoName} Bill</span></h2>
+          <p class="text-neutral-600 mb-6">Every section of your {discoName} electricity bill has a specific meaning. Understanding these sections helps you verify accuracy and dispute errors.</p>
+
+          <div class="space-y-3">
+            {reading.map(tip => (
+              <div class="flex gap-3 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+                <span class="text-primary-600 mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-neutral-700 text-sm leading-relaxed">{tip}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- SECTION 5: Bill Charges Explained -->
+        <section id="charges">
+          <h2 class="section-title">{discoName} Bill <span>Charges Explained</span> {currentMonth}</h2>
+          <p class="text-neutral-600 mb-6">Your {discoName} electricity bill includes several charges beyond the base unit rate. Here is what each charge means and how it is calculated.</p>
+
+          <div class="overflow-x-auto rounded-xl border border-neutral-200">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>Charge</th>
+                  <th>Amount / Rate</th>
+                  <th>What It Is</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-medium">Energy Charges</td>
+                  <td class="text-primary-700 font-medium">Rs 13.48 – Rs 48.84/unit</td>
+                  <td>Base charge per kWh unit consumed. Rate depends on your slab (Protected or Unprotected).</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Fuel Price Adjustment (FPA)</td>
+                  <td class="text-primary-700 font-medium">Rs 0.48/unit (Mar 2026)</td>
+                  <td>Monthly variable charge set by NEPRA based on fuel cost changes. Rises when fuel is expensive.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">General Sales Tax (GST)</td>
+                  <td class="text-primary-700 font-medium">17% of consumption charges</td>
+                  <td>Federal government tax applied to your electricity charges. Protected consumers under 200 units pay reduced GST.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">FC (Fixed Charge) Surcharge</td>
+                  <td class="text-primary-700 font-medium">Rs 0.43/unit</td>
+                  <td>Funds capacity payments to power plants. Applied to all consumers regardless of category.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Electricity Duty (ED)</td>
+                  <td class="text-primary-700 font-medium">1.5% of consumption charges</td>
+                  <td>Provincial government duty on electricity consumption. Applies to all domestic connections.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">NJ (Neelum Jhelum) Surcharge</td>
+                  <td class="text-primary-700 font-medium">Rs 0.10/unit</td>
+                  <td>Funds the Neelum-Jhelum Hydro Power Project debt repayment. Applies per unit consumed.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">TV License Fee</td>
+                  <td class="text-primary-700 font-medium">Rs 35/month</td>
+                  <td>Government fee added to all domestic bills. Mandatory regardless of whether you own a TV.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Meter Rent</td>
+                  <td class="text-primary-700 font-medium">Rs 10–1,000+/month</td>
+                  <td>Monthly rental for the electricity meter at your premises. Amount varies by meter type and connection category.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Late Payment Surcharge</td>
+                  <td class="text-primary-700 font-medium">10% of overdue amount</td>
+                  <td>Applied if you pay after the due date + 7-day grace period. Avoid this by paying on time.</td>
+                </tr>
+                <tr>
+                  <td class="font-medium">PTV Fee</td>
+                  <td class="text-primary-700 font-medium">Included in TV Fee</td>
+                  <td>Pakistan Television fee collected through electricity bills. Part of the Rs 35 TV License charge.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="alert-warning mt-4">
+            <strong>FPA Alert — {currentMonth}:</strong> The Fuel Price Adjustment (FPA) for {currentMonth} is Rs 0.48/unit as per NEPRA's latest determination. High FPA months significantly increase bills even when consumption stays the same. The FPA changes every month — check NEPRA's official website for the latest approved rate.
+          </div>
+        </section>
+
+        <!-- SECTION 6: Tariff Slab Rates -->
+        <section id="tariff">
+          <h2 class="section-title">{discoName} <span>Electricity Tariff Rates</span> {currentMonth}</h2>
+          <p class="text-neutral-600 mb-2">Pakistan uses a slab-based tariff. The more units you consume, the higher the rate per unit. Staying in a lower slab saves significant money every month.</p>
+          <p class="text-neutral-500 text-sm mb-5">Rates approved by NEPRA. Subject to change each quarter. Last updated: {currentMonth}.</p>
+
+          <div class="overflow-x-auto rounded-xl border border-neutral-200">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>Units Consumed</th>
+                  <th>Rate per Unit (PKR)</th>
+                  <th>Consumer Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                {props.tariffSlabs.map(slab => (
+                  <tr>
+                    <td class="font-medium">{slab.units}</td>
+                    <td class="font-bold text-primary-700">Rs {slab.rate}</td>
+                    <td>
+                      <span class={`badge ${slab.category === 'Protected' ? 'badge-green' : slab.category === 'Protected (Lifeline)' ? 'badge-green' : 'badge-amber'}`}>
+                        {slab.category}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
+            <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+              <h3 class="font-semibold text-green-800 mb-2">✅ Protected Consumer</h3>
+              <p class="text-sm text-green-700">Average monthly consumption of 200 units or less over the last 6 months. Pays subsidized rates. One high-consumption month does not immediately remove Protected status.</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <h3 class="font-semibold text-amber-800 mb-2">⚡ Unprotected Consumer</h3>
+              <p class="text-sm text-amber-700">Average consumption exceeds 200 units per month. Pays commercial rates from the very first unit consumed. Reducing average consumption below 200 units can restore Protected status.</p>
+            </div>
+          </div>
+
+          <div class="alert-info mt-4">
+            <strong>Bill estimate formula:</strong> (Units consumed × Rate per unit) + FPA charge + GST 17% + FC Surcharge + ED 1.5% + NJ Surcharge + TV Fee + Meter Rent = Total Payable
+          </div>
+        </section>
+
+        <!-- SECTION 7: Peak Hours -->
+        <section id="peak-hours">
+          <h2 class="section-title">{discoName} <span>Peak Hours</span> {currentYear}</h2>
+          <p class="text-neutral-600 mb-5">Electricity costs more during peak hours. Moving heavy appliance use outside peak hours reduces your monthly {discoName} bill noticeably.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">☀️</span>
+                <h3 class="font-semibold text-neutral-800">Summer Peak Hours</h3>
+              </div>
+              <p class="text-xs text-neutral-500 mb-1">April — October</p>
+              <p class="text-3xl font-heading font-bold text-amber-700">{props.peakHourSummer}</p>
+              <p class="text-sm text-amber-600 mt-2">Avoid AC, washing machine, electric iron during these hours.</p>
+            </div>
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-2xl">❄️</span>
+                <h3 class="font-semibold text-neutral-800">Winter Peak Hours</h3>
+              </div>
+              <p class="text-xs text-neutral-500 mb-1">November — March</p>
+              <p class="text-3xl font-heading font-bold text-blue-700">{props.peakHourWinter}</p>
+              <p class="text-sm text-blue-600 mt-2">Avoid electric heaters, geysers, and irons during these hours.</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-neutral-200 p-5">
+            <h3 class="font-semibold text-neutral-800 mb-3">Off-Peak Hours (Save Money)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-neutral-600">
+              <div class="bg-green-50 rounded-lg p-3 text-center">
+                <span class="block font-medium text-green-800">11 PM – 6 AM</span>
+                <span class="text-green-600">Cheapest time</span>
+              </div>
+              <div class="bg-green-50 rounded-lg p-3 text-center">
+                <span class="block font-medium text-green-800">7 AM – 12 PM</span>
+                <span class="text-green-600">Off-peak morning</span>
+              </div>
+              <div class="bg-green-50 rounded-lg p-3 text-center">
+                <span class="block font-medium text-green-800">2 PM – 5 PM</span>
+                <span class="text-green-600">Off-peak afternoon</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 8: Electricity Bill Saving Tips -->
+        <section id="saving-tips">
+          <h2 class="section-title">How to <span>Reduce Your {discoName} Bill</span></h2>
+          <p class="text-neutral-600 mb-6">These practical steps consistently reduce electricity bills for {city} households. Implementing all of them can cut your monthly bill by 20 to 40%.</p>
+
+          <div class="grid grid-cols-1 gap-3">
+            {saving.map((tip, i) => (
+              <div class="flex gap-3 p-4 bg-white rounded-xl border border-neutral-100 shadow-sm">
+                <span class="flex-shrink-0 w-7 h-7 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center text-sm font-bold">{i + 1}</span>
+                <p class="text-neutral-700 text-sm leading-relaxed">{tip}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- SECTION 9: Payment Methods -->
+        <section id="payment">
+          <h2 class="section-title">How to Pay <span>{discoName} Bill</span> Online {currentMonth}</h2>
+          <p class="text-neutral-600 mb-5">Pay your {discoName} electricity bill from anywhere — through mobile wallets, bank apps, or retail agents. All methods are instant and send SMS confirmation.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { icon: '📱', title: 'JazzCash', desc: 'Pakistan\'s #1 mobile wallet', steps: ['Open JazzCash app', 'Tap Bill Payments', 'Select Electricity → WAPDA', `Choose ${discoName}`, 'Enter 14-digit reference number', 'Verify amount and pay'] },
+              { icon: '📲', title: 'Easypaisa', desc: 'Available in 300,000+ shops', steps: ['Open Easypaisa app', 'Tap Bill Payments', 'Select Electricity', `Enter ${discoName} reference number`, 'Confirm payment', 'Get SMS receipt'] },
+              { icon: '🏦', title: 'Mobile Banking', desc: 'All major Pakistan banks', steps: ['Open your bank app (HBL, MCB, UBL, Meezan)', 'Go to Pay Bills → Utility', 'Select Electricity', `Choose ${discoName}`, 'Enter reference number', 'Confirm and transfer'] },
+              { icon: '🏪', title: 'Retail Agent', desc: 'Cash payment at shops', steps: ['Find a JazzCash or Easypaisa shop', 'Give your 14-digit reference number', 'Pay the bill amount in cash', 'Agent processes payment', 'Get a printed receipt', 'Keep receipt for 30 days'] },
+            ].map(method => (
+              <div class="bg-white rounded-xl border border-neutral-100 shadow-card p-5">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-2xl">{method.icon}</span>
+                  <h3 class="font-semibold text-neutral-900">{method.title}</h3>
+                </div>
+                <p class="text-xs text-neutral-400 mb-3">{method.desc}</p>
+                <ol class="space-y-1">
+                  {method.steps.map((step, i) => (
+                    <li class="flex gap-2 text-sm text-neutral-600">
+                      <span class="text-primary-600 font-medium flex-shrink-0">{i + 1}.</span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
+
+          <div class="alert-warning mt-4">
+            <strong>Grace period reminder:</strong> {discoName} gives 7 days after the due date before applying a 10% late payment surcharge. Pay on or before the due date printed on your bill to avoid this extra charge.
+          </div>
+        </section>
+
+        <!-- SECTION 10: How to File a Billing Complaint -->
+        <section id="complaint">
+          <h2 class="section-title">How to File a <span>{discoName} Billing Complaint</span></h2>
+          <p class="text-neutral-600 mb-6">If your {discoName} bill is incorrect, higher than expected, or shows charges you do not recognize — here is the official complaint process you must follow under NEPRA regulations.</p>
+
+          <div class="space-y-3 mb-6">
+            {complaints.map((step, i) => (
+              <div class="flex gap-4 p-4 bg-white rounded-xl border border-neutral-100 shadow-sm">
+                <div class="flex-shrink-0 w-9 h-9 rounded-full bg-red-100 text-red-700 flex items-center justify-center font-bold">{i + 1}</div>
+                <p class="text-neutral-700 text-sm leading-relaxed pt-1">{step}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+            <h3 class="font-semibold text-red-800 mb-2">⚖️ Your NEPRA Rights as a Consumer</h3>
+            <ul class="space-y-1 text-sm text-red-700">
+              <li>• DISCOs must resolve billing complaints within <strong>7–14 working days</strong></li>
+              <li>• You can escalate to NEPRA if {discoName} does not respond: <strong>0800-63000 (toll-free)</strong></li>
+              <li>• File online complaints at <strong>nepra.org.pk/consumer-services</strong></li>
+              <li>• You can also file with the <strong>Federal Ombudsman</strong> if NEPRA does not act</li>
+              <li>• Wrongful disconnection can be challenged — {discoName} must reconnect within 24 hours of payment</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECTION 11: Coverage Areas -->
+        <section id="coverage">
+          <h2 class="section-title">{discoName} <span>Coverage Areas</span> — Districts & Cities</h2>
+          <p class="text-neutral-600 mb-5">{discoFull} provides electricity supply to the following districts, divisions, and major cities in {province}.</p>
+
+          <div class="overflow-x-auto rounded-xl border border-neutral-200">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>Region / Division</th>
+                  <th>District</th>
+                  <th>Major Cities & Towns</th>
+                </tr>
+              </thead>
+              <tbody>
+                {props.coverageAreas.map(area => (
+                  <tr>
+                    <td class="font-medium">{area.region}</td>
+                    <td>{area.district}</td>
+                    <td class="text-sm text-neutral-600">{area.cities}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sm text-neutral-500 mt-3">Not sure if {discoName} covers your area? Check the first 3 digits of your 14-digit reference number — they identify your distribution company.</p>
+        </section>
+
+        <!-- SECTION 12: About DISCO (Company Info) -->
+        <section id="company-info">
+          <h2 class="section-title">{discoName} — <span>Company Information</span></h2>
+
+          <div class="overflow-x-auto rounded-xl border border-neutral-200 mb-5">
+            <table class="content-table">
+              <thead><tr><th>Detail</th><th>Information</th></tr></thead>
+              <tbody>
+                <tr><td class="font-medium">Full Name</td><td>{discoFull}</td></tr>
+                <tr><td class="font-medium">Abbreviation</td><td>{discoName}</td></tr>
+                <tr><td class="font-medium">Province / Region</td><td>{province}</td></tr>
+                <tr><td class="font-medium">Established</td><td>{props.established}</td></tr>
+                <tr><td class="font-medium">CEO / Managing Director</td><td>{props.ceo}</td></tr>
+                <tr><td class="font-medium">Total Consumers</td><td>{props.customers}</td></tr>
+                <tr><td class="font-medium">Total Employees</td><td>{props.employees}</td></tr>
+                <tr><td class="font-medium">Annual Revenue</td><td>{props.revenue}</td></tr>
+                <tr><td class="font-medium">Head Office</td><td>{props.headOffice}</td></tr>
+                <tr><td class="font-medium">Customer Helpline</td><td class="font-semibold text-primary-700">{props.helpline}</td></tr>
+                <tr><td class="font-medium">UAN</td><td>{props.uan}</td></tr>
+                <tr><td class="font-medium">Official Website</td><td><a href={props.website} target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">{props.website}</a></td></tr>
+                <tr><td class="font-medium">Regulator</td><td>NEPRA (National Electric Power Regulatory Authority)</td></tr>
+                <tr><td class="font-medium">Parent Organization</td><td>PEPCO / Ministry of Energy (Power Division)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SECTION 13: Helpline & Contacts -->
+        <section id="contact">
+          <h2 class="section-title">{discoName} <span>Helpline & Contact Numbers</span> {currentYear}</h2>
+          <p class="text-neutral-600 mb-5">Contact {discoName} for billing complaints, new connections, power outages, meter issues, or electricity theft reports.</p>
+
+          <div class="overflow-x-auto rounded-xl border border-neutral-200 mb-4">
+            <table class="content-table">
+              <thead><tr><th>Contact Type</th><th>Details</th></tr></thead>
+              <tbody>
+                {props.contacts.map(contact => (
+                  <tr>
+                    <td class="font-medium">{contact.type}</td>
+                    <td>{contact.detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="alert-info">
+            <strong>Best time to call {discoName}:</strong> Call between 9 AM and 11 AM on weekdays. Helplines are least congested during this window. Avoid calling between 6 PM and 9 PM — this is when most Pakistanis call after receiving high bills.
+          </div>
+        </section>
+
+        <!-- SECTION 14: Load Shedding -->
+        <section id="load-shedding">
+          <h2 class="section-title">{discoName} <span>Load Shedding Schedule</span> {currentMonth}</h2>
+          <p class="text-neutral-600 mb-4">To check the exact load shedding schedule for your area under {discoName}, you need your 14-digit reference number. Your reference number links to a specific feeder which has its own schedule.</p>
+
+          <div class="bg-white rounded-xl border border-neutral-200 p-5 mb-4">
+            <h3 class="font-semibold text-neutral-800 mb-3">How to Check {discoName} Load Shedding Schedule</h3>
+            <ol class="space-y-2">
+              {[
+                `Visit ccms.pitc.com.pk (the official WAPDA Central Consumer Management System).`,
+                `Enter your 14-digit ${discoName} reference number in the search box.`,
+                `Click Search. Your feeder's complete load shedding schedule appears on screen.`,
+                `The schedule shows time slots with ON/OFF status for your specific feeder.`,
+                `A slot marked OFF means your area has no electricity during that time block.`,
+              ].map((step, i) => (
+                <li class="flex gap-2 text-sm text-neutral-600">
+                  <span class="text-primary-600 font-medium flex-shrink-0">{i + 1}.</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="alert-warning">
+            <strong>Note:</strong> Areas that pay bills regularly experience less load shedding under {discoName}'s feeder-wise load management policy. High-recovery feeders are prioritized for uninterrupted supply.
+          </div>
+        </section>
+
+        <!-- SECTION 15: FAQ -->
+        <section id="faq">
+          <h2 class="section-title">Frequently Asked Questions — <span>{discoName} Bill</span></h2>
+          <p class="text-neutral-600 mb-6">Complete answers to every common question about {discoName} electricity bills, payments, complaints, and connections.</p>
+
+          <div class="space-y-3" id="faq-list">
+            {props.faqs.map((faq, index) => (
+              <div class="faq-item">
+                <button
+                  class="faq-question"
+                  onclick={`toggleFaq(${index})`}
+                  aria-expanded="false"
+                >
+                  <span>{faq.question}</span>
+                  <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform duration-200" id={`faq-icon-${index}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div class="faq-answer" id={`faq-answer-${index}`}>
+                  {faq.answer}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+
+        <!-- Roman Urdu FAQ Section — Voice Search + Bilingual SEO -->
+        <section id="roman-urdu-guide" class="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-5">
+          <h2 class="text-lg font-heading font-bold text-amber-900 mb-1">
+            {discoName} Bill Check Karne Ka Tarika — Roman Urdu Guide
+          </h2>
+          <p class="text-sm text-amber-700 mb-4">(For users searching: "{discoName.toLowerCase()} ka bill kaise check karein" or "bijli ka bill online dekhna")</p>
+          <div class="space-y-3">
+            {[
+              {
+                q: `${discoName} ka bill online kaise check karein?`,
+                a: `Is page ke upar tool mein apna 14-digit reference number enter karein aur "Check Bill" button dabayein. Aapka poora ${discoName} bill 3 se 5 seconds mein screen par aa jayega — amount, due date, aur tamam charges sahit. Bilkul free, koi login nahin chahiye.`
+              },
+              {
+                q: `${discoName} reference number kahan hota hai?`,
+                a: `${discoName} reference number aapke purane bijli ke bill ke upar bold mein printed hota hai — barcode ke upar ki side mein, aapke naam aur address ke paas. Ye 14 digits ka hota hai. Isko apne phone mein save kar lein — ye permanent hota hai.`
+              },
+              {
+                q: `${discoName} bill ka PDF kaise download karein?`,
+                a: `Bill check karne ke baad "Download PDF" button click karein. Browser ka print dialog khulega — "Save as PDF" select karein aur save karein. Aapka ${discoName} duplicate bill PDF mein save ho jayega, phir print karwa saktay hain ya payment app mein use kar saktay hain.`
+              },
+              {
+                q: `${discoName} bill online kaise ada karein?`,
+                a: `JazzCash, EasyPaisa, ya kisi bhi bank app se bill pay karein. App mein "Bill Payments" → "Electricity" → "${discoName}" select karein → 14-digit reference number enter karein → amount verify karein → confirm. Fauran SMS confirmation milega.`
+              },
+              {
+                q: `${discoName} ka bill zyada kyun aaya?`,
+                a: `Bill zyada aane ki wajuhat: (1) Category Protected se Unprotected ho gayi — 6 mahine ka average 200 units se zyada hua. (2) FPA (Fuel Price Adjustment) is mahine zyada thi. (3) Estimated bill tha jo pichle mahine se catch up ho raha hai. (4) Koi naya appliance add hua — AC, geyser, ya heater.`
+              },
+            ].map((item, i) => (
+              <details class="bg-white border border-amber-200 rounded-xl overflow-hidden">
+                <summary class="px-4 py-3 font-semibold text-sm text-amber-900 cursor-pointer list-none flex justify-content-between items-center">
+                  ❓ {item.q}
+                </summary>
+                <p class="px-4 pb-3 text-sm text-neutral-600 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+
+        <!-- SECTION 16: Related Blog Posts (Internal Links for SEO) -->
+        <section id="related-guides" class="mt-4">
+          <h2 class="section-title">Related Electricity Bill Guides</h2>
+          <p class="text-neutral-600 mb-4">Learn more about understanding and reducing your {discoName} electricity bill with our in-depth guides.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { title: `How to Read Your ${discoName} Electricity Bill — Every Field Explained`, url: '/blog/how-to-read-electricity-bill/', tag: 'Bill Reading' },
+              { title: 'FPA (Fuel Price Adjustment) Explained — Why Your Bill Changes Every Month', url: '/blog/fpa-charges-explained/', tag: 'Charges' },
+              { title: `Pakistan Electricity Tariff Rates ${currentYear} — NEPRA-Approved Slabs`, url: '/blog/electricity-tariff-2026/', tag: 'Tariff' },
+              { title: `${discoName} Peak Hours & Off-Peak Hours ${currentYear} — Save on Every Bill`, url: '/blog/peak-hours-all-discos/', tag: 'Saving Tips' },
+              { title: 'How to Pay Your Electricity Bill Online in Pakistan — All Methods', url: '/blog/how-to-pay-online/', tag: 'Payment' },
+              { title: `How to Reduce Your ${discoName} Electricity Bill — 15 Proven Tips`, url: '/blog/how-to-reduce-electricity-bill/', tag: 'Saving Tips' },
+            ].map(post => (
+              <a href={post.url} class="block bg-white border border-neutral-200 rounded-xl p-4 hover:border-primary-300 hover:shadow-sm transition-all group">
+                <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">{post.tag}</span>
+                <p class="text-sm font-medium text-neutral-800 mt-2 group-hover:text-primary-700 transition-colors leading-snug">{post.title}</p>
+                <span class="text-xs text-primary-500 mt-1 inline-block">Read guide →</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <!-- SECTION 17: Other Utility Bills (Internal Links — Full Coverage) -->
+        <section id="other-bills" class="mt-4">
+          <h2 class="section-title">Check Other Pakistan Utility Bills</h2>
+          <p class="text-neutral-600 mb-4">PakistanBill.online covers all 19 utility providers across Pakistan — electricity, gas, water, and telecom.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {[
+              { name: 'LESCO', url: '/lesco-bill/', sub: 'Lahore' },
+              { name: 'MEPCO', url: '/mepco-bill/', sub: 'South Punjab' },
+              { name: 'GEPCO', url: '/gepco-bill/', sub: 'Gujranwala' },
+              { name: 'FESCO', url: '/fesco-bill/', sub: 'Faisalabad' },
+              { name: 'IESCO', url: '/iesco-bill/', sub: 'Islamabad' },
+              { name: 'PESCO', url: '/pesco-bill/', sub: 'Peshawar/KPK' },
+              { name: 'HESCO', url: '/hesco-bill/', sub: 'Hyderabad' },
+              { name: 'SEPCO', url: '/sepco-bill/', sub: 'Sukkur' },
+              { name: 'QESCO', url: '/qesco-bill/', sub: 'Quetta' },
+              { name: 'TESCO', url: '/tesco-bill/', sub: 'Tribal Areas' },
+              { name: 'AJK', url: '/ajk-bill/', sub: 'Azad Kashmir' },
+              { name: 'K-Electric', url: '/k-electric-bill/', sub: 'Karachi' },
+              { name: 'SNGPL Gas', url: '/sngpl-bill/', sub: 'Punjab/KPK' },
+              { name: 'SSGC Gas', url: '/ssgc-bill/', sub: 'Karachi/Sindh' },
+              { name: 'PTCL', url: '/ptcl-bill/', sub: 'All Pakistan' },
+              { name: 'WASA Lahore', url: '/wasa-lahore-bill/', sub: 'Water' },
+              { name: 'WASA RWP', url: '/wasa-rawalpindi-bill/', sub: 'Water' },
+              { name: 'WASA FSD', url: '/wasa-faisalabad-bill/', sub: 'Water' },
+            ].map(p => (
+              <a href={p.url} class="block bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-center hover:bg-primary-50 hover:border-primary-300 transition-colors group">
+                <span class="block text-sm font-semibold text-neutral-800 group-hover:text-primary-700">{p.name}</span>
+                <span class="block text-xs text-neutral-500">{p.sub}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="lg:col-span-1 space-y-6">
+
+        <!-- Sticky Quick Navigation -->
+        <div class="bg-white rounded-2xl shadow-card border border-neutral-100 p-5 sticky top-20">
+          <h3 class="font-heading font-semibold text-neutral-900 mb-4 text-sm uppercase tracking-wider">On This Page</h3>
+          <nav class="space-y-1 text-sm">
+            {[
+              { href: '#bill-checker-tool', label: '⚡ Check Bill Now' },
+              { href: '#about-disco', label: `About ${discoName}` },
+              { href: '#how-to-check', label: 'How to Check Bill' },
+              { href: '#read-bill', label: 'How to Read Your Bill' },
+              { href: '#charges', label: 'Charges Explained' },
+              { href: '#tariff', label: 'Tariff Rates' },
+              { href: '#peak-hours', label: 'Peak Hours' },
+              { href: '#saving-tips', label: 'Saving Tips' },
+              { href: '#payment', label: 'Payment Methods' },
+              { href: '#complaint', label: 'File a Complaint' },
+              { href: '#coverage', label: 'Coverage Areas' },
+              { href: '#company-info', label: 'Company Info' },
+              { href: '#contact', label: 'Helpline & Contact' },
+              { href: '#load-shedding', label: 'Load Shedding' },
+              { href: '#faq', label: 'FAQs' },
+            ].map(link => (
+              <a href={link.href} class="block px-3 py-1.5 text-neutral-600 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <!-- Helpline Box -->
+        <div class="bg-primary-600 rounded-2xl p-5 text-white">
+          <h3 class="font-heading font-semibold mb-1">{discoName} Helpline</h3>
+          <p class="text-5xl font-bold mb-1">{props.helpline}</p>
+          <p class="text-primary-200 text-sm mb-4">Available 24/7 for outage emergencies</p>
+          <div class="border-t border-primary-500 pt-4">
+            <p class="text-primary-300 text-xs mb-0.5">UAN (Billing & Complaints):</p>
+            <p class="font-semibold text-lg">{props.uan}</p>
+          </div>
+          <div class="mt-3 border-t border-primary-500 pt-3">
+            <p class="text-primary-300 text-xs mb-0.5">NEPRA Consumer Helpline:</p>
+            <p class="font-semibold">0800-63000</p>
+            <p class="text-primary-300 text-xs">Escalate unresolved complaints</p>
+          </div>
+        </div>
+
+        <!-- Other Bills -->
+        <div class="bg-white rounded-2xl shadow-card border border-neutral-100 p-5">
+          <h3 class="font-heading font-semibold text-neutral-900 mb-4 text-sm uppercase tracking-wider">Other Electricity Bills</h3>
+          <div class="space-y-1">
+            {props.relatedPages.map(page => (
+              <a href={page.url} class="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition-colors">
+                → {page.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Quick Tips Box -->
+        <div class="bg-green-50 rounded-2xl border border-green-200 p-5">
+          <h3 class="font-heading font-semibold text-green-800 mb-3 text-sm">💡 Quick Bill Tips</h3>
+          <ul class="space-y-2 text-xs text-green-700">
+            <li>• Pay before due date — avoid 10% surcharge</li>
+            <li>• Save reference number in your phone</li>
+            <li>• Check bill even if paper copy does not arrive</li>
+            <li>• Run AC at 26°C to save 6-8% per degree</li>
+            <li>• Use LED bulbs to cut lighting costs by 80%</li>
+            <li>• Call {props.helpline} for billing disputes</li>
+          </ul>
+        </div>
+
+        <!-- NEPRA Box -->
+        <div class="bg-neutral-50 rounded-2xl border border-neutral-200 p-5">
+          <h3 class="font-heading font-semibold text-neutral-800 mb-3 text-sm">⚖️ Escalate to NEPRA</h3>
+          <p class="text-xs text-neutral-600 mb-2">If {discoName} does not resolve your complaint in 14 working days, escalate to NEPRA — the electricity regulator.</p>
+          <p class="font-bold text-neutral-800">0800-63000</p>
+          <p class="text-xs text-neutral-500">Toll-free NEPRA Consumer Helpline</p>
+          <p class="text-xs text-neutral-500 mt-1">Also file at: nepra.org.pk</p>
+        </div>
+
+
+        <!-- Calculator CTA -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+          <h3 class="font-heading font-semibold text-amber-900 mb-2 text-sm">🧮 Estimate Your Bill</h3>
+          <p class="text-xs text-amber-700 mb-3">Enter your units to see a full bill breakdown with all charges explained.</p>
+          <a href="/electricity-bill-calculator/" class="block text-center bg-amber-500 text-white py-2.5 rounded-xl font-semibold text-sm hover:bg-amber-600 transition-colors">
+            Bill Calculator →
+          </a>
+        </div>
+
+        <!-- Dashboard CTA -->
+        <div class="bg-neutral-900 rounded-2xl p-5">
+          <h3 class="font-heading font-semibold text-white mb-2 text-sm">📊 All Bills Dashboard</h3>
+          <p class="text-xs text-neutral-400 mb-3">Switch between all 19 utility providers in one place — no page reloads.</p>
+          <a href="/dashboard/" class="block text-center bg-primary-600 text-white py-2.5 rounded-xl font-semibold text-sm hover:bg-primary-700 transition-colors">
+            Open Dashboard →
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+  function toggleFaq(index: number) {
+    const answer = document.getElementById(`faq-answer-${index}`);
+    const icon = document.getElementById(`faq-icon-${index}`);
+    if (!answer || !icon) return;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('[id^="faq-icon-"]').forEach((el: any) => el.style.transform = '');
+    if (!isOpen) {
+      answer.classList.add('open');
+      icon.style.transform = 'rotate(180deg)';
+    }
+  }
+  (window as any).toggleFaq = toggleFaq;
+</script>

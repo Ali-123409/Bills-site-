@@ -1,0 +1,221 @@
+---
+const title = "PTCL Bill Online — Check Landline & Broadband Bill March 2026";
+const desc = "Check your PTCL bill online by phone number or 10-digit account ID. View your PTCL landline, DSL, EVO, or CharJi broadband bill instantly — free, no login required.";
+const canonical = "https://pakistanbill.online/ptcl-bill/";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do I check my PTCL bill online?", "acceptedAnswer": { "@type": "Answer", "text": "Visit dbill.ptcl.net.pk and enter your PTCL telephone number (without area code) or your 10-digit account ID. Click Submit. Your PTCL bill appears instantly with amount, due date, and breakdown of charges — no CAPTCHA required." } },
+    { "@type": "Question", "name": "What is PTCL's online bill portal?", "acceptedAnswer": { "@type": "Answer", "text": "PTCL's official bill checking portal is dbill.ptcl.net.pk. Enter your phone number or account ID to view your bill. No login or registration required." } },
+  ]
+};
+
+const howtoSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Check PTCL Bill Online",
+  "totalTime": "PT2M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Find your PTCL number", "text": "Locate your PTCL telephone number or 10-digit Account ID on any previous bill." },
+    { "@type": "HowToStep", "position": 2, "name": "Visit PTCL bill portal", "text": "Go to dbill.ptcl.net.pk." },
+    { "@type": "HowToStep", "position": 3, "name": "Enter your number", "text": "Type your phone number without area code, or your 10-digit Account ID." },
+    { "@type": "HowToStep", "position": 4, "name": "View your bill", "text": "Click Submit. Your PTCL bill appears with amount, due date, and all charges." },
+  ]
+};
+
+const faqs = [
+  { q: "How do I check my PTCL bill online in March 2026?", a: "Visit dbill.ptcl.net.pk and enter your PTCL telephone number (without the area code) or your 10-digit PTCL Account ID. Click Submit — your complete PTCL bill for March 2026 appears instantly without any CAPTCHA or login. The portal works for all PTCL services: landline, DSL broadband, EVO, CharJi, and FlashFiber." },
+  { q: "What is the PTCL Account ID and where do I find it?", a: "Your PTCL Account ID is a 10-digit number printed at the top of every PTCL bill, usually labeled 'Account ID' or 'Account No.' This is separate from your telephone number. Either your phone number (without area code) or your Account ID can be used to check your bill at dbill.ptcl.net.pk." },
+  { q: "Can I check my PTCL broadband (DSL/CharJi/FlashFiber) bill online?", a: "Yes. All PTCL services — landline, DSL broadband, CharJi 4G, FlashFiber, and EVO — are billed on a single PTCL account. Enter your 10-digit Account ID on dbill.ptcl.net.pk to view your combined bill showing all services and their charges." },
+  { q: "What is PTCL's grace period for bill payment?", a: "PTCL gives 15 days after the due date to pay without a late payment surcharge — the longest grace period of any Pakistani utility. After 15 days, a 10% surcharge applies to the unpaid amount. If not paid within the extended period, PTCL may suspend your landline or DSL service." },
+  { q: "How do I pay my PTCL bill online?", a: "Pay through JazzCash, Easypaisa, or any bank mobile app. Go to Bill Payments, select Telecom or PTCL, enter your phone number or Account ID, verify the amount, and confirm. You can also pay at ptcl.com.pk's e-payment portal, through 1LINK, or at any bank or JazzCash/Easypaisa outlet." },
+  { q: "How do I download my PTCL duplicate bill as PDF?", a: "On dbill.ptcl.net.pk, after your bill appears, click the Print Bill button. In the browser print dialog, select Save as PDF as the printer destination and click Save. Your PTCL duplicate bill saves as a PDF instantly — ready to email or present for payment." },
+  { q: "Does PTCL cover all cities in Pakistan?", a: "PTCL has the widest fixed-line network coverage in Pakistan — serving over 2,000 cities and towns. Major cities include Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar, Quetta, and hundreds of smaller cities. FlashFiber (PTCL's fiber-optic service) covers major urban areas. CharJi 4G wireless broadband covers areas without fiber or DSL infrastructure." },
+  { q: "What services does PTCL offer on one bill?", a: "PTCL can combine multiple services on a single monthly bill: PSTN landline calls, DSL broadband (up to 100 Mbps), FlashFiber (fiber-optic, up to 1 Gbps), CharJi (4G wireless broadband), and EVO (3G wireless). All services under your account ID appear on the same bill with itemized charges." },
+  { q: "How do I check PTCL load (call usage) on my bill?", a: "Your PTCL bill shows Local Calls, Long Distance (NWD), and International (IDD) call charges separately. The bill also shows your broadband package, any excess data charges (if you exceeded your data bundle), and other service fees. For a detailed itemized call log, contact PTCL helpline 1218 and request your call detail record (CDR)." },
+  { q: "How do I report a PTCL fault or billing complaint?", a: "Call PTCL helpline 1218 (available during business hours). For urgent faults (line dead, internet down), call 1218 which operates 24/7 for technical support. For billing disputes, call 1218 and get a complaint reference number. If unresolved within 14 working days, escalate to PTA (Pakistan Telecommunication Authority) at pta.gov.pk." },
+  { q: "What happens if I don't pay my PTCL bill on time?", a: "PTCL gives a 15-day grace period after the due date. After 15 days, a 10% late payment surcharge applies. If the bill remains unpaid beyond the extended deadline (usually 30+ days past due), PTCL may suspend outgoing calls first, then incoming calls, and finally disconnect the line. Reconnection requires payment of all arrears plus a reconnection fee." },
+  { q: "How do I subscribe to PTCL's FlashFiber broadband?", a: "Visit ptcl.com.pk or call 1218 to check if FlashFiber is available in your area. If available, a PTCL technician visits to install the fiber connection. FlashFiber packages start from 25 Mbps and go up to 1 Gbps. Installation typically takes 3–10 working days in cities where fiber infrastructure exists." },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={desc} />
+  <link rel="canonical" href={canonical} />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howtoSchema)} />
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},{"@type":"ListItem","position":2,"name":"Telecom Bills","item":"https://pakistanbill.online/#telecom"},{"@type":"ListItem","position":3,"name":"PTCL Bill","item":"https://pakistanbill.online/ptcl-bill/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://pakistanbill.online/ptcl-bill/#webpage","url":"https://pakistanbill.online/ptcl-bill/","name":"PTCL Bill Online","description":"Check PTCL landline and broadband bill online by phone number or account ID.","isPartOf":{"@id":"https://pakistanbill.online/#website"},"dateModified":"2026-03-11","inLanguage":"en-PK"}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">PakistanBill<span>.online</span></a>
+    <nav><a href="/">Home</a><a href="/ptcl-bill/" class="active">PTCL</a><a href="/sngpl-bill/">Gas</a><a href="/blog/">Blog</a></nav>
+  </div>
+</header>
+<main>
+  <div style="background:#f5f5f5;border-bottom:1px solid #e2e8f0;padding:0.5rem 0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <nav aria-label="Breadcrumb" style="font-size:0.82rem;color:#666;">
+        <a href="/" style="color:#01411C;">Home</a> &rsaquo;
+        <a href="/#telecom" style="color:#01411C;">Telecom Bills</a> &rsaquo;
+        <span style="color:#333;font-weight:600;">PTCL Bill</span>
+      </nav>
+    </div>
+  </div>
+  <section style="background:linear-gradient(135deg,#003087 0%,#0056d6 100%);padding:3rem 0;color:white;">
+    <div class="container">
+      <nav style="font-size:0.85rem;opacity:0.75;margin-bottom:1rem;"><a href="/" style="color:white;">Home</a> › Telecom Bills › PTCL Bill</nav>
+      <h1 style="font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;">PTCL Bill Online — Landline & Broadband</h1>
+      <p style="opacity:0.9;font-size:1.1rem;margin-bottom:2rem;">Check your PTCL bill for landline, DSL, FlashFiber, CharJi, or EVO. Enter your phone number or Account ID.</p>
+      <div style="background:white;border-radius:16px;padding:2rem;max-width:580px;color:#1a1a1a;">
+        <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;color:#003087;">🔍 Check PTCL Bill — No CAPTCHA</h2>
+        <p style="font-size:0.85rem;color:#555;margin-bottom:1rem;">Use your PTCL phone number OR 10-digit Account ID. Both work.</p>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.8rem;">
+          <input id="ptcl-phone" type="text" placeholder="Phone number without area code (e.g. 5712345)"
+            style="padding:0.75rem 1rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;" />
+          <div style="text-align:center;font-size:0.8rem;color:#888;">OR</div>
+          <input id="ptcl-account" type="text" maxlength="10" placeholder="10-digit PTCL Account ID"
+            style="padding:0.75rem 1rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;"
+            oninput="this.value=this.value.replace(/\D/g,'')" />
+          <button onclick="checkPTCL()" style="background:#003087;color:white;padding:0.75rem;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;margin-top:0.25rem;">Check PTCL Bill →</button>
+        </div>
+        <p style="font-size:0.75rem;color:#888;">Account ID is on the top-right of any previous PTCL bill. Phone number = without 0 or area code.</p>
+        <div id="ptcl-error" style="display:none;color:#dc2626;font-size:0.85rem;margin-top:0.5rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="padding:3rem 1rem;display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;max-width:1200px;margin:0 auto;">
+    <div>
+      <section id="about" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#003087;">About PTCL — Pakistan Telecommunication Company</h2>
+        <p>Pakistan Telecommunication Company Limited (PTCL) is Pakistan's largest integrated telecom company and the sole provider of fixed-line (PSTN) telephone services nationwide. Privatized in 2005 with Etisalat (UAE) acquiring a 26% stake, PTCL remains majority government-owned (51% Government of Pakistan). PTCL serves millions of households and businesses across <strong>2,000+ cities and towns</strong> with landline, DSL broadband, FlashFiber (fiber-optic), and CharJi wireless broadband services.</p>
+<p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering every utility bill — electricity, gas, water, and telecom — all in one place. No other website offers this. Check your <a href="/lesco-bill/">LESCO electricity bill</a> if you're in Lahore, <a href="/iesco-bill/">IESCO bill</a> in Islamabad, or <a href="/k-electric-bill/">K-Electric bill</a> in Karachi. For gas, check <a href="/sngpl-bill/">SNGPL</a> or <a href="/ssgc-bill/">SSGC</a>. See all providers in our <a href="/telecom/">telecom bills hub</a>, or learn <a href="/blog/change-name-ptcl-bill/">how to change name on your PTCL bill</a>.</p>
+        <p>PTCL's product portfolio includes: <strong>PSTN landline</strong> (traditional copper phone line), <strong>DSL broadband</strong> (internet via existing phone line), <strong>FlashFiber</strong> (fiber-optic up to 1 Gbps — available in major cities), <strong>CharJi</strong> (4G LTE wireless broadband for areas without fixed infrastructure), and <strong>EVO</strong> (3G wireless broadband). All services under your account appear on a single monthly PTCL bill.</p>
+        <p>PTCL's online bill portal <strong>dbill.ptcl.net.pk</strong> is unique among Pakistan's utility providers because it requires <strong>no CAPTCHA and no login</strong> — simply enter your phone number or Account ID to view your bill instantly.</p>
+      </section>
+
+      <section id="how-to" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#003087;">How to Check PTCL Bill Online — Step by Step</h2>
+        <ol style="line-height:2.5;padding-left:1.5rem;">
+          <li>Find your <strong>PTCL telephone number</strong> (without area code) OR your <strong>10-digit Account ID</strong> from any previous bill</li>
+          <li>Enter it in the tool at the top of this page, or visit <strong>dbill.ptcl.net.pk</strong> directly</li>
+          <li>Click Submit — your PTCL bill appears with amount, due date, and all charge breakdowns</li>
+          <li>Click <strong>Print Bill</strong> and select Save as PDF to download your duplicate bill</li>
+          <li>Pay through JazzCash, Easypaisa, bank app, or online at ptcl.com.pk</li>
+        </ol>
+        <div style="background:#eff6ff;border-left:4px solid #003087;padding:1rem 1.5rem;border-radius:8px;margin-top:1rem;">
+          <strong>💡 Important:</strong> PTCL's grace period is <strong>15 days</strong> after the due date — the longest of any Pakistani utility. However, pay on time to avoid any service disruption risk.
+        </div>
+      </section>
+
+      <section id="charges" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#003087;">PTCL Bill Charges Explained</h2>
+        <div style="display:grid;gap:0.8rem;">
+          {[
+            ["Line Rent / Subscription Charge", "Monthly fixed charge for your PTCL connection, paid regardless of usage. Varies by service type: basic landline, DSL package, or FlashFiber package subscription."],
+            ["Local Call Charges", "Metered charges for calls made to PTCL landlines within your local exchange area."],
+            ["National (NWD) Calls", "Charges for calls to other cities in Pakistan. NWD (National Wide Dialing) rates apply per minute."],
+            ["International (IDD) Calls", "International call charges at IDD (International Direct Dialing) rates per minute by destination country."],
+            ["Broadband Charges", "Fixed monthly fee for your DSL, FlashFiber, or CharJi internet package. May include excess data charges if you exceeded your bundle."],
+            ["GST (19.5%)", "General Sales Tax on telecom services — higher than electricity/gas GST of 17%. Charged on all PTCL services."],
+            ["Withholding Tax (WHT)", "Income Tax deducted at source — 12.5% for filers, 15% for non-filers. Applies to total PTCL bill."],
+            ["Late Payment Surcharge", "10% of unpaid amount — only applies after 15-day grace period. Longest grace period of any Pakistani utility."],
+          ].map(row => (
+            <div style="background:#f8f9fa;border-radius:8px;padding:0.9rem 1.2rem;border-left:3px solid #003087;">
+              <h4 style="margin:0 0 0.25rem;color:#003087;font-size:0.9rem;">{row[0]}</h4>
+              <p style="margin:0;font-size:0.85rem;color:#555;">{row[1]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="faq" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1.5rem;color:#003087;">Frequently Asked Questions — PTCL Bill</h2>
+        <div style="display:grid;gap:0.75rem;">
+          {faqs.map(faq => (
+            <details style="background:#f8f9fa;border-radius:10px;border:1px solid #e2e8f0;overflow:hidden;">
+              <summary style="padding:1rem 1.25rem;font-weight:600;font-size:0.95rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">
+                {faq.q} <span style="color:#003087;font-size:1.2rem;">+</span>
+              </summary>
+              <div style="padding:0 1.25rem 1rem;font-size:0.9rem;color:#555;line-height:1.8;">{faq.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <div style="background:#003087;color:white;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;">
+        <h3 style="font-size:1rem;margin-bottom:0.5rem;">PTCL Helpline</h3>
+        <p style="font-size:3rem;font-weight:800;margin:0;">1218</p>
+        <p style="opacity:0.8;font-size:0.85rem;margin-top:0.3rem;">24/7 faults · Business hours billing</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:1rem;padding-top:1rem;">
+          <p style="opacity:0.7;font-size:0.75rem;margin:0;">PTA Consumer Helpline:</p>
+          <p style="font-weight:600;margin:0.2rem 0 0;">0800-55055</p>
+        </div>
+      </div>
+      <div style="background:white;border-radius:16px;border:1px solid #e2e8f0;padding:1.5rem;margin-bottom:1.5rem;">
+        <h3 style="font-size:0.85rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem;">Other Utility Bills</h3>
+        {[
+          { n: "LESCO Electricity (Lahore)", u: "/lesco-bill/" },
+          { n: "IESCO Electricity (Islamabad)", u: "/iesco-bill/" },
+          { n: "SNGPL Gas Bill", u: "/sngpl-bill/" },
+          { n: "SSGC Gas Bill (Karachi)", u: "/ssgc-bill/" },
+          { n: "K-Electric Bill", u: "/k-electric-bill/" },
+          { n: "WASA Lahore Water Bill", u: "/wasa-lahore-bill/" },
+        ].map(p => <a href={p.u} style="display:block;padding:0.35rem 0.5rem;font-size:0.85rem;color:#444;">→ {p.n}</a>)}
+      </div>
+    </aside>
+  </div>
+
+  <!-- All Providers Internal Links -->
+  <section style="background:#f8f9fa;border-top:1px solid #e2e8f0;padding:2rem 0;margin-top:0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <h2 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;">Check All Pakistan Utility Bills</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:0.3rem;"><a href="/lesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">LESCO</a><a href="/mepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">MEPCO</a><a href="/gepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">GEPCO</a><a href="/fesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">FESCO</a><a href="/iesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">IESCO</a><a href="/pesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">PESCO</a><a href="/hesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">HESCO</a><a href="/sepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SEPCO</a><a href="/qesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">QESCO</a><a href="/tesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">TESCO</a><a href="/ajk-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">AJK</a><a href="/k-electric-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">K-Electric</a><a href="/sngpl-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SNGPL Gas</a><a href="/ssgc-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SSGC Gas</a><a href="/ptcl-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">PTCL</a><a href="/wasa-lahore-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA Lahore</a><a href="/wasa-rawalpindi-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA RWP</a><a href="/wasa-faisalabad-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA FSD</a><a href="/blog/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">Blog</a></div>
+    </div>
+  </section>
+
+  <!-- Related Pages — Internal Contextual Links -->
+  <section style="background:#f0fdf4;border-top:2px solid #34d399;padding:1.5rem 0;margin-top:2rem;">
+    <div style="max-width:960px;margin:0 auto;padding:0 1rem;">
+      <h3 style="font-size:0.85rem;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <div><a href="/lesco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">LESCO electricity bill</a><a href="/iesco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">IESCO electricity bill</a><a href="/sngpl-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">SNGPL gas bill</a><a href="/blog/change-name-ptcl-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">how to change name on PTCL bill</a><a href="/telecom/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">all telecom bills</a><a href="/blog/how-to-pay-online/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">how to pay bills online</a></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 PakistanBill.online · <a href="/privacy-policy/">Privacy Policy</a> · <a href="/disclaimer/">Disclaimer</a></p>
+  </div>
+</footer>
+<script>
+  function checkPTCL() {
+    const phone = (document.getElementById('ptcl-phone') as HTMLInputElement).value.trim();
+    const account = (document.getElementById('ptcl-account') as HTMLInputElement).value.trim();
+    const err = document.getElementById('ptcl-error');
+    if (!phone && !account) {
+      err!.style.display = 'block';
+      err!.textContent = 'Enter your PTCL phone number OR Account ID.';
+      return;
+    }
+    err!.style.display = 'none';
+    if (account && account.length === 10) {
+      window.open(`https://dbill.ptcl.net.pk/bill?account=${account}`, '_blank');
+    } else if (phone) {
+      window.open(`https://dbill.ptcl.net.pk/bill?phone=${phone}`, '_blank');
+    }
+  }
+</script>
+</body>
+</html>

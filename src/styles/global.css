@@ -1,0 +1,186 @@
+/* ===========================================
+   pakistanbill.online — Global Styles
+   =========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply font-sans text-neutral-800 bg-neutral-50;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-heading text-neutral-900;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-600;
+  }
+}
+
+@layer components {
+
+  /* ---- Bill Checker Tool ---- */
+  .bill-checker {
+    @apply bg-white rounded-2xl shadow-card p-6 md:p-8 border border-neutral-100;
+  }
+
+  .bill-input {
+    @apply w-full px-4 py-3 rounded-xl border border-neutral-200 
+           text-neutral-800 text-base font-sans
+           focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent
+           placeholder:text-neutral-400 transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-primary-600 hover:bg-primary-700 
+           text-white font-semibold text-base
+           px-6 py-3 rounded-xl
+           transition-all duration-200 
+           shadow-sm hover:shadow-md
+           cursor-pointer border-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-accent hover:bg-accent-dark
+           text-white font-semibold text-base
+           px-6 py-3 rounded-xl
+           transition-all duration-200
+           cursor-pointer border-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-primary-600 text-primary-600
+           hover:bg-primary-600 hover:text-white
+           font-semibold text-base
+           px-6 py-3 rounded-xl
+           transition-all duration-200
+           cursor-pointer bg-transparent;
+  }
+
+  /* ---- Provider Cards ---- */
+  .provider-card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover
+           border border-neutral-100 hover:border-primary-200
+           p-5 transition-all duration-300 cursor-pointer
+           flex flex-col items-center text-center gap-3;
+  }
+
+  /* ---- Content Tables ---- */
+  .content-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .content-table th {
+    @apply bg-primary-600 text-white font-semibold 
+           px-4 py-3 text-left;
+  }
+
+  .content-table td {
+    @apply px-4 py-3 border-b border-neutral-100;
+  }
+
+  .content-table tr:nth-child(even) td {
+    @apply bg-neutral-50;
+  }
+
+  .content-table tr:hover td {
+    @apply bg-primary-50;
+  }
+
+  /* ---- Section headings ---- */
+  .section-title {
+    @apply text-2xl md:text-3xl font-heading font-bold text-neutral-900 mb-4;
+  }
+
+  .section-title span {
+    @apply text-primary-600;
+  }
+
+  /* ---- Bill display container ---- */
+  .bill-display {
+    @apply bg-white rounded-2xl shadow-card border border-neutral-200
+           overflow-hidden mt-6;
+  }
+
+  .bill-actions {
+    @apply flex flex-wrap gap-3 p-4 bg-neutral-50 border-b border-neutral-200;
+  }
+
+  /* ---- FAQ accordion ---- */
+  .faq-item {
+    @apply border border-neutral-200 rounded-xl overflow-hidden mb-3;
+  }
+
+  .faq-question {
+    @apply w-full text-left px-5 py-4 font-semibold text-neutral-800
+           bg-white hover:bg-neutral-50 
+           flex justify-between items-center
+           cursor-pointer transition-colors duration-200;
+  }
+
+  .faq-answer {
+    @apply px-5 py-4 text-neutral-600 leading-relaxed bg-white
+           border-t border-neutral-100 hidden;
+  }
+
+  .faq-answer.open {
+    @apply block;
+  }
+
+  /* ---- Badge ---- */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full 
+           text-xs font-semibold;
+  }
+
+  .badge-green {
+    @apply bg-primary-100 text-primary-700;
+  }
+
+  .badge-amber {
+    @apply bg-amber-100 text-amber-700;
+  }
+
+  /* ---- Alert boxes ---- */
+  .alert-info {
+    @apply bg-blue-50 border border-blue-200 rounded-xl p-4
+           text-blue-800 text-sm;
+  }
+
+  .alert-warning {
+    @apply bg-amber-50 border border-amber-200 rounded-xl p-4
+           text-amber-800 text-sm;
+  }
+
+  .alert-success {
+    @apply bg-primary-50 border border-primary-200 rounded-xl p-4
+           text-primary-800 text-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Bill iframe reset */
+  .bill-frame {
+    width: 100%;
+    min-height: 800px;
+    border: none;
+  }
+}

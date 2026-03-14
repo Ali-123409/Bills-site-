@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://pakistanbill.online/water/#webpage",
+    "url": "https://pakistanbill.online/water/",
+    "name": "Water Bill Checker Pakistan — WASA Lahore, Rawalpindi, Faisalabad Online",
+    "description": "Check WASA water bills online for Lahore, Rawalpindi, and Faisalabad. Free water bill checker for all three WASA offices. Updated March 2026.",
+    "isPartOf": {"@id": "https://pakistanbill.online/#website"},
+    "dateModified": "2026-03-11"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
+      {"@type":"ListItem","position":2,"name":"Water Bills","item":"https://pakistanbill.online/water/"}
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Water Bill Checker Pakistan — WASA Lahore, Rawalpindi, Faisalabad"
+  description="Check WASA water bills online for Lahore, Rawalpindi, and Faisalabad. Free water bill checker for all three WASA offices. Updated March 2026."
+  canonical="/water/"
+  schema={schema}
+  lastmod="2026-03-11"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium">Water Bills</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-3">Water Bill Checker Pakistan — WASA</h1>
+    <p class="text-lg text-neutral-600 mb-8">Check WASA water bills online for Lahore, Rawalpindi, and Faisalabad. Free water bill checker for all three WASA offices. Updated March 2026.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+      
+      <a href="/wasa-lahore-bill/" class="bg-white border-2 border-neutral-200 rounded-2xl p-5 hover:border-primary-400 hover:shadow-md transition-all group">
+        <div class="text-3xl mb-3">💧</div>
+        <h2 class="font-heading font-bold text-lg text-neutral-900 mb-1">WASA Lahore</h2>
+        <p class="text-xs text-neutral-400 font-medium uppercase tracking-wide mb-2">Lahore</p>
+        <p class="text-sm text-neutral-500 mb-3">Lahore city — 8-digit account number, QR payment</p>
+        <span class="text-primary-600 font-semibold text-sm group-hover:underline">Check WASA Lahore Bill →</span>
+      </a>
+      <a href="/wasa-rawalpindi-bill/" class="bg-white border-2 border-neutral-200 rounded-2xl p-5 hover:border-primary-400 hover:shadow-md transition-all group">
+        <div class="text-3xl mb-3">💧</div>
+        <h2 class="font-heading font-bold text-lg text-neutral-900 mb-1">WASA Rawalpindi</h2>
+        <p class="text-xs text-neutral-400 font-medium uppercase tracking-wide mb-2">Rawalpindi</p>
+        <p class="text-sm text-neutral-500 mb-3">Rawalpindi — 8-digit C-Code</p>
+        <span class="text-primary-600 font-semibold text-sm group-hover:underline">Check WASA Rawalpindi Bill →</span>
+      </a>
+      <a href="/wasa-faisalabad-bill/" class="bg-white border-2 border-neutral-200 rounded-2xl p-5 hover:border-primary-400 hover:shadow-md transition-all group">
+        <div class="text-3xl mb-3">💧</div>
+        <h2 class="font-heading font-bold text-lg text-neutral-900 mb-1">WASA Faisalabad</h2>
+        <p class="text-xs text-neutral-400 font-medium uppercase tracking-wide mb-2">Faisalabad</p>
+        <p class="text-sm text-neutral-500 mb-3">Faisalabad — account number</p>
+        <span class="text-primary-600 font-semibold text-sm group-hover:underline">Check WASA Faisalabad Bill →</span>
+      </a>
+    </div>
+
+    <div class="bg-primary-50 border border-primary-200 rounded-2xl p-5 mb-8">
+      <h2 class="font-bold text-primary-800 mb-2">⚡ Check Any Bill Without Switching Pages</h2>
+      <p class="text-sm text-primary-700 mb-3">Use our universal dashboard — toggle between all 19 utility providers instantly.</p>
+      <a href="/dashboard/" class="inline-block bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary-800 transition-colors">Open Bill Dashboard →</a>
+    </div>
+
+    <div class="border-t border-neutral-200 pt-6">
+      <h2 class="font-bold text-neutral-800 text-sm mb-3 uppercase tracking-wider">All Utility Bill Silos</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="/electricity/" class="font-semibold text-sm bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-2 text-yellow-800 hover:bg-yellow-100">⚡ Electricity Bills</a>
+        <a href="/gas/" class="font-semibold text-sm bg-orange-50 border border-orange-200 rounded-lg px-4 py-2 text-orange-800 hover:bg-orange-100">🔥 Gas Bills</a>
+        <a href="/telecom/" class="font-semibold text-sm bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 text-blue-800 hover:bg-blue-100">📞 Telecom Bills</a>
+        <a href="/water/" class="font-semibold text-sm bg-cyan-50 border border-cyan-200 rounded-lg px-4 py-2 text-cyan-800 hover:bg-cyan-100">💧 Water Bills</a>
+      </div>
+    </div>
+  </div>
+
+<p style="margin:1rem 0;line-height:1.8;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering water, electricity, gas, and telecom bills. Beyond WASA, check your electricity: <a href="/lesco-bill/">LESCO</a> (Lahore), <a href="/iesco-bill/">IESCO</a> (Islamabad/Rawalpindi), <a href="/fesco-bill/">FESCO</a> (Faisalabad). Also check gas: <a href="/sngpl-bill/">SNGPL</a> or <a href="/ssgc-bill/">SSGC</a>. Use the <a href="/dashboard/">universal bill dashboard</a> or the <a href="/electricity-bill-calculator/">electricity bill calculator</a>.</p>
+
+  <section style="max-width:900px;margin:2rem auto;padding:0 1rem;">
+    <h2 style="font-size:1.1rem;font-weight:700;color:#1e293b;margin-bottom:1rem;">Pakistan Water Bill Checker — WASA Lahore, Rawalpindi, Faisalabad</h2>
+    <p style="color:#555;line-height:1.8;margin-bottom:1rem;">Water billing in Pakistan is managed by city-level WASA (Water and Sanitation Agency) authorities. The three largest Punjab cities each have their own WASA: <a href="/wasa-lahore-bill/" style="color:#01411C;font-weight:600;">WASA Lahore</a> (requires 8-digit account number), <a href="/wasa-rawalpindi-bill/" style="color:#01411C;font-weight:600;">WASA Rawalpindi</a> (requires 8-digit C-Code), and <a href="/wasa-faisalabad-bill/" style="color:#01411C;font-weight:600;">WASA Faisalabad</a> (requires account number).</p>
+    <p style="color:#555;line-height:1.8;margin-bottom:1rem;">Your WASA account number or C-Code is printed on your water bill in the top section. Enter it in the checker above to see your current water bill amount, due date, and arrears — free, no login required.</p>
+    <p style="color:#555;line-height:1.8;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all three WASA offices alongside <a href="/electricity/" style="color:#01411C;">all 13 electricity DISCOs</a>, <a href="/gas/" style="color:#01411C;">both gas companies</a>, and <a href="/ptcl-bill/" style="color:#01411C;">PTCL</a>. Use the <a href="/dashboard/" style="color:#01411C;">bill dashboard</a> to check all bills at once.</p>
+  </section>
+</BaseLayout>

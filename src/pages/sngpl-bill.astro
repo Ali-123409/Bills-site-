@@ -1,0 +1,401 @@
+---
+const title = "SNGPL Bill Online — Check Sui Northern Gas Bill March 2026";
+const desc = "Check your SNGPL gas bill online by 11-digit consumer number. View your Sui Northern Gas Pipelines bill for Punjab, KPK, Islamabad, and AJK — free, no login required.";
+const canonical = "https://pakistanbill.online/sngpl-bill/";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do I check my SNGPL gas bill online?", "acceptedAnswer": { "@type": "Answer", "text": "Visit sngpl.com.pk, go to Customer Services and click View/Print Bill. Enter your 11-digit SNGPL consumer number — printed on the top of any previous gas bill — and click Submit. Your latest SNGPL bill appears with amount due, due date, meter readings, and consumption in MMBTU." } },
+    { "@type": "Question", "name": "What is the SNGPL 11-digit consumer number?", "acceptedAnswer": { "@type": "Answer", "text": "Your SNGPL consumer number is an 11-digit number that uniquely identifies your gas connection. It is printed prominently on the top section of every SNGPL gas bill. Unlike electricity bills which use 14 digits, SNGPL uses 11 digits. Save it in your phone — this number is permanent for your connection." } },
+    { "@type": "Question", "name": "What is SNGPL helpline number?", "acceptedAnswer": { "@type": "Answer", "text": "SNGPL helpline is 1199 — available 24/7 for gas leakage emergencies, billing complaints, new connection queries, and gas theft reports." } },
+  ]
+};
+
+const howtoSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Check SNGPL Gas Bill Online",
+  "totalTime": "PT2M",
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "PKR", "value": "0" },
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Find Consumer Number", "text": "Locate your 11-digit SNGPL consumer number on the top of any previous gas bill." },
+    { "@type": "HowToStep", "position": 2, "name": "Visit SNGPL Portal", "text": "Go to sngpl.com.pk and click Customer Services, then View/Print Bill." },
+    { "@type": "HowToStep", "position": 3, "name": "Enter Consumer Number", "text": "Type your 11-digit consumer number and click Submit." },
+    { "@type": "HowToStep", "position": 4, "name": "View Your Bill", "text": "Your SNGPL bill appears with amount, due date, and consumption details." },
+  ]
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakistanbill.online/" },
+    { "@type": "ListItem", "position": 2, "name": "Gas Bills", "item": "https://pakistanbill.online/#gas" },
+    { "@type": "ListItem", "position": 3, "name": "SNGPL Gas Bill", "item": canonical }
+  ]
+};
+
+const tariffSlabs2026 = [
+  { cat: "Protected (up to 0.5 HCFT/day avg)", rate: "Rs 400.00/MMBTU", note: "Subsidized rate for low users" },
+  { cat: "Unprotected Slab 1 (0.5–1.0 HCFT/day avg)", rate: "Rs 1,597.17/MMBTU", note: "" },
+  { cat: "Unprotected Slab 2 (1.0–2.0 HCFT/day avg)", rate: "Rs 2,100.00/MMBTU", note: "" },
+  { cat: "Unprotected Slab 3 (Above 2.0 HCFT/day avg)", rate: "Rs 2,750.00/MMBTU", note: "High consumers" },
+  { cat: "Commercial", rate: "Rs 3,900.00/MMBTU", note: "" },
+  { cat: "Industrial (SNGPL RLNG)", rate: "Rs 4,300.00+/MMBTU", note: "Market-rate RLNG" },
+];
+
+const faqs = [
+  { q: "How do I check my SNGPL gas bill online in March 2026?", a: "Visit sngpl.com.pk and click Customer Services → View/Print Bill. Enter your 11-digit SNGPL consumer number (printed on any previous gas bill) and click Submit. Your complete SNGPL bill for March 2026 appears instantly — showing amount due, due date, consumption in MMBTU, meter readings, and all charges. You can also use the SNGPL app on Android or iOS for the same result." },
+  { q: "Where do I find my SNGPL 11-digit consumer number?", a: "Your SNGPL consumer number is an 11-digit number printed prominently on the top section of every SNGPL gas bill — usually on the right side near your name and address. Unlike electricity bills which have 14-digit reference numbers, SNGPL uses 11 digits. If you have lost all bills, call SNGPL helpline 1199 with your CNIC and registered address to retrieve your consumer number." },
+  { q: "What is the SNGPL helpline and how do I contact them?", a: "SNGPL helpline is 1199 — available 24 hours a day, 7 days a week. Call 1199 for gas leakage emergencies (top priority), billing disputes, new connection queries, load transfer applications, pressure complaints, and gas theft reporting. For non-emergency billing issues, calling between 9 AM and 11 AM on weekdays connects faster." },
+  { q: "What areas does SNGPL supply gas to?", a: "SNGPL supplies natural gas and RLNG (imported liquefied natural gas) to Punjab, Khyber Pakhtunkhwa, Islamabad Capital Territory, and Azad Jammu & Kashmir. This includes all major Punjab cities (Lahore, Faisalabad, Multan, Rawalpindi, Gujranwala, Sialkot, Bahawalpur), all major KPK cities (Peshawar, Mardan, Abbottabad, Swat), Islamabad, and parts of AJK. SSGC, not SNGPL, supplies Karachi, Sindh, and Balochistan." },
+  { q: "What is the difference between SNGPL and SSGC?", a: "SNGPL (Sui Northern Gas Pipelines Limited) supplies gas to Punjab, KPK, ICT, and AJK — the northern half of Pakistan. SSGC (Sui Southern Gas Company) supplies Karachi, interior Sindh, and Balochistan — the southern half. If you live in Lahore, Islamabad, Peshawar, or Multan, your gas company is SNGPL. If you live in Karachi, Hyderabad, Quetta, or Sukkur, your gas company is SSGC." },
+  { q: "What is MMBTU on my SNGPL bill?", a: "MMBTU stands for Million British Thermal Units — the unit SNGPL uses to measure your gas consumption. Your gas meter records consumption in HCFT (Hundred Cubic Feet). SNGPL converts this to MMBTU for billing. 1 MMBTU is approximately equal to 10.03 HCFT of natural gas. Your bill shows both the HCFT meter reading and the MMBTU equivalent on which charges are calculated." },
+  { q: "What is the difference between Protected and Unprotected gas consumers on SNGPL?", a: "SNGPL classifies domestic consumers as Protected or Unprotected based on average daily gas consumption. Protected consumers (average ≤0.5 HCFT per day — roughly 15 HCFT per month) pay the highly subsidized rate of Rs 400/MMBTU. Unprotected consumers face slab rates starting at Rs 1,597/MMBTU for the first slab. The difference is enormous — Protected consumers pay 75% less than even the lowest Unprotected slab. Monitor your monthly consumption to stay within the Protected threshold." },
+  { q: "How do I pay my SNGPL gas bill online?", a: "Pay through JazzCash, Easypaisa, or any bank mobile app. Open the app, go to Bill Payments, select Gas, choose SNGPL, enter your 11-digit consumer number, verify the amount, and confirm. You receive an SMS confirmation instantly. All major banks (HBL, MCB, UBL, Meezan, Allied Bank, Bank Alfalah) support SNGPL payments. You can also pay at any SNGPL regional office by cash or online." },
+  { q: "Why is my SNGPL gas bill so high in winter?", a: "SNGPL winter bills are high for two main reasons: (1) Gas usage for heating (room heaters, geysers) spikes 200–400% compared to summer; (2) Winter demand across Punjab and KPK strains SNGPL's supply, requiring more expensive imported RLNG — which carries higher charges per MMBTU than domestically produced natural gas. Protected consumers' subsidized rate stays constant, but Unprotected consumers feel the full impact. Reduce heating use, insulate your home, and use gas only for cooking and controlled heating." },
+  { q: "How do I report a gas leakage to SNGPL?", a: "Call SNGPL emergency helpline 1199 immediately. Before calling: turn off all gas appliances, open all windows and doors to ventilate, do not use any electrical switches, do not use a mobile phone near the gas source, and evacuate the building if the smell is strong. SNGPL has 24/7 emergency response teams in all major cities. Response time in major cities is typically 30 to 60 minutes." },
+  { q: "How do I apply for a new SNGPL gas connection?", a: "Apply online at sngpl.com.pk under New Connection, or visit your nearest SNGPL regional office in Lahore, Islamabad, Faisalabad, Multan, Peshawar, or your city. Submit your CNIC, property ownership or tenancy documents, and a site map. Connection fees vary by distance from the main pipeline. Connections near existing infrastructure take 30–90 days. Areas needing new pipeline work can take 6–24 months." },
+  { q: "How do I download my SNGPL gas bill as PDF?", a: "Visit sngpl.com.pk → Customer Services → View/Print Bill → enter your 11-digit consumer number → Submit. When the bill appears, press Ctrl+P (or right-click → Print) and select Save as PDF in the printer destination. Your SNGPL bill saves as a PDF on your device. You can also email it to yourself from the SNGPL portal." },
+  { q: "What is RLNG on my SNGPL bill?", a: "RLNG (Re-Gasified Liquefied Natural Gas) is imported LNG from Qatar and other Gulf states that SNGPL mixes into its pipeline network during periods of high domestic demand. RLNG is more expensive than domestically produced natural gas — it carries GIDC (Gas Infrastructure Development Cess) and higher commodity costs. Consumers on the RLNG allocation (usually industrial and commercial) pay higher RLNG rates. Domestic consumers are charged domestic gas rates that OGRA sets separately." },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={desc} />
+  <link rel="canonical" href={canonical} />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howtoSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://pakistanbill.online/sngpl-bill/#webpage","url":"https://pakistanbill.online/sngpl-bill/","name":"SNGPL Bill Online — Sui Northern Gas Bill","description":"Check SNGPL Sui Northern Gas bill online for Punjab, KPK, Islamabad and AJK by 11-digit consumer number.","isPartOf":{"@id":"https://pakistanbill.online/#website"},"dateModified":"2026-03-11","inLanguage":"en-PK"}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">PakistanBill<span>.online</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/sngpl-bill/" class="active">SNGPL Gas</a>
+      <a href="/ssgc-bill/">SSGC</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div style="background:#f5f5f5;border-bottom:1px solid #e2e8f0;padding:0.5rem 0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <nav aria-label="Breadcrumb" style="font-size:0.82rem;color:#666;">
+        <a href="/" style="color:#01411C;">Home</a> &rsaquo;
+        <a href="/#gas" style="color:#01411C;">Gas Bills</a> &rsaquo;
+        <span style="color:#333;font-weight:600;">SNGPL Gas Bill</span>
+      </nav>
+    </div>
+  </div>
+  <!-- Hero + Tool -->
+  <section style="background: linear-gradient(135deg, #1a4731 0%, #2d6a4f 100%); padding: 3rem 0; color: white;">
+    <div class="container">
+      <nav style="font-size:0.85rem; opacity:0.75; margin-bottom:1rem;">
+        <a href="/" style="color:white;">Home</a> › <a href="/#gas" style="color:white;">Gas Bills</a> › SNGPL Gas Bill
+      </nav>
+      <h1 style="font-size:2.2rem; font-weight:800; margin-bottom:0.5rem;">SNGPL Bill Online — Sui Northern Gas</h1>
+      <p style="opacity:0.9; font-size:1.1rem; margin-bottom:2rem;">Check your SNGPL gas bill for Punjab, KPK, Islamabad, and AJK. Enter your 11-digit consumer number below.</p>
+<p>PakistanBill.online is <strong>Pakistan's only platform</strong> that covers both gas utilities — <a href="/sngpl-bill/">SNGPL</a> (Punjab, KPK, AJK) and <a href="/ssgc-bill/">SSGC</a> (Sindh, Balochistan) — alongside all 13 electricity DISCOs, <a href="/ptcl-bill/">PTCL</a>, and <a href="/water/">WASA water bills</a>. Check your <a href="/lesco-bill/">LESCO electricity bill</a> if you're in Lahore, or <a href="/iesco-bill/">IESCO</a> if in Islamabad. Open our <a href="/dashboard/">bill dashboard</a> to check all bills in one place, or learn <a href="/blog/how-to-pay-online/">how to pay bills online</a>.</p>
+
+      <!-- Bill Checker Tool -->
+      <div style="background:white; border-radius:16px; padding:2rem; max-width:560px; color:#1a1a1a;">
+        <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:1rem; color:#1a4731;">🔍 Check SNGPL Gas Bill</h2>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:1rem;">SNGPL uses its own portal — enter your consumer number below to go directly to your bill.</p>
+        <div style="display:flex; gap:0.5rem; margin-bottom:0.8rem;">
+          <input id="sngpl-input" type="text" maxlength="11" placeholder="Enter 11-digit Consumer Number"
+            style="flex:1; padding:0.75rem 1rem; border:2px solid #e2e8f0; border-radius:8px; font-size:1rem;"
+            oninput="this.value=this.value.replace(/\D/g,'')" />
+          <button onclick="checkSNGPL()"
+            style="background:#1a4731; color:white; padding:0.75rem 1.5rem; border:none; border-radius:8px; font-weight:700; cursor:pointer; font-size:1rem;">
+            Check Bill
+          </button>
+        </div>
+        <p style="font-size:0.75rem; color:#888;">Your 11-digit consumer number is on the top of any previous SNGPL gas bill</p>
+        <div id="sngpl-error" style="display:none; color:#dc2626; font-size:0.85rem; margin-top:0.5rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="padding: 3rem 1rem; display:grid; grid-template-columns: 2fr 1fr; gap:2.5rem; max-width:1200px; margin:0 auto;">
+    <div>
+
+      <!-- About SNGPL -->
+      <section id="about" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">About SNGPL — Sui Northern Gas Pipelines Limited</h2>
+        <p>Sui Northern Gas Pipelines Limited (SNGPL) is Pakistan's largest natural gas utility, supplying gas to over <strong>7.3 million consumers</strong> across <strong>Punjab</strong>, <strong>Khyber Pakhtunkhwa</strong>, <strong>Islamabad Capital Territory</strong>, and <strong>Azad Jammu &amp; Kashmir</strong>. Incorporated in 1963, SNGPL operates the largest gas distribution network in the country — with pipelines running from the Sui gas fields in Balochistan to the northernmost cities of KPK.</p>
+        <p>SNGPL supplies gas to major Pakistani cities including <strong>Lahore</strong>, <strong>Islamabad</strong>, <strong>Rawalpindi</strong>, <strong>Faisalabad</strong>, <strong>Multan</strong>, <strong>Gujranwala</strong>, <strong>Sialkot</strong>, <strong>Peshawar</strong>, <strong>Mardan</strong>, <strong>Abbottabad</strong>, <strong>Bahawalpur</strong>, <strong>Sargodha</strong>, and over 5,500 towns across the SNGPL service area. The company is listed on the Pakistan Stock Exchange and is jointly owned by the Government of Pakistan and private shareholders.</p>
+        <p>SNGPL distributes both domestically produced natural gas (from Sui, Kandhkot, and other fields) and imported RLNG (Re-Gasified LNG from Qatar and UAE). During peak winter demand, RLNG accounts for 40–50% of SNGPL's supply mix — which directly impacts consumer tariffs.</p>
+        <p>Gas regulation in Pakistan is handled by <strong>OGRA</strong> (Oil and Gas Regulatory Authority), which sets SNGPL's tariffs, monitors service quality, and adjudicates consumer complaints. OGRA is separate from NEPRA — electricity consumers escalate to NEPRA while gas consumers escalate to OGRA at <strong>0800-66256</strong> (toll-free).</p>
+      </section>
+
+      <!-- How to Check -->
+      <section id="how-to-check" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">How to Check SNGPL Gas Bill Online — Step by Step</h2>
+        <div style="background:#f0fdf4; border-left:4px solid #1a4731; padding:1.5rem; border-radius:8px; margin-bottom:1rem;">
+          <p style="margin:0; font-weight:600; color:#1a4731;">Fastest method: Use the tool at the top of this page — enter your 11-digit consumer number and click Check Bill to be redirected directly to your bill on sngpl.com.pk.</p>
+        </div>
+        <ol style="line-height:2.5; padding-left:1.5rem;">
+          <li>Find your <strong>11-digit SNGPL consumer number</strong> on the top of any previous gas bill</li>
+          <li>Enter it in the tool above and click Check Bill — you go directly to the SNGPL portal</li>
+          <li>Or visit <strong>sngpl.com.pk</strong> → Customer Services → View/Print Bill</li>
+          <li>Enter your 11-digit consumer number and click Submit</li>
+          <li>Your SNGPL bill appears with amount, due date, meter readings, and MMBTU consumption</li>
+          <li>To save as PDF: press Ctrl+P and select Save as PDF as your printer</li>
+          <li>Pay online through JazzCash, Easypaisa, or your bank app using the same consumer number</li>
+        </ol>
+
+        <h3 style="margin-top:1.5rem;">Other Ways to Check Your SNGPL Bill</h3>
+        <table style="width:100%; border-collapse:collapse; margin-top:1rem;">
+          <thead style="background:#1a4731; color:white;">
+            <tr><th style="padding:0.7rem; text-align:left;">Method</th><th style="padding:0.7rem; text-align:left;">How</th></tr>
+          </thead>
+          <tbody>
+            {[
+              ["SNGPL App", "Download 'SNGPL' app from Google Play or App Store. Register with your consumer number and CNIC."],
+              ["SMS Service", "Send your 11-digit consumer number to a number provided by SNGPL — check sngpl.com.pk for current SMS service"],
+              ["WhatsApp", "SNGPL has a WhatsApp bill service — check sngpl.com.pk for the current WhatsApp number"],
+              ["Phone", "Call SNGPL helpline 1199 — agent can tell you the amount and due date"],
+              ["Bank Branch / ATM", "HBL, MCB, UBL, Meezan, Allied Bank — Bill Payment at counter or ATM"],
+            ].map(row => (
+              <tr style="border-bottom:1px solid #e2e8f0;">
+                <td style="padding:0.7rem; font-weight:600;">{row[0]}</td>
+                <td style="padding:0.7rem; font-size:0.9rem; color:#555;">{row[1]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Reading the bill -->
+      <section id="read-bill" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">How to Read Your SNGPL Gas Bill</h2>
+        <p>SNGPL gas bills are structured differently from electricity bills. Here is every key field explained:</p>
+        <div style="display:grid; gap:1rem; margin-top:1rem;">
+          {[
+            ["Consumer Number (11 digits)", "Your permanent 11-digit SNGPL account ID. Never changes. Use this for all online, SMS, and app-based bill checking. Also used for all payment apps."],
+            ["Meter Reading (HCFT)", "Your gas meter records consumption in HCFT (Hundred Cubic Feet). The difference between Previous Reading and Current Reading gives you consumption in HCFT."],
+            ["Consumption (MMBTU)", "SNGPL converts your HCFT consumption to MMBTU for billing. 1 MMBTU ≈ 10.03 HCFT. All tariff rates apply per MMBTU consumed."],
+            ["Category", "Protected or Unprotected. Protected consumers (average ≤0.5 HCFT/day) pay the subsidized rate of Rs 400/MMBTU. Unprotected consumers face significantly higher rates. Your 6-month average determines category."],
+            ["Gas Charges", "The core charge — your MMBTU consumption multiplied by your category's tariff rate (set by OGRA)."],
+            ["GIDC (Gas Infrastructure Development Cess)", "A government levy charged per MMBTU, collected to fund gas infrastructure development."],
+            ["GST (17%)", "General Sales Tax applied to the gas charges. Same as electricity — 17% on applicable charges."],
+            ["Meter Rent", "Monthly rental for the gas meter. Typically Rs 20–100/month for domestic consumers."],
+            ["Due Date", "Pay before this date to avoid the 10% late payment surcharge. SNGPL grace period: 7 days after due date."],
+          ].map(row => (
+            <div style="background:#f8f9fa; border-radius:8px; padding:1rem 1.25rem; border-left:3px solid #1a4731;">
+              <h4 style="margin:0 0 0.3rem; color:#1a4731; font-size:0.95rem;">{row[0]}</h4>
+              <p style="margin:0; font-size:0.9rem; color:#555;">{row[1]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Tariff slabs -->
+      <section id="tariff" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">SNGPL Gas Tariff Rates 2026 (OGRA Approved)</h2>
+        <table style="width:100%; border-collapse:collapse;">
+          <thead style="background:#1a4731; color:white;">
+            <tr>
+              <th style="padding:0.8rem; text-align:left;">Consumer Category</th>
+              <th style="padding:0.8rem; text-align:left;">Rate per MMBTU</th>
+              <th style="padding:0.8rem; text-align:left;">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tariffSlabs2026.map((row, i) => (
+              <tr style={`border-bottom:1px solid #e2e8f0; ${i===0?'background:#f0fdf4;':''}`}>
+                <td style="padding:0.8rem;">{row.cat}</td>
+                <td style="padding:0.8rem; font-weight:700; color:#1a4731;">{row.rate}</td>
+                <td style="padding:0.8rem; font-size:0.85rem; color:#666;">{row.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p style="font-size:0.8rem; color:#888; margin-top:0.5rem;">Rates are OGRA-approved indicative figures. Verify exact rates on your bill or at ogra.org.pk. GST (17%) and GIDC apply additionally.</p>
+      </section>
+
+      <!-- Coverage -->
+      <section id="coverage" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">SNGPL Coverage Area — Which Cities Get SNGPL Gas?</h2>
+        <p>SNGPL covers the following provinces and territories:</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;">
+          {[
+            { prov: "Punjab", cities: "Lahore, Faisalabad, Rawalpindi, Multan, Gujranwala, Sialkot, Sargodha, Bahawalpur, Gujrat, Jhang, Sahiwal, Rahim Yar Khan, Kasur, Okara" },
+            { prov: "KPK", cities: "Peshawar, Mardan, Abbottabad, Haripur, Nowshera, Swabi, Mansehra, Swat (urban), Kohat, D.I. Khan" },
+            { prov: "Islamabad (ICT)", cities: "All Islamabad sectors, Blue Area, diplomatic enclave, industrial areas" },
+            { prov: "AJK", cities: "Muzaffarabad, Mirpur, Rawalakot, Kotli — select urban areas with pipeline access" },
+          ].map(p => (
+            <div style="background:#f8f9fa; border-radius:8px; padding:1rem; border-top:3px solid #1a4731;">
+              <h4 style="margin:0 0 0.4rem; color:#1a4731;">{p.prov}</h4>
+              <p style="margin:0; font-size:0.85rem; color:#555;">{p.cities}</p>
+            </div>
+          ))}
+        </div>
+        <p style="margin-top:1rem; font-size:0.9rem;"><strong>Not covered by SNGPL:</strong> Karachi, Hyderabad, Sukkur, Quetta, and all of Sindh and Balochistan — these areas use <a href="/ssgc-bill/">SSGC (Sui Southern Gas Company)</a>.</p>
+      </section>
+
+      <!-- Saving Tips -->
+      <section id="saving-tips" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">How to Reduce Your SNGPL Gas Bill — 8 Tips</h2>
+        <div style="display:grid; gap:0.8rem;">
+          {[
+            "Stay under the 0.5 HCFT/day average to maintain Protected status. Protected consumers pay Rs 400/MMBTU vs Rs 1,597+ for Unprotected — a 75%+ saving.",
+            "Insulate your home properly. In Lahore and Islamabad winters, poorly insulated rooms require twice as much gas heating. Weatherstripping, heavy curtains, and roof insulation dramatically cut heating gas use.",
+            "Use an energy-efficient geyser. A 10-litre instant water heater uses 60% less gas than a traditional 35-litre storage geyser for the same hot water output.",
+            "Fix gas leakages immediately. A dripping gas tap or faulty connection can consume 0.5–2 HCFT per day invisibly — equal to an entire household's daily usage.",
+            "Cook with lids on pots. Covered cooking reduces gas use by 25–30% for the same cooking result.",
+            "Service your gas appliances annually. Gas geysers and room heaters with clogged burners consume 20–30% more gas for the same heat output.",
+            "Monitor SNGPL Protected/Unprotected status monthly. If you are borderline (0.4–0.55 HCFT/day), reducing usage in one month can prevent reclassification.",
+            "Report gas theft in your neighbourhood. Gas theft from shared infrastructure inflates everyone's bills through system losses. Report to SNGPL at 1199 (anonymous).",
+          ].map((tip, i) => (
+            <div style="display:flex; gap:1rem; align-items:flex-start; background:#f8f9fa; border-radius:8px; padding:0.8rem 1rem;">
+              <span style="background:#1a4731; color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.8rem; flex-shrink:0;">{i+1}</span>
+              <p style="margin:0; font-size:0.9rem; color:#444;">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Complaint Process -->
+      <section id="complaint" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1rem; color:#1a4731;">How to File an SNGPL Billing Complaint</h2>
+        {[
+          { step: "Call 1199", detail: "Call SNGPL helpline 1199 with your 11-digit consumer number. Explain the billing issue — overbilling, wrong category, meter fault, or unexplained arrears." },
+          { step: "Get a Complaint Number", detail: "Ask for a complaint reference number or CRN. Write it down. This is your proof that the complaint was registered." },
+          { step: "Visit SNGPL Regional Office", detail: "For disputes needing document review, visit your nearest SNGPL regional office in Lahore, Faisalabad, Islamabad, Multan, Peshawar, or your city." },
+          { step: "Escalate to OGRA", detail: "If SNGPL does not resolve within 14 working days, escalate to OGRA (Oil and Gas Regulatory Authority) at 0800-66256 (toll-free) or file at ogra.org.pk." },
+          { step: "Wafaqi Mohtasib (Federal Ombudsman)", detail: "For persistent ignoring, file at mohtasib.gov.pk — this is legally binding and free." },
+        ].map((item, i) => (
+          <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
+            <div style="background:#1a4731; color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;">{i+1}</div>
+            <div>
+              <h4 style="margin:0 0 0.2rem; color:#1a4731;">{item.step}</h4>
+              <p style="margin:0; font-size:0.9rem; color:#555;">{item.detail}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <!-- FAQs -->
+      <section id="faq" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:1.5rem; color:#1a4731;">Frequently Asked Questions — SNGPL Gas Bill</h2>
+        <div style="display:grid; gap:0.75rem;">
+          {faqs.map((faq, i) => (
+            <details style="background:#f8f9fa; border-radius:10px; border:1px solid #e2e8f0; overflow:hidden;">
+              <summary style="padding:1rem 1.25rem; font-weight:600; font-size:0.95rem; cursor:pointer; color:#1a1a1a; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+                {faq.q} <span style="color:#1a4731; font-size:1.2rem;">+</span>
+              </summary>
+              <div style="padding:0 1.25rem 1rem; font-size:0.9rem; color:#555; line-height:1.8;">{faq.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside style="space-y:1.5rem;">
+      <div style="background:#1a4731; color:white; border-radius:16px; padding:1.5rem; margin-bottom:1.5rem;">
+        <h3 style="font-size:1rem; margin-bottom:0.5rem;">SNGPL Helpline</h3>
+        <p style="font-size:2.5rem; font-weight:800; margin:0;">1199</p>
+        <p style="opacity:0.8; font-size:0.85rem; margin-top:0.3rem;">24/7 — Gas leaks, billing, complaints</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.2); margin-top:1rem; padding-top:1rem;">
+          <p style="opacity:0.7; font-size:0.75rem; margin:0;">OGRA Consumer Helpline:</p>
+          <p style="font-weight:600; font-size:1.1rem; margin:0.2rem 0 0;">0800-66256</p>
+          <p style="opacity:0.7; font-size:0.75rem;">Escalate unresolved complaints</p>
+        </div>
+      </div>
+
+      <div style="background:white; border-radius:16px; border:1px solid #e2e8f0; padding:1.5rem; margin-bottom:1.5rem;">
+        <h3 style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">Quick Links</h3>
+        {[
+          { href: "#about", label: "About SNGPL" },
+          { href: "#how-to-check", label: "How to Check Bill" },
+          { href: "#read-bill", label: "Reading Your Bill" },
+          { href: "#tariff", label: "Tariff Rates 2026" },
+          { href: "#coverage", label: "Coverage Area" },
+          { href: "#saving-tips", label: "Saving Tips" },
+          { href: "#complaint", label: "File Complaint" },
+          { href: "#faq", label: "FAQs" },
+        ].map(l => <a href={l.href} style="display:block; padding:0.4rem 0.5rem; font-size:0.9rem; color:#444; border-radius:6px;">→ {l.label}</a>)}
+      </div>
+
+      <div style="background:#f0fdf4; border-radius:16px; border:1px solid #a7f3d0; padding:1.5rem; margin-bottom:1.5rem;">
+        <h3 style="font-size:0.85rem; font-weight:700; color:#1a4731; margin-bottom:0.75rem;">💡 Gas Bill Tips</h3>
+        <ul style="font-size:0.82rem; color:#1a4731; padding-left:1rem; line-height:2;">
+          <li>Pay before due date — avoid 10% surcharge</li>
+          <li>Stay under 0.5 HCFT/day for Protected rate</li>
+          <li>Use gas wisely in winter — RLNG costs more</li>
+          <li>Report leaks immediately: call 1199</li>
+        </ul>
+      </div>
+
+      <div style="background:white; border-radius:16px; border:1px solid #e2e8f0; padding:1.5rem;">
+        <h3 style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">Other Utility Bills</h3>
+        {[
+          { n: "SSGC Gas Bill (Karachi)", u: "/ssgc-bill/" },
+          { n: "LESCO Electricity", u: "/lesco-bill/" },
+          { n: "IESCO Electricity", u: "/iesco-bill/" },
+          { n: "FESCO Electricity", u: "/fesco-bill/" },
+          { n: "GEPCO Electricity", u: "/gepco-bill/" },
+          { n: "MEPCO Electricity", u: "/mepco-bill/" },
+          { n: "PESCO Electricity", u: "/pesco-bill/" },
+          { n: "PTCL Telephone", u: "/ptcl-bill/" },
+        ].map(p => <a href={p.u} style="display:block; padding:0.35rem 0.5rem; font-size:0.85rem; color:#444; border-radius:6px;">→ {p.n}</a>)}
+      </div>
+    </aside>
+  </div>
+
+  <!-- All Providers Internal Links -->
+  <section style="background:#f8f9fa;border-top:1px solid #e2e8f0;padding:2rem 0;margin-top:0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <h2 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;">Check All Pakistan Utility Bills</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:0.3rem;"><a href="/lesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">LESCO</a><a href="/mepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">MEPCO</a><a href="/gepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">GEPCO</a><a href="/fesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">FESCO</a><a href="/iesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">IESCO</a><a href="/pesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">PESCO</a><a href="/hesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">HESCO</a><a href="/sepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SEPCO</a><a href="/qesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">QESCO</a><a href="/tesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">TESCO</a><a href="/ajk-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">AJK</a><a href="/k-electric-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">K-Electric</a><a href="/sngpl-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SNGPL Gas</a><a href="/ssgc-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SSGC Gas</a><a href="/ptcl-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">PTCL</a><a href="/wasa-lahore-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA Lahore</a><a href="/wasa-rawalpindi-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA RWP</a><a href="/wasa-faisalabad-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA FSD</a><a href="/blog/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">Blog</a></div>
+    </div>
+  </section>
+
+  <!-- Related Pages — Internal Contextual Links -->
+  <section style="background:#f0fdf4;border-top:2px solid #34d399;padding:1.5rem 0;margin-top:2rem;">
+    <div style="max-width:960px;margin:0 auto;padding:0 1rem;">
+      <h3 style="font-size:0.85rem;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <div><a href="/ssgc-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">SSGC gas bill for Sindh & Balochistan</a><a href="/lesco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">LESCO electricity bill</a><a href="/mepco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">MEPCO electricity bill</a><a href="/iesco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">IESCO electricity bill</a><a href="/ptcl-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">PTCL bill</a><a href="/blog/how-to-pay-online/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">how to pay bills online</a><a href="/gas/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">all gas bills</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>PakistanBill.online is an independent information platform. Not affiliated with SNGPL, OGRA, or the Government of Pakistan.</p>
+    <p>© 2026 PakistanBill.online · <a href="/privacy-policy/">Privacy Policy</a> · <a href="/disclaimer/">Disclaimer</a></p>
+  </div>
+</footer>
+
+<script>
+  function checkSNGPL() {
+    const input = (document.getElementById('sngpl-input') as HTMLInputElement);
+    const err = document.getElementById('sngpl-error');
+    const val = input.value.trim();
+    if (val.length !== 11) {
+      err!.style.display = 'block';
+      err!.textContent = 'Please enter a valid 11-digit SNGPL consumer number.';
+      return;
+    }
+    err!.style.display = 'none';
+    window.open(`https://www.sngpl.com.pk/index.php?q=bill-view&type=consumer_no&no=${val}`, '_blank');
+  }
+</script>
+</body>
+</html>

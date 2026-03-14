@@ -1,0 +1,104 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="hesco" discoName="HESCO" discoFull="Hyderabad Electric Supply Company"
+  city="Hyderabad" province="Sindh" established="1998"
+  ceo="Engr. Sajid Mahmood Bhatti" customers="2.1 million" employees="8,500+"
+  revenue="$0.9 billion USD" helpline="118" uan="022-9200301"
+  website="https://hesco.gov.pk" headOffice="Saddar, Hyderabad, Sindh"
+  refnoLength={14} hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM" peakHourWinter="6:00 PM – 10:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="HESCO Bill Online — Check & Download Duplicate Bill March 2026"
+  metaDescription="Check your HESCO bill online by 14-digit reference number. View, download PDF, and print your HESCO Hyderabad Sindh electricity duplicate bill — free, no login required."
+  canonical="/hesco-bill/"
+  introContent={`
+    <p>Hyderabad Electric Supply Company (HESCO) supplies electricity to over 2.1 million consumers across eight districts of lower and central Sindh: <strong>Hyderabad</strong>, <strong>Mirpurkhas</strong>, <strong>Tharparkar</strong>, <strong>Badin</strong>, <strong>Thatta</strong>, <strong>Shaheed Benazirabad (Nawabshah)</strong>, <strong>Sanghar</strong>, and <strong>Matiari</strong>. Established in 1998, HESCO covers Pakistan's second-largest province's southern half — an area of immense agricultural and cultural significance.</p>
+    <p><strong>Hyderabad city</strong> — Pakistan's eighth-largest city — serves as HESCO's operational hub. Once the capital of Sindh under the Talpur Mirs and a major commercial centre, Hyderabad remains an important industrial city with a significant population of urban consumers. Beyond the city, HESCO covers <strong>Tharparkar</strong> (Pakistan's only Hindu-majority district and one of the world's largest coal reserves), <strong>Badin</strong> (coastal Sindh), <strong>Thatta</strong> (home to the UNESCO-listed Makli necropolis), and the rice-belt districts of Mirpurkhas and Nawabshah.</p>
+    <p>HESCO should not be confused with SEPCO — a common source of confusion for Sindh consumers. <strong>HESCO covers lower and central Sindh</strong> while <strong>SEPCO covers upper Sindh</strong> (Sukkur, Larkana, Khairpur). If you live in Sukkur or Larkana, check the <a href="/sepco-bill/">SEPCO bill page</a>. If you live in Hyderabad, Mirpurkhas, Nawabshah, or Thatta, you are an HESCO consumer.</p>
+    <p>To check your HESCO bill online, enter your <strong>14-digit HESCO reference number</strong> in the bill checker above. HESCO uses the same PITC server as all other WAPDA DISCOs. Your reference number is printed at the top of every HESCO electricity bill.</p>
+  
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Alongside HESCO, also check: <a href="/sepco-bill/">SEPCO bill</a> for Sukkur | <a href="/k-electric-bill/">K-Electric bill</a> for Karachi | <a href="/qesco-bill/">QESCO bill</a> for Balochistan | <a href="/ssgc-bill/">SSGC gas bill</a>. Use our <a href="/electricity-bill-calculator/">electricity bill calculator</a>, visit our <a href="/dashboard/">bill dashboard</a>, or read <a href="/blog/how-to-pay-online/">how to pay bills online</a>. See our complete <a href="/hyderabad/">Hyderabad utility bills guide</a>.</p>
+  `}
+  howToSteps={[
+    "Find your 14-digit HESCO reference number — printed in bold at the top of your HESCO electricity bill.",
+    "Open the bill checker at the top of this page.",
+    "Enter your 14-digit HESCO reference number. Numbers only.",
+    "Click Check Bill. The tool fetches your bill from bill.pitc.com.pk/hescobill.",
+    "Your complete HESCO bill appears in 3 to 5 seconds with all charges.",
+    "Click Download PDF to save as PDF, or Print for a paper copy."
+  ]}
+  billReadingTips={[
+    "HESCO and SEPCO are separate companies. If your bill heading says HESCO, you are in lower Sindh. If it says SEPCO, visit our SEPCO bill page.",
+    "Tharparkar consumers: HESCO covers all of Tharparkar district. In the remote desert areas of Mithi and Nagarparkar, paper bill delivery is often unreliable — always check your bill online to know your due date.",
+    "Hyderabad industrial consumers in SITE and Kotri industrial areas: check your Maximum Demand (MD) reading on the bill. Industrial MD charges apply when peak demand exceeds sanctioned load.",
+    "Monsoon season (July to September) in interior Sindh often causes billing disruptions due to flooding. HESCO may issue estimated bills during this period. Request actual readings once flood conditions clear.",
+    "Badin and Thatta coastal consumers: sea air causes rapid meter corrosion. Request free meter inspection every 2 years — corroded meters often show inflated readings.",
+  ]}
+  savingTips={[
+    "Hyderabad summers exceed 44°C. Managing AC usage is the single biggest opportunity to save on HESCO bills. Use inverter ACs, set to 26°C, and operate fans simultaneously.",
+    "Interior Sindh's rural consumers: agricultural tube wells running on HESCO electricity should use timers to operate during off-peak morning hours (6 AM to 12 PM).",
+    "Tharparkar's extraordinary solar potential: annual solar irradiance in Tharparkar is among the highest in Pakistan. HESCO net metering makes solar panels extremely cost-effective here.",
+    "Avoid electric heaters in Sindh winters. Even in January, interior Sindh temperatures rarely fall below 8°C — warm clothing and heavy blankets eliminate the need for electric heating entirely.",
+    "Check if paper bills are arriving regularly. In remote Badin, Thatta, and Tharparkar areas, billing errors go undetected for months because consumers do not see the bill. Use our tool monthly.",
+  ]}
+  complaintProcess={[
+    "Call HESCO helpline 022-9200301 in Hyderabad or general helpline 118 with your 14-digit reference number.",
+    "Get a Complaint Registration Number (CRN). Visit your nearest HESCO subdivision office for document-based disputes.",
+    "HESCO must resolve within 14 working days under NEPRA regulations.",
+    "Escalate to NEPRA at 0800-63000 if unresolved. File at nepra.org.pk.",
+  ]}
+  smsService="Type pitc followed by a space and your 14-digit HESCO reference number, then send to 8334 for bill amount and due date by SMS."
+  coverageAreas={[
+    { region: "Hyderabad Division", district: "Hyderabad", cities: "Hyderabad City, Latifabad, Qasimabad, Kotri, Jamshoro" },
+    { region: "Mirpurkhas Division", district: "Mirpurkhas", cities: "Mirpurkhas City, Jhuddo, Digri, Umerkot, Samaro" },
+    { region: "Tharparkar", district: "Tharparkar", cities: "Mithi City, Chachro, Islamkot, Nagarparkar" },
+    { region: "Badin", district: "Badin", cities: "Badin City, Talhar, Matli, Tando Bago" },
+    { region: "Thatta", district: "Thatta", cities: "Thatta City, Sujawal, Jati, Ghorabari" },
+    { region: "Nawabshah", district: "Shaheed Benazirabad", cities: "Nawabshah City, Sakrand, Moro, Daulatpur" },
+    { region: "Sanghar", district: "Sanghar", cities: "Sanghar City, Sinjhoro, Shahdadpur" },
+    { region: "Matiari", district: "Matiari", cities: "Matiari City, Hala, Saeedabad" },
+  ]}
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "Hyderabad Office", detail: "022-9200301" },
+    { type: "Head Office", detail: "Saddar, Hyderabad, Sindh" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Official Website", detail: "hesco.gov.pk" },
+    { type: "New Connection", detail: "enc.com.pk → Select HESCO" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter reference number" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free)" },
+  ]}
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+  faqs={[
+    { question: "How do I check my HESCO bill online in March 2026?", answer: "Enter your 14-digit HESCO reference number in the bill checker above and click Check Bill. Your complete HESCO electricity bill appears in seconds — covering Hyderabad, Mirpurkhas, Nawabshah, Badin, or Thatta. Free, no login, 24/7." },
+    { question: "What is the difference between HESCO and SEPCO?", answer: "HESCO covers lower and central Sindh: Hyderabad, Mirpurkhas, Tharparkar, Badin, Thatta, Nawabshah, and Sanghar. SEPCO covers upper Sindh: Sukkur, Larkana, Khairpur, Ghotki, Jacobabad, and Shikarpur. Check your bill heading to confirm which company you belong to." },
+    { question: "How do I check my HESCO bill for Tharparkar?", answer: "Tharparkar is under HESCO's service area. Enter your 14-digit reference number in the checker above — it works for Mithi, Chachro, Islamkot, and Nagarparkar. In remote desert areas, paper bill delivery is unreliable — always check online to know your due date and avoid late payment surcharges." },
+    { question: "How do I download my HESCO duplicate bill?", answer: "After the bill loads, click Download PDF and select Save as PDF in the browser print dialog. Your HESCO duplicate bill downloads instantly as a PDF — ready for payment at Easypaisa, JazzCash, or any bank in Hyderabad or interior Sindh." },
+    { question: "How do I pay my HESCO bill online?", answer: "Pay through JazzCash, Easypaisa, or any bank app. Select Electricity, choose HESCO or WAPDA, enter your 14-digit reference number, verify amount, and confirm. Easypaisa has excellent agent coverage in interior Sindh for cash payments." },
+    { question: "What is the HESCO grace period?", answer: "HESCO gives 7 days after the due date to pay without a late payment surcharge. After 7 days, a 10% surcharge applies. In areas where bills arrive late by post, always check your due date online before paying." },
+    { question: "How do I check the HESCO load shedding schedule?", answer: "Visit ccms.pitc.com.pk and enter your 14-digit HESCO reference number. Your specific feeder's schedule appears. Hyderabad city typically sees 6–10 hours of load shedding; rural interior Sindh areas can see 12–18 hours depending on feeder recovery rates." },
+    { question: "How do I apply for a new HESCO connection?", answer: "Apply at enc.com.pk and select HESCO as your distribution company. Or visit your nearest HESCO division office in Hyderabad, Mirpurkhas, Nawabshah, or your district. Upload CNIC and property documents for online applications." },
+    { question: "How do I file a billing complaint with HESCO?", answer: "Call 022-9200301 or 118 with your reference number. Get a Complaint Registration Number (CRN). HESCO must resolve within 14 working days. Escalate to NEPRA at 0800-63000 if ignored." },
+  ]}
+  relatedPages={[
+    { name: "SEPCO Bill Online", url: "/sepco-bill/" },
+    { name: "K-Electric Bill Online", url: "/k-electric-bill/" },
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "MEPCO Bill Online", url: "/mepco-bill/" },
+    { name: "SSGC Gas Bill", url: "/ssgc-bill/" },
+    { name: "IESCO Bill Online", url: "/iesco-bill/" },
+  ]}
+/>

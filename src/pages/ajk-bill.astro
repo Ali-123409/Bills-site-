@@ -1,0 +1,126 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="ajk"
+  discoName="AJKED"
+  discoFull="Azad Jammu & Kashmir Electricity Department"
+  city="Muzaffarabad"
+  province="Azad Jammu & Kashmir"
+  established="1952"
+  ceo="Engr. Raja Qaiser"
+  customers="0.9 million"
+  employees="5,500+"
+  revenue="$0.4 billion USD"
+  helpline="1912"
+  uan="1912"
+  website="https://ajked.gok.pk"
+  headOffice="Near Chinar Chowk, Muzaffarabad, AJK"
+  refnoLength={14}
+  hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM"
+  peakHourWinter="5:30 PM – 9:30 PM"
+  lastmod="2026-03-11"
+  metaTitle="AJK Bill Online — Check & Download AJKED Electricity Bill March 2026"
+  metaDescription="Check your AJK electricity bill online by 14-digit reference number. View, download PDF, and print your AJKED Azad Kashmir duplicate bill instantly — free, no login required."
+  canonical="/ajk-bill/"
+
+  introContent={`
+    <p>The Azad Jammu & Kashmir Electricity Department (AJKED) is the sole electricity distribution authority for <strong>Azad Jammu & Kashmir (AJK)</strong> — the self-governing territory of Pakistan administered by the Azad Kashmir government under the Azad Jammu and Kashmir Interim Constitution Act 1974. AJKED supplies electricity to approximately 0.9 million consumers across all ten districts of AJK: <strong>Muzaffarabad</strong> (the capital), <strong>Mirpur</strong>, <strong>Rawalakot</strong> (Poonch), <strong>Kotli</strong>, <strong>Bhimber</strong>, <strong>Bagh</strong>, <strong>Haveli</strong>, <strong>Hattian Bala</strong>, <strong>Neelum</strong>, and <strong>Sudhnoti</strong>.</p>
+    <p>AJK's electricity story is one of remarkable natural endowment. The territory is fed by two of Pakistan's most significant hydropower projects: the <strong>Mangla Dam</strong> (1,000+ MW capacity, located on the Jhelum river at Mirpur) — one of the world's largest earth-fill dams — and the <strong>Neelum-Jhelum Hydropower Project</strong> (969 MW, located near Muzaffarabad). Together, these projects make AJK predominantly hydro-powered and give the territory one of the cleanest electricity supplies in the country. The lifeline domestic tariff in AJK (Rs 5.79/unit for the first 50 units) remains among the lowest in Pakistan, reflecting the government's policy to benefit AJK consumers from locally generated hydropower.</p>
+    <p>AJKED is structurally different from other DISCOs. It is a government department, not a corporate entity like LESCO or MEPCO. AJK is not directly regulated by NEPRA — instead, electricity tariffs and policies in AJK are set by the <strong>Azad Kashmir Council</strong> and the AJK government. Consumers have a separate escalation path for complaints: the <strong>AJK Consumer Complaint Cell</strong> at 1912.</p>
+    <p>To check your AJK electricity bill online, enter your <strong>14-digit AJKED reference number</strong> in the bill checker above. AJK uses the same PITC server system as mainland Pakistan DISCOs — so the same tool works. The AJKED helpline is <strong>1912</strong> (not 118 used by other DISCOs). Your reference number is printed at the top of every AJKED electricity bill.</p>
+    <p>AJK's scenic geography — the Neelum Valley, Rawalakot's green hills, Mirpur's urban landscape — makes it a unique territory. Consumers across AJK's diverse terrain benefit from some of Pakistan's most reliable hydropower supply, though winter peak demand and the mountainous distribution network mean load shedding still occurs in certain areas.</p>
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Alongside this checker, you can also check: <a href="/iesco-bill/">IESCO bill</a> | <a href="/pesco-bill/">PESCO bill</a> | <a href="/lesco-bill/">LESCO bill</a> | <a href="/sngpl-bill/">SNGPL gas bill</a>. Use our free <a href="/electricity-bill-calculator/">electricity bill calculator</a> to estimate charges before your bill arrives, or visit our <a href="/dashboard/">universal bill dashboard</a> to check multiple bills without switching pages. Also see: <a href="/blog/how-to-reduce-electricity-bill/">How to reduce electricity bill</a> — and our complete <a href="/islamabad/">Azad Jammu & Kashmir utility bills guide</a>.</p>
+  `}
+
+  howToSteps={[
+    "Find your 14-digit AJKED reference number — printed in bold at the top of your AJK electricity bill. AJK consumers use the same 14-digit format as all WAPDA DISCOs.",
+    "Open the bill checker tool at the top of this page. The Reference Number tab is selected by default.",
+    "Enter your 14-digit AJKED reference number in the input field. Numbers only — no spaces or dashes.",
+    "Click the green Check Bill button. The tool connects to the official PITC server (bill.pitc.com.pk/ajkbill) and fetches your latest bill.",
+    "Your complete AJK electricity bill appears within 3 to 5 seconds — showing amount due, due date, units consumed, meter readings, and all applicable charges.",
+    "Click Download PDF to save your AJKED duplicate bill as a PDF, or click Print for an immediate paper copy."
+  ]}
+
+  billReadingTips={[
+    "AJK's helpline is 1912 — not 118 like mainland Pakistan DISCOs. If you call 118 for an AJK billing issue, you will reach WAPDA's national helpline, which may not be able to resolve AJK-specific issues. Always call 1912 for AJKED.",
+    "AJK domestic consumers benefit from special low tariff rates — particularly the lifeline rate of Rs 5.79/unit for the first 50 units, which is a direct benefit of Mangla Dam and Neelum-Jhelum hydro generation in AJK.",
+    "The Neelum Jhelum Surcharge (Rs 0.10/unit) appears on AJK bills — the same as mainland Pakistan. Although the Neelum-Jhelum project is physically located in AJK near Muzaffarabad, AJK consumers pay the same NJ surcharge as all Pakistani consumers.",
+    "Rawalakot, Bagh, Haveli, and Sudhnoti consumers: your bills should show your correct district under AJKED's Rawalakot/Poonch circle. If the address or district is wrong, visit the nearest AJKED office to correct it.",
+    "Neelum Valley consumers: this beautiful but remote valley is one of AJKED's most challenging service areas. If your bill shows Estimated for multiple consecutive months, request an actual reading from the Muzaffarabad AJKED office.",
+    "Mirpur district is AJK's most populous and economically active district — home to Pakistan's largest overseas remittance community (UK Pakistani diaspora). Mirpur consumers tend to have higher consumption due to modern appliances, generators, and large homes funded by remittances.",
+  ]}
+
+  savingTips={[
+    "Muzaffarabad, Bagh, and Rawalakot (1,600–1,800m elevation) have cool summers — no AC needed for most of the year. Use ceiling fans from April to June and September. This alone keeps most AJK mountain consumers comfortably within the Protected 200-unit threshold.",
+    "Mirpur district consumers (lower elevation, warmer climate): moderate AC usage in summer. Mirpur's flat terrain and urban heat island effect make it warmer than most of AJK. Set AC to 26°C and use fans simultaneously.",
+    "Neelum Valley, Hattian Bala, and Haveli highland consumers: avoid electric heaters in winter. Wood and gas alternatives are far cheaper and more culturally established in these highland communities. Electric heaters add 400+ units in mountain winters.",
+    "AJK businesses in Muzaffarabad and Mirpur: apply for AJKED net metering for solar installations. AJK receives excellent solar irradiance despite its mountainous terrain. Commercial solar with net metering dramatically reduces business electricity costs.",
+    "Check your AJKED bill monthly using this tool. AJK billing systems have improved significantly but errors in remote valley areas still occur. Monthly monitoring catches problems early.",
+  ]}
+
+  complaintProcess={[
+    "Call AJKED helpline 1912 (not 118) with your 14-digit reference number. Explain the billing issue and obtain a Complaint Registration Number (CRN).",
+    "Visit your nearest AJKED divisional office in Muzaffarabad (head office), Mirpur, Rawalakot, Kotli, or your district for disputes requiring document review.",
+    "AJK is not directly under NEPRA jurisdiction — instead, file escalations with the AJK Consumer Complaint Cell at 1912 or write to the AJK Electricity Department, Muzaffarabad.",
+    "For serious billing disputes, escalate to the AJK Wafaqi Mohtasib (Federal Ombudsman) office or directly to the AJK government's electricity policy authority.",
+    "Mainland Pakistan consumers with AJK connections: NEPRA has limited jurisdiction over AJK, but you can still file complaints about service standards at nepra.org.pk and request NEPRA to coordinate with AJKED.",
+  ]}
+
+  smsService="Type pitc followed by a space and your 14-digit AJKED reference number, then send to 8334 for your bill amount, due date, and units by return SMS."
+
+  coverageAreas={[
+    { region: "Muzaffarabad Division", district: "Muzaffarabad", cities: "Muzaffarabad City, Garhi Habibullah, Chinari, Chakothi, Hattian Bala" },
+    { region: "Mirpur Division", district: "Mirpur", cities: "Mirpur City, New Mirpur, Dadyal, Chakswari, Bhimber City" },
+    { region: "Poonch Division", district: "Rawalakot (Poonch)", cities: "Rawalakot City, Hajira, Plandri, Hari Ghel — Sudhnoti, Bagh City" },
+    { region: "Kotli District", district: "Kotli", cities: "Kotli City, Nakyal, Fatehpur, Charhoi" },
+    { region: "Neelum Valley", district: "Neelum", cities: "Athmuqam, Sharda, Kel, Keran — scenic Neelum Valley" },
+    { region: "Haveli District", district: "Haveli", cities: "Forward Kahuta, Taobat, Wan Bhachran AJK" },
+  ]}
+
+  contacts={[
+    { type: "AJKED Helpline (24/7)", detail: "1912 (NOT 118 — AJK-specific)" },
+    { type: "Muzaffarabad Head Office", detail: "Near Chinar Chowk, Muzaffarabad" },
+    { type: "Mirpur Office", detail: "AJKED Mirpur Circle Office, Mirpur City" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Official Website", detail: "ajked.gok.pk" },
+    { type: "New Connection", detail: "Visit nearest AJKED district office" },
+    { type: "Load Shedding Info", detail: "ccms.pitc.com.pk → Enter 14-digit reference" },
+    { type: "AJK Government", detail: "gok.pk (Government of AJK portal)" },
+  ]}
+
+  tariffSlabs={[
+    { units: "1 – 50 units", rate: "5.79", category: "Lifeline (AJK Special)" },
+    { units: "51 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "Above 500 units", rate: "43.92", category: "Unprotected" },
+  ]}
+
+  faqs={[
+    { question: "How do I check my AJK electricity bill online in March 2026?", answer: "Enter your 14-digit AJKED reference number in the bill checker at the top of this page and click Check Bill. Your complete AJK electricity bill for March 2026 appears in seconds — showing amount due, due date, units consumed, and all charges. This works for all AJK districts including Muzaffarabad, Mirpur, Rawalakot, Kotli, Bagh, and Neelum Valley. Free, no login, 24/7." },
+    { question: "What is the AJKED helpline number?", answer: "The AJKED (AJK Electricity Department) helpline is 1912 — NOT 118 which is the mainland WAPDA helpline. For any AJK billing dispute, connection issue, or outage, call 1912. This number is specific to Azad Kashmir and connects directly to AJKED's customer service. The 1912 number works from all mobile networks and landlines within Pakistan." },
+    { question: "Why is the AJK electricity tariff lower than Pakistan's?", answer: "AJK benefits from locally generated hydropower from two major sources: Mangla Dam (1,000+ MW on the Jhelum river at Mirpur) and Neelum-Jhelum Hydropower Project (969 MW near Muzaffarabad). Hydro generation has near-zero fuel cost unlike thermal plants. AJK's government policy channels this benefit to AJK consumers through a special lifeline rate of Rs 5.79/unit for the first 50 units — the lowest electricity rate in Pakistan." },
+    { question: "How do I check my AJK bill for Mirpur?", answer: "Mirpur is within AJKED's service area — enter your 14-digit reference number in the checker above. Mirpur City, New Mirpur, Dadyal, and Chakswari all fall under AJKED's Mirpur Circle. Mirpur is AJK's most populous and economically active district. The same 14-digit reference number format applies as for all AJKED connections." },
+    { question: "How do I check my AJK bill for Rawalakot?", answer: "Rawalakot (Poonch district) is under AJKED's Poonch Circle. Enter your 14-digit reference number in the checker above — it works for Rawalakot City, Hajira, Plandri, and all Poonch district consumers. Rawalakot at 1,676m elevation has a cool climate and most consumers there maintain Protected status without AC." },
+    { question: "How do I check my AJK bill for the Neelum Valley?", answer: "Neelum Valley (including Athmuqam, Sharda, and Kel) is under AJKED's Muzaffarabad Circle. Enter your reference number in the checker above. Neelum Valley is one of Pakistan's most scenic areas, powered significantly by the Neelum-Jhelum Hydropower Project which sits at the mouth of the valley near Muzaffarabad." },
+    { question: "How do I download my AJKED duplicate bill?", answer: "After your AJK bill loads in the checker, click Download PDF. Select Save as PDF in the print dialog and click Save. Your AJKED duplicate bill downloads instantly as a PDF — ready to pay at JazzCash, Easypaisa, HBL, or any bank in Muzaffarabad, Mirpur, Rawalakot, or your AJK city." },
+    { question: "How do I pay my AJK electricity bill online?", answer: "Pay through JazzCash, Easypaisa, HBL, or any bank mobile app. Go to Bill Payments, select Electricity, choose AJK or WAPDA, enter your 14-digit reference number, verify the amount, and confirm. Online payment reaches AJKED's system within 2 to 4 hours. JazzCash and Easypaisa have good coverage across AJK's major cities." },
+    { question: "What is the grace period for AJK electricity bill payment?", answer: "AJKED gives 7 days after the due date to pay without a late payment surcharge. After the grace period, a 10% late payment surcharge applies to the unpaid amount. Check your due date online using this tool — do not rely solely on paper bills arriving in remote valley areas." },
+    { question: "Is AJK regulated by NEPRA?", answer: "AJK is not directly under NEPRA's regulatory jurisdiction. Electricity tariffs and service standards in AJK are set by the Azad Kashmir Council and the AJK government through AJKED. Consumers in AJK cannot directly use NEPRA's consumer complaint mechanism (0800-63000) for AJKED issues — instead, call 1912 and escalate within AJK government channels. NEPRA does coordinate with AJKED on national-level policy but does not directly regulate AJKED tariffs." },
+    { question: "How do I file a billing complaint with AJKED?", answer: "Call AJKED helpline 1912 with your reference number. Explain the complaint and get a written acknowledgment or CRN if available. Visit the nearest AJKED divisional office in Muzaffarabad, Mirpur, or Rawalakot for complex billing disputes. Since AJK is outside NEPRA's direct jurisdiction, escalate unresolved complaints to the AJK government's electricity authority or the Wafaqi Mohtasib." },
+  ]}
+
+  relatedPages={[
+    { name: "PESCO Bill Online", url: "/pesco-bill/" },
+    { name: "TESCO Bill Online", url: "/tesco-bill/" },
+    { name: "IESCO Bill Online", url: "/iesco-bill/" },
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "SNGPL Gas Bill", url: "/sngpl-bill/" },
+  ]}
+/>

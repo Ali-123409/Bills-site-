@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pakistan Electricity Bill Calculator 2026",
+    "applicationCategory": "UtilityApplication",
+    "url": "https://pakistanbill.online/electricity-bill-calculator/",
+    "description": "Calculate your exact Pakistan electricity bill for 2026. Enter your units consumed and see the full breakdown — tariff slabs, FPA, FC Surcharge, GST, and total amount payable.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" },
+    "operatingSystem": "Any",
+    "publisher": { "@id": "https://pakistanbill.online/#organization" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How is Pakistan electricity bill calculated?", "acceptedAnswer": { "@type": "Answer", "text": "Pakistan electricity bill = (Units consumed × Tariff rate per slab) + FPA (Rs 0.48/unit) + FC Surcharge (Rs 0.43/unit) + NJ Surcharge (Rs 0.10/unit) + GST (17%) + Electricity Duty (1.5%) + TV Fee (Rs 35) + Meter Rent. Protected consumers (≤200 units average) get subsidized slab rates." } },
+      { "@type": "Question", "name": "What is the electricity tariff rate in Pakistan 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Pakistan 2026 NEPRA domestic tariff: Protected slab 1 (1-100 units) Rs 13.48/unit, Protected slab 2 (101-200 units) Rs 18.58/unit. Unprotected: slab 1 Rs 23.59/unit up to slab 7 at Rs 48.84/unit for above 700 units." } },
+      { "@type": "Question", "name": "What is FPA in electricity bill?", "acceptedAnswer": { "@type": "Answer", "text": "FPA (Fuel Price Adjustment) is a monthly variable charge on your electricity bill based on actual fuel costs. In 2026 it is approximately Rs 0.48 per unit consumed, though it changes every month based on NEPRA determination." } },
+      { "@type": "Question", "name": "What is the difference between Protected and Unprotected electricity consumer?", "acceptedAnswer": { "@type": "Answer", "text": "Protected consumers average ≤200 units/month over the last 6 months. They get heavily subsidized rates starting at Rs 13.48/unit. Unprotected consumers face rates starting at Rs 23.59/unit from the very first unit — nearly double the Protected rate." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://pakistanbill.online/electricity-bill-calculator/#webpage",
+    "url": "https://pakistanbill.online/electricity-bill-calculator/",
+    "name": "Pakistan Electricity Bill Calculator 2026 — NEPRA Tariff",
+    "isPartOf": { "@id": "https://pakistanbill.online/#website" },
+    "dateModified": "2026-03-11",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakistanbill.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pakistanbill.online/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Electricity Bill Calculator", "item": "https://pakistanbill.online/electricity-bill-calculator/" }
+      ]
+    }
+  }
+];
+---
+<BaseLayout
+  title="Pakistan Electricity Bill Calculator 2026 — NEPRA Tariff Slabs"
+  description="Calculate your Pakistan electricity bill 2026. Enter units — get full breakdown: tariff slabs, FPA, FC Surcharge, GST. Free & instant."
+  canonical="/electricity-bill-calculator/"
+  schema={schema}
+  lastmod="2026-03-11"
+>
+  <!-- Breadcrumb -->
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/tools/" class="hover:text-primary-600">Tools</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium">Electricity Bill Calculator</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Hero -->
+    <div class="mb-8">
+      <div class="flex gap-2 mb-3">
+        <span class="badge badge-green">March 2026</span>
+        <span class="badge badge-amber">NEPRA Approved</span>
+        <span class="badge badge-blue">Free</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-3">Pakistan Electricity Bill Calculator 2026</h1>
+      <p class="text-lg text-neutral-600">Enter your units consumed to get an accurate bill estimate with full breakdown — all WAPDA DISCOs and K-Electric. Updated for March 2026 NEPRA tariff.</p>
+    </div>
+
+    <!-- CALCULATOR CARD -->
+    <div class="bg-white rounded-2xl shadow-card border border-neutral-200 p-6 mb-8" id="calculator">
+      <h2 class="text-xl font-heading font-bold text-neutral-900 mb-6">⚡ Bill Calculator</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-sm font-semibold text-neutral-700 mb-2">Units Consumed (kWh)</label>
+          <input id="calc-units" type="number" min="0" max="5000" placeholder="e.g. 350"
+            class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl text-lg font-semibold focus:border-primary-500 focus:outline-none"
+            oninput="calculateBill()" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-neutral-700 mb-2">Consumer Type</label>
+          <select id="calc-type" class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl text-base focus:border-primary-500 focus:outline-none" onchange="calculateBill()">
+            <option value="protected">Protected (avg ≤200 units/month)</option>
+            <option value="unprotected" selected>Unprotected (avg >200 units/month)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-neutral-700 mb-2">FPA This Month (Rs/unit)</label>
+          <input id="calc-fpa" type="number" step="0.01" value="0.48"
+            class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl text-base focus:border-primary-500 focus:outline-none"
+            oninput="calculateBill()" />
+          <p class="text-xs text-neutral-400 mt-1">Current: Rs 0.48/unit (March 2026)</p>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-neutral-700 mb-2">Meter Rent (Rs/month)</label>
+          <input id="calc-meter" type="number" value="1000"
+            class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl text-base focus:border-primary-500 focus:outline-none"
+            oninput="calculateBill()" />
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="calc-results" class="hidden">
+        <div class="bg-primary-50 border-2 border-primary-200 rounded-2xl p-5 mb-4">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-semibold text-primary-700">ESTIMATED TOTAL BILL</span>
+            <span class="text-xs text-primary-500">Approximate — exact bill may vary</span>
+          </div>
+          <div id="calc-total" class="text-4xl font-heading font-bold text-primary-700">Rs 0</div>
+        </div>
+
+        <div class="space-y-2" id="calc-breakdown">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Formula Box -->
+        <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-4 mt-4">
+          <h3 class="text-sm font-semibold text-neutral-700 mb-2">📐 Bill Formula</h3>
+          <p class="font-mono text-xs text-neutral-600 leading-relaxed">
+            Total = (Units × Tariff Slab Rate)<br/>
+            + (Units × FPA Rate)<br/>
+            + (Units × FC Surcharge Rs 0.43)<br/>
+            + (Units × NJ Surcharge Rs 0.10)<br/>
+            + GST 17% on [Energy + FPA + FC + NJ]<br/>
+            + Electricity Duty 1.5%<br/>
+            + TV Fee Rs 35<br/>
+            + Meter Rent
+          </p>
+        </div>
+      </div>
+
+      <div id="calc-placeholder" class="text-center py-8 text-neutral-400">
+        <div class="text-5xl mb-3">⚡</div>
+        <p class="text-base">Enter units above to see your bill breakdown</p>
+      </div>
+    </div>
+
+    <!-- TARIFF TABLE -->
+    <div class="bg-white rounded-2xl shadow-card border border-neutral-200 p-6 mb-8">
+      <h2 class="text-xl font-heading font-bold text-neutral-900 mb-4">NEPRA 2026 Tariff Slabs — Domestic Consumers</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary-700 text-white">
+              <th class="px-4 py-3 text-left rounded-tl-lg">Consumer Type</th>
+              <th class="px-4 py-3 text-left">Units (kWh)</th>
+              <th class="px-4 py-3 text-left">Rate (Rs/unit)</th>
+              <th class="px-4 py-3 text-left rounded-tr-lg">Annual Saving vs Unprotected</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-green-50 border-b border-green-100">
+              <td class="px-4 py-3 font-semibold text-green-800" rowspan="2">Protected<br/><span class="font-normal text-xs">(avg ≤200 units/mo)</span></td>
+              <td class="px-4 py-3">1 – 100 units</td>
+              <td class="px-4 py-3 font-bold text-green-700">Rs 13.48</td>
+              <td class="px-4 py-3 text-green-600 text-xs">Saves ~Rs 10/unit vs Unprotected</td>
+            </tr>
+            <tr class="bg-green-50 border-b border-neutral-200">
+              <td class="px-4 py-3">101 – 200 units</td>
+              <td class="px-4 py-3 font-bold text-green-700">Rs 18.58</td>
+              <td class="px-4 py-3 text-green-600 text-xs">Saves ~Rs 5/unit vs Unprotected</td>
+            </tr>
+            {[
+              ["1 – 100", "23.59"],["101 – 200", "30.07"],["201 – 300", "34.26"],
+              ["301 – 400", "39.15"],["401 – 500", "41.36"],["501 – 600", "42.78"],
+              ["601 – 700", "43.92"],["700+", "48.84"],
+            ].map((r, i) => (
+              <tr class={`border-b border-neutral-100 ${i%2===0?'bg-white':'bg-neutral-50'}`}>
+                {i===0 && <td class="px-4 py-3 font-semibold text-red-700" rowspan="8">Unprotected<br/><span class="font-normal text-xs">(avg >200 units/mo)</span></td>}
+                <td class="px-4 py-3">{r[0]} units</td>
+                <td class="px-4 py-3 font-bold text-red-600">Rs {r[1]}</td>
+                <td class="px-4 py-3 text-xs text-neutral-400">—</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-neutral-400 mt-3">Source: NEPRA. Rates are NEPRA-approved for 2026. FPA (Rs 0.48/unit), FC Surcharge (Rs 0.43/unit), NJ Surcharge (Rs 0.10/unit), and GST (17%) apply additionally on all slabs.</p>
+    </div>
+
+    <!-- CONTENT BLOCK: CHARGES EXPLAINED -->
+    <div class="bg-white rounded-2xl shadow-card border border-neutral-200 p-6 mb-8">
+      <h2 class="text-xl font-heading font-bold text-neutral-900 mb-4">Every Charge on Your Pakistan Electricity Bill — Explained</h2>
+      <div class="space-y-4">
+        {[
+          { name: "Tariff Charge (Energy Charge)", formula: "Units × Rs/unit (based on your slab)", detail: "The core electricity usage charge. Calculated slab-by-slab — units in each range are charged at that slab's rate. Unprotected consumers pay the slab rate from the very first unit." },
+          { name: "FPA — Fuel Price Adjustment", formula: "Units × Rs 0.48/unit (March 2026)", detail: "Variable monthly charge determined by NEPRA based on actual fuel costs for generating electricity. Positive FPA = you pay extra. Negative FPA = credit on bill. Changes every month." },
+          { name: "FC Surcharge — Fixed Charge Surcharge", formula: "Units × Rs 0.43/unit", detail: "Capacity payment charges levied to pay IPPs (Independent Power Producers) for electricity generation capacity contracted by the government, whether used or not." },
+          { name: "NJ Surcharge — Neelum Jhelum Surcharge", formula: "Units × Rs 0.10/unit", detail: "Financing surcharge for the Neelum-Jhelum Hydropower Project (969 MW) near Muzaffarabad, AJK. Applied uniformly to all consumers nationwide." },
+          { name: "GST — General Sales Tax", formula: "(Energy + FPA + FC + NJ) × 17%", detail: "17% GST levied on electricity charges as per Pakistan's tax laws. Not applicable to Electricity Duty or fixed charges." },
+          { name: "Electricity Duty", formula: "Energy Charges × 1.5%", detail: "Provincial tax on electricity consumption. Rate may vary slightly by province but is generally 1.5%." },
+          { name: "TV License Fee", formula: "Rs 35 per month (fixed)", detail: "A government-mandated fixed charge added to every domestic electricity bill regardless of TV ownership. Collected by DISCOs on behalf of PTV." },
+          { name: "Meter Rent", formula: "~Rs 800–1,200 per month (varies by DISCO)", detail: "Monthly rental for the electricity meter. LESCO and large DISCOs typically charge Rs 1,000/month. Check your bill for your specific DISCO's rate." },
+        ].map(item => (
+          <div class="flex gap-3 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+            <div class="flex-1">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-semibold text-neutral-900 text-sm">{item.name}</h3>
+                <code class="text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded font-mono whitespace-nowrap">{item.formula}</code>
+              </div>
+              <p class="text-xs text-neutral-600 mt-1 leading-relaxed">{item.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="bg-white rounded-2xl shadow-card border border-neutral-200 p-6 mb-8">
+      <h2 class="text-xl font-heading font-bold text-neutral-900 mb-4">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {[
+          { q: "How accurate is this calculator?", a: "This calculator uses the exact NEPRA 2026 domestic tariff slabs and current FPA/surcharge rates. It gives a close estimate. Your actual bill may differ slightly due to DISCO-specific meter rent amounts, QTR charges, or any arrears from previous months." },
+          { q: "Why does my bill jump so much when I cross 200 units?", a: "Protected consumers (average ≤200 units) pay Rs 13.48–18.58/unit. The moment your average crosses 200 units over 6 months, you become Unprotected — and ALL units are charged at the Unprotected slab rates starting at Rs 23.59/unit from unit 1. This can add Rs 3,000–8,000 to your bill instantly." },
+          { q: "What is the difference between this month's bill and last month's?", a: "Your bill changes due to: (1) Different units consumed, (2) Monthly FPA change by NEPRA, (3) Category change from Protected to Unprotected or vice versa, (4) Seasonal surcharges, (5) Meter reading errors or estimated bills catching up." },
+          { q: "How do I stay in the Protected category?", a: "Your category is based on a 6-month rolling average. If your average stays at or below 200 units per month over any 6-month window, you remain Protected. To manage this: avoid running ACs at full blast during summer, use inverter appliances, and turn off geysers when not needed." },
+          { q: "Does this calculator work for K-Electric (Karachi) too?", a: "Partially. K-Electric uses similar tariff slabs but applies its own FCA (Fuel Cost Adjustment) which differs from WAPDA's FPA. For an accurate KE bill estimate, use the same formula but replace FPA with KE's current FCA — typically similar in magnitude to WAPDA's FPA." },
+        ].map((faq, i) => (
+          <details class="faq-item">
+            <summary class="faq-question" onclick="">{faq.q}</summary>
+            <div class="px-4 pb-4 text-sm text-neutral-600">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <!-- Check Your Actual Bill CTA -->
+    <div class="bg-primary-700 rounded-2xl p-6 mb-8 text-white text-center">
+      <h2 class="text-xl font-bold mb-2">Get Your Exact Bill — Not Just an Estimate</h2>
+      <p class="text-primary-200 mb-4">Use our DISCO-specific bill checkers to see your actual bill directly from the official PITC server.</p>
+      <div class="flex flex-wrap gap-2 justify-center">
+        {[["LESCO","/lesco-bill/"],["MEPCO","/mepco-bill/"],["GEPCO","/gepco-bill/"],["FESCO","/fesco-bill/"],["IESCO","/iesco-bill/"],["PESCO","/pesco-bill/"],["HESCO","/hesco-bill/"],["SEPCO","/sepco-bill/"],["QESCO","/qesco-bill/"],["K-Electric","/k-electric-bill/"]].map((item) => (
+          <a href={item[1]} class="bg-white text-primary-700 font-semibold text-sm px-3 py-1.5 rounded-lg hover:bg-primary-50 transition-colors">{item[0]} Bill</a>
+        ))}
+      </div>
+    </div>
+
+  </div>
+<p style="max-width:900px;margin:1.5rem auto;padding:0.75rem 1.25rem;background:#f0fdf4;border-left:3px solid #16a34a;font-size:0.875rem;color:#374151;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers — electricity, gas, water, and telecom — in one place.</p>
+</BaseLayout>
+
+<script>
+const TARIFF = {
+  protected: [
+    { max: 100, rate: 13.48 },
+    { max: 200, rate: 18.58 },
+  ],
+  unprotected: [
+    { max: 100, rate: 23.59 },
+    { max: 200, rate: 30.07 },
+    { max: 300, rate: 34.26 },
+    { max: 400, rate: 39.15 },
+    { max: 500, rate: 41.36 },
+    { max: 600, rate: 42.78 },
+    { max: 700, rate: 43.92 },
+    { max: Infinity, rate: 48.84 },
+  ]
+};
+
+function calculateBill() {
+  const units = parseFloat((document.getElementById('calc-units') as HTMLInputElement).value) || 0;
+  const type = (document.getElementById('calc-type') as HTMLSelectElement).value;
+  const fpa = parseFloat((document.getElementById('calc-fpa') as HTMLInputElement).value) || 0.48;
+  const meterRent = parseFloat((document.getElementById('calc-meter') as HTMLInputElement).value) || 1000;
+
+  const placeholder = document.getElementById('calc-placeholder')!;
+  const results = document.getElementById('calc-results')!;
+
+  if (units <= 0) { results.classList.add('hidden'); placeholder.classList.remove('hidden'); return; }
+  placeholder.classList.add('hidden'); results.classList.remove('hidden');
+
+  // Calculate energy charge slab by slab
+  const slabs = type === 'protected' ? TARIFF.protected : TARIFF.unprotected;
+  let energy = 0, prev = 0;
+  const slabBreakdown: string[] = [];
+  for (const slab of slabs) {
+    const inSlab = Math.max(0, Math.min(units, slab.max) - prev);
+    if (inSlab > 0) {
+      energy += inSlab * slab.rate;
+      slabBreakdown.push(`${Math.round(prev)+1}–${Math.min(units, slab.max)} units × Rs ${slab.rate} = Rs ${(inSlab * slab.rate).toFixed(2)}`);
+    }
+    prev = slab.max;
+    if (prev >= units) break;
+  }
+
+  const fpaCharge = units * fpa;
+  const fcSurcharge = units * 0.43;
+  const njSurcharge = units * 0.10;
+  const taxableBase = energy + fpaCharge + fcSurcharge + njSurcharge;
+  const gst = taxableBase * 0.17;
+  const duty = energy * 0.015;
+  const tvFee = 35;
+  const total = energy + fpaCharge + fcSurcharge + njSurcharge + gst + duty + tvFee + meterRent;
+
+  (document.getElementById('calc-total') as HTMLElement).textContent = `Rs ${Math.round(total).toLocaleString()}`;
+
+  const rows = [
+    ...slabBreakdown.map(s => [`Energy (Tariff)`, s]),
+    ['FPA (Fuel Price Adj.)', `${units} units × Rs ${fpa} = Rs ${fpaCharge.toFixed(0)}`],
+    ['FC Surcharge', `${units} units × Rs 0.43 = Rs ${fcSurcharge.toFixed(0)}`],
+    ['NJ Surcharge', `${units} units × Rs 0.10 = Rs ${njSurcharge.toFixed(0)}`],
+    ['GST (17%)', `Rs ${Math.round(taxableBase).toLocaleString()} × 17% = Rs ${Math.round(gst).toLocaleString()}`],
+    ['Electricity Duty (1.5%)', `Rs ${Math.round(energy).toLocaleString()} × 1.5% = Rs ${Math.round(duty).toLocaleString()}`],
+    ['TV License Fee', `Rs ${tvFee} (fixed)`],
+    ['Meter Rent', `Rs ${meterRent} (estimate)`],
+  ];
+
+  (document.getElementById('calc-breakdown') as HTMLElement).innerHTML = rows.map((item) =>
+    `<div class="flex items-center justify-between py-2 border-b border-neutral-100 text-sm">
+      <span class="text-neutral-600">${item[0]}</span>
+      <span class="font-medium text-neutral-800 text-right ml-4 font-mono text-xs">${item[1]}</span>
+    </div>`
+  ).join('') + `<div class="flex items-center justify-between py-3 text-base font-bold text-primary-700 border-t-2 border-primary-200 mt-1">
+    <span>TOTAL ESTIMATED BILL</span><span>Rs ${Math.round(total).toLocaleString()}</span></div>`;
+}
+</script>

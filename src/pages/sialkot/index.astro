@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://pakistanbill.online/sialkot/#webpage",
+    "url": "https://pakistanbill.online/sialkot/",
+    "name": "Utility Bill Check Sialkot 2026 — Electricity, Gas & Bills Online",
+    "description": "Check all utility bills in Sialkot, Punjab: GEPCO electricity bill and SNGPL gas bill. Helplines, office addresses, and online payment guide.",
+    "isPartOf": {"@id": "https://pakistanbill.online/#website"},
+    "dateModified": "2026-03-11"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{"@type":"Question","name":"How to check electricity bill in Sialkot?","acceptedAnswer":{"@type":"Answer","text":"Sialkot electricity consumers use GEPCO. Enter your 14-digit reference number at pakistanbill.online/gepco-bill/. GEPCO covers Sialkot, Narowal, and all of Gujranwala division."}},
+      {"@type":"Question","name":"How to check gas bill in Sialkot?","acceptedAnswer":{"@type":"Answer","text":"Sialkot gas is supplied by SNGPL. Enter your 11-digit consumer number at pakistanbill.online/sngpl-bill/. SNGPL helpline: 1199."}},
+      {"@type":"Question","name":"Does Sialkot use GEPCO or LESCO?","acceptedAnswer":{"@type":"Answer","text":"Sialkot is covered by GEPCO (Gujranwala Electric Power Company), not LESCO. LESCO only covers Lahore and its surrounding districts. Check your bill header to confirm."}},
+      {"@type":"Question","name":"What is GEPCO helpline for Sialkot?","acceptedAnswer":{"@type":"Answer","text":"GEPCO helpline is 118 (24/7). For Sialkot-specific billing issues, visit the GEPCO Sialkot subdivision office or call the national helpline."}},
+      {"@type":"Question","name":"How to pay GEPCO bill in Sialkot?","acceptedAnswer":{"@type":"Answer","text":"Pay via JazzCash, EasyPaisa, or any bank app. Select Electricity → GEPCO → enter your 14-digit reference number. Also pay at any HBL, MCB, or Meezan branch."}}]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PakistanBill.online — Sialkot Utility Bill Checker",
+    "description": "Free online utility bill checker for Sialkot, Punjab. Check electricity, gas and water bills instantly.",
+    "url": "https://pakistanbill.online/sialkot/",
+    "areaServed": {"@type": "City", "name": "Sialkot", "containedInPlace": {"@type": "State", "name": "Punjab"},
+    "telephone": "+92-52-9250084",
+    "address": {"@type": "PostalAddress", "addressLocality": "Sialkot", "addressRegion": "Punjab", "addressCountry": "PK"},
+    "openingHours": "Mo-Su 00:00-24:00",
+    "priceRange": "Free"
+  }
+];
+const billLinks = {"LESCO":"/lesco-bill/","MEPCO":"/mepco-bill/","GEPCO":"/gepco-bill/","FESCO":"/fesco-bill/","IESCO":"/iesco-bill/","PESCO":"/pesco-bill/","HESCO":"/hesco-bill/","SEPCO":"/sepco-bill/","QESCO":"/qesco-bill/","TESCO":"/tesco-bill/","AJK":"/ajk-bill/","K-Electric":"/k-electric-bill/","SNGPL Gas":"/sngpl-bill/","SSGC Gas":"/ssgc-bill/","PTCL":"/ptcl-bill/","WASA Lahore":"/wasa-lahore-bill/","WASA RWP":"/wasa-rawalpindi-bill/","WASA FSD":"/wasa-faisalabad-bill/"};
+---
+<BaseLayout
+  title="Bill Check Sialkot 2026 — GEPCO, SNGPL Online | PakistanBill"
+  description="Check all utility bills in Sialkot, Punjab: GEPCO electricity, SNGPL gas. Helplines, payment guides. Updated March 2026."
+  canonical="/sialkot/"
+  schema={schema}
+  lastmod="2026-03-11"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium">Sialkot Utility Bills</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-2">Utility Bill Check — Sialkot, Punjab</h1>
+    <p class="text-lg text-neutral-600 mb-2">Sialkot (1.1 million) gets electricity from <strong>GEPCO</strong> and gas from <strong>SNGPL</strong>. Check any Sialkot utility bill below instantly.</p>
+    <p class="text-sm text-neutral-400 italic mb-8">Sialkot ka bijli ka bill GEPCO se check karein — Check, download, aur PDF save karein. Bilkul free.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <a href="/gepco-bill/" class="bg-white border-2 border-primary-200 rounded-2xl p-5 hover:border-primary-500 transition-all group">
+        <div class="text-3xl mb-3">⚡</div>
+        <h2 class="font-heading font-bold text-lg text-neutral-900 mb-1">GEPCO Electricity</h2>
+        <p class="text-sm text-neutral-500 mb-3">Check Sialkot electricity bill by 14-digit reference number — free, instant</p>
+        <span class="text-primary-600 font-semibold text-sm group-hover:underline">Check GEPCO Bill →</span>
+      </a>
+      <a href="/sngpl-bill/" class="bg-white border-2 border-orange-200 rounded-2xl p-5 hover:border-orange-500 transition-all group">
+        <div class="text-3xl mb-3">🔥</div>
+        <h2 class="font-heading font-bold text-lg text-neutral-900 mb-1">SNGPL Gas</h2>
+        <p class="text-sm text-neutral-500 mb-3">Check Sialkot gas bill by consumer number</p>
+        <span class="text-orange-600 font-semibold text-sm group-hover:underline">Check SNGPL Bill →</span>
+      </a>
+    </div>
+
+    <div class="bg-primary-50 border border-primary-200 rounded-2xl p-5 mb-8">
+      <h2 class="font-bold text-primary-800 mb-1">⚡ Check Any Sialkot Utility Bill — All in One Place</h2>
+      <p class="text-sm text-primary-700 mb-3">Use our universal dashboard to toggle between electricity, gas, and telecom bills without reloading.</p>
+      <a href="/dashboard/" class="inline-block bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary-800 transition-colors">Open Bill Dashboard →</a>
+    </div>
+
+    <h2 class="text-xl font-heading font-bold mb-4">How to Pay Utility Bills in Sialkot</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+      {[
+        ["JazzCash App","Bill Payments → Electricity/Gas → Enter reference/consumer number"],
+        ["EasyPaisa","Bill Payments → Select utility → Enter account number"],
+        ["HBL / MCB / Meezan","Bank app → Bill Payments → Select provider"],
+        ["1-Link ATM","Bill Payment → Select utility biller code → Enter number"],
+        ["Utility Office","Walk-in payment at nearest GEPCO or SNGPL office in Sialkot"],
+        ["QR Code on Bill","Scan QR printed on your bill with any bank app — instant payment"],
+      ].map((item) => (
+        <div class="bg-white border border-neutral-200 rounded-xl p-3">
+          <h3 class="font-semibold text-neutral-800 text-sm">{item[0]}</h3>
+          <p class="text-xs text-neutral-500 mt-1">{item[1]}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="text-xl font-heading font-bold mb-4">FAQs — Sialkot Utility Bills</h2>
+    <div class="space-y-3 mb-10">
+      {[{ q: `How to check electricity bill in Sialkot?`, a: `Sialkot electricity consumers use GEPCO. Enter your 14-digit reference number at pakistanbill.online/gepco-bill/. GEPCO covers Sialkot, Narowal, and all of Gujranwala division.` },
+        { q: `How to check gas bill in Sialkot?`, a: `Sialkot gas is supplied by SNGPL. Enter your 11-digit consumer number at pakistanbill.online/sngpl-bill/. SNGPL helpline: 1199.` },
+        { q: `Does Sialkot use GEPCO or LESCO?`, a: `Sialkot is covered by GEPCO (Gujranwala Electric Power Company), not LESCO. LESCO only covers Lahore and its surrounding districts. Check your bill header to confirm.` },
+        { q: `What is GEPCO helpline for Sialkot?`, a: `GEPCO helpline is 118 (24/7). For Sialkot-specific billing issues, visit the GEPCO Sialkot subdivision office or call the national helpline.` },
+        { q: `How to pay GEPCO bill in Sialkot?`, a: `Pay via JazzCash, EasyPaisa, or any bank app. Select Electricity → GEPCO → enter your 14-digit reference number. Also pay at any HBL, MCB, or Meezan branch.` }].map((faq) => (
+        <details class="faq-item">
+          <summary class="faq-question">{faq.q}</summary>
+          <div class="px-4 pb-4 text-sm text-neutral-600">{faq.a}</div>
+        </details>
+      ))}
+    </div>
+
+    <!-- All providers crosslink -->
+    <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-5">
+      <h2 class="font-bold text-neutral-800 text-sm mb-3 uppercase tracking-wider">Check All Pakistan Utility Bills</h2>
+      <div class="flex flex-wrap gap-2">
+        {Object.entries(billLinks).map((entry) => (
+          <a href={entry[1]} class="text-xs bg-neutral-100 hover:bg-primary-50 border border-neutral-200 rounded-lg px-2 py-1 text-neutral-600 hover:text-primary-700 transition-colors">{entry[0]}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+<p style="margin:1rem 0;padding:1rem;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.7;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all utility bills in Sialkot and every other city in Pakistan. Check all Sialkot bills here: <a href="/gepco-bill/">GEPCO electricity</a> | <a href="/sngpl-bill/">SNGPL gas</a> | <a href="/ptcl-bill/">PTCL telecom</a> | <a href="/electricity-bill-calculator/">electricity bill calculator</a> | <a href="/dashboard/">all bills dashboard</a>. Also check nearby cities: <a href="/gujranwala/">Gujranwala</a> | <a href="/gujrat/">Gujrat</a> | <a href="/lahore/">Lahore</a>.</p>
+</BaseLayout>

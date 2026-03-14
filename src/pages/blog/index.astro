@@ -1,0 +1,84 @@
+---
+const title = "Pakistan Utility Bill Blog — Guides, Tips & Tariff Updates 2026";
+const description = 'Expert guides on Pakistan utility bills — electricity tariff, FPA charges, reference numbers, payment methods, and tips to reduce your bill.';
+const posts = [
+  { slug: "how-to-read-electricity-bill", title: "How to Read Your Pakistan Electricity Bill — Every Line Explained", date: "March 11, 2026", cat: "Guides" },
+  { slug: "fpa-charges-explained", title: "FPA Charges Explained — What Is Fuel Price Adjustment on Your Bill", date: "March 10, 2026", cat: "Tariff" },
+  { slug: "electricity-tariff-2026", title: "Pakistan Electricity Tariff 2026 — All DISCO Slab Rates Updated", date: "March 9, 2026", cat: "Tariff" },
+  { slug: "peak-hours-all-discos", title: "Peak Hours for All Pakistan DISCOs — When NOT to Use Heavy Appliances", date: "March 8, 2026", cat: "Tips" },
+  { slug: "how-to-pay-online", title: "How to Pay Any Pakistan Utility Bill Online — JazzCash, Easypaisa & Bank Apps", date: "March 7, 2026", cat: "Guides" },
+  { slug: "how-to-reduce-electricity-bill", title: "How to Reduce Your Electricity Bill in Pakistan — 15 Proven Tips 2026", date: "March 6, 2026", cat: "Tips" },
+  { slug: "how-to-find-reference-number", title: "How to Find Reference Number on Electricity Bill — All DISCOs Guide", date: "March 12, 2026", cat: "Guides" },
+  { slug: "roman-urdu-bill-guide", title: "Bijli Ka Bill Online Kaise Check Karen — Mukammal Guide 2026", date: "March 12, 2026", cat: "Roman Urdu" },
+  { slug: "how-to-find-nepra-tariff-hike", title: "NEPRA Electricity Tariff Increase 2026 — New Rates for All DISCOs", date: "March 12, 2026", cat: "Tariff" },
+  { slug: "electricity-bill-calculator-guide", title: "How to Calculate Your Pakistan Electricity Bill — Formula & Tool 2026", date: "March 12, 2026", cat: "Guides" },
+  { slug: "change-name-ptcl-bill", title: "How to Change Name on PTCL Bill — Documents & Process 2026", date: "March 12, 2026", cat: "PTCL" },
+  { slug: "lesco-reference-number", title: "How to Find LESCO Reference Number — Where is it on Your Bill?", date: "March 12, 2026", cat: "Guides" },
+  { slug: "mepco-reference-number", title: "How to Find MEPCO Reference Number — Where is it on Your Bill?", date: "March 12, 2026", cat: "Guides" },
+  { slug: "gepco-reference-number", title: "How to Find GEPCO Reference Number — Where is it on Your Bill?", date: "March 12, 2026", cat: "Guides" },
+  { slug: "fesco-reference-number", title: "How to Find FESCO Reference Number — Where is it on Your Bill?", date: "March 12, 2026", cat: "Guides" },
+  { slug: "iesco-reference-number", title: "How to Find IESCO Reference Number — Where is it on Your Bill?", date: "March 12, 2026", cat: "Guides" },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content="Pakistan utility bill guides, tariff updates, and money-saving tips. Expert explanations of FPA charges, tariff slabs, peak hours, and how to pay bills online." />
+  <link rel="canonical" href="https://pakistanbill.online/blog/" />
+  <link rel="stylesheet" href="/styles/global.css" />
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "PakistanBill.online Blog",
+  "description": "Expert guides on Pakistan utility bills — electricity tariff, FPA, reference numbers, payment methods.",
+  "url": "https://pakistanbill.online/blog/",
+  "publisher": {"@type": "Organization", "name": "PakistanBill.online", "url": "https://pakistanbill.online"}
+}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">PakistanBill<span>.online</span></a>
+    <nav><a href="/">Home</a><a href="/blog/" class="active">Blog</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main>
+  <section style="padding: 4rem 0; background: linear-gradient(135deg, #01411C 0%, #02521F 100%); color: white;">
+    <div class="container">
+      <h1>Pakistan Utility Bill Blog</h1>
+      <p style="opacity: 0.9;">Guides, tariff updates, and money-saving tips for Pakistani consumers</p>
+    </div>
+  </section>
+  <section style="padding: 4rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem;">
+        {posts.map(p => (
+          <a href={`/blog/${p.slug}/`} style="text-decoration: none; color: inherit; background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-top: 4px solid #01411C; transition: transform 0.2s; display: block;">
+            <span style="background: #e8f5e9; color: #01411C; font-size: 0.8rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px;">{p.cat}</span>
+            <h2 style="font-size: 1.1rem; margin: 0.8rem 0 0.5rem; line-height: 1.5;">{p.title}</h2>
+            <p style="color: #888; font-size: 0.85rem; margin: 0;">{p.date}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f0fdf4;border-top:2px solid #01411C;padding:1.5rem 0;margin-top:2rem;">
+    <div style="max-width:900px;margin:0 auto;padding:0 1rem;">
+      <h3 style="font-size:0.9rem;font-weight:700;color:#01411C;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">⚡ Check Your Pakistan Utility Bill</h3>
+      <div style="display:flex;flex-wrap:wrap;"><a href="/lesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">LESCO</a><a href="/mepco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">MEPCO</a><a href="/gepco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">GEPCO</a><a href="/fesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">FESCO</a><a href="/iesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">IESCO</a><a href="/pesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">PESCO</a><a href="/hesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">HESCO</a><a href="/sepco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">SEPCO</a><a href="/qesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">QESCO</a><a href="/tesco-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">TESCO</a><a href="/ajk-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">AJK</a><a href="/k-electric-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">K-Electric</a><a href="/sngpl-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">SNGPL Gas</a><a href="/ssgc-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">SSGC Gas</a><a href="/ptcl-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">PTCL</a><a href="/wasa-lahore-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">WASA Lahore</a><a href="/wasa-rawalpindi-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">WASA RWP</a><a href="/wasa-faisalabad-bill/" style="display:inline-block;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.7rem;font-size:0.78rem;font-weight:600;color:#333;margin:0.2rem;">WASA FSD</a></div>
+    </div>
+  </section>
+
+<p style="text-align:center;max-width:700px;margin:0.5rem auto 1.5rem;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers — electricity, gas, water, and telecom. All guides below are written to help you understand your bills, save money, and navigate Pakistan's utility system. Check any bill now: <a href="/lesco-bill/">LESCO</a> | <a href="/k-electric-bill/">K-Electric</a> | <a href="/sngpl-bill/">SNGPL</a> | <a href="/ptcl-bill/">PTCL</a> | <a href="/dashboard/">all providers</a>.</p>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 PakistanBill.online · <a href="/privacy-policy/">Privacy</a> · <a href="/disclaimer/">Disclaimer</a></p>
+  </div>
+</footer>
+</body>
+</html>

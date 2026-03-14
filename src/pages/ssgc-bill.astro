@@ -1,0 +1,245 @@
+---
+const title = "SSGC Bill Online — Check Sui Southern Gas Bill Karachi March 2026";
+const desc = "Check your SSGC gas bill online by 10-digit consumer number. View your Sui Southern Gas Company bill for Karachi, Sindh, and Balochistan — free, no login required.";
+const canonical = "https://pakistanbill.online/ssgc-bill/";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do I check my SSGC gas bill online?", "acceptedAnswer": { "@type": "Answer", "text": "Visit ssgc.com.pk, go to Online Services and click View Bill. Enter your 10-digit SSGC consumer number printed on any previous gas bill and click Submit. Your SSGC bill appears with amount, due date, meter readings, and consumption in MMBTU." } },
+    { "@type": "Question", "name": "What is the SSGC consumer number format?", "acceptedAnswer": { "@type": "Answer", "text": "SSGC consumer numbers are 10 digits long — different from SNGPL which uses 11 digits. Your consumer number is printed at the top of every SSGC gas bill. Save it in your phone for monthly bill checking." } },
+    { "@type": "Question", "name": "What is SSGC helpline number?", "acceptedAnswer": { "@type": "Answer", "text": "SSGC helpline is 1199 — same as SNGPL. Available 24/7 for gas leakage emergencies, billing complaints, and new connection queries." } },
+  ]
+};
+
+const faqs = [
+  { q: "How do I check my SSGC gas bill online in March 2026?", a: "Visit ssgc.com.pk → Online Services → View Bill. Enter your 10-digit SSGC consumer number (printed on the top of any previous gas bill) and click Submit. Your complete SSGC bill for March 2026 appears with amount due, due date, meter readings, MMBTU consumption, and all charges. You can also use the SSGC Connect app on Android and iOS." },
+  { q: "Where do I find my SSGC 10-digit consumer number?", a: "Your SSGC consumer number is a 10-digit number printed prominently on the top section of every SSGC gas bill — on the right side near your name and address. SSGC uses 10 digits — unlike SNGPL which uses 11 digits. If you have lost all previous bills, call SSGC helpline 1199 with your CNIC and address to retrieve it." },
+  { q: "What areas does SSGC supply gas to?", a: "SSGC (Sui Southern Gas Company) supplies gas to Karachi (all areas), interior Sindh (Hyderabad, Sukkur, Larkana, Mirpurkhas), and Balochistan (Quetta, Hub, Khuzdar, and other cities with pipeline access). SNGPL, not SSGC, supplies Punjab, KPK, Islamabad, and AJK." },
+  { q: "What is the difference between SSGC and SNGPL?", a: "SSGC (Sui Southern Gas Company) covers Karachi, Sindh, and Balochistan — the southern half of Pakistan. SNGPL (Sui Northern Gas Pipelines Limited) covers Punjab, KPK, Islamabad, and AJK — the northern half. If you live in Karachi, Hyderabad, or Quetta, your gas is SSGC. If you live in Lahore, Islamabad, or Peshawar, your gas is SNGPL." },
+  { q: "What is SSGC eBill and how do I subscribe?", a: "SSGC eBill is a service that sends your gas bill by email or SMS every month. To subscribe, register at ssgc.com.pk → Customer Services → eBill. Enter your consumer number, email address, and mobile number. Once registered, SSGC sends your bill directly to your phone and email — eliminating dependence on postal delivery." },
+  { q: "What is the SSGC Connect app?", a: "SSGC Connect is SSGC's official mobile app available on Android (Google Play) and iOS (App Store). After registering with your 10-digit consumer number and CNIC, you can view bills, pay online, track complaints, request duplicate bills, submit meter reading photos, and check gas supply status — all in one place." },
+  { q: "What is MMBTU on my SSGC bill?", a: "MMBTU (Million British Thermal Units) is the unit SSGC uses for billing. Your gas meter measures consumption in HCFT (Hundred Cubic Feet). SSGC converts this to MMBTU for tariff calculation. 1 MMBTU ≈ 10.03 HCFT of gas. Your bill shows both the meter reading in HCFT and the billing quantity in MMBTU." },
+  { q: "How do I pay my SSGC gas bill online in Karachi?", a: "Pay through JazzCash, Easypaisa, or any bank mobile app. Go to Bill Payments, select Gas, choose SSGC, enter your 10-digit consumer number, verify the amount, and confirm. HBL, MCB, Meezan, UBL, Bank Alfalah, and all major Karachi banks support SSGC bill payment. You can also pay via the SSGC Connect app or at any SSGC regional office." },
+  { q: "Why is my SSGC gas bill so high in winter?", a: "SSGC Karachi winters are milder than northern Pakistan — gas heating demand in Karachi is relatively low. However, interior Sindh and Balochistan winters are cold, and gas usage for room heating and geysers spikes significantly. For Karachi consumers: high winter bills are usually due to geyser use. If your Protected status changes to Unprotected (average exceeds 0.5 HCFT/day), your rate multiplies by 4-5x — this is the most common cause of bill shocks." },
+  { q: "How do I report a gas emergency to SSGC?", a: "Call SSGC emergency helpline 1199 immediately if you smell gas or suspect a leak. Turn off all gas appliances, open windows, do not use electrical switches, and evacuate the area. SSGC has 24/7 emergency response teams in Karachi and all major SSGC cities. In Karachi, response time is typically 20–45 minutes for emergencies." },
+  { q: "How do I apply for a new SSGC gas connection in Karachi?", a: "Apply online at ssgc.com.pk → New Connection, or visit your nearest SSGC regional office in Karachi (Gulshan, SITE, Korangi, Clifton, and other areas). Required documents: CNIC copy, property ownership or tenancy agreement, and site layout. Connection fees depend on your distance from the nearest gas main. Urban Karachi connections typically take 30–90 days." },
+  { q: "How do I file an SSGC billing complaint?", a: "Call 1199 with your 10-digit consumer number. Explain the issue and get a complaint reference number. If unresolved within 14 working days, escalate to OGRA (Oil & Gas Regulatory Authority) at 0800-66256 (toll-free) or file at ogra.org.pk. OGRA has legal authority over SSGC and its decisions are binding." },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={desc} />
+  <link rel="canonical" href={canonical} />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},{"@type":"ListItem","position":2,"name":"Gas Bills","item":"https://pakistanbill.online/#gas"},{"@type":"ListItem","position":3,"name":"SSGC Gas Bill","item":"https://pakistanbill.online/ssgc-bill/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://pakistanbill.online/ssgc-bill/#webpage","url":"https://pakistanbill.online/ssgc-bill/","name":"SSGC Gas Bill Online","description":"Check SSGC Sui Southern Gas Company bill online for Karachi, Sindh, and Balochistan by 10-digit consumer number.","isPartOf":{"@id":"https://pakistanbill.online/#website"},"dateModified":"2026-03-11","inLanguage":"en-PK"}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Check SSGC Gas Bill Online",
+  "description": "Check your SSGC Gas Bill using your 10-digit consumer number. Free, instant, no login.",
+  "step": [
+    {"@type":"HowToStep","position":1,"name":"Get your 10-digit consumer number","text":"Your 10-digit consumer number is printed on your bill. Find it before proceeding."},
+    {"@type":"HowToStep","position":2,"name":"Open the checker","text":"Go to pakistanbill.online/ssgc-bill/ on any device."},
+    {"@type":"HowToStep","position":3,"name":"Enter your number","text":"Type your 10-digit consumer number into the input field and click Check Bill."},
+    {"@type":"HowToStep","position":4,"name":"View and download","text":"Your bill appears instantly. Use Download PDF to save or print your bill."}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">PakistanBill<span>.online</span></a>
+    <nav><a href="/">Home</a><a href="/ssgc-bill/" class="active">SSGC Gas</a><a href="/sngpl-bill/">SNGPL</a><a href="/blog/">Blog</a></nav>
+  </div>
+</header>
+
+<main>
+  <div style="background:#f5f5f5;border-bottom:1px solid #e2e8f0;padding:0.5rem 0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <nav aria-label="Breadcrumb" style="font-size:0.82rem;color:#666;">
+        <a href="/" style="color:#01411C;">Home</a> &rsaquo;
+        <a href="/#gas" style="color:#01411C;">Gas Bills</a> &rsaquo;
+        <span style="color:#333;font-weight:600;">SSGC Gas Bill</span>
+      </nav>
+    </div>
+  </div>
+  <section style="background:linear-gradient(135deg,#1a3a5c 0%,#2563eb 100%);padding:3rem 0;color:white;">
+    <div class="container">
+      <nav style="font-size:0.85rem;opacity:0.75;margin-bottom:1rem;"><a href="/" style="color:white;">Home</a> › Gas Bills › SSGC Gas Bill</nav>
+      <h1 style="font-size:2.2rem;font-weight:800;margin-bottom:0.5rem;">SSGC Bill Online — Sui Southern Gas Karachi</h1>
+      <p style="opacity:0.9;font-size:1.1rem;margin-bottom:2rem;">Check your Sui Southern Gas Company (SSGC) bill for Karachi, Sindh, and Balochistan. Enter your 10-digit consumer number.</p>
+<p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering both Pakistan gas utilities — <a href="/ssgc-bill/">SSGC</a> (Sindh & Balochistan) and <a href="/sngpl-bill/">SNGPL</a> (Punjab, KPK, AJK) — plus all 13 electricity DISCOs, <a href="/ptcl-bill/">PTCL</a>, and <a href="/water/">WASA water bills</a>. In Karachi, also check your <a href="/k-electric-bill/">K-Electric bill</a>. In Hyderabad, check your <a href="/hesco-bill/">HESCO electricity bill</a>. Use our <a href="/electricity-bill-calculator/">electricity bill calculator</a> or open the <a href="/dashboard/">bill dashboard</a>.</p>
+      <div style="background:white;border-radius:16px;padding:2rem;max-width:560px;color:#1a1a1a;">
+        <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#1a3a5c;">🔍 Check SSGC Gas Bill</h2>
+        <p style="font-size:0.85rem;color:#555;margin-bottom:1rem;">SSGC uses its own portal. Enter your 10-digit consumer number to view your bill directly.</p>
+        <div style="display:flex;gap:0.5rem;margin-bottom:0.8rem;">
+          <input id="ssgc-input" type="text" maxlength="10" placeholder="Enter 10-digit Consumer Number"
+            style="flex:1;padding:0.75rem 1rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;"
+            oninput="this.value=this.value.replace(/\D/g,'')" />
+          <button onclick="checkSSGC()" style="background:#1a3a5c;color:white;padding:0.75rem 1.5rem;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">Check Bill</button>
+        </div>
+        <p style="font-size:0.75rem;color:#888;">Your 10-digit SSGC consumer number is on any previous gas bill (top section)</p>
+        <div id="ssgc-error" style="display:none;color:#dc2626;font-size:0.85rem;margin-top:0.5rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="padding:3rem 1rem;display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;max-width:1200px;margin:0 auto;">
+    <div>
+      <section id="about" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#1a3a5c;">About SSGC — Sui Southern Gas Company</h2>
+        <p>Sui Southern Gas Company (SSGC) is Pakistan's second-largest gas utility, supplying gas to over <strong>3.5 million consumers</strong> across <strong>Karachi</strong>, <strong>Sindh</strong>, and <strong>Balochistan</strong>. Incorporated in 1954 — the same year the famous Sui gas field in Balochistan was discovered — SSGC was the first company to harness Pakistan's natural gas for domestic and industrial use. The Sui gas field, located in Dera Bugti district, initially powered Karachi and remained Pakistan's primary gas source for decades.</p>
+        <p>SSGC's service area includes: all of <strong>Karachi</strong> (Pakistan's largest city and commercial capital), <strong>Hyderabad</strong>, <strong>Sukkur</strong>, <strong>Larkana</strong>, <strong>Mirpurkhas</strong>, <strong>Nawabshah</strong>, and all major Sindh cities; and in Balochistan — <strong>Quetta</strong>, <strong>Hub</strong>, <strong>Turbat</strong>, <strong>Khuzdar</strong>, and all cities with pipeline access. SSGC also supplies major industrial areas including <strong>SITE Industrial Area</strong>, <strong>Korangi Industrial Area</strong>, and <strong>Landhi Industrial Area</strong> — Karachi's three major manufacturing zones.</p>
+        <p>SSGC operates the <strong>eBill service</strong> (email + SMS bill delivery) and the <strong>SSGC Connect app</strong> for digital bill management. Gas regulation in Pakistan is handled by <strong>OGRA</strong> (Oil and Gas Regulatory Authority), which sets SSGC's tariffs and handles consumer escalations at <strong>0800-66256</strong>.</p>
+      </section>
+
+      <section id="how-to" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#1a3a5c;">How to Check SSGC Bill Online — All Methods</h2>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead style="background:#1a3a5c;color:white;">
+            <tr><th style="padding:0.7rem;text-align:left;">Method</th><th style="padding:0.7rem;text-align:left;">Steps</th></tr>
+          </thead>
+          <tbody>
+            {[
+              ["SSGC Portal (Recommended)", "ssgc.com.pk → Online Services → View Bill → Enter 10-digit consumer number → Submit"],
+              ["Tool Above (This Page)", "Enter 10-digit consumer number above → Click Check Bill → Redirects to ssgc.com.pk with your number pre-filled"],
+              ["SSGC Connect App", "Download SSGC Connect from Google Play or App Store → Register → View bill, pay, submit complaints"],
+              ["SSGC eBill (Email/SMS)", "Subscribe at ssgc.com.pk → Your bill is emailed and SMS'd to you monthly automatically"],
+              ["JazzCash / Easypaisa", "Bill Payments → Gas → SSGC → Enter 10-digit consumer number → View and pay"],
+              ["SSGC Helpline", "Call 1199 → Agent tells you current bill amount and due date"],
+            ].map(row => (
+              <tr style="border-bottom:1px solid #e2e8f0;">
+                <td style="padding:0.8rem;font-weight:600;font-size:0.9rem;">{row[0]}</td>
+                <td style="padding:0.8rem;font-size:0.85rem;color:#555;">{row[1]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      <section id="read-bill" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#1a3a5c;">How to Read Your SSGC Gas Bill</h2>
+        <div style="display:grid;gap:0.8rem;">
+          {[
+            ["Consumer Number (10 digits)", "Your permanent 10-digit SSGC ID. Different from SNGPL's 11 digits. Used for all bill checking, payment apps, and customer service."],
+            ["Meter Readings (HCFT)", "Gas consumption is measured in HCFT (Hundred Cubic Feet). Current minus Previous reading equals your monthly consumption."],
+            ["Billing Quantity (MMBTU)", "SSGC converts HCFT to MMBTU for billing. 1 MMBTU ≈ 10.03 HCFT. All tariff charges are per MMBTU."],
+            ["Protected / Unprotected Status", "Protected (≤0.5 HCFT/day average) consumers pay the subsidized rate. Unprotected consumers pay up to 4-5x more. This is the most critical field on your bill."],
+            ["Gas Charges", "Consumption (MMBTU) × tariff rate for your category."],
+            ["GIDC (Gas Infrastructure Development Cess)", "A government levy per MMBTU to fund gas infrastructure expansion."],
+            ["GST (17%)", "General Sales Tax on gas charges."],
+            ["Due Date", "Pay before this date to avoid 10% late payment surcharge. SSGC grace period is 7 days after due date."],
+          ].map(row => (
+            <div style="background:#f8f9fa;border-radius:8px;padding:0.9rem 1.2rem;border-left:3px solid #2563eb;">
+              <h4 style="margin:0 0 0.25rem;color:#1a3a5c;font-size:0.9rem;">{row[0]}</h4>
+              <p style="margin:0;font-size:0.85rem;color:#555;">{row[1]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="coverage" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#1a3a5c;">SSGC Coverage — Cities with SSGC Gas Supply</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          {[
+            { prov: "Karachi", cities: "All Karachi areas: DHA, Clifton, Gulshan, SITE, Korangi, Landhi, Orangi, North Nazimabad, Federal B Area, Surjani" },
+            { prov: "Sindh", cities: "Hyderabad, Sukkur, Larkana, Mirpurkhas, Nawabshah, Thatta, Badin, Sanghar, Jacobabad, Shikarpur" },
+            { prov: "Balochistan", cities: "Quetta, Hub, Khuzdar, Turbat, Gwadar (limited), Dera Bugti, Sui (source)" },
+            { prov: "Not Covered", cities: "Punjab, KPK, Islamabad, AJK — these areas use SNGPL, not SSGC" },
+          ].map(p => (
+            <div style={`background:#f8f9fa;border-radius:8px;padding:1rem;border-top:3px solid ${p.prov === 'Not Covered' ? '#ef4444' : '#2563eb'};`}>
+              <h4 style="margin:0 0 0.4rem;">{p.prov}</h4>
+              <p style="margin:0;font-size:0.82rem;color:#555;">{p.cities}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="faq" style="margin-bottom:3rem;">
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:1.5rem;color:#1a3a5c;">Frequently Asked Questions — SSGC Gas Bill</h2>
+        <div style="display:grid;gap:0.75rem;">
+          {faqs.map(faq => (
+            <details style="background:#f8f9fa;border-radius:10px;border:1px solid #e2e8f0;overflow:hidden;">
+              <summary style="padding:1rem 1.25rem;font-weight:600;font-size:0.95rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;">
+                {faq.q} <span style="color:#2563eb;font-size:1.2rem;">+</span>
+              </summary>
+              <div style="padding:0 1.25rem 1rem;font-size:0.9rem;color:#555;line-height:1.8;">{faq.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <div style="background:#1a3a5c;color:white;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;">
+        <h3 style="font-size:1rem;margin-bottom:0.5rem;">SSGC Helpline</h3>
+        <p style="font-size:2.5rem;font-weight:800;margin:0;">1199</p>
+        <p style="opacity:0.8;font-size:0.85rem;margin-top:0.3rem;">24/7 — Gas leaks, billing, complaints</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:1rem;padding-top:1rem;">
+          <p style="opacity:0.7;font-size:0.75rem;margin:0;">OGRA Helpline:</p>
+          <p style="font-weight:600;font-size:1.1rem;margin:0.2rem 0 0;">0800-66256</p>
+        </div>
+      </div>
+      <div style="background:white;border-radius:16px;border:1px solid #e2e8f0;padding:1.5rem;margin-bottom:1.5rem;">
+        <h3 style="font-size:0.85rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem;">Other Utility Bills</h3>
+        {[
+          { n: "SNGPL Gas (Punjab/KPK)", u: "/sngpl-bill/" },
+          { n: "K-Electric Bill (Karachi)", u: "/k-electric-bill/" },
+          { n: "HESCO Electricity (Hyderabad)", u: "/hesco-bill/" },
+          { n: "SEPCO Electricity (Sukkur)", u: "/sepco-bill/" },
+          { n: "LESCO Electricity (Lahore)", u: "/lesco-bill/" },
+          { n: "PTCL Telephone Bill", u: "/ptcl-bill/" },
+        ].map(p => <a href={p.u} style="display:block;padding:0.35rem 0.5rem;font-size:0.85rem;color:#444;">→ {p.n}</a>)}
+      </div>
+    </aside>
+  </div>
+
+  <!-- All Providers Internal Links -->
+  <section style="background:#f8f9fa;border-top:1px solid #e2e8f0;padding:2rem 0;margin-top:0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <h2 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;">Check All Pakistan Utility Bills</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:0.3rem;"><a href="/lesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">LESCO</a><a href="/mepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">MEPCO</a><a href="/gepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">GEPCO</a><a href="/fesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">FESCO</a><a href="/iesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">IESCO</a><a href="/pesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">PESCO</a><a href="/hesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">HESCO</a><a href="/sepco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SEPCO</a><a href="/qesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">QESCO</a><a href="/tesco-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">TESCO</a><a href="/ajk-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">AJK</a><a href="/k-electric-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">K-Electric</a><a href="/sngpl-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SNGPL Gas</a><a href="/ssgc-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">SSGC Gas</a><a href="/ptcl-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">PTCL</a><a href="/wasa-lahore-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA Lahore</a><a href="/wasa-rawalpindi-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA RWP</a><a href="/wasa-faisalabad-bill/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">WASA FSD</a><a href="/blog/" style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:6px;padding:0.4rem 0.8rem;font-size:0.8rem;font-weight:600;color:#333;margin:0.2rem;">Blog</a></div>
+    </div>
+  </section>
+
+  <!-- Related Pages — Internal Contextual Links -->
+  <section style="background:#f0fdf4;border-top:2px solid #34d399;padding:1.5rem 0;margin-top:2rem;">
+    <div style="max-width:960px;margin:0 auto;padding:0 1rem;">
+      <h3 style="font-size:0.85rem;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <div><a href="/sngpl-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">SNGPL gas bill for Punjab & KPK</a><a href="/k-electric-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">K-Electric bill Karachi</a><a href="/hesco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">HESCO electricity bill Hyderabad</a><a href="/qesco-bill/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">QESCO electricity bill Quetta</a><a href="/gas/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">all gas bills</a><a href="/blog/how-to-pay-online/" style="display:inline-block;background:white;border:1px solid #d1fae5;border-radius:8px;padding:0.35rem 0.75rem;font-size:0.8rem;font-weight:600;color:#065f46;margin:0.2rem;text-decoration:none;">how to pay bills online</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 PakistanBill.online · <a href="/privacy-policy/">Privacy Policy</a> · <a href="/disclaimer/">Disclaimer</a></p>
+  </div>
+</footer>
+<script>
+  function checkSSGC() {
+    const input = (document.getElementById('ssgc-input') as HTMLInputElement);
+    const err = document.getElementById('ssgc-error');
+    const val = input.value.trim();
+    if (val.length !== 10) {
+      err!.style.display = 'block';
+      err!.textContent = 'Please enter a valid 10-digit SSGC consumer number.';
+      return;
+    }
+    err!.style.display = 'none';
+    window.open(`https://www.ssgc.com.pk/bill/?consumer=${val}`, '_blank');
+  }
+</script>
+</body>
+</html>

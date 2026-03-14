@@ -1,0 +1,315 @@
+---
+// BillChecker.astro
+// Core interactive component for fetching and displaying bills
+// Works for all PITC DISCOs via CORS proxy
+
+interface Props {
+  disco: string;         // e.g. "lesco"
+  discoName: string;     // e.g. "LESCO"
+  refnoLength?: number;  // 14 for PITC DISCOs
+  hasCustomerID?: boolean;
+}
+
+const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props;
+---
+
+<div class="bill-checker" id="bill-checker-tool">
+
+  <!-- Tool Header -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+      <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+    </div>
+    <div>
+      <h2 class="text-lg font-heading font-bold text-neutral-900">{discoName} Bill Checker</h2>
+      <p class="text-sm text-neutral-500">Enter your reference number to view your bill instantly</p>
+    </div>
+  </div>
+
+  <!-- Input tabs — Reference No or Customer ID -->
+  {hasCustomerID && (
+    <div class="flex gap-2 mb-4">
+      <button 
+        id="tab-refno" 
+        class="tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white"
+        onclick="switchTab('refno')"
+      >
+        Reference Number
+      </button>
+      <button 
+        id="tab-custid" 
+        class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+        onclick="switchTab('custid')"
+      >
+        Customer ID
+      </button>
+    </div>
+  )}
+
+  <!-- Input Form -->
+  <div class="flex flex-col sm:flex-row gap-3">
+    <div class="flex-1">
+      <input 
+        type="text" 
+        id="bill-input"
+        class="bill-input"
+        placeholder={`Enter ${refnoLength}-digit Reference Number`}
+        maxlength={refnoLength}
+        inputmode="numeric"
+        pattern="[0-9]*"
+        autocomplete="off"
+        aria-label={`${discoName} reference number input`}
+      />
+      <p class="mt-1 text-xs text-neutral-400" id="input-hint">
+        Found on top-right of your printed bill
+      </p>
+    </div>
+    <button 
+      id="check-btn"
+      class="btn-primary sm:w-auto"
+      onclick="checkBill()"
+      aria-label={`Check ${discoName} bill`}
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      Check Bill
+    </button>
+  </div>
+
+  <!-- Status messages -->
+  <div id="bill-status" class="mt-4 hidden"></div>
+
+  <!-- Bill Display Area -->
+  <div id="bill-display" class="bill-display hidden mt-6">
+
+    <!-- Action buttons -->
+    <div class="bill-actions">
+      <button onclick="downloadPDF()" class="btn-secondary text-sm py-2 px-4">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download PDF
+      </button>
+      <button onclick="printBill()" class="btn-outline text-sm py-2 px-4">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+        </svg>
+        Print Bill
+      </button>
+      <button onclick="checkAgain()" class="text-sm text-neutral-500 hover:text-neutral-700 px-3 py-2 transition-colors">
+        Check Another Bill
+      </button>
+    </div>
+
+    <!-- Bill iframe — bill renders here -->
+    <div class="overflow-auto">
+      <iframe 
+        id="bill-frame"
+        class="bill-frame"
+        title="{discoName} Electricity Bill"
+        sandbox="allow-same-origin allow-popups"
+      ></iframe>
+    </div>
+  </div>
+
+</div>
+
+<script define:vars={{ disco, discoName, refnoLength }}>
+
+  let currentTab = 'refno';
+  let currentBillHTML = '';
+
+  // Switch between Reference No and Customer ID tabs
+  function switchTab(tab) {
+    currentTab = tab;
+    const input = document.getElementById('bill-input');
+    const hint = document.getElementById('input-hint');
+    const tabRefno = document.getElementById('tab-refno');
+    const tabCustid = document.getElementById('tab-custid');
+
+    if (tab === 'refno') {
+      input.placeholder = `Enter ${refnoLength}-digit Reference Number`;
+      input.maxLength = refnoLength;
+      hint.textContent = 'Found on top-right of your printed bill';
+      tabRefno.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
+      tabCustid.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
+    } else {
+      input.placeholder = 'Enter 10-digit Customer ID';
+      input.maxLength = 10;
+      hint.textContent = 'Found below your name on the printed bill';
+      tabCustid.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
+      tabRefno.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
+    }
+    input.value = '';
+  }
+
+  // Validate input before fetching
+  function validateInput(value) {
+    const cleaned = value.replace(/\s/g, '');
+    if (!/^\d+$/.test(cleaned)) return { valid: false, msg: 'Please enter numbers only — no letters or spaces.' };
+    if (currentTab === 'refno' && cleaned.length !== refnoLength) return { valid: false, msg: `Reference number must be exactly ${refnoLength} digits.` };
+    if (currentTab === 'custid' && cleaned.length !== 10) return { valid: false, msg: 'Customer ID must be exactly 10 digits.' };
+    return { valid: true, value: cleaned };
+  }
+
+  // Show status message
+  function showStatus(type, message) {
+    const status = document.getElementById('bill-status');
+    const classes = {
+      loading: 'alert-info flex items-center gap-2',
+      error:   'alert-warning flex items-center gap-2',
+      success: 'alert-success flex items-center gap-2',
+    };
+    status.className = `mt-4 ${classes[type]}`;
+    status.innerHTML = message;
+    status.classList.remove('hidden');
+  }
+
+  function hideStatus() {
+    document.getElementById('bill-status').classList.add('hidden');
+  }
+
+  // Main bill check function
+  async function checkBill() {
+    const input = document.getElementById('bill-input');
+    const validation = validateInput(input.value);
+
+    if (!validation.valid) {
+      showStatus('error', `
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        ${validation.msg}
+      `);
+      return;
+    }
+
+    const refno = validation.value;
+    const btn = document.getElementById('check-btn');
+
+    // Loading state
+    btn.disabled = true;
+    btn.innerHTML = `
+      <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Loading...
+    `;
+
+    showStatus('loading', `
+      <svg class="w-4 h-4 animate-spin flex-shrink-0" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Fetching your ${discoName} bill — please wait...
+    `);
+
+    try {
+      // Build PITC URL
+      const inputType = currentTab === 'refno' ? 'refno' : 'appno';
+      const pitcURL = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${refno}`;
+
+      // Fetch via our CORS proxy — /api/bill
+      const response = await fetch(`/api/bill?url=${encodeURIComponent(pitcURL)}`);
+
+      if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+      const html = await response.text();
+
+      // Check if PITC returned a valid bill or an error page
+      if (html.includes('Invalid') || html.includes('No record') || html.includes('not found') || html.length < 500) {
+        showStatus('error', `
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          No bill found for this reference number. Please double-check the number printed on your bill.
+        `);
+        return;
+      }
+
+      // Store HTML for PDF generation
+      currentBillHTML = html;
+
+      // Inject into iframe
+      const frame = document.getElementById('bill-frame');
+      frame.srcdoc = html;
+
+      // Show bill display
+      document.getElementById('bill-display').classList.remove('hidden');
+      hideStatus();
+
+      // Scroll to bill
+      document.getElementById('bill-display').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    } catch (error) {
+      showStatus('error', `
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        Could not load bill. Please try again in a few seconds.
+      `);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        Check Bill
+      `;
+    }
+  }
+
+  // Print bill
+  function printBill() {
+    const frame = document.getElementById('bill-frame');
+    frame.contentWindow?.print();
+  }
+
+  // Download as PDF via browser print dialog
+  function downloadPDF() {
+    const frame = document.getElementById('bill-frame');
+    if (!frame.contentWindow) return;
+
+    const printWindow = frame.contentWindow;
+    const style = printWindow.document.createElement('style');
+    style.textContent = `
+      @media print {
+        @page { size: A4; margin: 10mm; }
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      }
+    `;
+    printWindow.document.head.appendChild(style);
+    printWindow.print();
+  }
+
+  // Reset to check another bill
+  function checkAgain() {
+    document.getElementById('bill-display').classList.add('hidden');
+    document.getElementById('bill-input').value = '';
+    document.getElementById('bill-input').focus();
+    hideStatus();
+    currentBillHTML = '';
+  }
+
+  // Allow Enter key to submit
+  document.getElementById('bill-input')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkBill();
+  });
+
+  // Allow only numeric input
+  document.getElementById('bill-input')?.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+  });
+
+  // Expose functions globally for onclick handlers
+  window.checkBill = checkBill;
+  window.switchTab = switchTab;
+  window.printBill = printBill;
+  window.downloadPDF = downloadPDF;
+  window.checkAgain = checkAgain;
+
+</script>

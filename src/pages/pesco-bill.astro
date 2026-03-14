@@ -1,0 +1,105 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="pesco" discoName="PESCO" discoFull="Peshawar Electric Supply Company"
+  city="Peshawar" province="Khyber Pakhtunkhwa" established="1998"
+  ceo="Engr. Basit Sultan" customers="4.8 million" employees="16,000+"
+  revenue="$1.5 billion USD" helpline="118" uan="091-9213205"
+  website="https://pesco.gov.pk" headOffice="Pesco House, Warsak Road, Peshawar"
+  refnoLength={14} hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM" peakHourWinter="5:00 PM – 9:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="PESCO Bill Online — Check & Download Duplicate Bill March 2026"
+  metaDescription="Check your PESCO bill online by 14-digit reference number. View, download PDF, and print your PESCO KPK electricity duplicate bill instantly — free, no login required."
+  canonical="/pesco-bill/"
+  introContent={`
+    <p>Peshawar Electric Supply Company (PESCO) supplies electricity to nearly 4.8 million consumers across the settled districts of Khyber Pakhtunkhwa (KPK) — Pakistan's northwestern province bordering Afghanistan. Established in 1998, PESCO is the primary electricity distributor for KPK's major cities including <strong>Peshawar</strong> (the provincial capital), <strong>Mardan</strong>, <strong>Swabi</strong>, <strong>Nowshera</strong>, <strong>Charsadda</strong>, <strong>Swat</strong>, <strong>Dir</strong>, <strong>Abbottabad</strong>, <strong>Mansehra</strong>, <strong>Haripur</strong>, <strong>Kohat</strong>, <strong>Bannu</strong>, and <strong>Dera Ismail Khan</strong>.</p>
+    <p>PESCO's territory is geographically diverse — from the fertile Peshawar valley and Mardan's sugar cane fields to the mountainous Swat valley (Pakistan's tourist capital), the Hazara hills, and the tribal borderlands of Kohat and Bannu. This geographic diversity creates unique challenges for power distribution and load management. PESCO consumers in mountain areas like Swat and Abbottabad experience significantly different load shedding patterns than urban Peshawar consumers.</p>
+    <p>PESCO's <strong>winter peak hours are 5:00 PM to 9:00 PM</strong> — one hour earlier than other DISCOs. This reflects KPK's earlier winter darkness due to its higher latitude and mountainous terrain. Always check the winter peak hours before running heavy appliances in November to March. Summer peak hours follow the national standard of 6:30 PM to 10:30 PM.</p>
+    <p>To check your PESCO bill online, enter your <strong>14-digit PESCO reference number</strong> in the bill checker above. PESCO is operated under PEPCO and uses the same PITC server as all other WAPDA DISCOs — the same 14-digit reference number format applies. Note: for tribal areas of KPK, check <a href="/tesco-bill/">TESCO bill page</a> — tribal areas use TESCO, not PESCO.</p>
+  
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Also check: <a href="/iesco-bill/">IESCO bill</a> for Islamabad | <a href="/tesco-bill/">TESCO bill</a> for Tribal Districts | <a href="/sngpl-bill/">SNGPL gas bill</a>. Use our <a href="/electricity-bill-calculator/">electricity bill calculator</a>, visit our <a href="/dashboard/">bill dashboard</a>, or read <a href="/blog/electricity-bill-calculator-guide/">how to calculate your electricity bill</a>. See our complete <a href="/peshawar/">Peshawar utility bills guide</a>.</p>
+  `}
+  howToSteps={[
+    "Find your 14-digit PESCO reference number — printed in bold at the top of your PESCO bill. Both urban and rural KPK consumers use the same 14-digit format.",
+    "Open the bill checker at the top of this page. Reference Number tab is selected by default.",
+    "Enter your 14-digit PESCO reference number. Numbers only — no spaces or dashes.",
+    "Click Check Bill. The tool connects to bill.pitc.com.pk/pescobill and fetches your bill.",
+    "Your complete PESCO bill appears in 3 to 5 seconds with all charges and due date.",
+    "Click Download PDF to save as PDF, or Print for an immediate paper copy."
+  ]}
+  billReadingTips={[
+    "PESCO winter peak hours start at 5:00 PM — one hour earlier than other DISCOs. Running heavy appliances between 5 PM and 9 PM in winter costs more per unit for connections above 5kW.",
+    "Swat, Abbottabad, and Mansehra consumers: mountain weather means heating loads in winter. Electric heaters add 200–400 units monthly. Consider gas heaters or wood stoves as cheaper alternatives for heating.",
+    "KPK consumers near Afghanistan border areas: your connection may be PESCO or TESCO depending on your exact location. Check your bill heading — if it says PITC/PESCO, use this page. If it says TESCO, use our TESCO bill page.",
+    "The Estimated tag on your PESCO bill means no actual meter reading was taken. This is common in difficult terrain areas of Swat, Dir, and Chitral. Request an actual reading to avoid large catch-up bills.",
+    "PESCO has implemented smart metering in Peshawar city. Smart meter consumers receive automated readings monthly — if you have a smart meter, check your bill for the AMR or Smart Meter tag.",
+  ]}
+  savingTips={[
+    "Use fans instead of AC in Swat, Abbottabad, Mansehra, and Chitral — KPK mountain areas have naturally cool summer temperatures. Most mountain-area consumers can avoid AC entirely and maintain Protected status.",
+    "Peshawar valley consumers face hot summers. Set AC to 26°C and use fans simultaneously. Peshawar's dry heat is easier to cool than humid climates — proper ventilation helps significantly.",
+    "For KPK agricultural consumers using PESCO for tube wells: run pumps during morning hours (7 AM to 12 PM) — off-peak, low-demand period when per-unit costs are lower.",
+    "Install solar panels for Swat, Chitral, and Dir — KPK mountain areas receive excellent solar irradiance with clear skies. Net metering is available under NEPRA's prosumer framework.",
+    "Avoid electric heaters in KPK winters. A 2kW electric room heater running 6 hours daily adds approximately 360 units per month — pushing Protected consumers firmly into Unprotected territory.",
+  ]}
+  complaintProcess={[
+    "Call PESCO helpline 118 or 091-9213205 with your 14-digit reference number. Get a Complaint Registration Number (CRN).",
+    "Visit your nearest PESCO subdivision office in Peshawar, Mardan, Swat, Abbottabad, or your district for billing disputes.",
+    "PESCO must resolve within 14 working days under NEPRA Consumer Protection Regulations.",
+    "Escalate to NEPRA at 0800-63000 if PESCO ignores your complaint. File at nepra.org.pk.",
+  ]}
+  smsService="Type pitc followed by a space and your 14-digit PESCO reference number, then send to 8334 for bill amount, due date, and units by SMS."
+  coverageAreas={[
+    { region: "Peshawar Division", district: "Peshawar", cities: "Peshawar City, Charsadda, Nowshera, Mardan, Swabi" },
+    { region: "Malakand Division", district: "Malakand", cities: "Swat, Dir Upper, Dir Lower, Chitral, Malakand" },
+    { region: "Hazara Division", district: "Hazara", cities: "Abbottabad, Mansehra, Haripur, Battagram, Kohistan" },
+    { region: "Kohat Division", district: "Kohat", cities: "Kohat City, Hangu, Karak, Orakzai" },
+    { region: "Bannu Division", district: "Bannu", cities: "Bannu City, Lakki Marwat, Tank" },
+    { region: "Dera Ismail Khan", district: "D.I. Khan", cities: "D.I. Khan City, Kulachi, Paharpur" },
+  ]}
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "Peshawar Office", detail: "091-9213205" },
+    { type: "Head Office", detail: "Pesco House, Warsak Road, Peshawar" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Complaint Email", detail: "info@pesco.gov.pk" },
+    { type: "New Connection", detail: "enc.com.pk → Select PESCO" },
+    { type: "Official Website", detail: "pesco.gov.pk" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter reference number" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free)" },
+  ]}
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+  faqs={[
+    { question: "How do I check my PESCO bill online in March 2026?", answer: "Enter your 14-digit PESCO reference number in the bill checker above and click Check Bill. Your complete PESCO electricity bill appears in seconds with amount, due date, and all charges. Free, no login, works 24/7 for all KPK districts." },
+    { question: "What is the difference between PESCO and TESCO?", answer: "PESCO covers settled districts of KPK: Peshawar, Mardan, Swat, Abbottabad, Kohat, Bannu, D.I. Khan, and others. TESCO covers the Merged Tribal Districts (formerly FATA): Khyber, Kurram, Bajaur, Mohmand, North Waziristan, South Waziristan, and Orakzai. Check your bill heading to confirm which company supplies your area." },
+    { question: "What are PESCO winter peak hours?", answer: "PESCO winter peak hours (November to March) are 5:00 PM to 9:00 PM — one full hour earlier than other DISCOs which use 6:00–10:00 PM. This reflects KPK's earlier winter darkness. Avoid running heavy appliances between 5 PM and 9 PM in winter to save on per-unit charges." },
+    { question: "How do I check PESCO bill for Swat?", answer: "Swat is within PESCO's service area. Enter your 14-digit PESCO reference number in the checker above — it works for all PESCO districts including Swat, Mingora, Matta, and Bahrain. Swat is one of PESCO's highest-tourism districts, and PESCO provides electricity to all major Swat hotels, resorts, and residential areas." },
+    { question: "How do I check PESCO bill for Abbottabad?", answer: "Abbottabad is covered by PESCO's Hazara Division circle. Enter your 14-digit reference number in the checker above. Abbottabad, Havelian, Harippur, and Mansehra all fall under PESCO. Hazara division is known for relatively mild climate — most consumers here can maintain Protected status without major lifestyle changes." },
+    { question: "How do I download my PESCO duplicate bill?", answer: "After the bill loads, click Download PDF and select Save as PDF in the print dialog. Your PESCO duplicate bill saves instantly — ready for payment at a JazzCash shop or bank in Peshawar, Mardan, Swat, or anywhere in KPK." },
+    { question: "How do I pay my PESCO bill online in KPK?", answer: "Pay through JazzCash, Easypaisa, or any bank app. Select Electricity, choose PESCO or WAPDA, enter your 14-digit reference number, and confirm. JazzCash has the widest agent network in KPK for cash payments. Easypaisa is also widely available in Peshawar, Mardan, and Swat." },
+    { question: "Why does PESCO have more load shedding than LESCO?", answer: "PESCO's service area has higher transmission and distribution losses compared to urban Punjab DISCOs. More rural areas, longer lines, and historically lower bill recovery rates contribute to higher load shedding durations. Urban Peshawar typically sees 4–8 hours of load shedding; rural KPK areas can see 12–18 hours. Regular bill payment by consumers in your feeder area directly reduces your load shedding." },
+    { question: "What is the grace period for PESCO bill payment?", answer: "PESCO gives 7 days after the due date to pay without a late payment surcharge. After 7 days, a 10% surcharge applies. In remote KPK areas where paper bills arrive late, check your due date online using this tool before the deadline." },
+    { question: "How do I file a billing complaint with PESCO?", answer: "Call 118 or 091-9213205 with your reference number. Get a CRN. PESCO must resolve within 14 working days. Escalate to NEPRA at 0800-63000 if ignored. Visit your nearest PESCO subdivision office in Peshawar, Mardan, Abbottabad, or your city for complex disputes." },
+  ]}
+  relatedPages={[
+    { name: "TESCO Bill Online", url: "/tesco-bill/" },
+    { name: "AJK Bill Online", url: "/ajk-bill/" },
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "IESCO Bill Online", url: "/iesco-bill/" },
+    { name: "MEPCO Bill Online", url: "/mepco-bill/" },
+    { name: "K-Electric Bill Online", url: "/k-electric-bill/" },
+    { name: "SNGPL Gas Bill", url: "/sngpl-bill/" },
+  ]}
+/>

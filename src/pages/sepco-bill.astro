@@ -1,0 +1,105 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="sepco" discoName="SEPCO" discoFull="Sukkur Electric Power Company"
+  city="Sukkur" province="Sindh" established="2010"
+  ceo="Engr. Arif Ahmed Mirza" customers="2.4 million" employees="9,000+"
+  revenue="$0.8 billion USD" helpline="118" uan="071-5633605"
+  website="https://sepco.com.pk" headOffice="New Sukkur, Sukkur, Sindh"
+  refnoLength={14} hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM" peakHourWinter="6:00 PM – 10:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="SEPCO Bill Online — Check & Download Duplicate Bill March 2026"
+  metaDescription="Check your SEPCO bill online by 14-digit reference number or consumer ID. View, download PDF, and print your SEPCO Sukkur Sindh electricity duplicate bill — free, no login required."
+  canonical="/sepco-bill/"
+  introContent={`
+    <p>Sukkur Electric Power Company (SEPCO) supplies electricity to over 2.4 million consumers across upper Sindh and two Balochistan districts. Established in 2010 by separating from HESCO, SEPCO covers: <strong>Sukkur</strong>, <strong>Larkana</strong>, <strong>Khairpur</strong>, <strong>Ghotki</strong>, <strong>Jacobabad</strong>, <strong>Shikarpur</strong>, <strong>Kamber Shahdadkot</strong>, <strong>Kashmore Kandhkot</strong>, and parts of Dadu and Naushehro Feroze. SEPCO also extends into <strong>Jafarabad</strong> and <strong>Naseerabad</strong> districts of Balochistan — making it the only DISCO that crosses a provincial boundary.</p>
+    <p><strong>Sukkur</strong> — SEPCO's headquarters city — sits at the crossroads of upper Sindh and is one of Pakistan's oldest cities, home to the historic Sukkur Barrage that controls irrigation for millions of acres. <strong>Larkana</strong> is the native city of the Bhutto political family and a major agricultural and commercial centre. <strong>Khairpur</strong> is famous for its dates — Pakistan's largest date-growing district. <strong>Ghotki</strong> is home to major fertilizer and chemical industries. These industries make SEPCO a critical industrial electricity supplier for northern Sindh's economy.</p>
+    <p>SEPCO is a younger DISCO than HESCO — created in 2010 specifically because HESCO's territory was too large to manage effectively. SEPCO uses the same <strong>14-digit reference number system</strong> on the same PITC server as all other WAPDA DISCOs. Enter your reference number in the bill checker above to view your complete bill instantly. If you live in Hyderabad, Mirpurkhas, or Thatta, check our <a href="/hesco-bill/">HESCO bill page</a> — those areas are HESCO, not SEPCO.</p>
+  
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Also check: <a href="/hesco-bill/">HESCO bill</a> for Hyderabad | <a href="/qesco-bill/">QESCO bill</a> for Balochistan | <a href="/ssgc-bill/">SSGC gas bill</a>. Use our <a href="/electricity-bill-calculator/">electricity bill calculator</a>, visit our <a href="/dashboard/">bill dashboard</a>, or read about <a href="/blog/fpa-charges-explained/">FPA charges explained</a>. See our <a href="/sukkur/">Sukkur utility bills guide</a>.</p>
+  `}
+  howToSteps={[
+    "Find your 14-digit SEPCO reference number — printed at the top of your SEPCO electricity bill.",
+    "Open the bill checker at the top of this page. Reference Number tab is active.",
+    "Enter your 14-digit SEPCO reference number. Numbers only.",
+    "Click Check Bill. Connects to bill.pitc.com.pk/sepcobill.",
+    "Your complete SEPCO bill appears in seconds.",
+    "Click Download PDF to save, or Print for paper copy."
+  ]}
+  billReadingTips={[
+    "SEPCO and HESCO are separate. Your bill heading confirms which one. SEPCO: upper Sindh. HESCO: lower Sindh.",
+    "SEPCO extends into Jafarabad and Naseerabad in Balochistan. If you are in these districts, you are a SEPCO consumer — not QESCO.",
+    "Interior Sindh monsoon flooding (July to September) commonly causes estimated bills. Request actual meter readings after floods recede.",
+    "Ghotki fertilizer and Larkana industrial consumers: monitor Maximum Demand charges monthly. Industrial MD charges can represent 30–40% of large industrial SEPCO bills.",
+    "Rural SEPCO consumers: paper bill delivery is highly unreliable in remote upper Sindh. Always check bills online using this tool to avoid missing due dates.",
+  ]}
+  savingTips={[
+    "Sukkur and Larkana summers are extreme — temperatures regularly exceed 48°C, making SEPCO one of the highest-consumption DISCOs in summer. Inverter ACs and proper insulation are essential investments.",
+    "Khairpur date farm owners using SEPCO: solar irrigation pumps offer massive savings for agricultural water needs in this sun-drenched region with some of Pakistan's highest irradiance.",
+    "Avoid running electric fans continuously in closed rooms. Cross-ventilation with strategically opened windows reduces the cooling load on ACs and fans combined.",
+    "Use LED lighting throughout. Sukkur and Ghotki residential areas with long summer evenings and extended lighting hours benefit enormously from LED efficiency.",
+    "Apply for SEPCO net metering. Upper Sindh receives exceptionally high solar irradiance year-round. Sukkur has some of the best solar generation conditions in Pakistan.",
+  ]}
+  complaintProcess={[
+    "Call SEPCO helpline 071-5633605 or 118 with your reference number. Get a Complaint Registration Number (CRN).",
+    "Visit your nearest SEPCO subdivision office in Sukkur, Larkana, Khairpur, or your district.",
+    "SEPCO must resolve within 14 working days under NEPRA regulations.",
+    "Escalate to NEPRA at 0800-63000 if ignored.",
+  ]}
+  smsService="Type pitc followed by a space and your 14-digit SEPCO reference number, then send to 8334 for bill amount and due date by SMS."
+  coverageAreas={[
+    { region: "Sukkur Division", district: "Sukkur", cities: "Sukkur City, Rohri, Pano Aqil, New Sukkur" },
+    { region: "Larkana Division", district: "Larkana", cities: "Larkana City, Dokri, Ratodero, Naudero" },
+    { region: "Khairpur", district: "Khairpur", cities: "Khairpur City, Gambat, Kot Diji, Kingri" },
+    { region: "Ghotki", district: "Ghotki", cities: "Ghotki City, Daharki, Mirpur Mathelo, Ubauro" },
+    { region: "Jacobabad", district: "Jacobabad", cities: "Jacobabad City, Garhi Khairo, Thul" },
+    { region: "Shikarpur", district: "Shikarpur", cities: "Shikarpur City, Lakhi, Garhi Yasin" },
+    { region: "Kamber Shahdadkot", district: "Kamber Shahdadkot", cities: "Kamber Ali Khan, Shahdadkot, Warah" },
+    { region: "Kashmore Kandhkot", district: "Kashmore", cities: "Kandhkot City, Kashmore, Tangwani" },
+    { region: "Jafarabad (Balochistan)", district: "Jafarabad", cities: "Usta Muhammad, Gandawa — SEPCO cross-province" },
+    { region: "Naseerabad (Balochistan)", district: "Naseerabad", cities: "Tamboo, Chattar — SEPCO cross-province" },
+  ]}
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "Sukkur Office", detail: "071-5633605" },
+    { type: "Head Office", detail: "New Sukkur, Sukkur, Sindh" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Official Website", detail: "sepco.com.pk" },
+    { type: "New Connection", detail: "enc.com.pk → Select SEPCO" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter reference number" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free)" },
+  ]}
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+  faqs={[
+    { question: "How do I check my SEPCO bill online in March 2026?", answer: "Enter your 14-digit SEPCO reference number in the bill checker above and click Check Bill. Your complete SEPCO electricity bill for Sukkur, Larkana, Khairpur, or any upper Sindh district appears in seconds. Free, no login, 24/7." },
+    { question: "What is the difference between SEPCO and HESCO?", answer: "SEPCO covers upper Sindh: Sukkur, Larkana, Khairpur, Ghotki, Jacobabad, Shikarpur, and Kamber. HESCO covers lower Sindh: Hyderabad, Mirpurkhas, Thatta, Badin, and Nawabshah. SEPCO was separated from HESCO in 2010. Your bill heading clearly states which company you belong to." },
+    { question: "Does SEPCO cover areas in Balochistan?", answer: "Yes. SEPCO supplies Jafarabad district (Usta Muhammad, Gandawa) and Naseerabad district (Tamboo, Chattar) in Balochistan. Despite being geographically in Balochistan, these consumers use SEPCO — not QESCO. Check your bill heading to confirm." },
+    { question: "How do I check SEPCO bill for Larkana?", answer: "Larkana is under SEPCO's Larkana Circle. Enter your 14-digit SEPCO reference number in the checker above — it works for all Larkana, Ratodero, Naudero, and Dokri consumers. The same tool works for all SEPCO districts." },
+    { question: "How do I download my SEPCO duplicate bill?", answer: "After your bill loads, click Download PDF and select Save as PDF. Your SEPCO duplicate bill saves instantly — ready to pay at Easypaisa or JazzCash anywhere in Sukkur, Larkana, or upper Sindh." },
+    { question: "How do I pay my SEPCO bill online?", answer: "Pay through JazzCash, Easypaisa, or any bank app. Select Electricity, choose SEPCO or WAPDA, enter your 14-digit reference number, verify amount, and confirm. Easypaisa and JazzCash are widely available across upper Sindh." },
+    { question: "Why is my SEPCO bill not received by post?", answer: "Rural upper Sindh has unreliable postal delivery. Your bill is generated on the SEPCO/PITC system every month even if it never physically arrives. Use this tool monthly to check your bill and due date — your obligation to pay exists regardless of whether a paper bill arrived." },
+    { question: "What is SEPCO's grace period?", answer: "SEPCO gives 7 days after the due date to pay without a late payment surcharge. After 7 days, a 10% surcharge applies. Check your due date online using this tool — do not wait for a paper bill in areas with unreliable delivery." },
+    { question: "How do I file a billing complaint with SEPCO?", answer: "Call 071-5633605 or 118 with your reference number. Get a Complaint Registration Number (CRN). SEPCO must resolve within 14 working days. Escalate to NEPRA at 0800-63000 if ignored." },
+  ]}
+  relatedPages={[
+    { name: "HESCO Bill Online", url: "/hesco-bill/" },
+    { name: "QESCO Bill Online", url: "/qesco-bill/" },
+    { name: "K-Electric Bill Online", url: "/k-electric-bill/" },
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "MEPCO Bill Online", url: "/mepco-bill/" },
+    { name: "SSGC Gas Bill", url: "/ssgc-bill/" },
+  ]}
+/>

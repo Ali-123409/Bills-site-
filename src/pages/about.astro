@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://pakistanbill.online/about/#webpage",
+    "url": "https://pakistanbill.online/about/",
+    "name": "About PakistanBill.online — Pakistan's Only Complete Utility Bill Platform",
+    "description": "PakistanBill.online is Pakistan's only platform covering all 19 utility providers — every electricity DISCO, SNGPL, SSGC, PTCL, and WASA. Free, no login.",
+    "isPartOf": {"@id": "https://pakistanbill.online/#website"},
+    "dateModified": "2026-03-12"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
+      {"@type":"ListItem","position":2,"name":"About","item":"https://pakistanbill.online/about/"}
+    ]
+  }
+];
+---
+<BaseLayout
+  title="About PakistanBill — Pakistan's #1 Utility Bill Checker"
+  description="PakistanBill.online is Pakistan's only platform covering all 19 utility providers. Every electricity DISCO, SNGPL, SSGC, PTCL, and WASA — free, instant, no login."
+  canonical="/about/"
+  schema={schema}
+  lastmod="2026-03-12"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium">About</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <h1 class="text-4xl font-heading font-bold text-neutral-900 mb-4">Pakistan's Only Complete Utility Bill Platform</h1>
+    <p class="text-xl text-neutral-600 mb-8 leading-relaxed">
+      <strong>PakistanBill.online</strong> is the only website in Pakistan that brings every single utility bill — electricity, gas, water, and telecom — into one place. No other platform covers all 19 providers.
+    </p>
+
+    <div class="bg-primary-700 text-white rounded-2xl p-6 mb-10">
+      <h2 class="text-xl font-bold mb-4">What Makes Us the Only Complete Solution</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          ["19 Providers", "Every WAPDA DISCO, K-Electric, SNGPL, SSGC, PTCL, and 3 WASA offices"],
+          ["0 Competitors", "No other site covers all 19. Most cover 3–5 providers at best"],
+          ["Bill Displays Here", "Your bill shows inline — no redirect to PITC or other portals"],
+          ["PDF Download", "One-click duplicate bill download — free, instant"],
+          ["No Login", "Zero registration. Enter reference number, get bill"],
+          ["PWA App", "Add to Home Screen — works like a native app, works offline"],
+        ].map((item) => (
+          <div class="flex gap-3">
+            <span class="text-primary-300 font-bold text-lg">✓</span>
+            <div>
+              <p class="font-semibold">{item[0]}</p>
+              <p class="text-primary-200 text-sm">{item[1]}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">All 19 Providers We Cover</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+      <div>
+        <h3 class="font-bold text-neutral-700 text-sm uppercase tracking-wide mb-2">⚡ Electricity (13 DISCOs)</h3>
+        <ul class="space-y-1 text-sm">
+          {[
+            ["LESCO","Lahore, Kasur, Sheikhupura","/lesco-bill/"],
+            ["MEPCO","South Punjab — Multan, Bahawalpur","/mepco-bill/"],
+            ["GEPCO","Gujranwala, Sialkot, Gujrat","/gepco-bill/"],
+            ["FESCO","Faisalabad, Jhang, Sargodha","/fesco-bill/"],
+            ["IESCO","Islamabad, Rawalpindi, Attock","/iesco-bill/"],
+            ["PESCO","Peshawar, Mardan, Swat, Abbottabad","/pesco-bill/"],
+            ["HESCO","Hyderabad, Mirpurkhas","/hesco-bill/"],
+            ["SEPCO","Sukkur, Larkana, Khairpur","/sepco-bill/"],
+            ["QESCO","Quetta, all Balochistan","/qesco-bill/"],
+            ["TESCO","7 Merged Tribal Districts","/tesco-bill/"],
+            ["AJK / AJKED","Azad Kashmir","/ajk-bill/"],
+            ["K-Electric","Karachi, Hub","/k-electric-bill/"],
+          ].map((item) => (
+            <li><a href={item[2]} class="text-primary-600 font-semibold hover:underline">{item[0]}</a> <span class="text-neutral-500">— {item[1]}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-neutral-700 text-sm uppercase tracking-wide mb-2">🔥 Gas (2)</h3>
+        <ul class="space-y-1 text-sm mb-5">
+          {[
+            ["SNGPL","Punjab, KPK, ICT, AJK","/sngpl-bill/"],
+            ["SSGC","Sindh and Balochistan","/ssgc-bill/"],
+          ].map((item) => (
+            <li><a href={item[2]} class="text-primary-600 font-semibold hover:underline">{item[0]}</a> <span class="text-neutral-500">— {item[1]}</span></li>
+          ))}
+        </ul>
+        <h3 class="font-bold text-neutral-700 text-sm uppercase tracking-wide mb-2">📞 Telecom (1)</h3>
+        <ul class="space-y-1 text-sm mb-5">
+          <li><a href="/ptcl-bill/" class="text-primary-600 font-semibold hover:underline">PTCL</a> <span class="text-neutral-500">— All Pakistan landline & broadband</span></li>
+        </ul>
+        <h3 class="font-bold text-neutral-700 text-sm uppercase tracking-wide mb-2">💧 Water (3)</h3>
+        <ul class="space-y-1 text-sm">
+          {[
+            ["WASA Lahore","Lahore","/wasa-lahore-bill/"],
+            ["WASA Rawalpindi","Rawalpindi","/wasa-rawalpindi-bill/"],
+            ["WASA Faisalabad","Faisalabad","/wasa-faisalabad-bill/"],
+          ].map((item) => (
+            <li><a href={item[2]} class="text-primary-600 font-semibold hover:underline">{item[0]}</a> <span class="text-neutral-500">— {item[1]}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Extra Tools</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+      {[
+        ["⚡ Electricity Bill Calculator","Calculate exact bill with all 2026 NEPRA slab rates, FPA, and surcharges","/electricity-bill-calculator/"],
+        ["📊 Universal Bill Dashboard","Check any provider without switching pages — all 19 in one tab","/dashboard/"],
+        ["📍 City Guides","City-specific guides for 15 major cities of Pakistan","/lahore/"],
+        ["📖 Bill Guides Blog","Expert guides: tariff, FPA, reference numbers, payment methods","/blog/"],
+      ].map((item) => (
+        <a href={item[2]} class="bg-neutral-50 border border-neutral-200 rounded-xl p-4 hover:border-primary-300 transition-all">
+          <p class="font-semibold text-neutral-900 text-sm mb-1">{item[0]}</p>
+          <p class="text-xs text-neutral-500">{item[1]}</p>
+        </a>
+      ))}
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Our Mission</h2>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      Pakistan has over 200 million electricity consumers spread across 11 different electricity companies, 2 gas utilities, 1 national telecom provider, and dozens of water authorities. Before PakistanBill.online, there was no single place to find every bill. Consumers had to remember 5–6 different portals, all with different interfaces.
+    </p>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      We built PakistanBill.online to solve exactly this. One platform, every provider, always free. Whether you need your <a href="/lesco-bill/" class="text-primary-600 hover:underline">LESCO electricity bill</a> in Lahore, your <a href="/sngpl-bill/" class="text-primary-600 hover:underline">SNGPL gas bill</a> in Peshawar, your <a href="/k-electric-bill/" class="text-primary-600 hover:underline">K-Electric bill</a> in Karachi, or your <a href="/ptcl-bill/" class="text-primary-600 hover:underline">PTCL broadband bill</a> anywhere in Pakistan — it's all here.
+    </p>
+    <p class="text-neutral-600 leading-relaxed mb-8">
+      We do not store your reference numbers, consumer IDs, or any personal data. Your query goes directly to the official PITC/WAPDA/utility servers and the result comes back only to your browser.
+    </p>
+
+    <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-5">
+      <h2 class="font-bold text-neutral-800 mb-3">Contact & Feedback</h2>
+      <p class="text-sm text-neutral-600 mb-3">Found a bug? A provider not working? Want a new feature? We want to hear from you.</p>
+      <a href="/contact/" class="inline-block bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary-800 transition-colors">Contact Us →</a>
+    </div>
+
+  </div>
+</BaseLayout>

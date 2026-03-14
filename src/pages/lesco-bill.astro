@@ -1,0 +1,139 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="lesco"
+  discoName="LESCO"
+  discoFull="Lahore Electric Supply Company"
+  city="Lahore"
+  province="Punjab"
+  established="1913"
+  ceo="Engr. Shahid Haider"
+  customers="4.5 million"
+  employees="15,000+"
+  revenue="$3.2 billion USD"
+  helpline="118"
+  uan="0800-00118"
+  website="https://lesco.gov.pk"
+  headOffice="WAPDA House, The Mall, Lahore"
+  refnoLength={14}
+  hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM"
+  peakHourWinter="6:00 PM – 10:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="LESCO Bill Online — Check & Download Duplicate Bill March 2026"
+  metaDescription="Check your LESCO electricity bill online instantly. Enter your 14-digit reference number to view, download PDF, and print your LESCO Lahore duplicate bill — free, no login required."
+  canonical="/lesco-bill/"
+
+  introContent={`
+    <p>Lahore Electric Supply Company (LESCO) is Pakistan's second-largest electricity distribution company, supplying power to over 4.5 million consumers across Lahore, Sheikhupura, Kasur, and Okara districts. Established in 1913 — making it one of Pakistan's oldest utilities — LESCO operates under PEPCO and is regulated by NEPRA (National Electric Power Regulatory Authority).</p>
+    <p>LESCO supplies electricity to <strong>Lahore city</strong> — Pakistan's second-largest metropolis and cultural capital of Punjab — including all major localities like DHA, Gulberg, Model Town, Johar Town, Bahria Town, Cantt, Wapda Town, Township, and all surrounding areas. Beyond Lahore, LESCO covers the entire districts of <strong>Sheikhupura</strong> (including Muridke and Nankana Sahib), <strong>Kasur</strong> (including Pattoki and Raiwind), and <strong>Okara</strong> (including Depalpur and Renala Khurd).</p>
+    <p>Every month, LESCO generates bills for its 4.5 million consumers based on meter readings recorded by field staff. The bill is uploaded to PITC's central server — the same server this page fetches your bill from. Your <strong>14-digit LESCO reference number</strong> is your unique identifier in this system, and it never changes. If you ever lose your bill, you can always retrieve it here using just that number.</p>
+    <p>LESCO bills follow Pakistan's standard slab tariff approved by NEPRA. Domestic consumers who average 200 units or less per month over 6 months are classified as <strong>Protected consumers</strong> and receive subsidized rates. Consumers above this average are <strong>Unprotected</strong> and pay higher commercial slab rates from the very first unit consumed. LESCO's billing cycle runs monthly, and bills are typically available for viewing online by the 20th to 25th of each month.</p>
+    <p>In addition to the standard bill checking tool above, LESCO consumers can also check their bill by entering their <strong>10-digit Customer ID</strong> (click the Customer ID tab in the checker above), which is an alternative identifier printed below your name on the bill. For emergencies, outages, and new connection applications, LESCO operates a 24/7 helpline at <strong>118</strong> and a toll-free UAN at <strong>0800-00118</strong>.</p>
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Alongside this checker, you can also check: <a href="/iesco-bill/">IESCO bill</a> | <a href="/mepco-bill/">MEPCO bill</a> | <a href="/gepco-bill/">GEPCO bill</a> | <a href="/sngpl-bill/">SNGPL gas bill</a> | <a href="/wasa-lahore-bill/">WASA Lahore</a>. Use our free <a href="/electricity-bill-calculator/">electricity bill calculator</a> to estimate charges before your bill arrives, or visit our <a href="/dashboard/">universal bill dashboard</a> to check multiple bills without switching pages. Also see: <a href="/blog/lesco-reference-number/">How to find your LESCO reference number</a> — and our complete <a href="/lahore/">Lahore utility bills guide</a>.</p>
+  `}
+
+  howToSteps={[
+    "Find your 14-digit LESCO reference number — it is printed in bold on the top-right corner of any previous LESCO electricity bill, just above the bar code.",
+    "Go to the bill checker tool at the top of this page. The 'Reference Number' tab is selected by default.",
+    "Type your 14-digit LESCO reference number carefully into the input field. Enter numbers only — no spaces, dashes, or other characters.",
+    "Click the green 'Check Bill' button. The tool connects to the official PITC server (bill.pitc.com.pk/lescobill) and fetches your bill.",
+    "Your complete LESCO bill appears on screen within 3 to 5 seconds — showing your total amount due, due date, units consumed, meter readings, and all charges.",
+    "Click 'Download PDF' to save your LESCO bill as a PDF file to your device. Click 'Print' to send it directly to your printer as a duplicate copy."
+  ]}
+
+  billReadingTips={[
+    "Your LESCO reference number (14 digits, top-right) is your permanent account ID. Save it in your phone — you need it every month to check your bill online.",
+    "The 'Previous Reading' and 'Current Reading' fields show your meter readings. Subtract Previous from Current to get units consumed. If the difference looks wrong, request a meter re-reading.",
+    "The 'Category' field shows D-Protected or D-Unprotected. Protected means you pay subsidized rates. If you use under 200 units average but show Unprotected, file a complaint at your subdivision office.",
+    "The 'Billing Month' field shows which month the bill covers. If it shows February but you are checking in March, your March bill is not yet generated — check again after the 20th.",
+    "The 'Sanctioned Load' field shows your approved connection capacity in kilowatts. Running appliances that exceed this limit can result in a Maximum Demand Indicator (MDI) penalty on your next bill.",
+    "The 'Due Date' and 'Last Date' may be different. Due Date is the standard deadline. Last Date is the extended date after which disconnection may happen — always pay before Due Date.",
+    "Look for 'TP' (Theft Penalty) or 'Surcharge' in your bill charges. If these appear and you believe they are wrong, dispute them immediately at your LESCO subdivision office — do not pay surcharges you did not incur.",
+  ]}
+
+  savingTips={[
+    "Run your washing machine, iron, and electric water motor after 11 PM — outside LESCO's peak hours of 6:30–10:30 PM in summer. These three appliances alone account for 30–40% of most Lahore household bills.",
+    "Set your air conditioner to 26°C. Each degree below 26 increases AC power consumption by 6–8%. At 22°C instead of 26°C, you pay 25–30% more just for cooling.",
+    "Install an inverter AC. Inverter ACs use 30–50% less electricity than conventional fixed-speed ACs of the same cooling capacity.",
+    "Replace incandescent and CFL bulbs with LED bulbs. LEDs use 80% less electricity for identical brightness and last 15–25 times longer.",
+    "Use a solar geyser (water heater). A conventional electric geyser running 2 hours daily adds approximately Rs 800–1,200 to your monthly LESCO bill. Solar geysers eliminate this entirely.",
+    "Check if LESCO has granted you Protected status. If your average consumption is under 200 units but your bill shows Unprotected, visit your subdivision office — the difference in rates could save you Rs 500–1,500 per month.",
+    "Unplug appliances from wall sockets rather than just switching them off at the appliance. TVs, computers, and phone chargers in standby mode consume 5–15 watts each — adding up to Rs 100–200 per month across a typical Lahore household.",
+    "Apply for LESCO net metering if you install solar panels. You can sell surplus solar electricity back to LESCO, reducing or eliminating your monthly bill entirely.",
+  ]}
+
+  complaintProcess={[
+    "Call LESCO helpline 118 or UAN 0800-00118 and state your 14-digit reference number. Clearly describe the billing issue — over-billing, wrong units, incorrect category, or unexplained charges.",
+    "Ask for a Complaint Registration Number (CRN). The LESCO agent must give you this. Note it down immediately — this is your legal proof of complaint and your tracking reference.",
+    "If the phone complaint is not resolved within 7 working days, visit your nearest LESCO subdivision office. Bring your bill printout and CNIC. Request a written acknowledgment of your complaint.",
+    "For meter accuracy disputes, request an official meter test in writing. LESCO must test the meter within 15 days of your written request at no initial cost to you.",
+    "If LESCO does not resolve your complaint within 14 working days, escalate to NEPRA. Call NEPRA Consumer Helpline 0800-63000 (toll-free) or file online at nepra.org.pk/consumer-services.",
+    "For ignored complaints, contact the Federal Ombudsman (Wafaqi Mohtasib) at mohtasib.gov.pk — this is a free escalation route that forces utility companies to respond.",
+  ]}
+
+  smsService="Type pitc followed by a space and your 14-digit LESCO reference number, then send to 8334. You receive your bill amount, due date, and units consumed as an SMS reply within seconds."
+
+  coverageAreas={[
+    { region: "Lahore City", district: "Lahore", cities: "Lahore City, Gulberg, DHA, Model Town, Johar Town, Bahria Town, Township, Wapda Town, Cantt, Anarkali, Walton, Allama Iqbal Town, Samanabad" },
+    { region: "Sheikhupura", district: "Sheikhupura", cities: "Sheikhupura City, Muridke, Safdarabad, Nankana Sahib, Sangla Hill, Ferozewala, Shahdara" },
+    { region: "Kasur", district: "Kasur", cities: "Kasur City, Chunian, Kot Radha Kishan, Pattoki, Raiwind, Phool Nagar, Mustafabad" },
+    { region: "Okara", district: "Okara", cities: "Okara City, Depalpur, Renala Khurd, Haveli Lakha, Dipalpur, Saddokey" },
+  ]}
+
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "Toll-Free UAN", detail: "0800-00118" },
+    { type: "Head Office", detail: "WAPDA House, The Mall, Lahore" },
+    { type: "Complaint Email", detail: "customercare@lesco.gov.pk" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "New Connection", detail: "lesco.gov.pk → Online Services → New Connection" },
+    { type: "Electricity Theft Report", detail: "Call 118 or email to lesco.gov.pk (anonymous)" },
+    { type: "Official Website", detail: "lesco.gov.pk" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter 14-digit reference number" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free) — if LESCO doesn't respond in 14 days" },
+  ]}
+
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+
+  faqs={[
+    { question: "How do I check my LESCO bill online in March 2026?", answer: "Enter your 14-digit LESCO reference number in the bill checker tool at the top of this page and click Check Bill. Your complete LESCO electricity bill for March 2026 appears on screen within seconds — showing the amount due, due date, units consumed, and all charges. This is free, requires no login, and works 24 hours a day." },
+    { question: "What is the 14-digit LESCO reference number and where is it?", answer: "Your LESCO reference number is a permanent 14-digit number that uniquely identifies your connection. It is printed in bold on the top-right corner of every LESCO electricity bill, just above the barcode. It is also printed on the payment slip at the bottom of the bill. If you have lost all previous bills, call LESCO helpline 118 with your CNIC and registered address to retrieve it." },
+    { question: "Can I check my LESCO bill by Customer ID instead of reference number?", answer: "Yes. Click the 'Customer ID' tab in the checker above and enter your 10-digit Customer ID. Your Customer ID is printed below your name on the LESCO bill, usually labeled 'Customer No.' or 'Consumer ID.' Both methods pull the exact same complete bill from the PITC server." },
+    { question: "How do I download my LESCO bill as a PDF?", answer: "After your LESCO bill appears in the checker above, click the 'Download PDF' button. Your browser opens the print dialog — select 'Save as PDF' as your printer destination and click Save. Your LESCO duplicate bill saves as a PDF file instantly. You can then share it by WhatsApp, email, or print it at any shop." },
+    { question: "How do I get my LESCO bill via SMS?", answer: "Type pitc followed by a space and your 14-digit LESCO reference number, then send to 8334. For example: pitc 12345678901234. You receive your current bill amount, due date, and units consumed as an SMS reply within seconds. Standard SMS charges apply." },
+    { question: "Why is my LESCO bill so high this month?", answer: "Several factors can spike a LESCO bill: (1) Increased AC usage in summer adds 200–500 units per month; (2) A high Fuel Price Adjustment (FPA) set by NEPRA this month; (3) You crossed from Protected to Unprotected status — meaning your 6-month average exceeded 200 units; (4) Someone tampered with your meter or wiring; (5) Meter reading error by LESCO staff — check if 'Estimated' appears on your bill instead of 'Actual.' For estimated bills, request an actual meter reading." },
+    { question: "What are LESCO peak hours and how do I avoid high charges?", answer: "LESCO summer peak hours are 6:30 PM to 10:30 PM (April–October). Winter peak hours are 6:00 PM to 10:00 PM (November–March). Electricity costs more per unit during these windows. To save money, run your AC, washing machine, iron, and electric geyser before 6 PM or after 11 PM. Just shifting these three appliances outside peak hours reduces most Lahore household bills by Rs 200–500 per month." },
+    { question: "How do I pay my LESCO bill online?", answer: "Pay through JazzCash, Easypaisa, HBL, MCB, Meezan Bank, or any bank mobile app. Open the app, go to Bill Payments, select Electricity, choose LESCO, enter your 14-digit reference number, verify the amount, and confirm. You receive an instant SMS confirmation. You can also pay at any JazzCash or Easypaisa retail shop in Lahore by giving your reference number to the agent." },
+    { question: "What is the LESCO grace period for bill payment?", answer: "LESCO gives consumers 7 days after the due date printed on the bill to pay without a late payment surcharge. After the 7-day grace period, a 10% late payment surcharge applies to the total unpaid amount. For example, on a Rs 5,000 bill, paying after the grace period costs you an additional Rs 500. Always pay on or before the due date to avoid this penalty." },
+    { question: "How do I check my LESCO load shedding schedule?", answer: "Visit ccms.pitc.com.pk and enter your 14-digit LESCO reference number in the search box. Click Search. Your specific feeder's complete load shedding schedule appears — showing exactly which hours your area has no electricity each day. Areas with higher bill payment rates receive priority supply under LESCO's feeder-wise load management policy." },
+    { question: "How do I file a complaint about my LESCO bill?", answer: "Call LESCO helpline 118 or 0800-00118 with your 14-digit reference number ready. Describe the issue clearly and get a Complaint Registration Number (CRN). If unresolved within 14 working days, escalate to NEPRA at 0800-63000 (toll-free) or file online at nepra.org.pk. Under NEPRA regulations, LESCO is legally required to respond to billing complaints within this timeframe." },
+    { question: "How do I apply for a new LESCO connection?", answer: "Apply online at lesco.gov.pk under Online Services → New Connection, or visit your nearest LESCO office. You need your CNIC, property ownership or tenancy documents, and a site plan. Standard domestic connections (5 kW) take 15–30 working days. You can also apply through the national new connection portal at enc.com.pk by selecting LESCO as your DISCO." },
+  ]}
+
+  relatedPages={[
+    { name: "MEPCO Bill Online", url: "/mepco-bill/" },
+    { name: "GEPCO Bill Online", url: "/gepco-bill/" },
+    { name: "FESCO Bill Online", url: "/fesco-bill/" },
+    { name: "IESCO Bill Online", url: "/iesco-bill/" },
+    { name: "PESCO Bill Online", url: "/pesco-bill/" },
+    { name: "HESCO Bill Online", url: "/hesco-bill/" },
+    { name: "SEPCO Bill Online", url: "/sepco-bill/" },
+    { name: "QESCO Bill Online", url: "/qesco-bill/" },
+    { name: "K-Electric Bill Online", url: "/k-electric-bill/" },
+    { name: "SNGPL Gas Bill", url: "/sngpl-bill/" },
+    { name: "PTCL Bill Online", url: "/ptcl-bill/" },
+  ]}
+/>

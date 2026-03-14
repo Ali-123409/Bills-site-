@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://pakistanbill.online/blog/hesco-reference-number/#article",
+    "headline": "HESCO Reference Number — Where is it on Your Bill?",
+    "description": "Find your HESCO 14-digit reference number: top-right of bill, labeled Ref. No. Check your Hyderabad, Sindh electricity bill instantly. Step-by-step guide.",
+    "datePublished": "2026-03-13", "dateModified": "2026-03-13",
+    "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
+    "publisher": {"@id":"https://pakistanbill.online/#organization"}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Where is the reference number on HESCO bill?","acceptedAnswer":{"@type":"Answer","text":"The HESCO reference number is on the top-right of your bill, labeled Ref. No. It is a 14-digit number printed in bold above the barcode. HESCO covers Hyderabad, Mirpurkhas, Tharparkar, Badin, Sanghar, and surrounding Sindh districts."}},
+      {"@type":"Question","name":"What is HESCO reference number format?","acceptedAnswer":{"@type":"Answer","text":"The HESCO reference number is always 14 digits — no letters or dashes. It is the same every month unless WAPDA reassigns your meter. Your 10-digit Customer ID never changes."}},
+      {"@type":"Question","name":"HESCO helpline for reference number?","acceptedAnswer":{"@type":"Answer","text":"Call HESCO helpline 022-9200301 or dial 118 from any network. Provide your name, address, and CNIC. The helpline can give you your HESCO reference number immediately."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
+      {"@type":"ListItem","position":3,"name":"HESCO Reference Number — Where is it on Your Bill?","item":"https://pakistanbill.online/blog/hesco-reference-number/"}
+    ]
+  }
+];
+---
+<BaseLayout
+  title="HESCO Reference Number — Where is it on Your Bill?"
+  description="Find your HESCO 14-digit reference number: top-right of bill, labeled Ref. No. Check your Hyderabad, Sindh electricity bill instantly. Step-by-step guide."
+  canonical="/blog/hesco-reference-number/"
+  schema={schema}
+  lastmod="2026-03-13"
+  pageType="article"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/blog/" class="hover:text-primary-600">Blog</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium truncate">HESCO Reference Number — Where is it on ...</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-6">
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+      <span class="text-xs text-neutral-400 ml-3">Updated March 2026</span>
+    </div>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">HESCO Reference Number — Where is it on Your Bill?</h1>
+    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">The HESCO reference number is a 14-digit number on the top-right section of your electricity bill. It is the key to checking your HESCO bill online and making payments through any bank or mobile wallet.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-3 mb-10">
+      <details class="faq-item"><summary class="faq-question">Where is the reference number on HESCO bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The HESCO reference number is on the top-right of your bill, labeled Ref. No. It is a 14-digit number printed in bold above the barcode. HESCO covers Hyderabad, Mirpurkhas, Tharparkar, Badin, Sanghar, and surrounding Sindh districts.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is HESCO reference number format?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The HESCO reference number is always 14 digits — no letters or dashes. It is the same every month unless WAPDA reassigns your meter. Your 10-digit Customer ID never changes.</div></details>
+      <details class="faq-item"><summary class="faq-question">HESCO helpline for reference number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Call HESCO helpline 022-9200301 or dial 118 from any network. Provide your name, address, and CNIC. The helpline can give you your HESCO reference number immediately.</div></details>
+    </div>
+
+    <div class="border-t border-neutral-200 pt-6">
+      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
+      <div class="flex flex-wrap gap-2">
+        <a href="/hesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Check HESCO Bill →</a>
+        <a href="/hyderabad/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Hyderabad Utility Bills →</a>
+        <a href="/blog/how-to-find-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">All Reference Number Guides →</a>
+        <a href="/blog/gepco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">GEPCO Reference Number →</a>
+        <a href="/blog/mepco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">MEPCO Reference Number →</a>
+        <a href="/blog/lesco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">LESCO Reference Number →</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

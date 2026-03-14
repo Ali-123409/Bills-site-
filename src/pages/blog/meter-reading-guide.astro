@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://pakistanbill.online/blog/meter-reading-guide/#article",
+    "headline": "How to Read Electric Meter in Pakistan — Complete Guide 2026",
+    "description": "How to read your electricity meter in Pakistan. Digital vs analog meter reading guide. Understand units, peak hours, and how meter reading affects your bill.",
+    "datePublished": "2026-03-13", "dateModified": "2026-03-13",
+    "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
+    "publisher": {"@id":"https://pakistanbill.online/#organization"}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"How to read a digital electricity meter in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"A digital meter shows units consumed as a number (e.g., 1234 kWh). Note the reading at the start and end of the month. The difference is your consumption. DISCO meter readers record this number when they visit monthly."}},
+      {"@type":"Question","name":"How to read an analog electricity meter?","acceptedAnswer":{"@type":"Answer","text":"Read the dials from right to left. Each dial moves when the one to its right completes a full rotation. If a pointer is between two numbers, record the lower number. Ignore the last red dial. Subtract previous reading from current to get units consumed."}},
+      {"@type":"Question","name":"Why is my meter reading different from my bill?","acceptedAnswer":{"@type":"Answer","text":"If your meter reading differs from your bill, it may be an estimated bill (DISCO estimated your consumption instead of physically reading the meter). You can contest estimated bills by calling DISCO helpline 118 and providing your actual meter photo."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
+      {"@type":"ListItem","position":3,"name":"How to Read Electric Meter in Pakistan — Complete Guide 2026","item":"https://pakistanbill.online/blog/meter-reading-guide/"}
+    ]
+  }
+];
+---
+<BaseLayout
+  title="How to Read Electric Meter in Pakistan — Guide 2026"
+  description="How to read your electricity meter in Pakistan. Digital vs analog meter reading guide. Understand units, peak hours, and how meter reading affects your bill."
+  canonical="/blog/meter-reading-guide/"
+  schema={schema}
+  lastmod="2026-03-13"
+  pageType="article"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/blog/" class="hover:text-primary-600">Blog</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium truncate">How to Read Electric Meter in Pakistan —...</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-6">
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+      <span class="text-xs text-neutral-400 ml-3">Updated March 2026</span>
+    </div>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Read Electric Meter in Pakistan — Complete Guide</h1>
+    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">Understanding your electricity meter helps you track consumption and avoid bill shock. Pakistan uses both analog disc meters and modern digital/smart meters. This guide explains how to read both types and how your meter reading translates to your monthly bill.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-3 mb-10">
+      <details class="faq-item"><summary class="faq-question">How to read a digital electricity meter in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">A digital meter shows units consumed as a number (e.g., 1234 kWh). Note the reading at the start and end of the month. The difference is your consumption. DISCO meter readers record this number when they visit monthly.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to read an analog electricity meter?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Read the dials from right to left. Each dial moves when the one to its right completes a full rotation. If a pointer is between two numbers, record the lower number. Ignore the last red dial. Subtract previous reading from current to get units consumed.</div></details>
+      <details class="faq-item"><summary class="faq-question">Why is my meter reading different from my bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">If your meter reading differs from your bill, it may be an estimated bill (DISCO estimated your consumption instead of physically reading the meter). You can contest estimated bills by calling DISCO helpline 118 and providing your actual meter photo.</div></details>
+    </div>
+
+    <div class="border-t border-neutral-200 pt-6">
+      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
+      <div class="flex flex-wrap gap-2">
+        <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Calculate Your Bill →</a>
+        <a href="/blog/how-to-read-electricity-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">How to Read Your Bill →</a>
+        <a href="/blog/how-to-find-nepra-tariff-hike/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">NEPRA Tariff 2026 →</a>
+        <a href="/blog/fpa-charges-explained/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">FPA Charges →</a>
+        <a href="/lesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">LESCO Bill Check →</a>
+        <a href="/blog/peak-hours-all-discos/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Peak Hours Guide →</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

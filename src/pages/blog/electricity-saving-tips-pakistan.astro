@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://pakistanbill.online/blog/electricity-saving-tips-pakistan/#article",
+    "headline": "How to Reduce Electricity Bill in Pakistan — 15 Proven Tips",
+    "description": "Practical tips to reduce electricity bill in Pakistan. AC, fridge, fans, inverter tips. Stay Protected consumer status. Cut your bill by 30-50% with these changes.",
+    "datePublished": "2026-03-13", "dateModified": "2026-03-13",
+    "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
+    "publisher": {"@id":"https://pakistanbill.online/#organization"}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"How to stay a Protected consumer in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"To stay Protected, keep your average monthly consumption at or below 200 units over 6 months. Switch off high-consumption appliances (AC, geyser, washing machine) in peak summer. Even 1-2 months above 200 units can shift you to Unprotected status."}},
+      {"@type":"Question","name":"Which appliances use the most electricity in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Air conditioners use 1,500-2,000W per hour. Geysers use 2,000-3,000W. Refrigerators use 100-200W continuously. Washing machines use 500-700W per cycle. These four appliances cause most Pakistani households to exceed 200 units/month."}},
+      {"@type":"Question","name":"Does inverter AC really save electricity?","acceptedAnswer":{"@type":"Answer","text":"Yes. A 1.5-ton inverter AC uses 700-900W when running (vs 1,500-1,800W for non-inverter). Over a summer month running 8hrs/day, an inverter AC saves 150-200 units — potentially keeping you in the Protected tariff bracket."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
+      {"@type":"ListItem","position":3,"name":"How to Reduce Electricity Bill in Pakistan — 15 Proven Tips","item":"https://pakistanbill.online/blog/electricity-saving-tips-pakistan/"}
+    ]
+  }
+];
+---
+<BaseLayout
+  title="How to Reduce Electricity Bill in Pakistan — 15 Tips 2026"
+  description="Practical tips to reduce electricity bill in Pakistan. AC, fridge, fans, inverter tips. Stay Protected consumer status. Cut your bill by 30-50% with these changes."
+  canonical="/blog/electricity-saving-tips-pakistan/"
+  schema={schema}
+  lastmod="2026-03-13"
+  pageType="article"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/blog/" class="hover:text-primary-600">Blog</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium truncate">How to Reduce Electricity Bill in Pakist...</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-6">
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+      <span class="text-xs text-neutral-400 ml-3">Updated March 2026</span>
+    </div>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Reduce Electricity Bill in Pakistan — 15 Proven Tips</h1>
+    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">With electricity rates as high as Rs 48.84/unit for heavy users, reducing your consumption is more important than ever. These 15 tips are specifically for Pakistan's tariff structure — focusing on staying Protected consumer status and beating the slab system.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-3 mb-10">
+      <details class="faq-item"><summary class="faq-question">How to stay a Protected consumer in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">To stay Protected, keep your average monthly consumption at or below 200 units over 6 months. Switch off high-consumption appliances (AC, geyser, washing machine) in peak summer. Even 1-2 months above 200 units can shift you to Unprotected status.</div></details>
+      <details class="faq-item"><summary class="faq-question">Which appliances use the most electricity in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Air conditioners use 1,500-2,000W per hour. Geysers use 2,000-3,000W. Refrigerators use 100-200W continuously. Washing machines use 500-700W per cycle. These four appliances cause most Pakistani households to exceed 200 units/month.</div></details>
+      <details class="faq-item"><summary class="faq-question">Does inverter AC really save electricity?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. A 1.5-ton inverter AC uses 700-900W when running (vs 1,500-1,800W for non-inverter). Over a summer month running 8hrs/day, an inverter AC saves 150-200 units — potentially keeping you in the Protected tariff bracket.</div></details>
+    </div>
+
+    <div class="border-t border-neutral-200 pt-6">
+      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
+      <div class="flex flex-wrap gap-2">
+        <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Calculate Your Bill →</a>
+        <a href="/blog/how-to-find-nepra-tariff-hike/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">NEPRA Tariff 2026 →</a>
+        <a href="/blog/fpa-charges-explained/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">FPA Charges Explained →</a>
+        <a href="/lesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">LESCO Bill Check →</a>
+        <a href="/mepco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">MEPCO Bill Check →</a>
+        <a href="/blog/peak-hours-all-discos/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Peak Hours Guide →</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

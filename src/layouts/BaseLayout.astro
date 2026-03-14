@@ -1,0 +1,386 @@
+---
+// BaseLayout.astro — Master layout for all pages
+// Handles: SEO, Schema, OG tags, canonical, fonts
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  schema?: object | object[];
+  ogImage?: string;
+  noindex?: boolean;
+  lastmod?: string;
+  pageType?: 'website' | 'article' | 'tool';
+  disco?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  schema,
+  ogImage = '/images/og-default.png',
+  noindex = false,
+  lastmod,
+  pageType = 'website',
+  disco,
+} = Astro.props;
+
+const canonicalURL = canonical 
+  ? `https://pakistanbill.online${canonical}`
+  : Astro.url.href;
+
+// Organization schema — always present site-wide
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://pakistanbill.online/#organization",
+  "name": "PakistanBill",
+  "url": "https://pakistanbill.online",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://pakistanbill.online/images/logo.png",
+    "width": 200,
+    "height": 60
+  },
+  "description": "Pakistan's only all-in-one utility bill platform. Check every electricity, gas, water and telecom bill — all 19 providers — in one place. LESCO, MEPCO, GEPCO, K-Electric, SNGPL, SSGC, PTCL. Free, instant, no login.",
+  "areaServed": "Pakistan",
+  "knowsAbout": ["Pakistan Electricity Bills", "LESCO Bill", "MEPCO Bill", "GEPCO Bill", "FESCO Bill", "IESCO Bill", "PESCO Bill", "HESCO Bill", "SEPCO Bill", "QESCO Bill", "TESCO Bill", "AJK Bill", "K-Electric Bill", "SNGPL Gas Bill", "SSGC Gas Bill", "PTCL Bill", "WASA Water Bill", "Pakistan Utility Bills", "NEPRA Tariff", "Electricity Bill Calculator"],
+  "sameAs": [
+    "https://www.facebook.com/pakistanbill",
+    "https://www.youtube.com/@pakistanbill"
+  ]
+};
+
+// WebSite schema with Sitelinks Searchbox
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://pakistanbill.online/#website",
+  "name": "PakistanBill",
+  "url": "https://pakistanbill.online",
+  "publisher": { "@id": "https://pakistanbill.online/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://pakistanbill.online/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Combine all schemas
+const allSchemas = [orgSchema, websiteSchema];
+if (schema) {
+  if (Array.isArray(schema)) {
+    allSchemas.push(...schema);
+  } else {
+    allSchemas.push(schema);
+  }
+}
+
+const currentYear = new Date().getFullYear();
+const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO Tags -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="alternate" hreflang="en-PK" href={canonicalURL} />
+  <link rel="alternate" hreflang="en" href={canonicalURL} />
+  <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+  <!-- Robots -->
+  {noindex 
+    ? <meta name="robots" content="noindex, nofollow" />
+    : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  }
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={pageType === 'article' ? 'article' : 'website'} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`https://pakistanbill.online${ogImage}`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="PakistanBill" />
+  <meta property="og:locale" content="en_PK" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`https://pakistanbill.online${ogImage}`} />
+
+  <!-- Geo Tags — helps local Pakistan SEO -->
+  <meta name="geo.region" content="PK" />
+  <meta name="geo.country" content="Pakistan" />
+  <meta name="language" content="English" />
+
+  <!-- Last Modified -->
+  {lastmod && <meta http-equiv="last-modified" content={lastmod} />}
+  <!-- Freshness signals for Google -->
+  {lastmod && <meta property="article:modified_time" content={`${lastmod}T00:00:00+05:00`} />}
+  {lastmod && <meta property="article:published_time" content="2026-01-01T00:00:00+05:00" />}
+  <meta name="revisit-after" content="7 days" />
+
+
+  <!-- PWA / Add to Home Screen -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#01411C" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="PakistanBill" />
+  <link rel="apple-touch-icon" href="/images/icon-192.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+  <!-- Sitemaps -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- Fonts — preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/styles/global.css" />
+
+  <!-- Schema Markup — JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(allSchemas)} />
+
+  <!-- Google Analytics 4 -->
+  <!-- Replace G-XXXXXXXXXX with your GA4 ID after setup -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white border-b border-neutral-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 font-heading font-bold text-xl text-primary-600 hover:text-primary-700 transition-colors">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#01411C"/>
+            <path d="M8 10h10a4 4 0 0 1 0 8H8V10z" fill="white" opacity="0.9"/>
+            <path d="M8 20h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 24h8" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+          Pakistan<span class="text-accent">Bill</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+          <a href="/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Home</a>
+          <div class="relative group">
+            <button class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors flex items-center gap-1">
+              Electricity
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-card-hover border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+              <a href="/lesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">LESCO — Lahore</a>
+              <a href="/mepco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">MEPCO — Multan</a>
+              <a href="/gepco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">GEPCO — Gujranwala</a>
+              <a href="/fesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">FESCO — Faisalabad</a>
+              <a href="/iesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">IESCO — Islamabad</a>
+              <a href="/pesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">PESCO — Peshawar</a>
+              <a href="/hesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">HESCO — Hyderabad</a>
+              <a href="/k-electric-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">K-Electric — Karachi</a>
+              <a href="/sepco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">SEPCO — Sukkur</a>
+              <a href="/qesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">QESCO — Quetta</a>
+              <a href="/tesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">TESCO — Tribal Areas</a>
+            </div>
+          </div>
+          <a href="/sngpl-bill/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Gas Bills</a>
+          <a href="/ptcl-bill/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">PTCL</a>
+          <a href="/electricity-bill-calculator/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Calculator</a>
+          <a href="/dashboard/" class="text-sm font-medium bg-primary-600 text-white px-3 py-1.5 rounded-lg hover:bg-primary-700 transition-colors">Dashboard</a>
+          <a href="/blog/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Blog</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100" aria-label="Open menu">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-neutral-100 px-4 py-4">
+      <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+        <a href="/" class="px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 rounded-lg">Home</a>
+        <p class="px-3 py-1 text-xs font-semibold text-neutral-400 uppercase tracking-wider mt-2">Electricity</p>
+        <a href="/lesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">LESCO — Lahore</a>
+        <a href="/mepco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">MEPCO — South Punjab</a>
+        <a href="/gepco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">GEPCO — Gujranwala</a>
+        <a href="/fesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">FESCO — Faisalabad</a>
+        <a href="/iesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">IESCO — Islamabad</a>
+        <a href="/pesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">PESCO — Peshawar</a>
+        <a href="/hesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">HESCO — Hyderabad</a>
+        <a href="/k-electric-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">K-Electric — Karachi</a>
+        <a href="/sepco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">SEPCO — Sukkur</a>
+        <a href="/qesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">QESCO — Quetta</a>
+        <a href="/tesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">TESCO — Tribal</a>
+        <p class="px-3 py-1 text-xs font-semibold text-neutral-400 uppercase tracking-wider mt-2">Other Bills</p>
+        <a href="/sngpl-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">SNGPL Gas Bill</a>
+        <a href="/ssgc-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">SSGC Gas Bill</a>
+        <a href="/ptcl-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">PTCL Bill</a>
+        <a href="/electricity-bill-calculator/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-50 rounded-lg">🧮 Bill Calculator</a>
+        <a href="/dashboard/" class="px-3 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-50 rounded-lg">📊 All Bills Dashboard</a>
+        <a href="/blog/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-neutral-300 pt-12 pb-6 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
+
+        <!-- Brand -->
+        <div class="col-span-2 md:col-span-1">
+          <a href="/" class="font-heading font-bold text-xl text-white mb-3 inline-block">
+            Pakistan<span class="text-accent">Bill</span>
+          </a>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Pakistan's most complete utility bill checker. View and download your electricity, gas, water, and PTCL bills — free and instant.
+          </p>
+          <div class="mt-4 space-y-1 text-xs text-neutral-500">
+            <p>✅ 19 utility providers</p>
+            <p>✅ Free, no login required</p>
+            <p>✅ PDF download + print</p>
+          </div>
+        </div>
+
+        <!-- Electricity Bills Punjab -->
+        <div>
+          <h3 class="font-semibold text-white text-sm mb-4">Punjab & ICT</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/electricity/" class="hover:text-white transition-colors font-semibold text-primary-300">⚡ All Electricity Bills</a></li>
+            <li><a href="/lesco-bill/" class="hover:text-white transition-colors">LESCO — Lahore</a></li>
+            <li><a href="/mepco-bill/" class="hover:text-white transition-colors">MEPCO — Multan</a></li>
+            <li><a href="/gepco-bill/" class="hover:text-white transition-colors">GEPCO — Gujranwala</a></li>
+            <li><a href="/fesco-bill/" class="hover:text-white transition-colors">FESCO — Faisalabad</a></li>
+            <li><a href="/iesco-bill/" class="hover:text-white transition-colors">IESCO — Islamabad</a></li>
+            <li><a href="/wasa-lahore-bill/" class="hover:text-white transition-colors">WASA — Lahore Water</a></li>
+            <li><a href="/wasa-rawalpindi-bill/" class="hover:text-white transition-colors">WASA — Rawalpindi Water</a></li>
+            <li><a href="/wasa-faisalabad-bill/" class="hover:text-white transition-colors">WASA — Faisalabad Water</a></li>
+          </ul>
+        </div>
+
+        <!-- KPK, Sindh & Balochistan -->
+        <div>
+          <h3 class="font-semibold text-white text-sm mb-4">KPK, Sindh & Balochistan</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/pesco-bill/" class="hover:text-white transition-colors">PESCO — Peshawar/KPK</a></li>
+            <li><a href="/tesco-bill/" class="hover:text-white transition-colors">TESCO — Tribal Areas</a></li>
+            <li><a href="/ajk-bill/" class="hover:text-white transition-colors">AJK — Azad Kashmir</a></li>
+            <li><a href="/hesco-bill/" class="hover:text-white transition-colors">HESCO — Hyderabad</a></li>
+            <li><a href="/sepco-bill/" class="hover:text-white transition-colors">SEPCO — Sukkur</a></li>
+            <li><a href="/k-electric-bill/" class="hover:text-white transition-colors">K-Electric — Karachi</a></li>
+            <li><a href="/qesco-bill/" class="hover:text-white transition-colors">QESCO — Quetta</a></li>
+            <li><a href="/ssgc-bill/" class="hover:text-white transition-colors">SSGC — Karachi Gas</a></li>
+          </ul>
+        </div>
+
+        <!-- Gas, Telecom & Guides -->
+        <div>
+          <h3 class="font-semibold text-white text-sm mb-4">Gas, Telecom & Water</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/gas/" class="hover:text-white transition-colors font-semibold text-orange-300">🔥 All Gas Bills</a></li>
+            <li><a href="/sngpl-bill/" class="hover:text-white transition-colors">SNGPL — Sui Northern Gas</a></li>
+            <li><a href="/ssgc-bill/" class="hover:text-white transition-colors">SSGC — Karachi Gas</a></li>
+            <li><a href="/telecom/" class="hover:text-white transition-colors font-semibold text-blue-300">📞 All Telecom Bills</a></li>
+            <li><a href="/ptcl-bill/" class="hover:text-white transition-colors">PTCL — Landline & DSL</a></li>
+            <li><a href="/water/" class="hover:text-white transition-colors font-semibold text-cyan-300">💧 All Water Bills</a></li>
+          </ul>
+          <h3 class="font-semibold text-white text-sm mt-5 mb-3">Bill Guides</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/blog/how-to-read-electricity-bill/" class="hover:text-white transition-colors">How to Read Your Bill</a></li>
+            <li><a href="/blog/fpa-charges-explained/" class="hover:text-white transition-colors">FPA Charges Explained</a></li>
+            <li><a href="/blog/electricity-tariff-2026/" class="hover:text-white transition-colors">Electricity Tariff 2026</a></li>
+            <li><a href="/blog/how-to-pay-online/" class="hover:text-white transition-colors">How to Pay Bill Online</a></li>
+            <li><a href="/blog/how-to-find-reference-number/" class="hover:text-white transition-colors">Find Your Reference Number</a></li>
+            <li><a href="/blog/roman-urdu-bill-guide/" class="hover:text-white transition-colors">Bijli Bill Guide (Urdu)</a></li>
+            <li><a href="/blog/how-to-find-nepra-tariff-hike/" class="hover:text-white transition-colors">NEPRA Tariff 2026</a></li>
+            <li><a href="/blog/electricity-bill-calculator-guide/" class="hover:text-white transition-colors">Bill Calculator Guide</a></li>
+            <li><a href="/blog/change-name-ptcl-bill/" class="hover:text-white transition-colors">Change Name on PTCL Bill</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h3 class="font-semibold text-white text-sm mb-4">Company</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/about/" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/contact/" class="hover:text-white transition-colors">Contact</a></li>
+            <li><a href="/blog/" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/disclaimer/" class="hover:text-white transition-colors">Disclaimer</a></li>
+            <li><a href="/sitemap-page/" class="hover:text-white transition-colors">Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div><!-- close grid -->
+
+      <!-- Bottom bar -->
+      <div class="border-t border-neutral-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <p class="text-sm text-neutral-500">
+          &copy; {currentYear} PakistanBill.online — All rights reserved.
+        </p>
+        <p class="text-xs text-neutral-600">
+          Not affiliated with WAPDA, PITC, or any government body. Unofficial utility bill checker.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle script -->
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  </script>
+
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

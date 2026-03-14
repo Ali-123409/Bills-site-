@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const providers = {
+  electricity: [
+    { name: 'LESCO', full: 'Lahore Electric Supply Company', city: 'Lahore, Punjab', url: '/lesco-bill/', searches: '500K+', icon: '⚡' },
+    { name: 'MEPCO', full: 'Multan Electric Power Company', city: 'South Punjab', url: '/mepco-bill/', searches: '300K+', icon: '⚡' },
+    { name: 'K-Electric', full: 'K-Electric Limited', city: 'Karachi, Sindh', url: '/k-electric-bill/', searches: '200K+', icon: '⚡' },
+    { name: 'GEPCO', full: 'Gujranwala Electric Power Company', city: 'Gujranwala, Punjab', url: '/gepco-bill/', searches: '200K+', icon: '⚡' },
+    { name: 'FESCO', full: 'Faisalabad Electric Supply Company', city: 'Faisalabad, Punjab', url: '/fesco-bill/', searches: '150K+', icon: '⚡' },
+    { name: 'IESCO', full: 'Islamabad Electric Supply Company', city: 'Islamabad & Rawalpindi', url: '/iesco-bill/', searches: '150K+', icon: '⚡' },
+    { name: 'PESCO', full: 'Peshawar Electric Supply Company', city: 'Peshawar, KPK', url: '/pesco-bill/', searches: '100K+', icon: '⚡' },
+    { name: 'HESCO', full: 'Hyderabad Electric Supply Company', city: 'Hyderabad, Sindh', url: '/hesco-bill/', searches: '50K+', icon: '⚡' },
+    { name: 'SEPCO', full: 'Sukkur Electric Power Company', city: 'Sukkur, Sindh', url: '/sepco-bill/', searches: '30K+', icon: '⚡' },
+    { name: 'QESCO', full: 'Quetta Electric Supply Company', city: 'Quetta, Balochistan', url: '/qesco-bill/', searches: '30K+', icon: '⚡' },
+    { name: 'TESCO', full: 'Tribal Areas Electric Supply Company', city: 'Tribal Areas, KPK', url: '/tesco-bill/', searches: '20K+', icon: '⚡' },
+    { name: 'AJK', full: 'AJK Electricity Department', city: 'Azad Kashmir', url: '/ajk-bill/', searches: '10K+', icon: '⚡' },
+  ],
+  gas: [
+    { name: 'SNGPL', full: 'Sui Northern Gas Pipelines Limited', city: 'Punjab, KPK & AJK', url: '/sngpl-bill/', searches: '100K+', icon: '🔥' },
+    { name: 'SSGC', full: 'Sui Southern Gas Company', city: 'Sindh & Balochistan', url: '/ssgc-bill/', searches: '50K+', icon: '🔥' },
+  ],
+  water: [
+    { name: 'WASA Lahore', full: 'Water & Sanitation Agency Lahore', city: 'Lahore', url: '/wasa-lahore-bill/', searches: '20K+', icon: '💧' },
+    { name: 'WASA Rawalpindi', full: 'Water & Sanitation Agency Rawalpindi', city: 'Rawalpindi', url: '/wasa-rawalpindi-bill/', searches: '15K+', icon: '💧' },
+    { name: 'WASA Faisalabad', full: 'Water & Sanitation Agency Faisalabad', city: 'Faisalabad', url: '/wasa-faisalabad-bill/', searches: '10K+', icon: '💧' },
+  ],
+  telecom: [
+    { name: 'PTCL', full: 'Pakistan Telecommunication Company Limited', city: 'All Pakistan', url: '/ptcl-bill/', searches: '50K+', icon: '📞' },
+  ],
+};
+
+// Homepage schema
+const homeFAQSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How to check LESCO bill online?","acceptedAnswer":{"@type":"Answer","text":"Go to pakistanbill.online/lesco-bill/ and enter your 14-digit LESCO reference number. Your Lahore electricity bill loads instantly — free, no login."}},
+      {"@type":"Question","name":"Which electricity company serves my city?","acceptedAnswer":{"@type":"Answer","text":"Lahore: LESCO. Karachi: K-Electric. Islamabad/Rawalpindi: IESCO. Peshawar/KPK: PESCO. Faisalabad: FESCO. Multan: MEPCO. Gujranwala: GEPCO. Hyderabad: HESCO. Sukkur: SEPCO. Quetta: QESCO."}},
+      {"@type":"Question","name":"How to check SNGPL gas bill online?","acceptedAnswer":{"@type":"Answer","text":"Visit pakistanbill.online/sngpl-bill/ and enter your 11-digit consumer number. SNGPL covers Punjab, KPK, Islamabad, and AJK. For Sindh/Balochistan use SSGC bill checker."}},
+      {"@type":"Question","name":"Can I download a duplicate electricity bill?","acceptedAnswer":{"@type":"Answer","text":"Yes. Check your bill on PakistanBill.online and click Download PDF. Your duplicate bill downloads free in seconds — no account or login needed."}},
+      {"@type":"Question","name":"What is a Protected electricity consumer?","acceptedAnswer":{"@type":"Answer","text":"A Protected consumer averages 200 units or less per month over 6 months. They pay subsidized rates from Rs 13.48/unit. Unprotected consumers pay from Rs 23.59/unit."}},
+      {"@type":"Question","name":"How to pay electricity bill online in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Pay through JazzCash, EasyPaisa, HBL, MCB, or Meezan bank apps. Select Bill Payments → Electricity → choose DISCO → enter 14-digit reference number → confirm."}}]
+};
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pakistan Utility Bill Checker — PakistanBill.online",
+  "description": "Check electricity, gas, water, and PTCL bills online for all of Pakistan. LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, SNGPL, SSGC and more.",
+  "url": "https://pakistanbill.online/",
+  "publisher": { "@id": "https://pakistanbill.online/#organization" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Pakistan Utility Bill Providers",
+    "numberOfItems": 19,
+    "itemListElement": providers.electricity.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": `${p.name} Bill Online`,
+      "url": `https://pakistanbill.online${p.url}`,
+    }))
+  }
+};
+---
+
+<BaseLayout
+  title="PakistanBill — Pakistan's Only Complete Utility Bill Checker"
+  description="Pakistan's only platform covering ALL 19 utility bills — every DISCO, SNGPL, SSGC, PTCL, WASA. Check, download PDF, print free. No login."
+  canonical="/"
+  schema={[homeSchema, homeFAQSchema]}
+  lastmod="2026-03-11"
+>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white pt-16 pb-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-flex items-center gap-2 bg-primary-500 bg-opacity-50 text-primary-100 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-400 border-opacity-40">
+        🇵🇰 Pakistan's Only All-In-One Utility Bill Platform — 19 Providers
+      </span>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-5 text-white text-balance leading-tight">
+        Pakistan's Only Complete Utility Bill Platform
+      </h1>
+      <p class="text-lg md:text-xl text-primary-100 mb-3 max-w-2xl mx-auto leading-relaxed">
+        Every Pakistan utility bill — electricity, gas, water, and telecom — in one place. The <strong>only</strong> platform covering all 19 providers: every WAPDA DISCO, <a href="/k-electric-bill/" class="text-white underline">K-Electric</a>, <a href="/sngpl-bill/" class="text-white underline">SNGPL</a>, <a href="/ssgc-bill/" class="text-white underline">SSGC</a>, <a href="/ptcl-bill/" class="text-white underline">PTCL</a>, and all three <a href="/water/" class="text-white underline">WASA</a> water utilities.
+      </p>
+      <p class="text-base text-primary-200 mb-8 max-w-2xl mx-auto">Free forever · No login · PDF download · Works on any device</p>
+      <div class="flex flex-wrap gap-3 justify-center text-sm">
+        {['LESCO', 'MEPCO', 'GEPCO', 'FESCO', 'IESCO', 'K-Electric', 'SNGPL', 'SSGC', 'PTCL'].map(p => (
+          <span class="bg-white bg-opacity-15 border border-white border-opacity-20 px-3 py-1 rounded-full text-white text-xs font-medium">{p}</span>
+        ))}
+        <span class="bg-white bg-opacity-15 border border-white border-opacity-20 px-3 py-1 rounded-full text-white text-xs font-medium">+10 more</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="bg-white border-b border-neutral-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        {[
+          { value: '19', label: 'Utility Providers' },
+          { value: 'Free', label: 'Always Free' },
+          { value: 'Instant', label: 'Bill Loading' },
+          { value: 'PDF', label: 'Download Available' },
+        ].map(stat => (
+          <div>
+            <p class="text-2xl font-heading font-bold text-primary-600">{stat.value}</p>
+            <p class="text-sm text-neutral-500">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Electricity Bills -->
+    <section class="mb-14" aria-labelledby="electricity-heading">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-2xl">⚡</span>
+        <div>
+          <h2 id="electricity-heading" class="text-2xl font-heading font-bold text-neutral-900">Electricity Bills</h2>
+          <p class="text-sm text-neutral-500">All 13 WAPDA/PITC electricity distribution companies</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        {providers.electricity.map(provider => (
+          <a href={provider.url} class="provider-card group">
+            <div class="w-12 h-12 rounded-xl bg-primary-50 group-hover:bg-primary-100 flex items-center justify-center text-xl transition-colors">
+              {provider.icon}
+            </div>
+            <div>
+              <p class="font-heading font-bold text-neutral-900 text-base group-hover:text-primary-600 transition-colors">{provider.name}</p>
+              <p class="text-xs text-neutral-500 mt-0.5">{provider.city}</p>
+            </div>
+            <span class="text-xs text-primary-600 font-medium">{provider.searches}/mo →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Gas Bills -->
+    <section class="mb-14" aria-labelledby="gas-heading">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-2xl">🔥</span>
+        <div>
+          <h2 id="gas-heading" class="text-2xl font-heading font-bold text-neutral-900">Gas Bills</h2>
+          <p class="text-sm text-neutral-500">SNGPL and SSGC — all of Pakistan covered</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {providers.gas.map(provider => (
+          <a href={provider.url} class="provider-card group">
+            <div class="w-12 h-12 rounded-xl bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center text-xl transition-colors">
+              {provider.icon}
+            </div>
+            <div>
+              <p class="font-heading font-bold text-neutral-900 text-base group-hover:text-orange-600 transition-colors">{provider.name}</p>
+              <p class="text-xs text-neutral-500 mt-0.5">{provider.city}</p>
+            </div>
+            <span class="text-xs text-orange-600 font-medium">{provider.searches}/mo →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Water Bills -->
+    <section class="mb-14" aria-labelledby="water-heading">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-2xl">💧</span>
+        <div>
+          <h2 id="water-heading" class="text-2xl font-heading font-bold text-neutral-900">Water Bills</h2>
+          <p class="text-sm text-neutral-500">WASA water bills for major Punjab cities</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {providers.water.map(provider => (
+          <a href={provider.url} class="provider-card group">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center text-xl transition-colors">
+              {provider.icon}
+            </div>
+            <div>
+              <p class="font-heading font-bold text-neutral-900 text-base group-hover:text-blue-600 transition-colors">{provider.name}</p>
+              <p class="text-xs text-neutral-500 mt-0.5">{provider.city}</p>
+            </div>
+            <span class="text-xs text-blue-600 font-medium">{provider.searches}/mo →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Telecom Bills -->
+    <section class="mb-14" aria-labelledby="telecom-heading">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-2xl">📞</span>
+        <div>
+          <h2 id="telecom-heading" class="text-2xl font-heading font-bold text-neutral-900">Telecom Bills</h2>
+          <p class="text-sm text-neutral-500">PTCL landline and internet bills</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {providers.telecom.map(provider => (
+          <a href={provider.url} class="provider-card group">
+            <div class="w-12 h-12 rounded-xl bg-purple-50 group-hover:bg-purple-100 flex items-center justify-center text-xl transition-colors">
+              {provider.icon}
+            </div>
+            <div>
+              <p class="font-heading font-bold text-neutral-900 text-base group-hover:text-purple-600 transition-colors">{provider.name}</p>
+              <p class="text-xs text-neutral-500 mt-0.5">{provider.city}</p>
+            </div>
+            <span class="text-xs text-purple-600 font-medium">{provider.searches}/mo →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Why PakistanBill -->
+    <section class="bg-neutral-50 rounded-2xl border border-neutral-200 p-8 mb-14">
+      <h2 class="section-title text-center mb-2">Why PakistanBill is Pakistan's <span>#1 Choice</span></h2>
+      <p class="text-center text-neutral-500 mb-8">The only platform in Pakistan covering every single utility provider — electricity, gas, water, telecom. No other site comes close.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { icon: '📋', title: 'Bill Displays Here', desc: 'Your bill loads directly on this page. No redirects to PITC or other portals.' },
+          { icon: '📥', title: 'PDF Download', desc: 'Download your complete electricity bill as a PDF file in one click — free.' },
+          { icon: '🔒', title: 'No Login Required', desc: 'Just enter your reference number. No account, no registration, no personal data stored.' },
+          { icon: '📱', title: 'Mobile Friendly', desc: 'Check your bill on any device — phone, tablet, or desktop. Fully responsive.' },
+          { icon: '🇵🇰', title: 'All 19 Providers', desc: 'Electricity, gas, water, and PTCL — every major utility provider in one place.' },
+          { icon: '⚡', title: 'Instant Results', desc: 'Bill loads in under 3 seconds. No waiting, no loading screens, no delays.' },
+        ].map(feature => (
+          <div class="flex gap-4">
+            <span class="text-2xl flex-shrink-0 mt-0.5">{feature.icon}</span>
+            <div>
+              <h3 class="font-semibold text-neutral-900 mb-1">{feature.title}</h3>
+              <p class="text-sm text-neutral-600">{feature.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="mb-14">
+      <h2 class="section-title text-center mb-2">How to Check Your Bill</h2>
+      <p class="text-center text-neutral-500 mb-8">Three simple steps to view any Pakistan utility bill online.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { step: '1', title: 'Select Your Provider', desc: 'Click your electricity, gas, or water provider from the list above.' },
+          { step: '2', title: 'Enter Reference Number', desc: 'Type your 14-digit reference number or consumer ID from your bill.' },
+          { step: '3', title: 'View, Download, Print', desc: 'Your bill appears instantly. Download as PDF or print a duplicate copy.' },
+        ].map(item => (
+          <div class="text-center">
+            <div class="w-14 h-14 bg-primary-600 text-white rounded-2xl flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">{item.step}</div>
+            <h3 class="font-heading font-semibold text-neutral-900 mb-2">{item.title}</h3>
+            <p class="text-sm text-neutral-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+
+    <!-- Homepage SEO Content Block -->
+    <section class="mb-14">
+      <h2 class="section-title mb-6">How to Check Your Pakistan Utility Bill — Quick Guide</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white border border-neutral-200 rounded-2xl p-6">
+          <h3 class="font-bold text-neutral-900 mb-3">⚡ Electricity Bill Check</h3>
+          <p class="text-sm text-neutral-600 mb-3">All WAPDA DISCOs use a <strong>14-digit reference number</strong> — find it in the top-right of your electricity bill labeled "Ref. No." Enter it on any DISCO page to see your full bill instantly.</p>
+          <p class="text-sm text-neutral-500 italic">Bijli ka bill check karne ka tarika: apna 14-digit reference number daalen, Check Bill click karen — bill screen par aa jayega.</p>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-2xl p-6">
+          <h3 class="font-bold text-neutral-900 mb-3">🔥 Gas & 📞 Telecom Bill Check</h3>
+          <p class="text-sm text-neutral-600 mb-3"><strong>SNGPL gas</strong>: 11-digit consumer number. <strong>SSGC gas</strong>: 10-digit consumer number. <strong>PTCL</strong>: phone number + 10-digit account ID. All available instantly — no login.</p>
+          <p class="text-sm text-neutral-500 italic">Gas bill check: SNGPL ya SSGC ka consumer number apne gas bill par milega — top section mein.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title mb-4">Check Bills by City</h2>
+      <div class="flex flex-wrap gap-2 mb-10">
+        {[
+          ["Lahore","/lahore/"],["Karachi","/karachi/"],["Islamabad","/islamabad/"],
+          ["Rawalpindi","/rawalpindi/"],["Faisalabad","/faisalabad/"],["Multan","/multan/"],
+          ["Peshawar","/peshawar/"],["Gujranwala","/gujranwala/"],["Hyderabad","/hyderabad/"],
+          ["Quetta","/quetta/"],["Sialkot","/sialkot/"],["Sukkur","/sukkur/"],
+          ["Bahawalpur","/bahawalpur/"],["Gujrat","/gujrat/"],["Abbottabad","/abbottabad/"],
+        ].map((item) => (
+          <a href={item[1]} class="text-sm font-semibold bg-white border border-neutral-200 rounded-lg px-3 py-2 text-neutral-700 hover:border-primary-400 hover:text-primary-700 transition-all">
+            📍 {item[0]}
+          </a>
+        ))}
+      </div>
+
+      <h2 class="section-title mb-4">Pakistan Electricity Tariff 2026 — Quick Reference</h2>
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-primary-700 text-white">
+              <th class="p-3 text-left">Consumer Type</th>
+              <th class="p-3 text-left">Units</th>
+              <th class="p-3 text-right">Rate (Rs/unit)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ["Protected","1–100 units","Rs 13.48","bg-green-50"],
+              ["Protected","101–200 units","Rs 18.58","bg-green-50"],
+              ["Unprotected","1–100 units","Rs 23.59","bg-yellow-50"],
+              ["Unprotected","101–300 units","Rs 30.07–34.26","bg-yellow-50"],
+              ["Unprotected","301–700 units","Rs 39.15–43.92","bg-orange-50"],
+              ["Unprotected","Above 700 units","Rs 48.84","bg-red-50"],
+            ].map((item) => (
+              <tr class={`border-b border-neutral-200 ${item[3]}`}>
+                <td class="p-3 font-semibold">{item[0]}</td>
+                <td class="p-3">{item[1]}</td>
+                <td class="p-3 font-bold text-right">{item[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-neutral-400 mb-8">Additional charges apply: FPA (Rs 0.48/unit), FC Surcharge (Rs 0.43/unit), GST 17%, Electricity Duty 1.5%, Meter Rent. <a href="/electricity-bill-calculator/" class="text-primary-600 hover:underline">Use our calculator for exact amount →</a></p>
+
+      <h2 class="section-title mb-4">Latest from Our Blog</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {[
+          ["How to Find Your Reference Number","/blog/how-to-find-reference-number/","Guides"],
+          ["NEPRA Tariff Hike 2026 — New Rates","/blog/how-to-find-nepra-tariff-hike/","Tariff"],
+          ["Bijli Bill Check — Roman Urdu Guide","/blog/roman-urdu-bill-guide/","Urdu"],
+          ["How to Calculate Your Bill","/blog/electricity-bill-calculator-guide/","Guides"],
+          ["FPA Charges Explained","/blog/fpa-charges-explained/","Tariff"],
+          ["How to Pay Bills Online","/blog/how-to-pay-online/","Guides"],
+        ].map((item) => (
+          <a href={item[1]} class="bg-white border border-neutral-200 rounded-xl p-4 hover:border-primary-300 hover:shadow-sm transition-all">
+            <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">{item[2]}</span>
+            <p class="text-sm font-semibold text-neutral-800 mt-2 leading-snug">{item[0]}</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="section-title mb-4">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {[
+          { q: "How to check LESCO bill online?", a: "Go to pakistanbill.online/lesco-bill/ and enter your 14-digit LESCO reference number. Your Lahore electricity bill loads instantly — free, no login." },
+          { q: "Which electricity company serves my city?", a: "Lahore: LESCO. Karachi: K-Electric. Islamabad/Rawalpindi: IESCO. Peshawar/KPK: PESCO. Faisalabad: FESCO. Multan/South Punjab: MEPCO. Gujranwala: GEPCO. Hyderabad: HESCO. Sukkur: SEPCO. Quetta/Balochistan: QESCO. AJK: AJKED." },
+          { q: "How to check SNGPL gas bill online?", a: "Go to pakistanbill.online/sngpl-bill/ and enter your 11-digit SNGPL consumer number. SNGPL covers Punjab, KPK, Islamabad, and AJK. For Sindh/Balochistan gas check SSGC bill." },
+          { q: "Can I download a duplicate electricity bill?", a: "Yes. Check your bill on PakistanBill.online and click the Download PDF button. Your duplicate electricity bill downloads in seconds — free. No account or login required." },
+          { q: "What is a Protected consumer in Pakistan?", a: "A Protected consumer averages 200 units or less per month over the last 6 months. Protected consumers pay subsidized rates starting at Rs 13.48/unit. Unprotected consumers pay unsubsidized rates starting at Rs 23.59/unit from unit 1." },
+          { q: "How to pay electricity bill online in Pakistan?", a: "Pay any electricity bill through JazzCash, EasyPaisa, HBL, MCB, or Meezan bank apps. Select Bill Payments → Electricity → choose your DISCO → enter 14-digit reference number → confirm payment." },
+        ].map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">{faq.q}</summary>
+            <div class="px-4 pb-4 text-sm text-neutral-600">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </section>
+    <!-- Disclaimer -->
+    <div class="alert-warning text-center text-sm">
+      <strong>Disclaimer:</strong> PakistanBill.online is an independent utility bill checker. We are not affiliated with WAPDA, PITC, NEPRA, or any government body. Bill data is fetched from official portals and displayed here for user convenience.
+    </div>
+
+  </div>
+
+</BaseLayout>

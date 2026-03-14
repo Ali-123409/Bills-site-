@@ -1,0 +1,144 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="mepco"
+  discoName="MEPCO"
+  discoFull="Multan Electric Power Company"
+  city="Multan"
+  province="Punjab"
+  established="1998"
+  ceo="Engr. Tahir Mahmood"
+  customers="6.5 million"
+  employees="18,000+"
+  revenue="$2.8 billion USD"
+  helpline="118"
+  uan="0800-63726"
+  website="https://mepco.com.pk"
+  headOffice="Khanewal Road, Multan, Punjab"
+  refnoLength={14}
+  hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM"
+  peakHourWinter="6:00 PM – 10:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="MEPCO Bill Online — Check & Download Duplicate Bill March 2026"
+  metaDescription="Check your MEPCO bill online by 14-digit reference number or consumer ID. View, download PDF, and print your MEPCO South Punjab duplicate bill instantly — free, no login required."
+  canonical="/mepco-bill/"
+
+  introContent={`
+    <p>Multan Electric Power Company (MEPCO) is Pakistan's <strong>largest electricity distribution company by geographic area</strong>, serving over 6.5 million consumers across 13 districts of South Punjab. Established in 1998 as a successor to WAPDA's South Zone, MEPCO's service territory stretches from Multan in the north to Rahim Yar Khan in the south — covering some of Pakistan's most agriculturally and economically significant land.</p>
+    <p>MEPCO's 13-district coverage includes <strong>Multan</strong> (the City of Saints and South Punjab's capital), <strong>Bahawalpur</strong> (the largest district by area), <strong>Rahim Yar Khan</strong> (Pakistan's most southerly major city), <strong>Dera Ghazi Khan</strong>, <strong>Sahiwal</strong>, <strong>Khanewal</strong>, <strong>Lodhran</strong>, <strong>Vehari</strong>, <strong>Muzaffargarh</strong>, <strong>Bahawalnagar</strong>, <strong>Layyah</strong>, <strong>Bhakkar</strong>, and parts of Pakpattan. This vast territory makes MEPCO the most strategically important DISCO for Pakistan's agriculture sector — irrigation pumps, tube wells, and cold storage facilities across South Punjab run on MEPCO power.</p>
+    <p>To check your MEPCO bill online, you need your <strong>14-digit MEPCO reference number</strong> — printed in the top section of every monthly bill. Alternatively, use your <strong>10-digit Customer ID</strong> (click the Customer ID tab above). MEPCO also operates an SMS bill service: send <em>pitc [your 14-digit reference number]</em> to <strong>8334</strong> to receive your bill amount, due date, and units consumed by return SMS within seconds.</p>
+    <p>MEPCO bills follow NEPRA's national tariff structure. Domestic consumers averaging 200 units or less per month over 6 months qualify as <strong>Protected consumers</strong> and pay subsidized rates. Those above 200 units are reclassified as <strong>Unprotected</strong> and face significantly higher slab rates. MEPCO's billing cycle runs monthly, with bills typically available online by the 20th to 25th of each month via the PITC server this page connects to.</p>
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Alongside this checker, you can also check: <a href="/lesco-bill/">LESCO bill</a> | <a href="/fesco-bill/">FESCO bill</a> | <a href="/gepco-bill/">GEPCO bill</a> | <a href="/sngpl-bill/">SNGPL gas bill</a>. Use our free <a href="/electricity-bill-calculator/">electricity bill calculator</a> to estimate charges before your bill arrives, or visit our <a href="/dashboard/">universal bill dashboard</a> to check multiple bills without switching pages. Also see: <a href="/blog/mepco-reference-number/">How to find your MEPCO reference number</a> — and our complete <a href="/multan/">South Punjab utility bills guide</a>.</p>
+  `}
+
+  howToSteps={[
+    "Find your 14-digit MEPCO reference number — printed in bold at the top of your MEPCO electricity bill, usually on the right side near your consumer name.",
+    "Open the bill checker tool at the top of this page. The Reference Number tab is selected by default.",
+    "Type your 14-digit MEPCO reference number into the input field. Enter numbers only — no spaces, dashes, or letters.",
+    "Click the green Check Bill button. The tool connects directly to the PITC server (bill.pitc.com.pk/mepcobill) and retrieves your bill.",
+    "Your complete MEPCO bill appears on screen within 3 to 5 seconds — showing total amount due, due date, units consumed, meter readings, and all charges including FPA and surcharges.",
+    "Click Download PDF to save your MEPCO bill as a PDF file, or click Print to get an immediate paper duplicate copy."
+  ]}
+
+  billReadingTips={[
+    "Your MEPCO reference number (14 digits, top of bill) is permanent — save it in your phone contacts so you can check your bill every month without searching for a paper copy.",
+    "Compare Previous Reading and Current Reading on your bill. Subtract them to get units consumed. If the result is much higher than last month with no change in appliance usage, request a meter inspection.",
+    "Check your Category field — it should say D-Protected if your 6-month average is under 200 units. If it says D-Unprotected but you believe you qualify as Protected, file a complaint at your MEPCO sub-division office immediately.",
+    "The Billing Month field shows which consumption period the bill covers. MEPCO bills cover approximately 30 days of consumption. If the bill shows 'Estimated', it means the meter reader could not access your meter — request an actual reading within 7 days.",
+    "Review the Arrears line carefully. Outstanding arrears from previous months are added to your current bill. If you see arrears you already paid, take payment receipts to your nearest MEPCO sub-division office for manual clearance.",
+    "Check the Surcharges section for any Theft Penalty (TP) charges. If TP appears on your bill and you have not tampered with the meter, dispute it immediately — TP penalties can be very large and must be challenged within the billing month.",
+    "MEPCO's Sanctioned Load field shows your approved connection capacity. Running appliances beyond this limit triggers MDI (Maximum Demand Indicator) penalties. Apply for a load enhancement if you have added major appliances.",
+  ]}
+
+  savingTips={[
+    "Stay under 200 units per month on average to maintain MEPCO Protected status. The difference between Protected (Rs 13.48/unit) and Unprotected (Rs 23.59/unit) for the first 100 units alone represents a 75% cost increase.",
+    "South Punjab summers are intense — temperatures exceed 45°C in Multan, DG Khan, and Rahim Yar Khan. Set AC to 26°C and use ceiling fans simultaneously. This reduces AC workload by 15–20% without compromising comfort.",
+    "Agricultural consumers using MEPCO for tube wells and irrigation pumps should run pumps during off-peak hours (before 6:30 PM and after 10:30 PM) to benefit from lower off-peak rates and reduce load on MEPCO's grid.",
+    "MEPCO offers a net metering program for solar panel owners. South Punjab receives some of Pakistan's highest annual solar irradiance — solar panels in Multan or Bahawalpur generate 20–25% more electricity than in Lahore. Apply for MEPCO net metering to offset or eliminate your bill.",
+    "Use a programmable timer for your electric geyser. Set it to heat water at 3 PM (off-peak) and turn off by 5 PM. Hot water stays warm in insulated tanks for 5–6 hours — covering evening use without any peak-hour electricity.",
+    "Replace incandescent or CFL bulbs with LED bulbs. A household with 15 bulbs running 6 hours daily saves approximately 50–60 units per month just from lighting — worth Rs 1,500+ at unprotected rates.",
+    "Check your MEPCO bill every month using the tool above. Early detection of meter faults, billing errors, or TP penalties prevents large accumulations that are difficult to reverse.",
+  ]}
+
+  complaintProcess={[
+    "Call MEPCO helpline 118 or UAN 0800-63726 with your 14-digit reference number. Describe the billing issue clearly — wrong units, TP penalty, category error, or unexplained surcharge.",
+    "Demand a Complaint Registration Number (CRN) from the MEPCO agent. This is your legal proof. The agent is required to give you this — if they refuse, call back and report the agent's name.",
+    "Visit your nearest MEPCO sub-division office with your bill and CNIC if the phone complaint is not acknowledged within 48 hours. Sub-division offices handle billing disputes directly and can issue manual corrections.",
+    "MEPCO must resolve billing complaints within 7–14 working days under NEPRA Consumer Protection Regulations 2020. If your complaint is ignored beyond this window, escalate to NEPRA Consumer Services at 0800-63000 (toll-free).",
+    "For ignored NEPRA complaints, escalate to the Federal Ombudsman (Wafaqi Mohtasib) at mohtasib.gov.pk — completely free and legally binding on MEPCO.",
+  ]}
+
+  smsService="Type pitc followed by a space and your 14-digit MEPCO reference number, then send to 8334. MEPCO sends you your current bill amount, due date, and units consumed as an SMS within seconds. Example: pitc 12345678901234 → send to 8334."
+
+  coverageAreas={[
+    { region: "Circle Multan", district: "Multan", cities: "Multan City, Shujabad, Jalalpur Pirwala, Mian Channu, Shujaabad" },
+    { region: "Circle Sahiwal", district: "Sahiwal", cities: "Sahiwal City, Pakpattan, Arifwala, Chichawatni, Haroonabad" },
+    { region: "Circle Bahawalpur", district: "Bahawalpur", cities: "Bahawalpur City, Ahmadpur East, Hasilpur, Yazman, Khairpur Tamewali" },
+    { region: "Circle RY Khan", district: "Rahim Yar Khan", cities: "Rahim Yar Khan City, Sadiqabad, Liaquatpur, Khan Pur" },
+    { region: "Circle DG Khan", district: "Dera Ghazi Khan", cities: "DG Khan City, Taunsa, Rajanpur, Jampur, Kot Chuta" },
+    { region: "Circle Khanewal", district: "Khanewal", cities: "Khanewal City, Mian Channu, Kabirwala, Jahanian" },
+    { region: "Circle Lodhran", district: "Lodhran", cities: "Lodhran City, Kahror Pakka, Dunyapur" },
+    { region: "Circle Vehari", district: "Vehari", cities: "Vehari City, Burewala, Mailsi, Gaggu Mandi" },
+    { region: "Circle Muzaffargarh", district: "Muzaffargarh", cities: "Muzaffargarh City, Kot Addu, Alipur, Jatoi" },
+    { region: "Circle Bahawalnagar", district: "Bahawalnagar", cities: "Bahawalnagar City, Chishtian, Haroonabad, Fort Abbas" },
+    { region: "Circle Layyah", district: "Layyah", cities: "Layyah City, Chowk Azam, Karor Lal Esan" },
+    { region: "Circle Bhakkar", district: "Bhakkar", cities: "Bhakkar City, Mankera, Darya Khan, Kallur Kot" },
+    { region: "Circle Bahawalpur City", district: "Bahawalpur Urban", cities: "All urban areas of Bahawalpur city" },
+  ]}
+
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "Toll-Free UAN", detail: "0800-63726" },
+    { type: "Head Office", detail: "Khanewal Road, Multan, Punjab" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Electricity Theft Hotline", detail: "0800-63726 (anonymous reporting)" },
+    { type: "New Connection Portal", detail: "enc.com.pk → Select MEPCO" },
+    { type: "Complaint Email", detail: "info@mepco.com.pk" },
+    { type: "Official Website", detail: "mepco.com.pk" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter 14-digit reference" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free) — if MEPCO ignores complaint for 14+ days" },
+  ]}
+
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+
+  faqs={[
+    { question: "How do I check my MEPCO bill online in March 2026?", answer: "Enter your 14-digit MEPCO reference number in the bill checker at the top of this page and click Check Bill. Your complete MEPCO electricity bill for March 2026 appears on screen in seconds — showing amount due, due date, units consumed, meter readings, and all charges. This is completely free, needs no login, and works 24 hours a day, 7 days a week." },
+    { question: "Where is my MEPCO 14-digit reference number on the bill?", answer: "Your MEPCO reference number is printed in bold at the top of your electricity bill — usually on the upper-right area of the page near your consumer name and address. It is also printed on the tear-off payment stub at the bottom. It is always 14 digits long. Save it in your phone — this number never changes for your connection." },
+    { question: "How do I check my MEPCO bill by SMS?", answer: "Type pitc followed by a space and your 14-digit MEPCO reference number, then send to 8334. For example: pitc 12345678901234. You receive your current bill amount, due date, and units consumed as an SMS reply within seconds. Standard SMS charges apply from your mobile operator." },
+    { question: "Can I check MEPCO bill by Consumer ID?", answer: "Yes. Click the Customer ID tab in the bill checker above and enter your 10-digit Consumer ID. Your MEPCO Consumer ID is printed below your name on the bill, labeled Consumer No. or Account No. Both the reference number and Consumer ID pull the exact same complete bill from the PITC server." },
+    { question: "How do I download my MEPCO duplicate bill as PDF?", answer: "After your MEPCO bill loads on screen, click the Download PDF button. Your browser opens the print dialog — select Save as PDF as your printer destination and click Save. Your MEPCO duplicate bill downloads instantly as a PDF file. You can then share it on WhatsApp, email it, or print it at any nearby printing shop for payment." },
+    { question: "Why is my MEPCO bill very high this month?", answer: "Common reasons for a high MEPCO bill: (1) AC usage in South Punjab summers — temperatures above 45°C in Multan and DG Khan force ACs to run 16+ hours daily; (2) High FPA (Fuel Price Adjustment) set by NEPRA for this billing month; (3) You crossed from Protected to Unprotected status due to 6-month average exceeding 200 units; (4) Estimated bill from previous months combined with current actual; (5) Meter reading error — check if the bill says Estimated instead of Actual." },
+    { question: "What are MEPCO's peak hours?", answer: "MEPCO summer peak hours (April to October) are 6:30 PM to 10:30 PM. Winter peak hours (November to March) are 6:00 PM to 10:00 PM. Running heavy appliances — AC, washing machine, iron, electric geyser — during these windows costs more per unit for connections with sanctioned load above 5kW. Shifting these appliances to before 6 PM or after 11 PM saves most MEPCO households Rs 200–500 per month." },
+    { question: "How do I pay my MEPCO bill online?", answer: "Pay through JazzCash, Easypaisa, or any bank mobile app. Open the app, go to Bill Payments, select Electricity, choose MEPCO or WAPDA, enter your 14-digit reference number, verify the amount shown, and confirm payment. You receive an instant SMS confirmation with a transaction ID. Online payment posts to MEPCO's system within 2 to 4 hours." },
+    { question: "What is the MEPCO bill grace period?", answer: "MEPCO gives 7 days after the due date printed on the bill to pay without a late payment surcharge. After the grace period ends, a 10% surcharge applies to the entire unpaid amount. On a Rs 8,000 MEPCO bill, paying even one day after the grace period costs you an extra Rs 800. Always pay on or before your due date." },
+    { question: "How do I check MEPCO load shedding schedule for my area?", answer: "Visit ccms.pitc.com.pk and enter your 14-digit MEPCO reference number. Click Search. Your specific feeder's complete load shedding schedule appears — showing which hours each day your area has no electricity. MEPCO implements feeder-wise load shedding. Areas with higher bill recovery rates receive less load shedding under MEPCO policy." },
+    { question: "Which districts does MEPCO cover?", answer: "MEPCO covers 13 districts of South Punjab: Multan, Bahawalpur, Rahim Yar Khan, Dera Ghazi Khan, Sahiwal, Pakpattan, Khanewal, Lodhran, Vehari, Muzaffargarh, Bahawalnagar, Layyah, and Bhakkar. MEPCO is Pakistan's largest DISCO by geographic coverage, serving one of the country's most agriculturally productive regions." },
+    { question: "How do I file a billing complaint with MEPCO?", answer: "Call MEPCO helpline 118 or 0800-63726 with your reference number ready. Describe the billing issue — overbilling, wrong category, TP penalty, or incorrect reading — and note down the Complaint Registration Number (CRN) the agent gives you. If MEPCO does not resolve within 14 working days, escalate to NEPRA at 0800-63000 (toll-free). NEPRA decisions are legally binding on MEPCO." },
+  ]}
+
+  relatedPages={[
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "GEPCO Bill Online", url: "/gepco-bill/" },
+    { name: "FESCO Bill Online", url: "/fesco-bill/" },
+    { name: "IESCO Bill Online", url: "/iesco-bill/" },
+    { name: "PESCO Bill Online", url: "/pesco-bill/" },
+    { name: "HESCO Bill Online", url: "/hesco-bill/" },
+    { name: "SEPCO Bill Online", url: "/sepco-bill/" },
+    { name: "QESCO Bill Online", url: "/qesco-bill/" },
+    { name: "K-Electric Bill Online", url: "/k-electric-bill/" },
+    { name: "SNGPL Gas Bill", url: "/sngpl-bill/" },
+  ]}
+/>

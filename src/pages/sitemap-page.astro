@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sitemapSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://pakistanbill.online/sitemap-page/#webpage",
+  "url": "https://pakistanbill.online/sitemap-page/",
+  "name": "Sitemap — PakistanBill.online",
+  "description": "Complete sitemap of PakistanBill.online — all electricity, gas, water, and PTCL bill checker pages.",
+  "isPartOf": { "@id": "https://pakistanbill.online/#website" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pakistanbill.online/" },
+      { "@type": "ListItem", "position": 2, "name": "Sitemap", "item": "https://pakistanbill.online/sitemap-page/" }
+    ]
+  }
+};
+
+const sections = [
+  {
+    title: "Electricity Bill Checkers — WAPDA DISCOs",
+    icon: "⚡",
+    links: [
+      { label: "LESCO Bill Online — Lahore Electric Supply Company", url: "/lesco-bill/" },
+      { label: "MEPCO Bill Online — Multan Electric Power Company", url: "/mepco-bill/" },
+      { label: "GEPCO Bill Online — Gujranwala Electric Power Company", url: "/gepco-bill/" },
+      { label: "FESCO Bill Online — Faisalabad Electric Supply Company", url: "/fesco-bill/" },
+      { label: "IESCO Bill Online — Islamabad Electric Supply Company", url: "/iesco-bill/" },
+      { label: "PESCO Bill Online — Peshawar Electric Supply Company", url: "/pesco-bill/" },
+      { label: "HESCO Bill Online — Hyderabad Electric Supply Company", url: "/hesco-bill/" },
+      { label: "SEPCO Bill Online — Sukkur Electric Power Company", url: "/sepco-bill/" },
+      { label: "QESCO Bill Online — Quetta Electric Supply Company", url: "/qesco-bill/" },
+      { label: "TESCO Bill Online — Tribal Areas Electric Supply Company", url: "/tesco-bill/" },
+      { label: "AJK Bill Online — Azad Jammu & Kashmir Electricity Department", url: "/ajk-bill/" },
+    ]
+  },
+  {
+    title: "K-Electric — Karachi Electricity",
+    icon: "⚡",
+    links: [
+      { label: "K-Electric Bill Online — Karachi, Hub & Lasbela", url: "/k-electric-bill/" },
+    ]
+  },
+  {
+    title: "Gas Bill Checkers",
+    icon: "🔥",
+    links: [
+      { label: "SNGPL Bill Online — Sui Northern Gas (Punjab, KPK, ICT, AJK)", url: "/sngpl-bill/" },
+      { label: "SSGC Bill Online — Sui Southern Gas (Karachi, Sindh, Balochistan)", url: "/ssgc-bill/" },
+    ]
+  },
+  {
+    title: "Water Bill Checkers",
+    icon: "💧",
+    links: [
+      { label: "WASA Lahore Water Bill Online", url: "/wasa-lahore-bill/" },
+      { label: "WASA Rawalpindi Water Bill Online", url: "/wasa-rawalpindi-bill/" },
+      { label: "WASA Faisalabad Water Bill Online", url: "/wasa-faisalabad-bill/" },
+    ]
+  },
+  {
+    title: "Telecom Bill Checkers",
+    icon: "📞",
+    links: [
+      { label: "PTCL Bill Online — Landline, DSL, FlashFiber, CharJi", url: "/ptcl-bill/" },
+    ]
+  },
+  {
+    title: "Electricity Bill Guides & Blog",
+    icon: "📖",
+    links: [
+      { label: "Blog — Pakistan Electricity Bill Guides", url: "/blog/" },
+      { label: "How to Read Your Pakistan Electricity Bill", url: "/blog/how-to-read-electricity-bill/" },
+      { label: "FPA (Fuel Price Adjustment) Charges Explained", url: "/blog/fpa-charges-explained/" },
+      { label: "Pakistan Electricity Tariff Rates 2026", url: "/blog/electricity-tariff-2026/" },
+      { label: "Peak Hours for All DISCOs — 2026", url: "/blog/peak-hours-all-discos/" },
+      { label: "How to Pay Electricity Bill Online in Pakistan", url: "/blog/how-to-pay-online/" },
+      { label: "How to Reduce Your Electricity Bill — 15 Tips", url: "/blog/how-to-reduce-electricity-bill/" },
+    ]
+  },
+  {
+    title: "Information Pages",
+    icon: "ℹ️",
+    links: [
+      { label: "About PakistanBill.online", url: "/about/" },
+      { label: "Contact Us", url: "/contact/" },
+      { label: "Privacy Policy", url: "/privacy-policy/" },
+      { label: "Disclaimer", url: "/disclaimer/" },
+    ]
+  },
+];
+---
+<BaseLayout
+  title="Sitemap — All Pages on PakistanBill.online"
+  description="Sitemap of PakistanBill.online — all 63 pages. Electricity, gas, water, telecom bill checkers for all 19 Pakistan providers."
+  canonical="/sitemap-page/"
+  schema={sitemapSchema}
+  lastmod="2026-03-11"
+>
+  <div class="bg-neutral-100 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
+        <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-neutral-800 font-medium">Sitemap</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-3">Sitemap — PakistanBill.online</h1>
+    <p class="text-neutral-600 mb-10">Complete directory of all pages on PakistanBill.online. We cover all 19 Pakistani utility providers — electricity, gas, water, and telecom bills — with free online bill checkers and in-depth guides.</p>
+
+    <div class="space-y-10">
+      {sections.map(section => (
+        <div>
+          <h2 class="text-lg font-heading font-bold text-neutral-900 mb-4 flex items-center gap-2">
+            <span>{section.icon}</span>
+            {section.title}
+          </h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {section.links.map(link => (
+              <li>
+                <a
+                  href={link.url}
+                  class="flex items-center gap-2 px-4 py-3 bg-white border border-neutral-200 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700 transition-all"
+                >
+                  <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 bg-primary-50 border border-primary-200 rounded-2xl p-6">
+      <h2 class="font-heading font-bold text-primary-800 mb-2">XML Sitemap for Search Engines</h2>
+      <p class="text-sm text-primary-700 mb-3">Search engine crawlers use our XML sitemap to discover and index all pages. Submit it to Google Search Console and Bing Webmaster Tools to accelerate indexing.</p>
+      <a href="/sitemap.xml" class="text-sm font-semibold text-primary-600 hover:text-primary-800">→ View XML Sitemap (sitemap.xml)</a>
+    </div>
+  </div>
+</BaseLayout>

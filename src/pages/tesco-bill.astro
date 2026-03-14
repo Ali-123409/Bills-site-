@@ -1,0 +1,130 @@
+---
+import DiscoLayout from '../layouts/DiscoLayout.astro';
+---
+<DiscoLayout
+  disco="tesco"
+  discoName="TESCO"
+  discoFull="Tribal Areas Electricity Supply Company"
+  city="Peshawar"
+  province="Merged Tribal Districts (KPK)"
+  established="1981"
+  ceo="Engr. Sajid Mehmood"
+  customers="0.8 million"
+  employees="4,500+"
+  revenue="$0.3 billion USD"
+  helpline="118"
+  uan="091-9212964"
+  website="https://tesco.gov.pk"
+  headOffice="TESCO House, Ring Road, Peshawar"
+  refnoLength={14}
+  hasCustomerID={true}
+  peakHourSummer="6:30 PM – 10:30 PM"
+  peakHourWinter="5:00 PM – 9:00 PM"
+  lastmod="2026-03-11"
+  metaTitle="TESCO Bill Online — Check & Download Tribal Areas Electricity Bill March 2026"
+  metaDescription="Check your TESCO electricity bill online by 14-digit reference number. View, download PDF, and print your TESCO Tribal Areas KPK duplicate bill instantly — free, no login required."
+  canonical="/tesco-bill/"
+
+  introContent={`
+    <p>Tribal Areas Electricity Supply Company (TESCO) supplies electricity to approximately 0.8 million consumers across Pakistan's <strong>Merged Tribal Districts</strong> — the seven districts that were formerly known as FATA (Federally Administered Tribal Areas) and were merged into Khyber Pakhtunkhwa province in 2018 following the 25th Constitutional Amendment. TESCO covers: <strong>Khyber</strong> (including Landi Kotal and Torkham border), <strong>Kurram</strong> (Parachinar), <strong>North Waziristan</strong> (Miranshah), <strong>South Waziristan</strong> (Wana), <strong>Bajaur</strong> (Khar), <strong>Mohmand</strong>, and <strong>Orakzai</strong>.</p>
+    <p>TESCO was established in 1981 specifically to distribute electricity in the tribal belt when it was still FATA under federal direct governance. Following the 2018 merger with KPK, TESCO remained the designated electricity supplier for these districts while the administrative and governance integration continues. TESCO is operationally separate from <strong>PESCO</strong>, which supplies settled KPK districts. If you live in Peshawar, Mardan, Swat, or Abbottabad, check the <a href="/pesco-bill/">PESCO bill page</a> — those are PESCO areas.</p>
+    <p>TESCO's service area spans some of Pakistan's most strategically significant and historically complex terrain — the Khyber Pass connecting Pakistan to Afghanistan, the Waziristan highlands, and the Bajaur mountain valleys. Security improvements in these areas following the end of major military operations have allowed TESCO to significantly expand its network and improve supply reliability compared to a decade ago.</p>
+    <p>To check your TESCO bill online, enter your <strong>14-digit TESCO reference number</strong> in the bill checker above. TESCO uses the same PITC server system as all other WAPDA DISCOs. Your reference number is printed at the top of every TESCO electricity bill. For SMS bill checking, send your reference number to <strong>8334</strong>. TESCO also operates a complaint SMS service — send your complaint to <strong>8118</strong> mentioning your reference number.</p>
+    <p>Important distinction: TESCO's <strong>winter peak hours are 5:00 PM to 9:00 PM</strong> — one hour earlier than most other DISCOs. This matches PESCO's winter timing and reflects the earlier winter darkness in KPK's mountainous terrain. Always keep this in mind when scheduling heavy appliance usage in winter months.</p>
+  
+    <p>PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers. Also check: <a href="/pesco-bill/">PESCO bill</a> for settled KPK | <a href="/iesco-bill/">IESCO bill</a> for Islamabad | <a href="/sngpl-bill/">SNGPL gas bill</a>. Use our <a href="/electricity-bill-calculator/">electricity bill calculator</a>, visit our <a href="/dashboard/">bill dashboard</a>, or read the full <a href="/blog/electricity-tariff-2026/">electricity tariff 2026 guide</a>. See our <a href="/peshawar/">Peshawar & KPK utility guide</a>.</p>
+  `}
+
+  howToSteps={[
+    "Find your 14-digit TESCO reference number — printed in bold at the top of your TESCO electricity bill, on the right side near your consumer name and address.",
+    "Open the bill checker tool at the top of this page. The Reference Number tab is active by default.",
+    "Enter your 14-digit TESCO reference number in the input field. Enter numbers only — no spaces, dashes, or letters.",
+    "Click the green Check Bill button. The system connects to the official PITC server (bill.pitc.com.pk/tescobill) and retrieves your latest bill.",
+    "Your complete TESCO bill appears within 3 to 5 seconds — showing total amount due, due date, units consumed, meter readings, and all charges including FPA and surcharges.",
+    "Click Download PDF to save your TESCO bill as a PDF, or click Print to immediately get a paper duplicate copy."
+  ]}
+
+  billReadingTips={[
+    "Your TESCO reference number (14 digits) is permanent — save it in your phone so you can check your bill every month without needing a paper copy. In remote tribal areas, paper bills often do not arrive regularly.",
+    "TESCO winter peak hours start at 5:00 PM — one full hour earlier than most other DISCOs. Avoid running heavy appliances between 5 PM and 9 PM in November to March to reduce your bill.",
+    "TESCO and PESCO are different companies. TESCO covers the seven Merged Tribal Districts. PESCO covers the settled KPK districts. Your bill heading clearly states which company supplies you.",
+    "The Merged Tribal Districts have seen significant increase in electricity connections since 2018 merger with KPK. New connections in these areas use the same 14-digit reference number format as all other WAPDA DISCOs.",
+    "If your bill shows Estimated instead of Actual, request an actual reading by calling 118 or 091-9212964. Estimated bills in remote areas can cause large catch-up charges the following month.",
+    "Check the Category field — D-Protected (≤200 units average) gives subsidized rates. D-Unprotected means full slab rates. If you use under 200 units but show Unprotected, visit your nearest TESCO office to correct this.",
+  ]}
+
+  savingTips={[
+    "Tribal area winters are severe — Kurram (Parachinar) and Bajaur can be extremely cold. Avoid electric heaters; use traditional heating methods like wood stoves and gas heaters where available. Electric heaters add 300–600 units monthly in winter.",
+    "Khyber district (Landi Kotal area at 1,000m+ elevation) has cool summers — most consumers can avoid AC entirely during summer, maintaining Protected status year-round.",
+    "South Waziristan and North Waziristan highlands have excellent solar potential. Net metering applications under NEPRA's prosumer regulations are available to TESCO consumers. Contact TESCO's Peshawar head office for net metering applications.",
+    "Use LED lighting in homes and shops. A shop in Khar (Bajaur) with 10 fluorescent lights (40W each) running 10 hours daily consumes 40 kWh per day. Replacing with LED (10W each) cuts that to 10 kWh — a saving of Rs 30,000+ per year at unprotected rates.",
+    "Check your TESCO bill every month using this online tool. In many tribal area locations, meter reading access is irregular — billing errors are more common than in settled urban areas. Early detection prevents large arrear accumulations.",
+  ]}
+
+  complaintProcess={[
+    "Call TESCO helpline 118 or 091-9212964 (Peshawar head office) with your 14-digit reference number. Describe the billing complaint and get a Complaint Registration Number (CRN).",
+    "For complaints in your district, visit the nearest TESCO subdivision office in Khyber (Bara/Landi Kotal), Kurram (Parachinar), North Waziristan (Miranshah), South Waziristan (Wana), Bajaur (Khar), Mohmand, or Orakzai.",
+    "You can also send complaints via SMS to 8118 with your reference number and complaint description.",
+    "TESCO must resolve billing complaints within 14 working days under NEPRA Consumer Protection Regulations.",
+    "Escalate to NEPRA at 0800-63000 (toll-free) if TESCO ignores your complaint. File at nepra.org.pk with your CRN as evidence.",
+  ]}
+
+  smsService="Type pitc followed by a space and your 14-digit TESCO reference number, then send to 8334. You receive your bill amount, due date, and units consumed by SMS. Also send complaints to 8118 with your reference number."
+
+  coverageAreas={[
+    { region: "Khyber District", district: "Khyber", cities: "Jamrud, Bara, Landi Kotal, Torkham, Ali Masjid, Loe Shalman" },
+    { region: "Kurram District", district: "Kurram", cities: "Parachinar City, Sadda, Alizai, Tall, Bangash" },
+    { region: "North Waziristan", district: "North Waziristan", cities: "Miranshah City, Mir Ali, Razmak, Datta Khel, Ghulam Khan" },
+    { region: "South Waziristan", district: "South Waziristan", cities: "Wana City, Tank, Ladha, Makeen, Sarwakai" },
+    { region: "Bajaur District", district: "Bajaur", cities: "Khar City, Mamund, Salarzai, Nawagai, Charmang" },
+    { region: "Mohmand District", district: "Mohmand", cities: "Ghalanai, Ekka Ghund, Ambar, Mitai, Halimzai" },
+    { region: "Orakzai District", district: "Orakzai", cities: "Kalaya City, Feroz Khel, Darra Adam Khel (parts)" },
+  ]}
+
+  contacts={[
+    { type: "Customer Helpline (24/7)", detail: "118" },
+    { type: "TESCO Peshawar Office", detail: "091-9212964" },
+    { type: "SMS Complaint Service", detail: "Send complaint + reference to 8118" },
+    { type: "Head Office", detail: "TESCO House, Ring Road, Peshawar" },
+    { type: "SMS Bill Service", detail: "Send: pitc [14-digit ref] to 8334" },
+    { type: "Official Website", detail: "tesco.gov.pk" },
+    { type: "New Connection", detail: "enc.com.pk → Select TESCO" },
+    { type: "Load Shedding Schedule", detail: "ccms.pitc.com.pk → Enter 14-digit reference" },
+    { type: "NEPRA Escalation", detail: "0800-63000 (toll-free)" },
+  ]}
+
+  tariffSlabs={[
+    { units: "1 – 100 units", rate: "13.48", category: "Protected" },
+    { units: "101 – 200 units", rate: "18.58", category: "Protected" },
+    { units: "1 – 100 units", rate: "23.59", category: "Unprotected" },
+    { units: "101 – 200 units", rate: "30.07", category: "Unprotected" },
+    { units: "201 – 300 units", rate: "34.26", category: "Unprotected" },
+    { units: "301 – 400 units", rate: "39.15", category: "Unprotected" },
+    { units: "401 – 500 units", rate: "41.36", category: "Unprotected" },
+    { units: "501 – 600 units", rate: "42.78", category: "Unprotected" },
+    { units: "601 – 700 units", rate: "43.92", category: "Unprotected" },
+    { units: "Above 700 units", rate: "48.84", category: "Unprotected" },
+  ]}
+
+  faqs={[
+    { question: "How do I check my TESCO bill online in March 2026?", answer: "Enter your 14-digit TESCO reference number in the bill checker at the top of this page and click Check Bill. Your complete TESCO electricity bill for March 2026 appears in seconds — showing amount due, due date, units consumed, and all charges. This is free, requires no login, and works 24/7 for all tribal district consumers." },
+    { question: "What is the difference between TESCO and PESCO?", answer: "TESCO (Tribal Areas Electricity Supply Company) supplies electricity exclusively to the seven Merged Tribal Districts formerly known as FATA: Khyber, Kurram, North Waziristan, South Waziristan, Bajaur, Mohmand, and Orakzai. PESCO (Peshawar Electric Supply Company) covers the settled KPK districts: Peshawar, Mardan, Swat, Abbottabad, Kohat, Bannu, and D.I. Khan. Check your bill heading to confirm which company supplies you." },
+    { question: "How do I check my TESCO bill for Parachinar (Kurram)?", answer: "Parachinar and all of Kurram district are within TESCO's service area. Enter your 14-digit TESCO reference number in the bill checker above — the same tool works for Parachinar City, Sadda, Tall, Alizai, and all Kurram district connections. Kurram is one of TESCO's largest districts by consumer count." },
+    { question: "How do I check my TESCO bill for Bajaur (Khar)?", answer: "Bajaur district including Khar, Mamund, Nawagai, and Charmang is under TESCO. Enter your 14-digit reference number in the checker above. Bajaur is TESCO's second most populous district and has seen significant electricity network expansion since the 2018 KPK merger." },
+    { question: "What are TESCO's winter peak hours?", answer: "TESCO winter peak hours (November to March) are 5:00 PM to 9:00 PM — one full hour earlier than most Pakistani DISCOs. This reflects the earlier winter sunset in KPK's high-altitude mountain terrain. Avoid running washing machines, electric geysers, and irons between 5 PM and 9 PM in winter to save on per-unit charges." },
+    { question: "How do I download my TESCO duplicate bill?", answer: "After your bill loads in the checker, click Download PDF. In the browser print dialog, select Save as PDF and click Save. Your TESCO duplicate bill downloads instantly as a PDF — ready to pay at JazzCash, Easypaisa, or any bank in Peshawar or your district." },
+    { question: "How do I pay my TESCO bill online?", answer: "Pay through JazzCash, Easypaisa, or any bank mobile app. Select Electricity, choose TESCO or WAPDA, enter your 14-digit reference number, verify the amount, and confirm. JazzCash agents are widely available across tribal districts including Khar (Bajaur), Parachinar (Kurram), and Bara (Khyber)." },
+    { question: "Why does load shedding last so long in tribal areas?", answer: "TESCO areas experience some of Pakistan's longest load shedding durations due to: (1) Long transmission lines across mountainous terrain with higher technical losses; (2) Historically lower bill recovery rates in some tribal districts; (3) Ongoing grid infrastructure upgrades following the 2018 KPK merger. Urban area consumers in Khar, Parachinar, and Miranshah typically see 6–12 hours; remote rural areas can see more. Regular bill payment directly contributes to improving your feeder's supply allocation." },
+    { question: "What is the TESCO grace period for bill payment?", answer: "TESCO gives 7 days after the due date to pay without a late payment surcharge. After the grace period, a 10% surcharge applies to the unpaid amount. In remote tribal areas where paper bills do not arrive, always check your due date online using this tool before it passes." },
+    { question: "How do I file a billing complaint with TESCO?", answer: "Call TESCO helpline 118 or 091-9212964 with your reference number. Alternatively, send your complaint by SMS to 8118 with your 14-digit reference number and a brief description. Get a Complaint Registration Number (CRN). TESCO must resolve within 14 working days. Escalate to NEPRA at 0800-63000 if unresolved." },
+  ]}
+
+  relatedPages={[
+    { name: "PESCO Bill Online", url: "/pesco-bill/" },
+    { name: "AJK Bill Online", url: "/ajk-bill/" },
+    { name: "QESCO Bill Online", url: "/qesco-bill/" },
+    { name: "IESCO Bill Online", url: "/iesco-bill/" },
+    { name: "LESCO Bill Online", url: "/lesco-bill/" },
+    { name: "SNGPL Gas Bill", url: "/sngpl-bill/" },
+  ]}
+/>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PakistanBill.online — Master Sitemap Index -->
+<!-- Pakistan's Only Complete Utility Bill Platform — 62 Total URLs -->
+<!-- Updated: 2026-03-12 -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>https://pakistanbill.online/sitemap-core.xml</loc><lastmod>2026-03-12</lastmod></sitemap>
+  <sitemap><loc>https://pakistanbill.online/sitemap-electricity.xml</loc><lastmod>2026-03-12</lastmod></sitemap>
+  <sitemap><loc>https://pakistanbill.online/sitemap-cities.xml</loc><lastmod>2026-03-12</lastmod></sitemap>
+  <sitemap><loc>https://pakistanbill.online/sitemap-blog.xml</loc><lastmod>2026-03-12</lastmod></sitemap>
+</sitemapindex>

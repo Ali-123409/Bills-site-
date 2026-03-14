@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://pakistanbill.online/dashboard/#webpage",
+  "url": "https://pakistanbill.online/dashboard/",
+  "name": "Pakistan Utility Bill Dashboard — All 19 Providers in One Place",
+  "description": "Check any Pakistan utility bill without reloading the page. LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, SNGPL, SSGC, PTCL, WASA — toggle between all 19 providers instantly.",
+  "isPartOf": { "@id": "https://pakistanbill.online/#website" },
+  "dateModified": "2026-03-11"
+};
+---
+<BaseLayout
+  title="Pakistan Utility Bill Dashboard — All 19 Providers | PakistanBill"
+  description="Check any Pakistan utility bill in one place. Toggle LESCO, MEPCO, GEPCO, K-Electric, SNGPL, PTCL, WASA without reloading. Free, no login."
+  canonical="/dashboard/"
+  schema={schema}
+  lastmod="2026-03-11"
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mb-6">
+      <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-2">⚡ Pakistan Utility Bill Dashboard</h1>
+      <p class="text-neutral-600">All 19 utility providers — one page. Select your provider below and check your bill instantly.</p>
+    </div>
+
+    <!-- Provider Tabs -->
+    <div class="bg-white rounded-2xl shadow-card border border-neutral-200 overflow-hidden mb-6">
+
+      <!-- Category Selector -->
+      <div class="flex border-b border-neutral-200 bg-neutral-50">
+        {[
+          {id:'electricity', label:'⚡ Electricity', count:12},
+          {id:'gas', label:'🔥 Gas', count:2},
+          {id:'water', label:'💧 Water', count:3},
+          {id:'telecom', label:'📞 Telecom', count:1},
+          {id:'calculator', label:'🧮 Calculator', count:1},
+        ].map(cat => (
+          <button
+            class="flex-1 px-3 py-3 text-xs font-semibold text-neutral-500 hover:text-primary-600 hover:bg-white transition-colors border-b-2 border-transparent data-[active=true]:border-primary-600 data-[active=true]:text-primary-700 data-[active=true]:bg-white"
+            onclick={`switchCategory('${cat.id}')`}
+            id={`cat-${cat.id}`}
+            data-active={cat.id==='electricity' ? 'true' : 'false'}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Provider Pills -->
+      <div class="p-4 border-b border-neutral-100">
+        <div id="pills-electricity" class="flex flex-wrap gap-2">
+          {[
+            {id:'lesco',label:'LESCO',sub:'Lahore'},{id:'mepco',label:'MEPCO',sub:'S.Punjab'},
+            {id:'gepco',label:'GEPCO',sub:'Gujranwala'},{id:'fesco',label:'FESCO',sub:'Faisalabad'},
+            {id:'iesco',label:'IESCO',sub:'Islamabad'},{id:'pesco',label:'PESCO',sub:'Peshawar'},
+            {id:'hesco',label:'HESCO',sub:'Hyderabad'},{id:'sepco',label:'SEPCO',sub:'Sukkur'},
+            {id:'qesco',label:'QESCO',sub:'Quetta'},{id:'tesco',label:'TESCO',sub:'Tribal'},
+            {id:'ajk',label:'AJK',sub:'AJ&K'},{id:'ke',label:'K-Electric',sub:'Karachi'},
+          ].map(p => (
+            <button onclick={`selectProvider('${p.id}')`} id={`pill-${p.id}`}
+              class="px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all border-neutral-200 text-neutral-600 hover:border-primary-400 hover:text-primary-700 data-[active=true]:bg-primary-600 data-[active=true]:text-white data-[active=true]:border-primary-600"
+              data-active="false">
+              {p.label} <span class="opacity-60 font-normal">{p.sub}</span>
+            </button>
+          ))}
+        </div>
+        <div id="pills-gas" class="hidden flex flex-wrap gap-2">
+          {[{id:'sngpl',label:'SNGPL',sub:'Punjab/KPK'},{id:'ssgc',label:'SSGC',sub:'Karachi/Sindh'}].map(p => (
+            <button onclick={`selectProvider('${p.id}')`} id={`pill-${p.id}`}
+              class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-neutral-200 text-neutral-600 hover:border-primary-400 data-[active=true]:bg-primary-600 data-[active=true]:text-white data-[active=true]:border-primary-600"
+              data-active="false">{p.label} <span class="opacity-60 font-normal">{p.sub}</span></button>
+          ))}
+        </div>
+        <div id="pills-water" class="hidden flex flex-wrap gap-2">
+          {[{id:'wasal',label:'WASA Lahore',sub:'Water'},{id:'wasar',label:'WASA RWP',sub:'Water'},{id:'wasaf',label:'WASA FSD',sub:'Water'}].map(p => (
+            <button onclick={`selectProvider('${p.id}')`} id={`pill-${p.id}`}
+              class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-neutral-200 text-neutral-600 hover:border-primary-400 data-[active=true]:bg-primary-600 data-[active=true]:text-white data-[active=true]:border-primary-600"
+              data-active="false">{p.label} <span class="opacity-60 font-normal">{p.sub}</span></button>
+          ))}
+        </div>
+        <div id="pills-telecom" class="hidden flex flex-wrap gap-2">
+          <button onclick="selectProvider('ptcl')" id="pill-ptcl"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-neutral-200 text-neutral-600 hover:border-primary-400 data-[active=true]:bg-primary-600 data-[active=true]:text-white data-[active=true]:border-primary-600"
+            data-active="false">PTCL <span class="opacity-60 font-normal">All Pakistan</span></button>
+        </div>
+        <div id="pills-calculator" class="hidden">
+          <a href="/electricity-bill-calculator/" class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors">
+            🧮 Open Bill Calculator →
+          </a>
+        </div>
+      </div>
+
+      <!-- Tool Area -->
+      <div class="p-6" id="tool-area">
+        <div class="text-center py-12 text-neutral-400" id="tool-placeholder">
+          <div class="text-5xl mb-3">⚡</div>
+          <p class="text-base font-medium">Select a provider above to check your bill</p>
+          <p class="text-sm mt-1">No page reload. Instant switching.</p>
+        </div>
+
+        <!-- PITC Tool (DISCO bills) -->
+        <div id="tool-pitc" class="hidden">
+          <div class="flex items-center gap-3 mb-4">
+            <div id="tool-pitc-badge" class="bg-primary-600 text-white text-sm font-bold px-3 py-1.5 rounded-lg">LESCO</div>
+            <div>
+              <p id="tool-pitc-name" class="font-semibold text-neutral-900 text-sm">Lahore Electric Supply Company</p>
+              <p id="tool-pitc-area" class="text-xs text-neutral-500">Lahore, Punjab</p>
+            </div>
+          </div>
+          <div class="flex gap-2 mb-3">
+            {['Reference Number (14 digits)','Customer ID (10 digits)'].map((label,i) => (
+              <button onclick={`switchTab(${i})`} id={`tab-${i}`}
+                class="px-3 py-2 text-xs font-semibold rounded-lg border transition-all"
+                data-active={i===0?'true':'false'}
+                style={i===0?"background:#01411C;color:white;border-color:#01411C":"border-color:#e2e8f0;color:#555"}
+              >{label}</button>
+            ))}
+          </div>
+          <div class="flex gap-2">
+            <input id="pitc-input" type="text" maxlength="14" placeholder="Enter 14-digit reference number"
+              class="flex-1 px-4 py-3 border-2 border-neutral-200 rounded-xl text-base focus:border-primary-500 focus:outline-none font-mono"
+              oninput="this.value=this.value.replace(/\D/g,'')" />
+            <button onclick="checkPITC()"
+              class="bg-primary-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-primary-800 transition-colors">
+              Check
+            </button>
+          </div>
+          <div id="pitc-error" class="hidden text-red-500 text-sm mt-2"></div>
+        </div>
+
+        <!-- External redirect tool (KE, gas, water, telecom) -->
+        <div id="tool-external" class="hidden">
+          <div class="flex items-center gap-3 mb-4">
+            <div id="ext-badge" class="bg-blue-600 text-white text-sm font-bold px-3 py-1.5 rounded-lg">KE</div>
+            <div>
+              <p id="ext-name" class="font-semibold text-neutral-900 text-sm">K-Electric</p>
+              <p id="ext-area" class="text-xs text-neutral-500">Karachi, Sindh</p>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <input id="ext-input" type="text" placeholder="Enter account/consumer number"
+              class="flex-1 px-4 py-3 border-2 border-neutral-200 rounded-xl text-base focus:border-primary-500 focus:outline-none font-mono"
+              oninput="this.value=this.value.replace(/\D/g,'')" />
+            <button onclick="checkExternal()"
+              class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors">
+              Check
+            </button>
+          </div>
+          <p id="ext-hint" class="text-xs text-neutral-400 mt-2">Redirects to official portal</p>
+          <div id="ext-error" class="hidden text-red-500 text-sm mt-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Box -->
+    <div class="bg-green-50 border border-green-200 rounded-xl p-4 flex gap-3 items-start mb-6">
+      <span class="text-2xl">🔒</span>
+      <div>
+        <h3 class="font-semibold text-green-800 text-sm">Your Data is Safe — We Store Nothing</h3>
+        <p class="text-xs text-green-700 mt-1">We do not store your reference number, consumer ID, or any personal information. Your bill is fetched directly from the official utility server and displayed on your screen only. No account required.</p>
+      </div>
+    </div>
+
+    <!-- Quick links to individual pages -->
+    <div class="bg-white rounded-2xl border border-neutral-200 p-5">
+      <h2 class="font-heading font-semibold text-neutral-900 mb-4 text-sm">Full Guide Pages — With FAQs, Tariffs & Tips</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm">
+        {[
+          ["LESCO Bill Guide","/lesco-bill/"],["MEPCO Bill Guide","/mepco-bill/"],
+          ["GEPCO Bill Guide","/gepco-bill/"],["FESCO Bill Guide","/fesco-bill/"],
+          ["IESCO Bill Guide","/iesco-bill/"],["PESCO Bill Guide","/pesco-bill/"],
+          ["HESCO Bill Guide","/hesco-bill/"],["SEPCO Bill Guide","/sepco-bill/"],
+          ["QESCO Bill Guide","/qesco-bill/"],["TESCO Bill Guide","/tesco-bill/"],
+          ["AJK Bill Guide","/ajk-bill/"],["K-Electric Guide","/k-electric-bill/"],
+          ["SNGPL Gas Guide","/sngpl-bill/"],["SSGC Gas Guide","/ssgc-bill/"],
+          ["PTCL Bill Guide","/ptcl-bill/"],["Bill Calculator","/electricity-bill-calculator/"],
+        ].map((item) => (
+          <a href={item[1]} class="block px-3 py-2 bg-neutral-50 border border-neutral-100 rounded-lg text-neutral-600 hover:text-primary-600 hover:border-primary-200 hover:bg-primary-50 transition-all text-xs font-medium">
+            {item[0]} →
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+<p style="max-width:900px;margin:1.5rem auto;padding:0.75rem 1.25rem;background:#f0fdf4;border-left:3px solid #16a34a;font-size:0.875rem;color:#374151;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers — electricity, gas, water, and telecom — in one place.</p>
+</BaseLayout>
+
+<script>
+const PROVIDERS: Record<string, any> = {
+  lesco:  { type:'pitc', disco:'lesco',  name:'Lahore Electric Supply Company', area:'Lahore, Punjab', refLen:14 },
+  mepco:  { type:'pitc', disco:'mepco',  name:'Multan Electric Power Company', area:'South Punjab', refLen:14 },
+  gepco:  { type:'pitc', disco:'gepco',  name:'Gujranwala Electric Power Company', area:'Gujranwala', refLen:14 },
+  fesco:  { type:'pitc', disco:'fesco',  name:'Faisalabad Electric Supply Company', area:'Faisalabad', refLen:14 },
+  iesco:  { type:'pitc', disco:'iesco',  name:'Islamabad Electric Supply Company', area:'Islamabad/Rawalpindi', refLen:14 },
+  pesco:  { type:'pitc', disco:'pesco',  name:'Peshawar Electric Supply Company', area:'Peshawar, KPK', refLen:14 },
+  hesco:  { type:'pitc', disco:'hesco',  name:'Hyderabad Electric Supply Company', area:'Hyderabad, Sindh', refLen:14 },
+  sepco:  { type:'pitc', disco:'sepco',  name:'Sukkur Electric Power Company', area:'Sukkur, Sindh', refLen:14 },
+  qesco:  { type:'pitc', disco:'qesco',  name:'Quetta Electric Supply Company', area:'Quetta, Balochistan', refLen:14 },
+  tesco:  { type:'pitc', disco:'tesco',  name:'Tribal Areas Electric Supply Company', area:'Merged Tribal Districts', refLen:14 },
+  ajk:    { type:'pitc', disco:'ajk',    name:'AJK Electricity Department', area:'Azad Jammu & Kashmir', refLen:14 },
+  ke:     { type:'ext',  name:'K-Electric', area:'Karachi, Hub & Lasbela', hint:'Enter 13-digit KE account number', digits:13, url:(v:string)=>`https://ke.com.pk/services/duplicate-bill/?accountno=${v}` },
+  sngpl:  { type:'ext',  name:'SNGPL (Sui Northern Gas)', area:'Punjab, KPK, ICT, AJK', hint:'Enter 11-digit SNGPL consumer number', digits:11, url:(v:string)=>`https://www.sngpl.com.pk/index.php?q=bill-view&type=consumer_no&no=${v}` },
+  ssgc:   { type:'ext',  name:'SSGC (Sui Southern Gas)', area:'Karachi, Sindh, Balochistan', hint:'Enter 10-digit SSGC consumer number', digits:10, url:(v:string)=>`https://www.ssgc.com.pk/bill/?consumer=${v}` },
+  wasal:  { type:'ext',  name:'WASA Lahore', area:'Lahore Water & Sanitation', hint:'Enter 8-digit WASA Lahore account number', digits:8, url:(v:string)=>`https://wasa.punjab.gov.pk/online-services/view-bill?account=${v}` },
+  wasar:  { type:'ext',  name:'WASA Rawalpindi', area:'Rawalpindi Water & Sanitation', hint:'Enter 8-digit WASA Rawalpindi C-Code', digits:8, url:(v:string)=>`https://wasarwp.gop.pk/CustomerServices/DuplicateBill?ccode=${v}` },
+  wasaf:  { type:'ext',  name:'WASA Faisalabad', area:'Faisalabad Water & Sanitation', hint:'Enter your WASA Faisalabad account number', digits:0, url:(v:string)=>`https://fwasa.com.pk/billinquiry?account=${v}` },
+  ptcl:   { type:'ext',  name:'PTCL', area:'All Pakistan — Landline, DSL, FlashFiber', hint:'Enter 10-digit PTCL Account ID', digits:10, url:(v:string)=>`https://dbill.ptcl.net.pk/bill?account=${v}` },
+};
+
+let activePill = '';
+
+function switchCategory(cat: string) {
+  ['electricity','gas','water','telecom','calculator'].forEach(c => {
+    const pills = document.getElementById(`pills-${c}`)!;
+    const btn = document.getElementById(`cat-${c}`)!;
+    pills.classList.toggle('hidden', c !== cat);
+    btn.dataset.active = c === cat ? 'true' : 'false';
+    btn.style.cssText = c === cat ? 'border-bottom:2px solid #01411C;color:#01411C;background:white;' : '';
+  });
+}
+
+function selectProvider(id: string) {
+  if (activePill) {
+    const prev = document.getElementById(`pill-${activePill}`);
+    if (prev) { prev.dataset.active='false'; prev.style.cssText=''; }
+  }
+  activePill = id;
+  const pill = document.getElementById(`pill-${id}`)!;
+  pill.dataset.active = 'true';
+
+  const p = PROVIDERS[id];
+  const placeholder = document.getElementById('tool-placeholder')!;
+  const pitcTool = document.getElementById('tool-pitc')!;
+  const extTool = document.getElementById('tool-external')!;
+  placeholder.classList.add('hidden');
+
+  if (p.type === 'pitc') {
+    pitcTool.classList.remove('hidden');
+    extTool.classList.add('hidden');
+    document.getElementById('tool-pitc-badge')!.textContent = id.toUpperCase();
+    document.getElementById('tool-pitc-name')!.textContent = p.name;
+    document.getElementById('tool-pitc-area')!.textContent = p.area;
+    const input = document.getElementById('pitc-input') as HTMLInputElement;
+    input.maxLength = p.refLen;
+    input.placeholder = `Enter ${p.refLen}-digit reference number`;
+    input.value = '';
+    (window as any)._currentDisco = p.disco;
+    (window as any)._currentRefLen = p.refLen;
+  } else {
+    extTool.classList.remove('hidden');
+    pitcTool.classList.add('hidden');
+    document.getElementById('ext-badge')!.textContent = id.toUpperCase();
+    document.getElementById('ext-name')!.textContent = p.name;
+    document.getElementById('ext-area')!.textContent = p.area;
+    const input = document.getElementById('ext-input') as HTMLInputElement;
+    input.placeholder = p.hint;
+    if (p.digits) input.maxLength = p.digits;
+    input.value = '';
+    document.getElementById('ext-hint')!.textContent = `Opens official ${p.name} portal. ${p.digits ? `${p.digits}-digit number required.` : ''}`;
+    (window as any)._extProvider = id;
+  }
+}
+
+function switchTab(i: number) {
+  const input = document.getElementById('pitc-input') as HTMLInputElement;
+  const refLen = i === 0 ? ((window as any)._currentRefLen || 14) : 10;
+  input.maxLength = refLen;
+  input.placeholder = i === 0 ? `Enter ${refLen}-digit reference number` : 'Enter 10-digit Customer ID';
+  [0,1].forEach(j => {
+    const btn = document.getElementById(`tab-${j}`)!;
+    btn.style.cssText = j === i ? 'background:#01411C;color:white;border-color:#01411C;' : 'border-color:#e2e8f0;color:#555;';
+    btn.dataset.active = j === i ? 'true' : 'false';
+  });
+}
+
+function checkPITC() {
+  const input = (document.getElementById('pitc-input') as HTMLInputElement).value.trim();
+  const err = document.getElementById('pitc-error')!;
+  const disco = (window as any)._currentDisco;
+  const refLen = (window as any)._currentRefLen || 14;
+  if (!disco) { err.classList.remove('hidden'); err.textContent = 'Select a provider first'; return; }
+  if (input.length < 10) { err.classList.remove('hidden'); err.textContent = `Enter at least 10 digits`; return; }
+  err.classList.add('hidden');
+  const url = input.length === 10
+    ? `/api/bill?url=https://bill.pitc.com.pk/${disco}bill/general?appno=${input}`
+    : `/api/bill?url=https://bill.pitc.com.pk/${disco}bill/general?refno=${input}`;
+  window.open(url, '_blank');
+}
+
+function checkExternal() {
+  const id = (window as any)._extProvider;
+  const input = (document.getElementById('ext-input') as HTMLInputElement).value.trim();
+  const err = document.getElementById('ext-error')!;
+  if (!input) { err.classList.remove('hidden'); err.textContent = 'Enter your account number'; return; }
+  err.classList.add('hidden');
+  const p = PROVIDERS[id];
+  window.open(p.url(input), '_blank');
+}
+
+// Auto-select LESCO on load
+selectProvider('lesco');
+</script>

@@ -16,7 +16,7 @@ const hasCustomerID = true;
       </div>
       <div>
         <h2 class="text-lg font-heading font-bold text-neutral-900">{discoName} Bill Checker</h2>
-        <p class="text-sm text-neutral-500">Enter your reference number to view your bill instantly</p>
+        <p class="text-sm text-neutral-500">Enter your details below to view your bill instantly</p>
       </div>
     </div>
 
@@ -26,7 +26,7 @@ const hasCustomerID = true;
           Reference Number
         </button>
         <button class="tab-custid px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200">
-          Customer ID
+          Consumer ID
         </button>
       </div>
     )}
@@ -62,13 +62,12 @@ const hasCustomerID = true;
         </div>
         <div class="flex-1">
           <p class="font-semibold text-green-900 text-sm">Your {discoName} bill is opening in a new tab</p>
-          <p class="text-green-700 text-xs mt-1">If it did not open, tap the button below.</p>
           <div class="flex gap-3 mt-3 flex-wrap">
             <button class="open-again-btn bg-green-600 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
               Open Bill Again
             </button>
             <button class="check-again-btn text-sm text-green-700 px-4 py-2 rounded-lg border border-green-300 hover:bg-green-100 transition-colors">
-              Check Another Bill
+              Check Another
             </button>
           </div>
         </div>
@@ -81,7 +80,7 @@ const hasCustomerID = true;
 <script>
   class BillCheckerComponent extends HTMLElement {
     connectedCallback() {
-      const disco = this.dataset.disco;
+      const disco = this.dataset.disco || 'gepco';
       const refnoLength = parseInt(this.dataset.length || '14', 10);
 
       let currentTab = 'refno';
@@ -101,7 +100,7 @@ const hasCustomerID = true;
         currentTab = tab;
         if (tab === 'refno') {
           if (input) {
-            input.placeholder = 'Enter ' + refnoLength + '-digit Reference Number';
+            input.placeholder = `Enter ${refnoLength}-digit Reference Number`;
             input.maxLength = refnoLength;
           }
           if (hint) hint.textContent = 'Found on top-right of your printed bill';
@@ -109,7 +108,7 @@ const hasCustomerID = true;
           if (tabCustid) tabCustid.className = 'tab-custid px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
         } else {
           if (input) {
-            input.placeholder = 'Enter 10-digit Customer ID';
+            input.placeholder = 'Enter 10-digit Consumer ID';
             input.maxLength = 10;
           }
           if (hint) hint.textContent = 'Found below your name on the printed bill';
@@ -124,27 +123,12 @@ const hasCustomerID = true;
 
       const showStatus = (type, message) => {
         if (!statusBox) return;
-        if (type === 'loading') {
-          statusBox.className = 'bill-status mt-4 p-4 rounded-xl text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200';
-        } else if (type === 'error') {
-          statusBox.className = 'bill-status mt-4 p-4 rounded-xl text-sm font-medium bg-red-50 text-red-700 border border-red-200';
-          message = '⚠️ ' + message;
-        }
-        statusBox.innerText = message;
+        statusBox.className = `bill-status mt-4 p-4 rounded-xl text-sm font-medium ${type === 'loading' ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-red-50 text-red-700 border border-red-200'}`;
+        statusBox.innerText = type === 'error' ? '⚠️ ' + message : message;
         statusBox.classList.remove('hidden');
       };
 
-      const hideStatus = () => {
-        if (statusBox) statusBox.classList.add('hidden');
-      };
-
       const doCheckBill = () => {
-        // Safeguard to ensure the page passing this component provided a disco name (like 'gepco' or 'lesco')
-        if (!disco || disco === 'undefined') {
-           showStatus('error', 'System error: Company name is missing. Please contact support.');
-           return;
-        }
-
         if (!input) return;
         const val = input.value.replace(/\s/g, '');
 
@@ -153,72 +137,39 @@ const hasCustomerID = true;
           return;
         }
         if (currentTab === 'refno' && val.length !== refnoLength) {
-          showStatus('error', 'Reference number must be exactly ' + refnoLength + ' digits.');
+          showStatus('error', `Reference number must be ${refnoLength} digits.`);
           return;
         }
         if (currentTab === 'custid' && val.length !== 10) {
-          showStatus('error', 'Customer ID must be exactly 10 digits.');
+          showStatus('error', 'Consumer ID must be 10 digits.');
           return;
         }
 
-        showStatus('loading', 'Connecting securely to PITC servers...');
+        showStatus('loading', 'Opening official PITC portal...');
 
-        const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
+        // CORRECT PARAMETERS: 'refno' for 14-digit, 'appno' for 10-digit
+        const inputType = currentTab === 'refno' ? 'refno' : 'appno';
+        const finalURL = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${val}`;
         
-        const pitcURL = 'https://bill.pitc.com.pk/' + disco + 'bill/general';
+        lastBillURL = finalURL;
+        window.open(finalURL, '_blank');
 
-        // CHANGED TO GET REQUEST
-        const form = document.createElement('form');
-        form.method = 'GET';
-        form.action = pitcURL;
-        form.target = '_blank';
-
-        const field = document.createElement('input');
-        field.type = 'hidden';
-        field.name = inputType;
-        field.value = val;
-
-        form.appendChild(field);
-        document.body.appendChild(form);
-        form.submit();
-        
-        // Save the generated URL so the "Open Again" button works
-        lastBillURL = pitcURL + '?' + inputType + '=' + val;
-        
-        document.body.removeChild(form);
-
-        hideStatus();
+        if (statusBox) statusBox.classList.add('hidden');
         if (openedBox) openedBox.classList.remove('hidden');
       };
 
       if (checkBtn) checkBtn.addEventListener('click', doCheckBill);
-
-      if (openAgainBtn) {
-        openAgainBtn.addEventListener('click', () => {
-          if (lastBillURL) window.open(lastBillURL, '_blank');
-        });
-      }
-
+      if (openAgainBtn) openAgainBtn.addEventListener('click', () => window.open(lastBillURL, '_blank'));
       if (checkAgainBtn) {
         checkAgainBtn.addEventListener('click', () => {
           if (openedBox) openedBox.classList.add('hidden');
-          if (input) {
-            input.value = '';
-            input.focus();
-          }
-          hideStatus();
-          lastBillURL = '';
+          if (input) { input.value = ''; input.focus(); }
         });
       }
 
       if (input) {
-        input.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') doCheckBill();
-        });
-        input.addEventListener('input', (e) => {
-          const target = e.target;
-          if (target) target.value = target.value.replace(/[^0-9]/g, '');
-        });
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') doCheckBill(); });
+        input.addEventListener('input', (e) => { e.target.value = e.target.value.replace(/[^0-9]/g, ''); });
       }
     }
   }

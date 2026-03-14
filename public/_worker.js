@@ -31,7 +31,7 @@ export default {
     let parsedTarget;
     try {
       parsedTarget = new URL(targetURL);
-    } catch {
+    } catch (e) {
       return errorResponse(400, 'Invalid URL provided');
     }
 
@@ -46,8 +46,12 @@ export default {
     try {
       const userIP = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
 
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 10000);
+
       const pitcResponse = await fetch(targetURL, {
         method: 'GET',
+        signal: controller.signal,
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -58,8 +62,9 @@ export default {
           'Cache-Control': 'no-cache',
           'X-Forwarded-For': userIP,
         },
-        signal: AbortSignal.timeout(10000),
       });
+
+      clearTimeout(timer);
 
       if (!pitcResponse.ok) {
         return errorResponse(pitcResponse.status, `PITC returned ${pitcResponse.status}`);
@@ -81,8 +86,8 @@ export default {
         },
       });
 
-    } catch (error) {
-      if (error.name === 'TimeoutError') {
+    } catch (err) {
+      if (err.name === 'AbortError') {
         return errorResponse(504, 'PITC server timeout — please try again');
       }
       return errorResponse(500, 'Failed to fetch bill');

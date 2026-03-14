@@ -7,11 +7,10 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      // 🚀 SEO Settings
       changefreq: 'monthly',
       priority: 0.7,
+      lastmod: new Date(),
     }),
   ],
-  // Explicitly setting output to static
   output: 'static',
 });

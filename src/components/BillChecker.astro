@@ -210,7 +210,7 @@ const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props
 
     try {
       // Build PITC URL
-      const inputType = currentTab === 'refno' ? 'refno' : 'appno';
+      const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
       const pitcURL = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${refno}`;
 
       // Fetch via our CORS proxy — /api/bill

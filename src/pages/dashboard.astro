@@ -283,10 +283,9 @@ function checkPITC() {
   if (!disco) { err.classList.remove('hidden'); err.textContent = 'Select a provider first'; return; }
   if (input.length < 10) { err.classList.remove('hidden'); err.textContent = `Enter at least 10 digits`; return; }
   err.classList.add('hidden');
-  const url = input.length === 10
-    ? `/api/bill?url=https://bill.pitc.com.pk/${disco}bill/general?appno=${input}`
-    : `/api/bill?url=https://bill.pitc.com.pk/${disco}bill/general?refno=${input}`;
-  window.open(url, '_blank');
+  const inputType = input.length === 10 ? 'cust_id' : 'refno';
+const url = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${input}`;
+window.open(url, '_blank');
 }
 
 function checkExternal() {

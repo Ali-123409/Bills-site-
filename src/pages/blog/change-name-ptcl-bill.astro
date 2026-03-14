@@ -34,7 +34,7 @@ const schema = [
       {"@type":"Question","name":"What documents are needed to change PTCL bill name?","acceptedAnswer":{"@type":"Answer","text":"Required documents: original and copy of new owner's CNIC, original and copy of previous owner's CNIC (or death certificate), latest paid PTCL bill, and property ownership or tenancy agreement. All documents must be originals for verification."}},
       {"@type":"Question","name":"How much does PTCL name transfer cost?","acceptedAnswer":{"@type":"Answer","text":"PTCL charges a nominal name transfer fee, typically Rs 500-1000 depending on connection type. Confirm the exact fee at your local PTCL CSC as it may vary. Keep your payment receipt until the name change reflects on your bill."}},
       {"@type":"Question","name":"Can I change PTCL name online?","acceptedAnswer":{"@type":"Answer","text":"Currently PTCL requires in-person visit to a CSC for name transfer due to the document verification requirement. You can call PTCL helpline 1218 to ask about current procedures or submit a complaint via ptcl.com.pk if you face issues after submitting documents."}},
-      {"@type":"Question","name":"How long does PTCL name change take?","acceptedAnswer":{"@type":"Answer","text":"PTCL typically processes name changes within 7 to 15 working days. Your next billing cycle's bill will show the updated name. If there is a delay, call PTCL helpline 1218 with your complaint reference number."}]
+      {"@type":"Question","name":"How long does PTCL name change take?","acceptedAnswer":{"@type":"Answer","text":"PTCL typically processes name changes within 7 to 15 working days. Your next billing cycle's bill will show the updated name. If there is a delay, call PTCL helpline 1218 with your complaint reference number."}}]
   },
   {
     "@context":"https://schema.org","@type":"BreadcrumbList",
@@ -80,7 +80,6 @@ const schema = [
     </div>
 
     
-  <!-- Contextual Internal Links -->
   <section style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;margin:1.5rem 0;">
     <p style="font-size:0.8rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.6rem;">Related Tools & Guides</p>
     <div><a href="https://pakistanbill.online/ptcl-bill/" style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.3rem 0.7rem;font-size:0.8rem;font-weight:600;color:#14532d;margin:0.2rem;text-decoration:none;">check your PTCL bill</a><a href="https://pakistanbill.online/blog/how-to-pay-online/" style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.3rem 0.7rem;font-size:0.8rem;font-weight:600;color:#14532d;margin:0.2rem;text-decoration:none;">how to pay bills online</a><a href="https://pakistanbill.online/lesco-bill/" style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.3rem 0.7rem;font-size:0.8rem;font-weight:600;color:#14532d;margin:0.2rem;text-decoration:none;">check LESCO electricity bill</a><a href="https://pakistanbill.online/telecom/" style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.3rem 0.7rem;font-size:0.8rem;font-weight:600;color:#14532d;margin:0.2rem;text-decoration:none;">all telecom bills</a></div>
@@ -145,8 +144,8 @@ const schema = [
         { q: "What documents are needed to change PTCL bill name?", a: "Required: new owner's CNIC (original + copy), previous owner's CNIC (original + copy) or death certificate, latest paid PTCL bill, property ownership deed or tenancy agreement. All originals are required for verification at the CSC." },
         { q: "How much does PTCL name transfer cost?", a: "PTCL charges approximately Rs 500-1,000 for a name transfer, depending on connection type (landline vs. broadband). Confirm exact fee at your local CSC. Keep your payment receipt until the name change confirms on your bill." },
         { q: "Can I change PTCL name online?", a: "PTCL currently requires in-person CSC visit for name transfer due to document verification. You can call 1218 to confirm current procedures or submit a complaint via ptcl.com.pk if processing is delayed beyond 20 working days." },
-        { q: "How long does PTCL name change take?", a: "PTCL processes name changes within 7-15 working days. Your next billing cycle bill will show the updated name. For delays, call 1218 with your receipt reference number." },
-       ]}.map((faq) => (
+        { q: "How long does PTCL name change take?", a: "PTCL processes name changes within 7-15 working days. Your next billing cycle bill will show the updated name. For delays, call 1218 with your receipt reference number." }
+      ].map((faq) => (
         <details class="faq-item">
           <summary class="faq-question">{faq.q}</summary>
           <div class="px-4 pb-4 text-sm text-neutral-600">{faq.a}</div>

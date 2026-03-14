@@ -1,8 +1,4 @@
 ---
-// BillChecker.astro
-// Uses user's browser IP directly — no proxy needed
-// Form submits to PITC with target=iframe -> bill loads from user's Pakistani IP
-
 interface Props {
   disco: string;
   discoName: string;
@@ -10,7 +6,6 @@ interface Props {
   hasCustomerID?: boolean;
 }
 const { disco, discoName, refnoLength = 14, hasCustomerID = true } = Astro.props;
-const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
 ---
 
 <div class="bill-checker" id="bill-checker-tool">
@@ -38,17 +33,6 @@ const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
     </div>
   )}
 
-  <!-- Hidden form — submits directly to PITC using user's IP, result loads in iframe -->
-  <form
-    id="pitc-form"
-    method="GET"
-    action={pitcBase}
-    target="bill-frame"
-    style="display:none"
-  >
-    <input type="hidden" id="pitc-input-field" name="refno" value="" />
-  </form>
-
   <div class="flex flex-col sm:flex-row gap-3">
     <div class="flex-1">
       <input
@@ -74,39 +58,34 @@ const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
 
   <div id="bill-status" class="mt-4 hidden"></div>
 
-  <div id="bill-display" class="bill-display hidden mt-6">
-    <div class="bill-actions">
-      <button onclick="printBill()" class="btn-secondary text-sm py-2 px-4">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+  <div id="bill-opened" class="hidden mt-6 bg-green-50 border border-green-200 rounded-2xl p-5">
+    <div class="flex items-start gap-3">
+      <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
         </svg>
-        Print Bill
-      </button>
-      <button onclick="downloadPDF()" class="btn-outline text-sm py-2 px-4">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-        </svg>
-        Download PDF
-      </button>
-      <button onclick="checkAgain()" class="text-sm text-neutral-500 hover:text-neutral-700 px-3 py-2 transition-colors">
-        Check Another Bill
-      </button>
-    </div>
-    <div class="overflow-auto">
-      <iframe
-        id="bill-frame"
-        name="bill-frame"
-        class="bill-frame"
-        title={`${discoName} Electricity Bill`}
-      ></iframe>
+      </div>
+      <div class="flex-1">
+        <p class="font-semibold text-green-900 text-sm">Your {discoName} bill is opening in a new tab</p>
+        <p class="text-green-700 text-xs mt-1">If it did not open, tap the button below.</p>
+        <div class="flex gap-3 mt-3 flex-wrap">
+          <button id="open-again-btn" onclick="openBillAgain()" class="bg-green-600 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+            Open Bill Again
+          </button>
+          <button onclick="checkAgain()" class="text-sm text-green-700 px-4 py-2 rounded-lg border border-green-300 hover:bg-green-100 transition-colors">
+            Check Another Bill
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
-<script define:vars={{ disco, discoName, refnoLength, pitcBase }}>
+<script define:vars={{ disco, discoName, refnoLength }}>
 
   let currentTab = 'refno';
+  let lastBillURL = '';
 
   function switchTab(tab) {
     currentTab = tab;
@@ -114,20 +93,16 @@ const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
     const hint = document.getElementById('input-hint');
     const tabRefno = document.getElementById('tab-refno');
     const tabCustid = document.getElementById('tab-custid');
-    const pitcField = document.getElementById('pitc-input-field');
-
     if (tab === 'refno') {
       input.placeholder = `Enter ${refnoLength}-digit Reference Number`;
       input.maxLength = refnoLength;
       hint.textContent = 'Found on top-right of your printed bill';
-      pitcField.name = 'refno';
       tabRefno.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
       tabCustid.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
     } else {
       input.placeholder = 'Enter 10-digit Customer ID';
       input.maxLength = 10;
       hint.textContent = 'Found below your name on the printed bill';
-      pitcField.name = 'cust_id';
       tabCustid.className = 'tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-primary-600 text-white';
       tabRefno.className = 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-neutral-100 text-neutral-600 hover:bg-neutral-200';
     }
@@ -158,17 +133,6 @@ const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
     document.getElementById('bill-status').classList.add('hidden');
   }
 
-  function resetBtn() {
-    const btn = document.getElementById('check-btn');
-    btn.disabled = false;
-    btn.innerHTML = `
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-      </svg>
-      Check Bill
-    `;
-  }
-
   function checkBill() {
     const input = document.getElementById('bill-input');
     const validation = validateInput(input.value);
@@ -183,60 +147,26 @@ const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
       return;
     }
 
-    const btn = document.getElementById('check-btn');
-    btn.disabled = true;
-    btn.innerHTML = `
-      <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-      </svg>
-      Loading...
-    `;
+    const inputType = currentTab === 'refno' ? 'refno' : 'cust_id';
+    lastBillURL = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${validation.value}`;
 
-    showStatus('loading', `
-      <svg class="w-4 h-4 animate-spin flex-shrink-0" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-      </svg>
-      Fetching your ${discoName} bill — please wait...
-    `);
+    window.open(lastBillURL, '_blank');
 
-    // Put value in hidden form and submit to PITC
-    // Browser sends from USER's own Pakistani IP — no proxy needed
-    const pitcField = document.getElementById('pitc-input-field');
-    const pitcForm = document.getElementById('pitc-form');
-    pitcField.value = validation.value;
-
-    const frame = document.getElementById('bill-frame');
-    frame.onload = function() {
-      document.getElementById('bill-display').classList.remove('hidden');
-      hideStatus();
-      resetBtn();
-      document.getElementById('bill-display').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    pitcForm.submit();
+    hideStatus();
+    document.getElementById('bill-opened').classList.remove('hidden');
+    document.getElementById('bill-opened').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function printBill() {
-    document.getElementById('bill-frame').contentWindow?.print();
-  }
-
-  function downloadPDF() {
-    const frame = document.getElementById('bill-frame');
-    if (!frame.contentWindow) return;
-    const style = frame.contentWindow.document.createElement('style');
-    style.textContent = '@media print { @page { size: A4; margin: 10mm; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
-    frame.contentWindow.document.head.appendChild(style);
-    frame.contentWindow.print();
+  function openBillAgain() {
+    if (lastBillURL) window.open(lastBillURL, '_blank');
   }
 
   function checkAgain() {
-    document.getElementById('bill-display').classList.add('hidden');
+    document.getElementById('bill-opened').classList.add('hidden');
     document.getElementById('bill-input').value = '';
     document.getElementById('bill-input').focus();
     hideStatus();
-    resetBtn();
+    lastBillURL = '';
   }
 
   document.getElementById('bill-input')?.addEventListener('keydown', (e) => {
@@ -249,8 +179,7 @@ const pitcBase = `https://bill.pitc.com.pk/${disco}bill/general`;
 
   window.checkBill = checkBill;
   window.switchTab = switchTab;
-  window.printBill = printBill;
-  window.downloadPDF = downloadPDF;
+  window.openBillAgain = openBillAgain;
   window.checkAgain = checkAgain;
 
 </script>

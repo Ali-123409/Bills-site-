@@ -57,10 +57,80 @@ const faqs = [
 </script>
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <a href="/" class="logo">PakistanBill<span>.online</span></a>
-    <nav><a href="/">Home</a><a href="/ssgc-bill/" class="active">SSGC Gas</a><a href="/sngpl-bill/">SNGPL</a><a href="/blog/">Blog</a></nav>
+<!-- UNIFIED HEADER BLOCK — matches BaseLayout nav exactly -->
+<header class="sticky top-0 z-50 bg-white border-b border-neutral-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2 font-heading font-bold text-xl text-primary-600 hover:text-primary-700 transition-colors">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#01411C"/>
+          <path d="M8 10h10a4 4 0 0 1 0 8H8V10z" fill="white" opacity="0.9"/>
+          <path d="M8 20h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 24h8" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        Pakistan<span class="text-accent">Bill</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+        <a href="/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Home</a>
+        <div class="relative group">
+          <button class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors flex items-center gap-1">
+            Electricity
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-card-hover border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="/lesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">LESCO — Lahore</a>
+            <a href="/mepco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">MEPCO — Multan</a>
+            <a href="/gepco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">GEPCO — Gujranwala</a>
+            <a href="/fesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">FESCO — Faisalabad</a>
+            <a href="/iesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">IESCO — Islamabad</a>
+            <a href="/pesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">PESCO — Peshawar</a>
+            <a href="/hesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">HESCO — Hyderabad</a>
+            <a href="/k-electric-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">K-Electric — Karachi</a>
+            <a href="/sepco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">SEPCO — Sukkur</a>
+            <a href="/qesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">QESCO — Quetta</a>
+            <a href="/tesco-bill/" class="block px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg">TESCO — Tribal Areas</a>
+          </div>
+        </div>
+        <a href="/sngpl-bill/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Gas Bills</a>
+        <a href="/ptcl-bill/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">PTCL</a>
+        <a href="/electricity-bill-calculator/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Calculator</a>
+        <a href="/dashboard/" class="text-sm font-medium bg-primary-600 text-white px-3 py-1.5 rounded-lg hover:bg-primary-700 transition-colors">Dashboard</a>
+        <a href="/blog/" class="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Blog</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100" aria-label="Open menu">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-neutral-100 px-4 py-4">
+    <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+      <a href="/" class="px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 rounded-lg">Home</a>
+      <p class="px-3 py-1 text-xs font-semibold text-neutral-400 uppercase tracking-wider mt-2">Electricity</p>
+      <a href="/lesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">LESCO — Lahore</a>
+      <a href="/mepco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">MEPCO — South Punjab</a>
+      <a href="/gepco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">GEPCO — Gujranwala</a>
+      <a href="/fesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">FESCO — Faisalabad</a>
+      <a href="/iesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">IESCO — Islamabad</a>
+      <a href="/pesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">PESCO — Peshawar</a>
+      <a href="/hesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">HESCO — Hyderabad</a>
+      <a href="/k-electric-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">K-Electric — Karachi</a>
+      <a href="/sepco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">SEPCO — Sukkur</a>
+      <a href="/qesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">QESCO — Quetta</a>
+      <a href="/tesco-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">TESCO — Tribal</a>
+      <a href="/ajk-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">AJK — Azad Kashmir</a>
+      <p class="px-3 py-1 text-xs font-semibold text-neutral-400 uppercase tracking-wider mt-2">Other Bills</p>
+      <a href="/sngpl-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">SNGPL Gas Bill</a>
+      <a href="/ssgc-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">SSGC Gas Bill</a>
+      <a href="/ptcl-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">PTCL Bill</a>
+      <a href="/wasa-lahore-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">WASA Lahore Water</a>
+      <a href="/wasa-rawalpindi-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">WASA Rawalpindi Water</a>
+      <a href="/wasa-faisalabad-bill/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">WASA Faisalabad Water</a>
+      <a href="/electricity-bill-calculator/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-50 rounded-lg">🧮 Bill Calculator</a>
+      <a href="/dashboard/" class="px-3 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-50 rounded-lg">📊 All Bills Dashboard</a>
+      <a href="/blog/" class="px-3 py-2 text-sm text-neutral-700 hover:bg-primary-50 rounded-lg">📖 Blog</a>
+    </nav>
   </div>
 </header>
 
@@ -241,5 +311,12 @@ const faqs = [
     window.open(`https://www.ssgc.com.pk/bill/?consumer=${val}`, '_blank');
   }
 </script>
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>

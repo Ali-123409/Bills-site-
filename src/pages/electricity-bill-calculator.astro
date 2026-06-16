@@ -30,7 +30,7 @@ const schema = [
     "url": "https://pakistanbill.online/electricity-bill-calculator/",
     "name": "Pakistan Electricity Bill Calculator 2026 — NEPRA Tariff",
     "isPartOf": { "@id": "https://pakistanbill.online/#website" },
-    "dateModified": "2026-03-11",
+    "dateModified": "2026-06-16",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -47,7 +47,7 @@ const schema = [
   description="Calculate your Pakistan electricity bill 2026. Enter units — get full breakdown: tariff slabs, FPA, FC Surcharge, GST. Free & instant."
   canonical="/electricity-bill-calculator/"
   schema={schema}
-  lastmod="2026-03-11"
+  lastmod="2026-06-16"
 >
   <!-- Breadcrumb -->
   <div class="bg-neutral-100 border-b border-neutral-200">
@@ -67,12 +67,12 @@ const schema = [
     <!-- Hero -->
     <div class="mb-8">
       <div class="flex gap-2 mb-3">
-        <span class="badge badge-green">March 2026</span>
+        <span class="badge badge-green">June 2026</span>
         <span class="badge badge-amber">NEPRA Approved</span>
         <span class="badge badge-blue">Free</span>
       </div>
       <h1 class="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-3">Pakistan Electricity Bill Calculator 2026</h1>
-      <p class="text-lg text-neutral-600">Enter your units consumed to get an accurate bill estimate with full breakdown — all WAPDA DISCOs and K-Electric. Updated for March 2026 NEPRA tariff.</p>
+      <p class="text-lg text-neutral-600">Enter your units consumed to get an accurate bill estimate with full breakdown — all WAPDA DISCOs and K-Electric. Updated for June 2026 NEPRA tariff.</p>
     </div>
 
     <!-- CALCULATOR CARD -->
@@ -98,7 +98,7 @@ const schema = [
           <input id="calc-fpa" type="number" step="0.01" value="0.48"
             class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl text-base focus:border-primary-500 focus:outline-none"
             oninput="calculateBill()" />
-          <p class="text-xs text-neutral-400 mt-1">Current: Rs 0.48/unit (March 2026)</p>
+          <p class="text-xs text-neutral-400 mt-1">Current: Rs 0.48/unit (June 2026)</p>
         </div>
         <div>
           <label class="block text-sm font-semibold text-neutral-700 mb-2">Meter Rent (Rs/month)</label>
@@ -193,7 +193,7 @@ const schema = [
       <div class="space-y-4">
         {[
           { name: "Tariff Charge (Energy Charge)", formula: "Units × Rs/unit (based on your slab)", detail: "The core electricity usage charge. Calculated slab-by-slab — units in each range are charged at that slab's rate. Unprotected consumers pay the slab rate from the very first unit." },
-          { name: "FPA — Fuel Price Adjustment", formula: "Units × Rs 0.48/unit (March 2026)", detail: "Variable monthly charge determined by NEPRA based on actual fuel costs for generating electricity. Positive FPA = you pay extra. Negative FPA = credit on bill. Changes every month." },
+          { name: "FPA — Fuel Price Adjustment", formula: "Units × Rs 0.48/unit (June 2026)", detail: "Variable monthly charge determined by NEPRA based on actual fuel costs for generating electricity. Positive FPA = you pay extra. Negative FPA = credit on bill. Changes every month." },
           { name: "FC Surcharge — Fixed Charge Surcharge", formula: "Units × Rs 0.43/unit", detail: "Capacity payment charges levied to pay IPPs (Independent Power Producers) for electricity generation capacity contracted by the government, whether used or not." },
           { name: "NJ Surcharge — Neelum Jhelum Surcharge", formula: "Units × Rs 0.10/unit", detail: "Financing surcharge for the Neelum-Jhelum Hydropower Project (969 MW) near Muzaffarabad, AJK. Applied uniformly to all consumers nationwide." },
           { name: "GST — General Sales Tax", formula: "(Energy + FPA + FC + NJ) × 17%", detail: "17% GST levied on electricity charges as per Pakistan's tax laws. Not applicable to Electricity Duty or fixed charges." },

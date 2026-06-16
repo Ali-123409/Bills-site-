@@ -29,7 +29,7 @@ const safeDiscoName = discoName || safeDisco.toUpperCase();
       </div>
     )}
 
-    <form class="billForm flex flex-col sm:flex-row gap-3" method="POST" action="" target="_blank">
+    <form class="billForm flex flex-col sm:flex-row gap-3" name="billCheckForm" method="GET" action="" target="_blank">
       <div class="flex-1">
         <input
           type="text"
@@ -79,8 +79,23 @@ const safeDiscoName = discoName || safeDisco.toUpperCase();
       const openedBox = this.querySelector('.bill-opened');
       const checkAgainBtn = this.querySelector('.check-again-btn');
 
+      // PITC Legacy .aspx Endpoint Map — the CORRECT URLs that actually work
+      const endpointMap: Record<string, string> = {
+        'lesco': 'lbill.aspx',
+        'mepco': 'mbill.aspx',
+        'gepco': 'gbill.aspx',
+        'fesco': 'fbill.aspx',
+        'iesco': 'ibill.aspx',
+        'pesco': 'pbill.aspx',
+        'hesco': 'hbill.aspx',
+        'sepco': 'sbill.aspx',
+        'qesco': 'qbill.aspx',
+        'tesco': 'tbill.aspx',
+        'ajk': 'abill.aspx',
+      };
+
       // Handle Tab Switching
-      const switchTab = (tab) => {
+      const switchTab = (tab: string) => {
         currentTab = tab;
         input.placeholder = tab === 'refno' ? `Enter ${refnoLength}-digit Reference` : 'Enter 10-digit Consumer ID';
         input.maxLength = tab === 'refno' ? refnoLength : 10;
@@ -96,23 +111,38 @@ const safeDiscoName = discoName || safeDisco.toUpperCase();
       if (tabRefno) tabRefno.addEventListener('click', () => switchTab('refno'));
       if (tabCustid) tabCustid.addEventListener('click', () => switchTab('custid'));
 
-      // Core Form Submission Logic (The Hybrid POST Trick)
+      // Core Form Submission — uses correct .aspx endpoints + window.open()
       if (form) {
         form.addEventListener('submit', (e) => {
-          const val = input.value;
+          e.preventDefault(); // Always prevent — we use window.open() instead
+          const val = (input as HTMLInputElement).value.trim();
           const targetLen = currentTab === 'refno' ? refnoLength : 10;
           
           // Validation Check
           if (val.length !== targetLen) {
-            e.preventDefault(); 
             statusBox.innerText = `⚠️ Please enter exactly ${targetLen} digits.`;
             statusBox.classList.remove('hidden');
             return;
           }
 
-          // Inject the specific company's URL right before the POST submits
+          if (!/^\d+$/.test(val)) {
+            statusBox.innerText = '⚠️ Please enter numbers only.';
+            statusBox.classList.remove('hidden');
+            return;
+          }
+
+          // Build the correct PITC .aspx URL
           const param = currentTab === 'refno' ? 'refno' : 'appno';
-          form.action = `https://bill.pitc.com.pk/${disco}bill/general?${param}=${val}`;
+          const page = endpointMap[disco] || `${disco}bill.aspx`;
+          const finalURL = `https://bill.pitc.com.pk/${page}?${param}=${val}`;
+
+          // Open in new tab — bypasses the PITC 'General' redirect loop
+          const win = window.open(finalURL, '_blank');
+          if (!win) {
+            statusBox.innerText = '⚠️ Popup blocked. Please allow popups for this site.';
+            statusBox.classList.remove('hidden');
+            return;
+          }
 
           statusBox.classList.add('hidden');
           openedBox.classList.remove('hidden');
@@ -123,16 +153,15 @@ const safeDiscoName = discoName || safeDisco.toUpperCase();
       if (checkAgainBtn) {
         checkAgainBtn.addEventListener('click', () => {
           openedBox.classList.add('hidden');
-          input.value = '';
-          form.action = '';
-          input.focus();
+          (input as HTMLInputElement).value = '';
+          (input as HTMLInputElement).focus();
         });
       }
 
       // Force input to be numbers only
       if (input) {
         input.addEventListener('input', (e) => { 
-          e.target.value = e.target.value.replace(/[^0-9]/g, ''); 
+          (e.target as HTMLInputElement).value = (e.target as HTMLInputElement).value.replace(/[^0-9]/g, ''); 
           statusBox.classList.add('hidden');
         });
       }

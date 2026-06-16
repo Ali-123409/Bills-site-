@@ -284,8 +284,16 @@ function checkPITC() {
   if (input.length < 10) { err.classList.remove('hidden'); err.textContent = `Enter at least 10 digits`; return; }
   err.classList.add('hidden');
   const inputType = input.length === 10 ? 'cust_id' : 'refno';
-const url = `https://bill.pitc.com.pk/${disco}bill/general?${inputType}=${input}`;
-window.open(url, '_blank');
+  // PITC Legacy .aspx endpoints — the CORRECT URLs that actually work
+  const endpointMap: Record<string, string> = {
+    'lesco': 'lbill.aspx', 'mepco': 'mbill.aspx', 'gepco': 'gbill.aspx',
+    'fesco': 'fbill.aspx', 'iesco': 'ibill.aspx', 'pesco': 'pbill.aspx',
+    'hesco': 'hbill.aspx', 'sepco': 'sbill.aspx', 'qesco': 'qbill.aspx',
+    'tesco': 'tbill.aspx', 'ajk': 'abill.aspx',
+  };
+  const page = endpointMap[disco] || `${disco}bill.aspx`;
+  const url = `https://bill.pitc.com.pk/${page}?${inputType}=${input}`;
+  window.open(url, '_blank');
 }
 
 function checkExternal() {

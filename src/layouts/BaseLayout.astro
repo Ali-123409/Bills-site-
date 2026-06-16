@@ -131,7 +131,7 @@ const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
   {lastmod && <meta http-equiv="last-modified" content={lastmod} />}
   <!-- Freshness signals for Google -->
   {lastmod && <meta property="article:modified_time" content={`${lastmod}T00:00:00+05:00`} />}
-  {lastmod && <meta property="article:published_time" content="2026-01-01T00:00:00+05:00" />}
+  {lastmod && <meta property="article:published_time" content={`${lastmod}T00:00:00+05:00`} />}
   <meta name="revisit-after" content="7 days" />
 
 

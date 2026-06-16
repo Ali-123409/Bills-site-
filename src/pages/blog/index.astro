@@ -2,6 +2,9 @@
 const title = "Pakistan Utility Bill Blog — Guides, Tips & Tariff Updates 2026";
 const description = 'Expert guides on Pakistan utility bills — electricity tariff, FPA charges, reference numbers, payment methods, and tips to reduce your bill.';
 const posts = [
+  { slug: "nepra-protected-consumer-subsidy-2026", title: "NEPRA Protected Consumer Subsidy 2026 — Who Qualifies & How to Keep It", date: "June 16, 2026", cat: "Tariff" },
+  { slug: "solar-net-metering-pakistan-2026", title: "Solar Net Metering in Pakistan 2026 — Complete Setup Guide, ROI & NEPRA Rules", date: "June 16, 2026", cat: "Solar" },
+  { slug: "electricity-bill-correction-dispute-guide", title: "How to Dispute & Correct a Wrong Electricity Bill in Pakistan — 2026 Guide", date: "June 16, 2026", cat: "Guides" },
   { slug: "how-to-read-electricity-bill", title: "How to Read Your Pakistan Electricity Bill — Every Line Explained", date: "June 16, 2026", cat: "Guides" },
   { slug: "fpa-charges-explained", title: "FPA Charges Explained — What Is Fuel Price Adjustment on Your Bill", date: "March 10, 2026", cat: "Tariff" },
   { slug: "electricity-tariff-2026", title: "Pakistan Electricity Tariff 2026 — All DISCO Slab Rates Updated", date: "March 9, 2026", cat: "Tariff" },
@@ -18,6 +21,30 @@ const posts = [
   { slug: "gepco-reference-number", title: "How to Find GEPCO Reference Number — Where is it on Your Bill?", date: "June 16, 2026", cat: "Guides" },
   { slug: "fesco-reference-number", title: "How to Find FESCO Reference Number — Where is it on Your Bill?", date: "June 16, 2026", cat: "Guides" },
   { slug: "iesco-reference-number", title: "How to Find IESCO Reference Number — Where is it on Your Bill?", date: "June 16, 2026", cat: "Guides" },
+  { slug: "pesco-reference-number", title: "How to Find PESCO Reference Number — Where is it on Your Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "hesco-reference-number", title: "How to Find HESCO Reference Number — Where is it on Your Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "sepco-reference-number", title: "How to Find SEPCO Reference Number — Where is it on Your Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "qesco-reference-number", title: "How to Find QESCO Reference Number — Where is it on Your Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "tesco-reference-number", title: "How to Find TESCO Reference Number — Where is it on Your Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "ajk-reference-number", title: "How to Find AJK Reference Number — Where is it on Your Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "ssgc-reference-number", title: "How to Find SSGC Reference Number — Where is it on Your Gas Bill?", date: "March 13, 2026", cat: "Guides" },
+  { slug: "meter-reading-guide", title: "How to Read Your Electricity Meter — Manual & Digital Meter Guide", date: "March 13, 2026", cat: "Guides" },
+  { slug: "how-to-check-bill-by-sms", title: "How to Check Your Electricity Bill by SMS — All DISCO Codes", date: "March 13, 2026", cat: "Guides" },
+  { slug: "duplicate-bill-download", title: "How to Download Duplicate Electricity Bill — PDF & Print Guide", date: "March 13, 2026", cat: "Guides" },
+  { slug: "bill-payment-methods-pakistan", title: "All Pakistan Electricity Bill Payment Methods — 2026 Complete Guide", date: "March 13, 2026", cat: "Guides" },
+  { slug: "lesco-new-connection", title: "How to Apply for New LESCO Connection — Documents, Fee & Process 2026", date: "March 13, 2026", cat: "Guides" },
+  { slug: "wapda-online-bill", title: "WAPDA Online Bill Check — All DISCOs at One Place (2026 Guide)", date: "March 13, 2026", cat: "Guides" },
+  { slug: "how-to-pay-ptcl-bill-online", title: "How to Pay PTCL Bill Online — JazzCash, Easypaisa & Bank Apps", date: "March 13, 2026", cat: "PTCL" },
+  { slug: "electricity-saving-tips-pakistan", title: "12 Electricity Saving Tips for Pakistani Homes — 2026 Edition", date: "March 13, 2026", cat: "Tips" },
+  { slug: "sngpl-gas-bill-consumer-number", title: "How to Find SNGPL Gas Bill Consumer Number — Complete Guide", date: "March 13, 2026", cat: "Gas" },
+  { slug: "gas-bill-consumer-number", title: "Gas Bill Consumer Number — SNGPL vs SSGC Format Guide", date: "March 13, 2026", cat: "Gas" },
+  { slug: "k-electric-offline-payment", title: "K-Electric Bill Offline Payment Methods — All Options 2026", date: "March 13, 2026", cat: "K-Electric" },
+  { slug: "ssgc-bill-check-online", title: "How to Check SSGC Gas Bill Online — Karachi, Sindh & Balochistan", date: "March 13, 2026", cat: "Gas" },
+  { slug: "sepco-bill-check-online", title: "How to Check SEPCO Bill Online — Sukkur, Sindh Complete Guide", date: "March 13, 2026", cat: "Guides" },
+  { slug: "ajk-bill-check-online", title: "How to Check AJK Electricity Bill Online — Azad Kashmir Guide", date: "March 13, 2026", cat: "Guides" },
+  { slug: "tesco-bill-check-online", title: "How to Check TESCO Bill Online — Tribal Areas Complete Guide", date: "March 13, 2026", cat: "Guides" },
+  { slug: "how-to-check-k-electric-bill", title: "How to Check K-Electric Bill Online — Karachi 13-Digit Account Number", date: "March 13, 2026", cat: "K-Electric" },
+  { slug: "wasa-lahore-bill-online", title: "How to Check WASA Lahore Water Bill Online — 8-Digit Account Number", date: "March 13, 2026", cat: "Water" },
 ];
 ---
 <!DOCTYPE html>
@@ -49,7 +76,7 @@ const posts = [
   <section style="padding: 4rem 0; background: linear-gradient(135deg, #01411C 0%, #02521F 100%); color: white;">
     <div class="container">
       <h1>Pakistan Utility Bill Blog</h1>
-      <p style="opacity: 0.9;">Guides, tariff updates, and money-saving tips for Pakistani consumers</p>
+      <p style="opacity: 0.9;">Guides, tariff updates, and money-saving tips for Pakistani consumers — {posts.length} articles, updated June 2026</p>
     </div>
   </section>
   <section style="padding: 4rem 0;">
@@ -73,7 +100,7 @@ const posts = [
     </div>
   </section>
 
-<p style="text-align:center;max-width:700px;margin:0.5rem auto 1.5rem;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers — electricity, gas, water, and telecom. All guides below are written to help you understand your bills, save money, and navigate Pakistan's utility system. Check any bill now: <a href="/lesco-bill/">LESCO</a> | <a href="/k-electric-bill/">K-Electric</a> | <a href="/sngpl-bill/">SNGPL</a> | <a href="/ptcl-bill/">PTCL</a> | <a href="/dashboard/">all providers</a>.</p>
+<p style="text-align:center;max-width:700px;margin:0.5rem auto 1.5rem;">PakistanBill.online is <strong>Pakistan's only platform</strong> covering all 19 utility providers — electricity, gas, water, and telecom. All guides above are written to help you understand your bills, save money, and navigate Pakistan's utility system. Check any bill now: <a href="/lesco-bill/">LESCO</a> | <a href="/k-electric-bill/">K-Electric</a> | <a href="/sngpl-bill/">SNGPL</a> | <a href="/ptcl-bill/">PTCL</a> | <a href="/dashboard/">all providers</a>.</p>
 </main>
 <footer class="site-footer">
   <div class="container">

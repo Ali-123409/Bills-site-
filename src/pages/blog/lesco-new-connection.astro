@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/lesco-new-connection/#article",
-    "headline": "LESCO New Connection — How to Apply Online 2026",
-    "description": "How to apply for LESCO new electricity connection in Lahore. Documents needed, process, fees, and timeline. LESCO online application guide 2026.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "LESCO New Connection Guide — Apply Online & Cost 2026",
+    "description": "Apply for a new LESCO electricity connection in Lahore. Documents, fees, online application process, expected timeline. A&AC Form-1 guide.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"How to apply for LESCO new connection?","acceptedAnswer":{"@type":"Answer","text":"Apply for LESCO new connection at lesco.gov.pk or visit any LESCO sub-division office. Required documents: CNIC copy, ownership documents (ownership deed or rent agreement), site plan, and neighbor's electricity bill. Processing takes 15-30 working days."}},
-      {"@type":"Question","name":"What are LESCO new connection fees?","acceptedAnswer":{"@type":"Answer","text":"LESCO new connection fees vary by load: For 5KW domestic connection, security deposit is approximately Rs 15,000-25,000 plus service charges. Fees depend on distance from transformer and required cable length. Get exact quote from your local LESCO sub-division."}},
-      {"@type":"Question","name":"LESCO connection helpline?","acceptedAnswer":{"@type":"Answer","text":"Call LESCO helpline 118 or 042-111-000-118 for new connection queries in Lahore. You can also email at info@lesco.gov.pk or visit the LESCO headquarters at 1-Gulberg III, Lahore for in-person assistance."}}
+      {"@type":"Question","name":"How to apply for a new LESCO connection?","acceptedAnswer":{"@type":"Answer","text":"Visit your nearest LESCO sub-divisional office (SDO) with CNIC, ownership/tenancy documents, and a filled A&AC Form-1. The form is free and available at lesco.com.pk. Pay the connection fee (Rs. 2,500-6,500 for domestic single-phase) at the LESCO cash counter."}},
+      {"@type":"Question","name":"What is the cost of a new LESCO connection in 2026?","acceptedAnswer":{"@type":"Answer","text":"Domestic single-phase: Rs. 2,500-6,500 depending on load. Three-phase: Rs. 8,500-15,000. Commercial single-phase: Rs. 5,500. Industrial: Rs. 15,000-50,000+. Costs include security deposit, meter cost, and connection fee."}},
+      {"@type":"Question","name":"How long does it take to get a new LESCO connection?","acceptedAnswer":{"@type":"Answer","text":"Standard domestic connection: 30-45 days from application submission. Three-phase or commercial: 45-60 days. Industrial: 60-90 days. Connections in established colonies are faster; remote or rural areas may take 60+ days."}},
+      {"@type":"Question","name":"Can I apply for LESCO connection online?","acceptedAnswer":{"@type":"Answer","text":"Yes. LESCO offers online application through ENC (Electricity New Connection) portal at enc.lenck.com.pk. Upload documents, pay fee online, and track application status. However, physical site verification by LESCO staff is still required."}},
+      {"@type":"Question","name":"What documents are required for LESCO new connection?","acceptedAnswer":{"@type":"Answer","text":"(1) Original CNIC + photocopy, (2) Proof of ownership (registry, allotment letter) OR tenancy agreement with landlord's CNIC copy, (3) No-objection certificate from landlord if tenant, (4) Site map sketch, (5) Filled A&AC Form-1, (6) Test report from a licensed electrician for loads above 5 kW."}}
     ]
   },
   {
@@ -25,48 +27,146 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"LESCO New Connection — How to Apply Online 2026","item":"https://pakistanbill.online/blog/lesco-new-connection/"}
+      {"@type":"ListItem","position":3,"name":"LESCO New Connection Guide","item":"https://pakistanbill.online/blog/lesco-new-connection/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="LESCO New Connection — How to Apply Online 2026"
-  description="How to apply for LESCO new electricity connection in Lahore. Documents needed, process, fees, and timeline. LESCO online application guide 2026."
+  title="LESCO New Connection Guide — Apply Online & Cost 2026"
+  description="Apply for a new LESCO electricity connection in Lahore. Documents, fees, online application process, expected timeline. A&AC Form-1 guide."
   canonical="/blog/lesco-new-connection/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium">LESCO</span>
+        <span class="text-neutral-800 font-medium">LESCO New Connection</span>
       </nav>
     </div>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="mb-4">
-      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+    <div class="mb-6">
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">LESCO Guide</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">LESCO New Connection — How to Apply Online 2026</h1>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">LESCO New Connection Guide — Apply Online & Cost 2026</h1>
+
+    <p class="text-neutral-600 text-lg mb-4">Whether you've just moved into a new house in Lahore's DHA, Bahria Town, or Johar Town — or you're building a fresh property and need electricity for the first time — applying for a <strong>new LESCO (Lahore Electric Supply Company) connection</strong> is the first step. LESCO serves roughly <strong>5.8 million consumers</strong> across Lahore, Kasur, Okara, and Sheikhupura districts, and processes thousands of new connection requests every month. The process has improved significantly in recent years with the introduction of the ENC (Electricity New Connection) online portal, but it still requires document submission, fee payment, and a physical site visit by LESCO staff. This guide walks you through every step — documents needed, fees, online vs. offline process, expected timeline, and common pitfalls to avoid.</p>
+
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Summary: Visit your nearest LESCO SDO office (or apply online at enc.lesco.com.pk) with CNIC + ownership/tenancy documents + filled A&AC Form-1. Pay Rs. 2,500–6,500 for domestic single-phase connection. Standard timeline: 30–45 days. Total cost includes security deposit, meter cost, and connection fee.</p>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Documents Required for LESCO New Connection</h2>
+    <p class="text-neutral-600 mb-4">Before visiting the LESCO office, gather the following documents. Incomplete documentation is the #1 reason for application rejection:</p>
+    <ol class="space-y-3 text-neutral-600 mb-6 list-decimal list-inside">
+      <li><strong>Original CNIC + 2 photocopies</strong> of the applicant. The CNIC address should ideally match the connection address, but this is not mandatory.</li>
+      <li><strong>Proof of ownership:</strong> Registry (Intiqal), allotment letter from housing society (DHA, Bahria, etc.), or transfer letter. <em>OR</em></li>
+      <li><strong>Tenancy agreement</strong> (if rented) — must be on stamp paper of Rs. 100+ and notarized. Include landlord's CNIC copy and a No-Objection Certificate (NOC) from the landlord authorizing the electricity connection in your name.</li>
+      <li><strong>Site map sketch</strong> — hand-drawn or printed map showing the location of your house from the nearest landmark (mosque, school, main road). This helps LESCO staff locate your property during site verification.</li>
+      <li><strong>Filled A&AC Form-1</strong> (Application & Agreement Form) — available free at any LESCO office or downloadable from lesco.com.pk. Fill in blue/black ink, no cutting.</li>
+      <li><strong>Test report from a licensed electrician</strong> — required for loads above 5 kW. The electrician must be LESCO-licensed and the report must be on the official LESCO test report form.</li>
+      <li><strong>Passport-size photographs</strong> (2 copies) of the applicant.</li>
+    </ol>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">LESCO New Connection Cost (2026 Tariff)</h2>
+    <p class="text-neutral-600 mb-4">The cost depends on the type of connection (single-phase or three-phase) and the load (sanctioned load in kW). All costs below include security deposit, meter cost, and connection fee:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Connection Type</th>
+            <th class="text-left p-3 border-b border-neutral-200">Load</th>
+            <th class="text-left p-3 border-b border-neutral-200">Total Cost (Rs.)</th>
+            <th class="text-left p-3 border-b border-neutral-200">Timeline</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">Domestic Single-Phase</td><td class="p-3">Up to 2 kW</td><td class="p-3">2,500 – 4,500</td><td class="p-3">30 days</td></tr>
+          <tr><td class="p-3 font-semibold">Domestic Single-Phase</td><td class="p-3">2–5 kW</td><td class="p-3">4,500 – 6,500</td><td class="p-3">30-45 days</td></tr>
+          <tr><td class="p-3 font-semibold">Domestic Three-Phase</td><td class="p-3">5–15 kW</td><td class="p-3">8,500 – 15,000</td><td class="p-3">45-60 days</td></tr>
+          <tr><td class="p-3 font-semibold">Commercial Single-Phase</td><td class="p-3">Up to 5 kW</td><td class="p-3">5,500 – 8,500</td><td class="p-3">30-45 days</td></tr>
+          <tr><td class="p-3 font-semibold">Commercial Three-Phase</td><td class="p-3">5–25 kW</td><td class="p-3">15,000 – 35,000</td><td class="p-3">45-60 days</td></tr>
+          <tr><td class="p-3 font-semibold">Industrial</td><td class="p-3">25–100 kW</td><td class="p-3">35,000 – 80,000</td><td class="p-3">60-90 days</td></tr>
+          <tr><td class="p-3 font-semibold">Industrial (HT)</td><td class="p-3">100 kW+</td><td class="p-3">80,000+ (custom)</td><td class="p-3">90+ days</td></tr>
+          <tr><td class="p-3 font-semibold">Agriculture Tube-well</td><td class="p-3">Up to 20 kW</td><td class="p-3">12,000 – 25,000</td><td class="p-3">45-60 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-neutral-600 mb-6">Note: For loads above 50 kW, an NOC from EPA (Environmental Protection Agency) and a separate feasibility study from LESCO are required, which can extend the timeline to 4–6 months.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Step-by-Step: LESCO New Connection Application Process</h2>
+    <p class="text-neutral-600 mb-4">You can apply either <strong>offline</strong> (at a LESCO office) or <strong>online</strong> (through the ENC portal). The online process is faster but still requires a physical site visit by LESCO staff for verification.</p>
+
+    <h3 class="text-xl font-heading font-bold mt-6 mb-3">Option A: Offline Application (at LESCO Office)</h3>
+    <ol class="space-y-3 text-neutral-600 mb-6 list-decimal list-inside">
+      <li><strong>Visit your nearest LESCO SDO (Sub-Divisional Officer) office.</strong> Each LESCO circle has multiple SDO offices. Find yours at lesco.com.pk → "Sub-Divisions".</li>
+      <li><strong>Collect the A&AC Form-1</strong> from the front desk (free) or download it from lesco.com.pk and fill it in advance.</li>
+      <li><strong>Fill the form carefully.</strong> Common fields: applicant name (as per CNIC), CNIC number, connection address, sanctioned load, connection type (domestic/commercial/industrial), and signature.</li>
+      <li><strong>Attach all required documents</strong> (see list above). Use a paperclip, not staples.</li>
+      <li><strong>Submit at the new-connection counter.</strong> The clerk will verify your documents and issue a receipt with a tracking number.</li>
+      <li><strong>Pay the connection fee</strong> at the LESCO cash counter. Get a stamped payment receipt.</li>
+      <li><strong>Wait for site verification.</strong> A LESCO JE (Junior Engineer) will visit your premises within 7–15 days to verify the address and assess the load.</li>
+      <li><strong>Wait for connection.</strong> After site verification approval, the connection is typically energized within 15–30 days.</li>
+    </ol>
+
+    <h3 class="text-xl font-heading font-bold mt-6 mb-3">Option B: Online Application (ENC Portal)</h3>
+    <ol class="space-y-3 text-neutral-600 mb-6 list-decimal list-inside">
+      <li><strong>Visit enc.lesco.com.pk</strong> and create an account with your CNIC and mobile number.</li>
+      <li><strong>Click "Apply for New Connection".</strong> Select connection type, load, and address.</li>
+      <li><strong>Upload scanned documents</strong> — CNIC (front + back), ownership/tenancy proof, site map. Maximum file size per document: 2 MB.</li>
+      <li><strong>Pay fee online</strong> via credit/debit card or bank transfer. A processing fee of Rs. 50 is added.</li>
+      <li><strong>Print the application receipt</strong> with tracking number. Save the SMS confirmation.</li>
+      <li><strong>Site verification</strong> — LESCO JE will call you to schedule a visit within 7–15 days.</li>
+      <li><strong>Track status online</strong> — log in to ENC portal and check status. Stages: Submitted → Documents Verified → Site Visit Scheduled → Site Verified → Approved → Connection Energized.</li>
+    </ol>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Expected Timeline</h2>
+    <p class="text-neutral-600 mb-4">The total time from application submission to connection energization depends on the connection type and load:</p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Domestic single-phase (urban):</strong> 25–35 days</li>
+      <li><strong>Domestic single-phase (rural):</strong> 35–50 days</li>
+      <li><strong>Domestic three-phase:</strong> 45–60 days</li>
+      <li><strong>Commercial single-phase:</strong> 30–45 days</li>
+      <li><strong>Commercial three-phase:</strong> 45–75 days</li>
+      <li><strong>Industrial (under 100 kW):</strong> 60–90 days</li>
+      <li><strong>Industrial (over 100 kW):</strong> 90–180 days (requires feasibility study)</li>
+      <li><strong>Agriculture tube-well:</strong> 45–60 days</li>
+    </ul>
+    <p class="text-neutral-600 mb-6">Delays typically happen at the site-verification stage. If you don't receive a site-visit call within 15 days, visit the SDO office with your tracking number to follow up.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Common Pitfalls to Avoid</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Wrong load selection:</strong> If you apply for 2 kW but actually need 5 kW (for AC + geyser + fridge), your breaker will trip constantly. Choose load carefully upfront — load upgrades cost extra.</li>
+      <li><strong>Missing tenancy NOC:</strong> Tenants often forget the landlord's NOC. Without it, the application is rejected. Get the NOC on stamp paper before applying.</li>
+      <li><strong>Wrong site map:</strong> If LESCO staff can't find your house for site verification, the application is marked "incomplete" and returned. Draw a clear map with landmarks.</li>
+      <li><strong>Applying at the wrong LESCO office:</strong> Each LESCO circle has a specific jurisdiction. Applying at the wrong SDO office delays your application. Find your correct SDO at lesco.com.pk.</li>
+      <li><strong>Not following up:</strong> LESCO does not call you for missing documents — they just delay. Visit the SDO office every 10 days to check status.</li>
+      <li><strong>Hiring an "agent":</strong> Avoid touts outside LESCO offices who promise faster connection for Rs. 5,000–10,000. They often just submit the same form you would. Use the official ENC portal instead.</li>
+    </ul>
 
     <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">How to apply for LESCO new connection?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Apply for LESCO new connection at lesco.gov.pk or visit any LESCO sub-division office. Required documents: CNIC copy, ownership documents (ownership deed or rent agreement), site plan, and neighbor's electricity bill. Processing takes 15-30 working days.</div></details>
-      <details class="faq-item"><summary class="faq-question">What are LESCO new connection fees?</summary><div class="px-4 pb-4 text-sm text-neutral-600">LESCO new connection fees vary by load: For 5KW domestic connection, security deposit is approximately Rs 15,000-25,000 plus service charges. Fees depend on distance from transformer and required cable length. Get exact quote from your local LESCO sub-division.</div></details>
-      <details class="faq-item"><summary class="faq-question">LESCO connection helpline?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Call LESCO helpline 118 or 042-111-000-118 for new connection queries in Lahore. You can also email at info@lesco.gov.pk or visit the LESCO headquarters at 1-Gulberg III, Lahore for in-person assistance.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to apply for a new LESCO connection?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Visit your nearest LESCO sub-divisional office (SDO) with CNIC, ownership/tenancy documents, and a filled A&AC Form-1. The form is free and available at lesco.com.pk. Pay the connection fee (Rs. 2,500-6,500 for domestic single-phase) at the LESCO cash counter.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is the cost of a new LESCO connection in 2026?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Domestic single-phase: Rs. 2,500-6,500 depending on load. Three-phase: Rs. 8,500-15,000. Commercial single-phase: Rs. 5,500. Industrial: Rs. 15,000-50,000+. Costs include security deposit, meter cost, and connection fee.</div></details>
+      <details class="faq-item"><summary class="faq-question">How long does it take to get a new LESCO connection?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Standard domestic connection: 30-45 days from application submission. Three-phase or commercial: 45-60 days. Industrial: 60-90 days. Connections in established colonies are faster; remote or rural areas may take 60+ days.</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I apply for LESCO connection online?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. LESCO offers online application through ENC (Electricity New Connection) portal at enc.lesco.com.pk. Upload documents, pay fee online, and track application status. However, physical site verification by LESCO staff is still required.</div></details>
+      <details class="faq-item"><summary class="faq-question">What documents are required for LESCO new connection?</summary><div class="px-4 pb-4 text-sm text-neutral-600">(1) Original CNIC + photocopy, (2) Proof of ownership (registry, allotment letter) OR tenancy agreement with landlord's CNIC copy, (3) No-objection certificate from landlord if tenant, (4) Site map sketch, (5) Filled A&AC Form-1, (6) Test report from a licensed electrician for loads above 5 kW.</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I upgrade my LESCO load later?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. Submit a Load Augmentation Request at your SDO office with a fresh test report and pay the differential security deposit. Cost depends on additional load requested. Typical timeline: 15-30 days. Single-phase to three-phase conversion requires meter replacement.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is A&AC Form-1?</summary><div class="px-4 pb-4 text-sm text-neutral-600">A&AC stands for Application & Agreement Form. Form-1 is the standard new-connection application form used by all WAPDA-derived DISCOs including LESCO. It captures applicant details, connection address, sanctioned load, and tariff category. Available free at all LESCO offices.</div></details>
     </div>
 
     <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
-      <h2 class="font-bold text-xl text-primary-900 mb-2">Check Your LESCO Bill Now</h2>
-      <p class="text-primary-700 mb-4 text-sm">Free, instant, no login required.</p>
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Need to Check Your LESCO Bill?</h2>
+      <p class="text-primary-700 mb-4 text-sm">If you already have a connection, check your bill online instantly.</p>
       <a href="/lesco-bill/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
         Open LESCO Bill Checker &rarr;
       </a>
@@ -74,8 +174,8 @@ const schema = [
 
     <div class="border-t border-neutral-200 pt-6">
       <div class="flex flex-wrap gap-2">
-        <a href="/lesco-bill/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">LESCO Checker &rarr;</a>
-        <a href="/electricity/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">All Electricity Bills &rarr;</a>
+        <a href="/lesco-bill/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">LESCO Bill Checker &rarr;</a>
+        <a href="/blog/lesco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">LESCO Reference Number Guide &rarr;</a>
         <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">Bill Calculator &rarr;</a>
         <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>

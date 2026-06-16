@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/ssgc-reference-number/#article",
-    "headline": "SSGC Consumer Number — Find It on Your Gas Bill",
-    "description": "Find your SSGC 10-digit consumer number on your gas bill. SSGC covers Karachi, Sindh, Balochistan. Check SSGC gas bill online instantly.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "SSGC Consumer Number — Where to Find It on Your Gas Bill?",
+    "description": "Learn where the SSGC 10-digit consumer number is printed on your Sui Southern Gas bill. Step-by-step guide for Sindh & Balochistan consumers.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"Where is the SSGC consumer number on the gas bill?","acceptedAnswer":{"@type":"Answer","text":"The SSGC consumer number is at the top section of your SSGC gas bill, labeled Consumer No. or Consumer Number. It is a 10-digit number near your name and address. SSGC covers Karachi, entire Sindh, and Balochistan."}},
-      {"@type":"Question","name":"SSGC consumer number vs reference number?","acceptedAnswer":{"@type":"Answer","text":"SSGC uses Consumer Number (10 digits) — not a reference number like WAPDA electricity bills. This consumer number is used for all online bill checks, payments through JazzCash, EasyPaisa, and bank apps. It never changes."}},
-      {"@type":"Question","name":"SSGC helpline for consumer number?","acceptedAnswer":{"@type":"Answer","text":"Call SSGC helpline 021-111-786-100 (Karachi) or 0800-00786 (toll free). Provide your CNIC and address. You can also visit any SSGC customer service center in Karachi, Hyderabad, Sukkur, or Quetta."}}
+      {"@type":"Question","name":"Where is the consumer number on SSGC bill?","acceptedAnswer":{"@type":"Answer","text":"The SSGC consumer number is a 10-digit number printed in bold on the top-left section of your SSGC gas bill, labeled 'Consumer No.' or 'Account No.'. It is different from your meter number and stays the same every month."}},
+      {"@type":"Question","name":"What is the SSGC consumer number format?","acceptedAnswer":{"@type":"Answer","text":"The SSGC consumer number is always exactly 10 digits. No letters, no spaces, no dashes. Example format: 0123456789. It stays the same every month and is unique to your gas connection."}},
+      {"@type":"Question","name":"How to check SSGC bill without consumer number?","acceptedAnswer":{"@type":"Answer","text":"If you don't have your SSGC consumer number, call SSGC helpline 1199 with your CNIC. You can also visit any SSGC customer service center with your CNIC and proof of residence."}},
+      {"@type":"Question","name":"Is SSGC consumer number the same as gas meter number?","acceptedAnswer":{"@type":"Answer","text":"No. SSGC consumer number is 10 digits and identifies your billing account. Gas meter number is a separate identifier (usually 8 digits, sometimes with letters) printed elsewhere on the bill and identifies the physical meter installed at your premises."}},
+      {"@type":"Question","name":"Can I use SSGC consumer number at any bank?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 10-digit SSGC consumer number is accepted at all major banks (HBL, UBL, MCB, NBP, Bank Alfalah), JazzCash, EasyPaisa, and 1Bill retailers across Pakistan. Some channels may ask for 'Account Number' — this is the same as your consumer number."}}
     ]
   },
   {
@@ -25,58 +27,159 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"SSGC Consumer Number — Find It on Your Gas Bill","item":"https://pakistanbill.online/blog/ssgc-reference-number/"}
+      {"@type":"ListItem","position":3,"name":"SSGC Consumer Number","item":"https://pakistanbill.online/blog/ssgc-reference-number/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="SSGC Consumer Number — Find It on Your Gas Bill"
-  description="Find your SSGC 10-digit consumer number on your gas bill. SSGC covers Karachi, Sindh, Balochistan. Check SSGC gas bill online instantly."
+  title="SSGC Consumer Number — Where to Find It on Your Gas Bill?"
+  description="Where is the SSGC consumer number on your bill? Top-left section, 10 digits, labeled Consumer No. Find it and check your SSGC gas bill instantly."
   canonical="/blog/ssgc-reference-number/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium">SSGC</span>
+        <span class="text-neutral-800 font-medium">SSGC Consumer Number</span>
       </nav>
     </div>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="mb-4">
-      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+    <div class="mb-6">
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">SSGC Guide</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">SSGC Consumer Number — Find It on Your Gas Bill</h1>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Find SSGC Consumer Number — Where is it on Your Bill?</h1>
+
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Answer: The SSGC consumer number is a <strong>10-digit number</strong> on the <strong>top-left of your bill</strong> labeled <strong>"Consumer No."</strong> or <strong>"Account No."</strong> — just below your name and address. It contains only digits, no letters.</p>
+    </div>
+
+    <p class="text-neutral-600 mb-4">To check your <strong>Sui Southern Gas Company (SSGC)</strong> gas bill online — whether you live in Karachi, Hyderabad, Sukkur, Quetta, or any other city in Sindh or Balochistan — you need your 10-digit consumer number. SSGC uses the term "Consumer Number" (sometimes called "Account Number") instead of the "Reference Number" used by electricity DISCOs, but the purpose is the same: it's the unique identifier that lets any bill-checking service retrieve your account from SSGC's database. The consumer number never changes for your connection, so once you've found it on any previous bill, you can use it forever. This guide shows exactly where on the bill to find it, what the number looks like, and how to recover it if you've lost all your old bills.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Where Exactly is the SSGC Consumer Number?</h2>
+    <p class="text-neutral-600 mb-4">Unlike electricity bills (which put the reference number on the top-right), SSGC gas bills put the consumer number on the <strong>top-left</strong> of the bill — just below your name and address. Look for a number labeled <strong>"Consumer No."</strong> or <strong>"Account No."</strong> printed in bold.</p>
+
+    <div class="bg-neutral-900 text-green-400 font-mono rounded-xl p-5 mb-6 text-sm overflow-x-auto">
+      <p class="text-neutral-400 text-xs mb-2">// SSGC Bill — Top Left Section</p>
+      <p>┌─────────────────────────────────┐</p>
+      <p>│  Sui Southern Gas Company Bill     │</p>
+      <p>│  Consumer Name: [Your Name]      │</p>
+      <p>│  Address: [Your Address]         │</p>
+      <p class="text-yellow-300">│  <strong>Consumer No: 0123456789</strong>      │ ← Here!</p>
+      <p>│  Tariff: Domestic (R)            │</p>
+      <p>│  Sanctioned Load: 0.5 HM³/month │</p>
+      <p>│  Meter Number: 12345678          │</p>
+      <p>│  ┌──────────────────────────┐   │</p>
+      <p>│  │ Reading: 1245 HM³        │   │</p>
+      <p>│  │ Consumption: 65 HM³      │   │</p>
+      <p>│  │ Total Payable: Rs. 4,430 │   │</p>
+      <p>│  └──────────────────────────┘   │</p>
+      <p>│  [████████ BARCODE ████████]    │</p>
+      <p>└─────────────────────────────────┘</p>
+    </div>
+
+    <p class="text-neutral-600 mb-4">The consumer number is printed in <strong>bold, slightly larger font</strong> than surrounding text so it stands out. It's positioned identically on every SSGC bill — old bills from 5 years ago will have it in the same spot as bills today.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">What Does the SSGC Consumer Number Look Like?</h2>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li>Always exactly <strong>10 digits</strong> — never more, never less</li>
+      <li>Only numbers — no letters (A, B, C) or dashes</li>
+      <li>Example: <code class="bg-neutral-100 px-2 py-0.5 rounded font-mono">0123456789</code></li>
+      <li>Printed in <strong>bold</strong> near the top-left of your bill</li>
+      <li>Labeled <strong>"Consumer No."</strong> or <strong>"Account No."</strong></li>
+      <li>Stays the same every month (only changes if connection is re-registered)</li>
+      <li>SSGC consumer numbers typically begin with digits 1–6 (regional prefix)</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Can't Find Your SSGC Consumer Number?</h2>
+    <p class="text-neutral-600 mb-4">If you've lost all previous bills, here are the recovery options:</p>
+    <div class="space-y-3 mb-8">
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">1. Check any old bill</p>
+        <p class="text-sm text-neutral-600">Your consumer number never changes. Any previous SSGC bill — even one from years ago — has the same consumer number. Ask family, neighbors, or your landlord if they have an old bill from your connection.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">2. Call SSGC helpline 1199</p>
+        <p class="text-sm text-neutral-600">Provide your CNIC number, full name, and address. The customer service representative can retrieve your consumer number after verifying your identity. Helpline operates 24/7.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">3. Visit any SSGC customer service center</p>
+        <p class="text-sm text-neutral-600">Bring your CNIC and proof of residence (tenancy agreement, ownership deed). SSGC customer service centers exist in Karachi (HQ, Sir Shah Suleman Road), Hyderabad, Sukkur, Larkana, Mirpurkhas, Quetta, and Khuzdar.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">4. Check your mobile wallet payment history</p>
+        <p class="text-sm text-neutral-600">If you've ever paid your SSGC bill via JazzCash, EasyPaisa, or a bank app, the consumer number is saved in your payment history. Open the app → Payment History → look for past gas bill payments.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">5. Look at your gas meter</p>
+        <p class="text-sm text-neutral-600">SSGC meter numbers are sometimes (but not always) linked to consumer numbers. Visit your gas meter and note the meter serial number, then call SSGC to retrieve the linked consumer number.</p>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">SSGC Consumer Number vs Meter Number</h2>
+    <p class="text-neutral-600 mb-4">SSGC bills display two different identifiers. Knowing the difference helps when checking bills and filing complaints:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Feature</th>
+            <th class="text-left p-3 border-b border-neutral-200">Consumer Number</th>
+            <th class="text-left p-3 border-b border-neutral-200">Meter Number</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">Length</td><td class="p-3">10 digits</td><td class="p-3">8 digits (sometimes with letters)</td></tr>
+          <tr><td class="p-3 font-semibold">Position on bill</td><td class="p-3">Top-left (below address)</td><td class="p-3">Middle-right section</td></tr>
+          <tr><td class="p-3 font-semibold">Changes over time?</td><td class="p-3">Only if re-registered</td><td class="p-3">Yes, if meter replaced</td></tr>
+          <tr><td class="p-3 font-semibold">Used for</td><td class="p-3">Online bill check, payment</td><td class="p-3">Meter identification only</td></tr>
+          <tr><td class="p-3 font-semibold">Works on our checker?</td><td class="p-3">Yes</td><td class="p-3">No</td></tr>
+          <tr><td class="p-3 font-semibold">Accepted at banks?</td><td class="p-3">Yes</td><td class="p-3">No</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Common Mistakes When Entering the Consumer Number</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Missing leading zero:</strong> When copy-pasting, the first "0" often gets cut off. Always count the digits — must be exactly 10.</li>
+      <li><strong>Entering the meter number by mistake:</strong> Meter number is shorter (usually 8 digits) and identifies the physical meter, not your billing account.</li>
+      <li><strong>Confusing SSGC with SNGPL:</strong> SSGC covers Sindh and Balochistan. SNGPL covers Punjab, KP, and AJK. If you live in Lahore or Peshawar, your gas bill is SNGPL, not SSGC.</li>
+      <li><strong>Entering dashes or spaces:</strong> The system rejects special characters. Enter 10 digits without any separators.</li>
+      <li><strong>Using an old SSGC consumer number after meter replacement:</strong> The consumer number stays the same even after meter replacement, but verify with SSGC if you've recently had a meter change.</li>
+    </ul>
 
     <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">Where is the SSGC consumer number on the gas bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The SSGC consumer number is at the top section of your SSGC gas bill, labeled Consumer No. or Consumer Number. It is a 10-digit number near your name and address. SSGC covers Karachi, entire Sindh, and Balochistan.</div></details>
-      <details class="faq-item"><summary class="faq-question">SSGC consumer number vs reference number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">SSGC uses Consumer Number (10 digits) — not a reference number like WAPDA electricity bills. This consumer number is used for all online bill checks, payments through JazzCash, EasyPaisa, and bank apps. It never changes.</div></details>
-      <details class="faq-item"><summary class="faq-question">SSGC helpline for consumer number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Call SSGC helpline 021-111-786-100 (Karachi) or 0800-00786 (toll free). Provide your CNIC and address. You can also visit any SSGC customer service center in Karachi, Hyderabad, Sukkur, or Quetta.</div></details>
+      <details class="faq-item"><summary class="faq-question">Where is the consumer number on SSGC bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The SSGC consumer number is a 10-digit number printed in bold on the top-left section of your SSGC gas bill, labeled 'Consumer No.' or 'Account No.'. It is different from your meter number and stays the same every month.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is the SSGC consumer number format?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The SSGC consumer number is always exactly 10 digits. No letters, no spaces, no dashes. Example format: 0123456789. It stays the same every month and is unique to your gas connection.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to check SSGC bill without consumer number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">If you don't have your SSGC consumer number, call SSGC helpline 1199 with your CNIC. You can also visit any SSGC customer service center with your CNIC and proof of residence.</div></details>
+      <details class="faq-item"><summary class="faq-question">Is SSGC consumer number the same as gas meter number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">No. SSGC consumer number is 10 digits and identifies your billing account. Gas meter number is a separate identifier (usually 8 digits, sometimes with letters) printed elsewhere on the bill and identifies the physical meter installed at your premises.</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I use SSGC consumer number at any bank?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. The 10-digit SSGC consumer number is accepted at all major banks (HBL, UBL, MCB, NBP, Bank Alfalah), JazzCash, EasyPaisa, and 1Bill retailers across Pakistan. Some channels may ask for 'Account Number' — this is the same as your consumer number.</div></details>
+      <details class="faq-item"><summary class="faq-question">I live in Punjab — can I use SSGC consumer number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">No. SSGC only serves Sindh and Balochistan. If you live in Punjab, KP, or AJK, your gas supplier is SNGPL (Sui Northern Gas Pipelines). Use our SNGPL bill checker for that. SSGC consumer numbers won't work on the SNGPL system.</div></details>
     </div>
 
     <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
-      <h2 class="font-bold text-xl text-primary-900 mb-2">Check Your SSGC Bill Now</h2>
-      <p class="text-primary-700 mb-4 text-sm">Free, instant, no login required.</p>
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Got Your SSGC Consumer Number?</h2>
+      <p class="text-primary-700 mb-4 text-sm">Enter it now to check your gas bill instantly.</p>
       <a href="/ssgc-bill/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
-        Open SSGC Bill Checker &rarr;
+        Check SSGC Bill &rarr;
       </a>
     </div>
 
     <div class="border-t border-neutral-200 pt-6">
       <div class="flex flex-wrap gap-2">
         <a href="/ssgc-bill/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">SSGC Checker &rarr;</a>
-        <a href="/electricity/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">All Electricity Bills &rarr;</a>
-        <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">Bill Calculator &rarr;</a>
+        <a href="/blog/ssgc-bill-check-online/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">SSGC Bill Check Guide &rarr;</a>
+        <a href="/blog/gas-bill-consumer-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">Gas Bill Consumer Number Guide &rarr;</a>
+        <a href="/sngpl-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">SNGPL Bill (North) &rarr;</a>
         <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>
     </div>

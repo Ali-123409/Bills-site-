@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/bill-payment-methods-pakistan/#article",
-    "headline": "How to Pay Electricity Bill Online in Pakistan 2026",
-    "description": "Pay electricity bill online in Pakistan via JazzCash, EasyPaisa, HBL, MCB, Meezan Bank. Step-by-step guide for LESCO, MEPCO, K-Electric, SNGPL, PTCL bills.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "All Bill Payment Methods in Pakistan — 2026 Complete Guide",
+    "description": "Compare all bill payment methods in Pakistan: JazzCash, EasyPaisa, bank apps, 1Bill shops, ATMs, post office, NADRA. Fees, processing times, pros and cons.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"How to pay LESCO bill online?","acceptedAnswer":{"@type":"Answer","text":"Pay LESCO bill through JazzCash (select Utility Bills → Electricity → LESCO → enter 14-digit reference number), EasyPaisa (same process), or any bank mobile app like HBL Mobile, MCB, or Meezan Bank."}},
-      {"@type":"Question","name":"Which apps can I use to pay electricity bill in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"JazzCash, EasyPaisa, HBL Mobile Banking, MCB Mobile, Meezan Bank App, UBL Digital, Askari Bank App, Bank Alfalah. All support LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, SNGPL, SSGC, and PTCL payments."}},
-      {"@type":"Question","name":"Can I pay electricity bill at ATM?","acceptedAnswer":{"@type":"Answer","text":"Yes. HBL, MCB, UBL, and most major bank ATMs in Pakistan support utility bill payments. Select Bill Payment on the ATM menu, choose your DISCO, enter your reference number, and confirm."}}
+      {"@type":"Question","name":"What are the ways to pay utility bills in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"You can pay utility bills via: (1) Mobile wallets (JazzCash, EasyPaisa), (2) Bank mobile apps (HBL, UBL, MCB, etc.), (3) Bank branches (cash payment), (4) 1Bill shops, (5) ATMs, (6) NADRA e-Sahulat, (7) Post offices, (8) Official utility customer service centers, (9) Credit card through utility websites."}},
+      {"@type":"Question","name":"Which bill payment method is free?","acceptedAnswer":{"@type":"Answer","text":"Free methods: JazzCash, EasyPaisa, all bank mobile apps, bank branch cash payment (HBL, UBL, MCB, NBP), ATMs, utility customer service centers. Paid methods: 1Bill shops (Rs. 30-50), NADRA e-Sahulat (Rs. 30), Post office (Rs. 20)."}},
+      {"@type":"Question","name":"Which bill payment method is fastest?","acceptedAnswer":{"@type":"Answer","text":"Fastest methods (instant reflection): JazzCash, EasyPaisa, bank mobile apps, ATMs, credit card on utility website. Slowest: 1Bill shops (12-24 hours), NADRA e-Sahulat (24-48 hours), post office (2-3 days)."}},
+      {"@type":"Question","name":"Can I pay bills without bank account?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use JazzCash or EasyPaisa mobile wallets (no bank account needed — just a CNIC and active SIM). You can also pay cash at 1Bill shops, NADRA e-Sahulat centers, post offices, or utility customer service centers."}},
+      {"@type":"Question","name":"Which bills can be paid online in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"All major utility bills can be paid online: electricity (LESCO, IESCO, FESCO, all DISCOs, K-Electric), gas (SNGPL, SSGC), water (WASA Lahore/Faisalabad/Rawalpindi), telephone (PTCL), mobile postpaid (Jazz, Zong, Telenor, Ufone), internet (Nayatel, Transworld, Wateen)."}}
     ]
   },
   {
@@ -25,27 +27,27 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"How to Pay Electricity Bill Online in Pakistan 2026","item":"https://pakistanbill.online/blog/bill-payment-methods-pakistan/"}
+      {"@type":"ListItem","position":3,"name":"Bill Payment Methods Pakistan","item":"https://pakistanbill.online/blog/bill-payment-methods-pakistan/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="How to Pay Electricity Bill Online in Pakistan 2026"
-  description="Pay electricity bill online in Pakistan via JazzCash, EasyPaisa, HBL, MCB, Meezan Bank. Step-by-step guide for LESCO, MEPCO, K-Electric, SNGPL, PTCL bills."
+  title="All Bill Payment Methods in Pakistan — 2026 Complete Guide"
+  description="Compare all bill payment methods in Pakistan: JazzCash, EasyPaisa, bank apps, 1Bill shops, ATMs, post office, NADRA. Fees, processing times, pros and cons."
   canonical="/blog/bill-payment-methods-pakistan/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium truncate">How to Pay Electricity Bill Online in Pa...</span>
+        <span class="text-neutral-800 font-medium">Bill Payment Methods</span>
       </nav>
     </div>
   </div>
@@ -55,25 +57,146 @@ const schema = [
       <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Pay Electricity Bill Online in Pakistan — All Methods</h1>
-    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">Pakistan now offers multiple ways to pay utility bills online — from mobile wallets to bank apps. This guide covers every payment method for electricity, gas, water, and PTCL bills with step-by-step instructions.</p>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">All Bill Payment Methods in Pakistan — 2026 Complete Guide</h1>
 
-    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <p class="text-neutral-600 text-lg mb-4">Pakistan's bill payment ecosystem has transformed dramatically in the last decade. From standing in long queues at WAPDA offices or post offices, consumers now have <strong>9+ different payment channels</strong> — from mobile wallets and banking apps to ATMs and corner shops. But with so many options, it can be confusing to know which method is best for your situation. Should you pay through JazzCash or your bank app? Is a 1Bill shop cheaper than a bank branch? What if you don't have a bank account? This guide compares every payment method available in Pakistan — covering fees, processing times, pros and cons — so you can pick the best option for each bill.</p>
+
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Summary: For most consumers, <strong>JazzCash or EasyPaisa</strong> is the best bill payment method — free, instant, works on any phone. For larger bills, use your bank's mobile app. For cash payments without a bank account, use 1Bill shops (Rs. 30–50 fee) or utility customer service centers (free).</p>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Comparison Table: All Bill Payment Methods</h2>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Method</th>
+            <th class="text-left p-3 border-b border-neutral-200">Fee</th>
+            <th class="text-left p-3 border-b border-neutral-200">Speed</th>
+            <th class="text-left p-3 border-b border-neutral-200">Bank Account?</th>
+            <th class="text-left p-3 border-b border-neutral-200">Best For</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">JazzCash</td><td class="p-3">Free</td><td class="p-3">Instant</td><td class="p-3">No</td><td class="p-3">Quick everyday payments</td></tr>
+          <tr><td class="p-3 font-semibold">EasyPaisa</td><td class="p-3">Free</td><td class="p-3">Instant</td><td class="p-3">No</td><td class="p-3">Telenor users</td></tr>
+          <tr><td class="p-3 font-semibold">Bank mobile app</td><td class="p-3">Free</td><td class="p-3">Instant</td><td class="p-3">Yes</td><td class="p-3">Large bills</td></tr>
+          <tr><td class="p-3 font-semibold">ATM</td><td class="p-3">Free</td><td class="p-3">Instant</td><td class="p-3">Yes</td><td class="p-3">After-hours payment</td></tr>
+          <tr><td class="p-3 font-semibold">Bank branch</td><td class="p-3">Free</td><td class="p-3">4 hours</td><td class="p-3">No (cash)</td><td class="p-3">Cash payments</td></tr>
+          <tr><td class="p-3 font-semibold">1Bill shop</td><td class="p-3">Rs. 30–50</td><td class="p-3">12–24h</td><td class="p-3">No</td><td class="p-3">No bank account</td></tr>
+          <tr><td class="p-3 font-semibold">NADRA e-Sahulat</td><td class="p-3">Rs. 30</td><td class="p-3">24–48h</td><td class="p-3">No</td><td class="p-3">Remote areas</td></tr>
+          <tr><td class="p-3 font-semibold">Post office</td><td class="p-3">Rs. 20</td><td class="p-3">2–3 days</td><td class="p-3">No</td><td class="p-3">Small towns</td></tr>
+          <tr><td class="p-3 font-semibold">Utility CSC</td><td class="p-3">Free</td><td class="p-3">Instant</td><td class="p-3">No</td><td class="p-3">Disputes, instant reflect</td></tr>
+          <tr><td class="p-3 font-semibold">Credit card (website)</td><td class="p-3">Free</td><td class="p-3">Instant</td><td class="p-3">Yes</td><td class="p-3">Reward points</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 1: JazzCash (Recommended)</h2>
+    <p class="text-neutral-600 mb-4">JazzCash is Pakistan's most widely used mobile wallet, with over 30 million users. It's free, instant, and works on any phone — even feature phones via USSD. Perfect for utility bills, mobile top-ups, and sending money.</p>
+    <p class="text-neutral-600 mb-4"><strong>How to use:</strong></p>
+    <ol class="space-y-2 text-neutral-600 mb-6 list-decimal list-inside">
+      <li>Download JazzCash app (or dial <code class="bg-neutral-100 px-2 py-0.5 rounded font-mono">*786#</code> on feature phone)</li>
+      <li>Register with CNIC and Jazz number</li>
+      <li>Load money via Jazz scratch card, bank transfer, or JazzCash shop</li>
+      <li>Navigate to Utility Bills → select utility → enter reference number → confirm amount → enter PIN</li>
+    </ol>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, instant, no bank account needed, works on feature phones, available everywhere.<br>
+    <strong>Cons:</strong> Requires Jazz SIM; weekly transaction limits (Rs. 50,000 for basic account).</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 2: EasyPaisa</h2>
+    <p class="text-neutral-600 mb-4">EasyPaisa is Telenor's mobile wallet, second-largest after JazzCash. Same features and convenience — best for Telenor users or anyone wanting a backup mobile wallet.</p>
+    <p class="text-neutral-600 mb-4"><strong>How to use:</strong></p>
+    <ol class="space-y-2 text-neutral-600 mb-6 list-decimal list-inside">
+      <li>Download EasyPaisa app (or dial <code class="bg-neutral-100 px-2 py-0.5 rounded font-mono">*786*1#</code> on feature phone)</li>
+      <li>Register with CNIC and Telenor number</li>
+      <li>Load money via Telenor scratch card, bank transfer, or EasyPaisa shop</li>
+      <li>Navigate to Bills → select utility → enter reference number → confirm → enter PIN</li>
+    </ol>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, instant, no bank account, works on feature phones.<br>
+    <strong>Cons:</strong> Requires Telenor SIM; same weekly transaction limits as JazzCash.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 3: Bank Mobile Apps</h2>
+    <p class="text-neutral-600 mb-4">All major Pakistani banks offer free bill payment through their mobile apps. Best for larger bills (mobile wallets have transaction limits) and consumers who already bank online.</p>
+    <p class="text-neutral-600 mb-4"><strong>Supported banks:</strong> HBL, UBL, MCB, Bank Alfalah, Meezan, Faysal, Allied Bank, Bank of Punjab, Bank of Khyber, Habib Metro, Askari Bank, Standard Chartered.</p>
+    <p class="text-neutral-600 mb-4"><strong>How to use:</strong></p>
+    <ol class="space-y-2 text-neutral-600 mb-6 list-decimal list-inside">
+      <li>Download your bank's mobile app</li>
+      <li>Activate mobile banking through your bank branch or ATM</li>
+      <li>Login with credentials and OTP</li>
+      <li>Navigate to Payments → Utility Bills → select category → select company → enter reference number → confirm</li>
+    </ol>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, instant, higher transaction limits (up to Rs. 1 million), one-stop for all financial needs.<br>
+    <strong>Cons:</strong> Requires bank account, smartphone, and mobile banking activation.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 4: Bank Branch (Cash Payment)</h2>
+    <p class="text-neutral-600 mb-4">Traditional method still preferred by senior citizens and consumers without bank accounts. Bring your printed bill (or duplicate PDF) to any branch of HBL, UBL, MCB, NBP, or Bank Alfalah.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, accepts cash, available everywhere.<br>
+    <strong>Cons:</strong> Long queues near due dates, limited banking hours (9 AM – 5 PM), payment reflects in 4 hours.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 5: 1Bill / Infinia Shops</h2>
+    <p class="text-neutral-600 mb-4">Over 100,000 shops across Pakistan display the 1Bill or Infinia logo and accept utility bill payments in cash. Convenient for after-hours payment or consumers without bank accounts.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Open late (often until 11 PM), no bank account needed, available in remote areas.<br>
+    <strong>Cons:</strong> Rs. 30–50 fee per transaction, payment reflects in 12–24 hours, receipt quality varies.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 6: ATM</h2>
+    <p class="text-neutral-600 mb-4">Most bank ATMs accept utility bill payments via debit card. Useful for after-hours payment when you have a debit card but no mobile banking.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, instant, available 24/7.<br>
+    <strong>Cons:</strong> Need debit card and PIN; not all ATMs support bill payment — check your bank's website for supported ATM locations.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 7: NADRA e-Sahulat</h2>
+    <p class="text-neutral-600 mb-4">NADRA's e-Sahulat centers accept utility bill payments in cash. Especially useful in rural areas where banks and 1Bill shops are scarce.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Available in remote areas, no bank account needed.<br>
+    <strong>Cons:</strong> Rs. 30 fee, payment reflects in 24–48 hours, limited NADRA centers in big cities.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 8: Post Office</h2>
+    <p class="text-neutral-600 mb-4">Pakistan Post offices accept utility bill payments at their counters. Oldest method still in use — mainly relevant for rural consumers.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Available in every tehsil, including very remote areas.<br>
+    <strong>Cons:</strong> Rs. 20 fee, payment reflects in 2–3 days, very slow — avoid for time-sensitive payments.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 9: Utility Customer Service Center</h2>
+    <p class="text-neutral-600 mb-4">Every utility (LESCO, IESCO, SNGPL, K-Electric, etc.) has its own payment counter at the customer service center. Payments reflect instantly — best for last-day payments or when you have disputes.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, instant reflection, staff can resolve disputes on the spot.<br>
+    <strong>Cons:</strong> Limited locations (only major cities), limited hours (9 AM – 5 PM).</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Method 10: Credit Card via Utility Website</h2>
+    <p class="text-neutral-600 mb-4">Most utilities (PTCL, K-Electric, SNGPL) accept credit/debit card payments directly on their websites. Useful if you want to earn credit card reward points or use international cards.</p>
+    <p class="text-neutral-600 mb-6"><strong>Pros:</strong> Free, instant, reward points on credit card.<br>
+    <strong>Cons:</strong> Requires credit/debit card, website interface can be clunky, possible transaction limits.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Which Method Should You Choose?</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Most users:</strong> JazzCash or EasyPaisa — free, instant, no bank account needed.</li>
+      <li><strong>Bank account holders:</strong> Your bank's mobile app — higher limits, one-stop solution.</li>
+      <li><strong>Senior citizens / no smartphone:</strong> Bank branch or 1Bill shop — pay in cash with help.</li>
+      <li><strong>Last-day payment:</strong> Utility customer service center — instant reflection.</li>
+      <li><strong>Rural areas:</strong> NADRA e-Sahulat or post office — only options in some areas.</li>
+      <li><strong>Large bills (Rs. 100,000+):</strong> Bank mobile app — no transaction limit issues.</li>
+      <li><strong>Credit card reward seekers:</strong> Utility website with credit card.</li>
+    </ul>
+
+    <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">How to pay LESCO bill online?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Pay LESCO bill through JazzCash (select Utility Bills → Electricity → LESCO → enter 14-digit reference number), EasyPaisa (same process), or any bank mobile app like HBL Mobile, MCB, or Meezan Bank.</div></details>
-      <details class="faq-item"><summary class="faq-question">Which apps can I use to pay electricity bill in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">JazzCash, EasyPaisa, HBL Mobile Banking, MCB Mobile, Meezan Bank App, UBL Digital, Askari Bank App, Bank Alfalah. All support LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, SNGPL, SSGC, and PTCL payments.</div></details>
-      <details class="faq-item"><summary class="faq-question">Can I pay electricity bill at ATM?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. HBL, MCB, UBL, and most major bank ATMs in Pakistan support utility bill payments. Select Bill Payment on the ATM menu, choose your DISCO, enter your reference number, and confirm.</div></details>
+      <details class="faq-item"><summary class="faq-question">What are the ways to pay utility bills in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">You can pay utility bills via: (1) Mobile wallets (JazzCash, EasyPaisa), (2) Bank mobile apps (HBL, UBL, MCB, etc.), (3) Bank branches (cash payment), (4) 1Bill shops, (5) ATMs, (6) NADRA e-Sahulat, (7) Post offices, (8) Official utility customer service centers, (9) Credit card through utility websites.</div></details>
+      <details class="faq-item"><summary class="faq-question">Which bill payment method is free?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Free methods: JazzCash, EasyPaisa, all bank mobile apps, bank branch cash payment (HBL, UBL, MCB, NBP), ATMs, utility customer service centers. Paid methods: 1Bill shops (Rs. 30-50), NADRA e-Sahulat (Rs. 30), Post office (Rs. 20).</div></details>
+      <details class="faq-item"><summary class="faq-question">Which bill payment method is fastest?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Fastest methods (instant reflection): JazzCash, EasyPaisa, bank mobile apps, ATMs, credit card on utility website. Slowest: 1Bill shops (12-24 hours), NADRA e-Sahulat (24-48 hours), post office (2-3 days).</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I pay bills without bank account?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. Use JazzCash or EasyPaisa mobile wallets (no bank account needed — just a CNIC and active SIM). You can also pay cash at 1Bill shops, NADRA e-Sahulat centers, post offices, or utility customer service centers.</div></details>
+      <details class="faq-item"><summary class="faq-question">Which bills can be paid online in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">All major utility bills can be paid online: electricity (LESCO, IESCO, FESCO, all DISCOs, K-Electric), gas (SNGPL, SSGC), water (WASA Lahore/Faisalabad/Rawalpindi), telephone (PTCL), mobile postpaid (Jazz, Zong, Telenor, Ufone), internet (Nayatel, Transworld, Wateen).</div></details>
+    </div>
+
+    <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Check Your Bill First</h2>
+      <p class="text-primary-700 mb-4 text-sm">View your bill amount before paying through any method.</p>
+      <a href="/electricity/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
+        Browse All Bill Checkers &rarr;
+      </a>
     </div>
 
     <div class="border-t border-neutral-200 pt-6">
-      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
       <div class="flex flex-wrap gap-2">
-        <a href="/lesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">LESCO Bill →</a>
-        <a href="/sngpl-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">SNGPL Gas Bill →</a>
-        <a href="/k-electric-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">K-Electric Bill →</a>
-        <a href="/ptcl-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">PTCL Bill →</a>
-        <a href="/dashboard/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Check Bill First →</a>
-        <a href="/blog/how-to-read-electricity-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">How to Read Bill →</a>
+        <a href="/blog/how-to-pay-online/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">Online Payment Guide &rarr;</a>
+        <a href="/blog/duplicate-bill-download/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">Duplicate Bill Guide &rarr;</a>
+        <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>
     </div>
   </div>

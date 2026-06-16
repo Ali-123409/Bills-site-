@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/duplicate-bill-download/#article",
-    "headline": "Download Duplicate Electricity Bill Pakistan — Free PDF",
-    "description": "Download duplicate electricity bill for LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric online. Free PDF in seconds. Enter reference number — no login needed.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "Duplicate Bill Download Guide — All Pakistan Utilities 2026",
+    "description": "Download duplicate electricity, gas, water bills online for LESCO, K-Electric, SNGPL, SSGC, WASA and all DISCOs. Free, instant PDF download.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"How to download duplicate LESCO bill?","acceptedAnswer":{"@type":"Answer","text":"Go to pakistanbill.online/lesco-bill/, enter your 14-digit reference number, click Check Bill. Once your bill loads, click the Download PDF button to get your LESCO duplicate bill free."}},
-      {"@type":"Question","name":"Is downloading duplicate electricity bill free?","acceptedAnswer":{"@type":"Answer","text":"Yes. PakistanBill.online provides free duplicate electricity bill downloads for all Pakistani DISCOs — LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, and more. No charge, no account needed."}},
-      {"@type":"Question","name":"Can I print a duplicate electricity bill?","acceptedAnswer":{"@type":"Answer","text":"Yes. After downloading the PDF duplicate bill, open it and print from any printer. The duplicate is accepted for bill payment at banks and utility counters across Pakistan."}}
+      {"@type":"Question","name":"How to download duplicate electricity bill?","acceptedAnswer":{"@type":"Answer","text":"Visit pakistanbill.online and select your DISCO (LESCO, K-Electric, IESCO, FESCO etc.). Enter your 14-digit reference number. Your current month's bill appears. Click 'Download PDF' to save a duplicate copy. The PDF is accepted at all banks and payment retailers."}},
+      {"@type":"Question","name":"How to download duplicate gas bill?","acceptedAnswer":{"@type":"Answer","text":"For SNGPL (Punjab/KP/AJK): Visit pakistanbill.online/sngpl-bill/ and enter your 10-digit consumer number. For SSGC (Sindh/Balochistan): Visit pakistanbill.online/ssgc-bill/ and enter your 10-digit consumer number. Click 'Download PDF' to save the duplicate."}},
+      {"@type":"Question","name":"Is duplicate bill valid for payment?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDF duplicate downloaded from pakistanbill.online is identical to the printed bill — it includes the same barcode, account details, amount, and due date. All banks, JazzCash, EasyPaisa, and 1Bill retailers accept the duplicate for payment."}},
+      {"@type":"Question","name":"How to download duplicate WASA water bill?","acceptedAnswer":{"@type":"Answer","text":"Visit pakistanbill.online/wasa-lahore-bill/ (or /wasa-faisalabad-bill/ or /wasa-rawalpindi-bill/) and enter your 8-digit WASA consumer number. Click 'Download PDF' to save the duplicate water bill."}},
+      {"@type":"Question","name":"Can I download old bills from previous months?","acceptedAnswer":{"@type":"Answer","text":"Most DISCOs only show the current month's bill online. For previous month bills, contact your utility's customer service or visit their office. LESCO and K-Electric also offer billing history through their official customer portals."}}
     ]
   },
   {
@@ -25,27 +27,27 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"Download Duplicate Electricity Bill Pakistan — Free PDF","item":"https://pakistanbill.online/blog/duplicate-bill-download/"}
+      {"@type":"ListItem","position":3,"name":"Duplicate Bill Download Guide","item":"https://pakistanbill.online/blog/duplicate-bill-download/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="Download Duplicate Electricity Bill Pakistan — Free PDF"
-  description="Download duplicate electricity bill for LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric online. Free PDF in seconds. Enter reference number — no login needed."
+  title="Duplicate Bill Download Guide — All Pakistan Utilities 2026"
+  description="Download duplicate electricity, gas, water bills online for LESCO, K-Electric, SNGPL, SSGC, WASA and all DISCOs. Free, instant PDF download."
   canonical="/blog/duplicate-bill-download/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium truncate">Download Duplicate Electricity Bill Paki...</span>
+        <span class="text-neutral-800 font-medium">Duplicate Bill Download</span>
       </nav>
     </div>
   </div>
@@ -55,25 +57,137 @@ const schema = [
       <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Download Duplicate Electricity Bill in Pakistan</h1>
-    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">Lost your electricity bill? You can download a duplicate copy in seconds using your 14-digit reference number. PakistanBill.online lets you download a PDF duplicate of any Pakistan electricity bill — LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, and all other DISCOs. Free, instant, no login.</p>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">Duplicate Bill Download Guide — All Pakistan Utilities 2026</h1>
 
-    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <p class="text-neutral-600 text-lg mb-4">Losing your utility bill is a common problem in Pakistan — printed bills arrive by post and can be delayed, misplaced, or simply never delivered. Whether it's your LESCO electricity bill, SNGPL gas bill, or WASA water bill, you don't need to wait for a replacement to be mailed. Every major utility in Pakistan now offers <strong>online duplicate bill download</strong> — a PDF version that's identical to the printed bill (same barcode, same account details, same amount, same due date) and is accepted at all banks, JazzCash, EasyPaisa, and 1Bill retailers. This guide covers the duplicate bill download process for every major utility in Pakistan.</p>
+
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Summary: Visit pakistanbill.online → select your utility checker → enter your reference number (electricity: 14-digit) or consumer number (gas/water: 8–10 digit) → click "Download PDF" to save the duplicate bill. Free, instant, no login required.</p>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Duplicate Electricity Bill Download</h2>
+    <p class="text-neutral-600 mb-4">Every electricity DISCO in Pakistan provides online duplicate bill download. The process is identical — only the DISCO name and reference number prefix change:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">DISCO</th>
+            <th class="text-left p-3 border-b border-neutral-200">Coverage Area</th>
+            <th class="text-left p-3 border-b border-neutral-200">Checker URL</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">LESCO</td><td class="p-3">Lahore, Kasur, Okara, Sheikhupura</td><td class="p-3"><a href="/lesco-bill/" class="text-primary-600">/lesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">IESCO</td><td class="p-3">Islamabad, Rawalpindi, Jhelum, Attock</td><td class="p-3"><a href="/iesco-bill/" class="text-primary-600">/iesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">FESCO</td><td class="p-3">Faisalabad, Jhang, Sargodha, Toba Tek Singh</td><td class="p-3"><a href="/fesco-bill/" class="text-primary-600">/fesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">GEPCO</td><td class="p-3">Gujranwala, Gujrat, Sialkot, Mandi Bahauddin</td><td class="p-3"><a href="/gepco-bill/" class="text-primary-600">/gepco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">MEPCO</td><td class="p-3">Multan, Bahawalpur, Dera Ghazi Khan, Sahiwal</td><td class="p-3"><a href="/mepco-bill/" class="text-primary-600">/mepco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">PESCO</td><td class="p-3">Peshawar, Mardan, Abbottabad, KP (settled)</td><td class="p-3"><a href="/pesco-bill/" class="text-primary-600">/pesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">TESCO</td><td class="p-3">Bajaur, Kurram, Waziristan (tribal)</td><td class="p-3"><a href="/tesco-bill/" class="text-primary-600">/tesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">HESCO</td><td class="p-3">Hyderabad, Mirpurkhas, Nawabshah (lower Sindh)</td><td class="p-3"><a href="/hesco-bill/" class="text-primary-600">/hesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">SEPCO</td><td class="p-3">Sukkur, Larkana, Khairpur (upper Sindh)</td><td class="p-3"><a href="/sepco-bill/" class="text-primary-600">/sepco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">QESCO</td><td class="p-3">Quetta, Ziarat, Pishin, Balochistan</td><td class="p-3"><a href="/qesco-bill/" class="text-primary-600">/qesco-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">K-Electric</td><td class="p-3">Karachi</td><td class="p-3"><a href="/k-electric-bill/" class="text-primary-600">/k-electric-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">AJK WAPDA</td><td class="p-3">Azad Kashmir (all districts)</td><td class="p-3"><a href="/ajk-bill/" class="text-primary-600">/ajk-bill/</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-xl font-heading font-bold mt-6 mb-3">Steps to Download Duplicate Electricity Bill</h3>
+    <ol class="space-y-3 text-neutral-600 mb-6 list-decimal list-inside">
+      <li><strong>Find your 14-digit reference number.</strong> Look on any previous bill — top-right section, labeled "Ref. No.", above the barcode.</li>
+      <li><strong>Open the DISCO bill checker.</strong> Use the URLs in the table above.</li>
+      <li><strong>Enter the reference number.</strong> Type all 14 digits, no dashes or spaces.</li>
+      <li><strong>Click "Check Bill".</strong> Your current month's bill loads in 2–4 seconds.</li>
+      <li><strong>Click "Download PDF".</strong> The PDF is saved to your device — typically under Downloads folder.</li>
+      <li><strong>Print or save the PDF.</strong> The PDF includes the barcode that banks scan for payment.</li>
+    </ol>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Duplicate Gas Bill Download</h2>
+    <p class="text-neutral-600 mb-4">Pakistan has two gas utilities — SNGPL (north) and SSGC (south). Both offer online duplicate bill download:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Utility</th>
+            <th class="text-left p-3 border-b border-neutral-200">Coverage</th>
+            <th class="text-left p-3 border-b border-neutral-200">Identifier</th>
+            <th class="text-left p-3 border-b border-neutral-200">Checker URL</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">SNGPL</td><td class="p-3">Punjab, KP, AJK, Islamabad</td><td class="p-3">10-digit consumer number</td><td class="p-3"><a href="/sngpl-bill/" class="text-primary-600">/sngpl-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">SSGC</td><td class="p-3">Sindh, Balochistan</td><td class="p-3">10-digit consumer number</td><td class="p-3"><a href="/ssgc-bill/" class="text-primary-600">/ssgc-bill/</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-neutral-600 mb-6">The process is the same as for electricity bills — enter the consumer number, click Check Bill, then Download PDF. The consumer number is printed on the top-left of gas bills (below your name and address).</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Duplicate Water Bill Download</h2>
+    <p class="text-neutral-600 mb-4">WASA (Water and Sanitation Agency) operates in major Punjab cities. Each city has its own WASA and its own consumer number database:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">WASA</th>
+            <th class="text-left p-3 border-b border-neutral-200">Coverage</th>
+            <th class="text-left p-3 border-b border-neutral-200">Identifier</th>
+            <th class="text-left p-3 border-b border-neutral-200">Checker URL</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">WASA Lahore</td><td class="p-3">Lahore metropolitan</td><td class="p-3">8-digit consumer number</td><td class="p-3"><a href="/wasa-lahore-bill/" class="text-primary-600">/wasa-lahore-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">WASA Faisalabad</td><td class="p-3">Faisalabad city</td><td class="p-3">8-digit consumer number</td><td class="p-3"><a href="/wasa-faisalabad-bill/" class="text-primary-600">/wasa-faisalabad-bill/</a></td></tr>
+          <tr><td class="p-3 font-semibold">WASA Rawalpindi</td><td class="p-3">Rawalpindi city</td><td class="p-3">8-digit consumer number</td><td class="p-3"><a href="/wasa-rawalpindi-bill/" class="text-primary-600">/wasa-rawalpindi-bill/</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Is the Duplicate Bill Valid for Payment?</h2>
+    <p class="text-neutral-600 mb-4"><strong>Yes — 100% valid.</strong> The PDF duplicate downloaded from pakistanbill.online is identical to the printed bill:</p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li>Same barcode (banks scan this for payment)</li>
+      <li>Same account/consumer details</li>
+      <li>Same bill amount</li>
+      <li>Same due date</li>
+      <li>Same reference/consumer number</li>
+    </ul>
+    <p class="text-neutral-600 mb-6">All banks (HBL, UBL, MCB, NBP, Bank Alfalah, Meezan, Faysal), mobile wallets (JazzCash, EasyPaisa), and 1Bill retailers accept the duplicate PDF for payment. If a bank teller refuses the duplicate (rare), request to speak to the branch manager — the duplicate is officially recognized by all DISCOs.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Tips for Downloading Duplicate Bills</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Save the reference number once.</strong> Store your 14-digit electricity reference number and 10-digit gas consumer number in your phone's notes — you'll never need to find an old bill again.</li>
+      <li><strong>Download before the due date.</strong> Don't wait for the last day — bank servers may be busy near due dates and online bill checkers can be slow.</li>
+      <li><strong>Print clearly</strong> if you're paying at a bank counter — faded printouts may not scan at the barcode reader.</li>
+      <li><strong>Email yourself the PDF</strong> after downloading — serves as a backup if you lose the printout.</li>
+      <li><strong>Check for typos before downloading.</strong> A single wrong digit in the reference number will return someone else's bill or "no bill found".</li>
+      <li><strong>Use mobile data</strong> if home Wi-Fi is slow — the bill checkers are lightweight and load quickly even on 2G.</li>
+    </ul>
+
+    <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">How to download duplicate LESCO bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Go to pakistanbill.online/lesco-bill/, enter your 14-digit reference number, click Check Bill. Once your bill loads, click the Download PDF button to get your LESCO duplicate bill free.</div></details>
-      <details class="faq-item"><summary class="faq-question">Is downloading duplicate electricity bill free?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. PakistanBill.online provides free duplicate electricity bill downloads for all Pakistani DISCOs — LESCO, MEPCO, GEPCO, FESCO, IESCO, K-Electric, and more. No charge, no account needed.</div></details>
-      <details class="faq-item"><summary class="faq-question">Can I print a duplicate electricity bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. After downloading the PDF duplicate bill, open it and print from any printer. The duplicate is accepted for bill payment at banks and utility counters across Pakistan.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to download duplicate electricity bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Visit pakistanbill.online and select your DISCO (LESCO, K-Electric, IESCO, FESCO etc.). Enter your 14-digit reference number. Your current month's bill appears. Click 'Download PDF' to save a duplicate copy. The PDF is accepted at all banks and payment retailers.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to download duplicate gas bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">For SNGPL (Punjab/KP/AJK): Visit pakistanbill.online/sngpl-bill/ and enter your 10-digit consumer number. For SSGC (Sindh/Balochistan): Visit pakistanbill.online/ssgc-bill/ and enter your 10-digit consumer number. Click 'Download PDF' to save the duplicate.</div></details>
+      <details class="faq-item"><summary class="faq-question">Is duplicate bill valid for payment?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. The PDF duplicate downloaded from pakistanbill.online is identical to the printed bill — it includes the same barcode, account details, amount, and due date. All banks, JazzCash, EasyPaisa, and 1Bill retailers accept the duplicate for payment.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to download duplicate WASA water bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Visit pakistanbill.online/wasa-lahore-bill/ (or /wasa-faisalabad-bill/ or /wasa-rawalpindi-bill/) and enter your 8-digit WASA consumer number. Click 'Download PDF' to save the duplicate water bill.</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I download old bills from previous months?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Most DISCOs only show the current month's bill online. For previous month bills, contact your utility's customer service or visit their office. LESCO and K-Electric also offer billing history through their official customer portals.</div></details>
+      <details class="faq-item"><summary class="faq-question">Does downloading duplicate bill cost money?</summary><div class="px-4 pb-4 text-sm text-neutral-600">No. Duplicate bill download from pakistanbill.online is completely free. There are no fees, no subscriptions, no login required. We do not ask for your CNIC, bank details, or any sensitive information — only the utility reference/consumer number.</div></details>
+    </div>
+
+    <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Need a Duplicate Bill?</h2>
+      <p class="text-primary-700 mb-4 text-sm">Select your utility and download now.</p>
+      <a href="/electricity/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
+        Browse All Bill Checkers &rarr;
+      </a>
     </div>
 
     <div class="border-t border-neutral-200 pt-6">
-      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
       <div class="flex flex-wrap gap-2">
-        <a href="/lesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">LESCO Duplicate Bill →</a>
-        <a href="/mepco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">MEPCO Duplicate Bill →</a>
-        <a href="/k-electric-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">K-Electric Duplicate Bill →</a>
-        <a href="/gepco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">GEPCO Duplicate Bill →</a>
-        <a href="/fesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">FESCO Duplicate Bill →</a>
-        <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Bill Calculator →</a>
+        <a href="/electricity/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">All Electricity Bills &rarr;</a>
+        <a href="/sngpl-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">SNGPL Gas Bill &rarr;</a>
+        <a href="/ssgc-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">SSGC Gas Bill &rarr;</a>
+        <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>
     </div>
   </div>

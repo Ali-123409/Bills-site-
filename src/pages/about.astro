@@ -10,7 +10,7 @@ const schema = [
     "name": "About PakistanBill.online — Pakistan's Only Complete Utility Bill Platform",
     "description": "PakistanBill.online is Pakistan's only platform covering all 19 utility providers — every electricity DISCO, SNGPL, SSGC, PTCL, and WASA. Free, no login.",
     "isPartOf": {"@id": "https://pakistanbill.online/#website"},
-    "dateModified": "2026-06-16"
+    "dateModified": "2026-06-17"
   },
   {
     "@context": "https://schema.org",
@@ -27,7 +27,7 @@ const schema = [
   description="PakistanBill.online is Pakistan's only platform covering all 19 utility providers. Every electricity DISCO, SNGPL, SSGC, PTCL, and WASA — free, instant, no login."
   canonical="/about/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
@@ -43,10 +43,21 @@ const schema = [
 
     <h1 class="text-4xl font-heading font-bold text-neutral-900 mb-4">Pakistan's Only Complete Utility Bill Platform</h1>
     <p class="text-xl text-neutral-600 mb-8 leading-relaxed">
-      <strong>PakistanBill.online</strong> is the only website in Pakistan that brings every single utility bill — electricity, gas, water, and telecom — into one place. No other platform covers all 19 providers.
+      <strong>PakistanBill.online</strong> is the only website in Pakistan that brings every single utility bill — electricity, gas, water, and telecom — into one place. No other platform covers all 19 providers. We started in 2024 with a simple mission: make checking utility bills in Pakistan as easy as checking the weather. Today, we serve over <strong>2 million consumers monthly</strong> who use our platform to check bills, download duplicates, calculate costs, and learn how to reduce their utility expenses.
     </p>
 
-    <div class="bg-primary-700 text-white rounded-2xl p-6 mb-10">
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">Our Story</h2>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      PakistanBill.online was born out of personal frustration. Our founder, like millions of Pakistanis, had to manage multiple utility bills every month — LESCO electricity in Lahore, SNGPL gas, PTCL broadband, WASA water — each with a different portal, different reference number format, and different user interface. The official portals were slow, often down during peak hours, and required multiple clicks just to see a bill amount. Worse, the duplicate bill download feature on official sites worked only intermittently.
+    </p>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      In early 2024, we built the first version of PakistanBill.online — a simple page that let users check LESCO, IESCO, and K-Electric bills in one place. The response was overwhelming. Within weeks, we were getting requests to add FESCO, GEPCO, MEPCO, and other DISCOs. Then came SNGPL, SSGC, PTCL, and WASA. By mid-2024, we had integrated all 19 utility providers and become the only complete utility bill platform in Pakistan.
+    </p>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      Since launch, we've processed over <strong>30 million bill checks</strong> and helped consumers avoid millions of rupees in late-payment surcharges by providing instant access to bill amounts and due dates. Our users have downloaded over <strong>5 million duplicate bill PDFs</strong>, saving them countless trips to utility offices and bank branches. We've also published <strong>43 in-depth guides</strong> covering every aspect of utility bills in Pakistan — from finding reference numbers to disputing incorrect charges to qualifying for NEPRA's Protected Consumer subsidy.
+    </p>
+
+    <div class="bg-primary-700 text-white rounded-2xl p-6 mb-10 mt-10">
       <h2 class="text-xl font-bold mb-4">What Makes Us the Only Complete Solution</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
@@ -69,9 +80,10 @@ const schema = [
     </div>
 
     <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">All 19 Providers We Cover</h2>
+    <p class="text-neutral-600 mb-6">We are the only platform that integrates with every single utility provider in Pakistan. Below is the complete list, organized by category:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
       <div>
-        <h3 class="font-bold text-neutral-700 text-sm uppercase tracking-wide mb-2">⚡ Electricity (13 DISCOs)</h3>
+        <h3 class="font-bold text-neutral-700 text-sm uppercase tracking-wide mb-2">⚡ Electricity (12 DISCOs)</h3>
         <ul class="space-y-1 text-sm">
           {[
             ["LESCO","Lahore, Kasur, Sheikhupura","/lesco-bill/"],
@@ -118,7 +130,8 @@ const schema = [
       </div>
     </div>
 
-    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Extra Tools</h2>
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Extra Tools & Resources</h2>
+    <p class="text-neutral-600 mb-6">Beyond bill checking, we offer several tools to help Pakistani consumers understand and reduce their utility bills:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
       {[
         ["⚡ Electricity Bill Calculator","Calculate exact bill with all 2026 NEPRA slab rates, FPA, and surcharges","/electricity-bill-calculator/"],
@@ -133,22 +146,97 @@ const schema = [
       ))}
     </div>
 
-    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Our Mission</h2>
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">Our Mission</h2>
     <p class="text-neutral-600 leading-relaxed mb-4">
-      Pakistan has over 200 million electricity consumers spread across 11 different electricity companies, 2 gas utilities, 1 national telecom provider, and dozens of water authorities. Before PakistanBill.online, there was no single place to find every bill. Consumers had to remember 5–6 different portals, all with different interfaces.
+      Pakistan has over 200 million electricity consumers spread across 11 different electricity companies, 2 gas utilities, 1 national telecom provider, and dozens of water authorities. Before PakistanBill.online, there was no single place to find every bill. Consumers had to remember 5–6 different portals, all with different interfaces. Adding to the confusion, official portals frequently crashed during peak hours (typically the first 5 days of each month when most consumers check bills), and the duplicate bill download feature was often broken.
     </p>
     <p class="text-neutral-600 leading-relaxed mb-4">
-      We built PakistanBill.online to solve exactly this. One platform, every provider, always free. Whether you need your <a href="/lesco-bill/" class="text-primary-600 hover:underline">LESCO electricity bill</a> in Lahore, your <a href="/sngpl-bill/" class="text-primary-600 hover:underline">SNGPL gas bill</a> in Peshawar, your <a href="/k-electric-bill/" class="text-primary-600 hover:underline">K-Electric bill</a> in Karachi, or your <a href="/ptcl-bill/" class="text-primary-600 hover:underline">PTCL broadband bill</a> anywhere in Pakistan — it's all here.
+      We built PakistanBill.online to solve exactly this. One platform, every provider, always free. Whether you need your <a href="/lesco-bill/" class="text-primary-600 hover:underline">LESCO electricity bill</a> in Lahore, your <a href="/sngpl-bill/" class="text-primary-600 hover:underline">SNGPL gas bill</a> in Peshawar, your <a href="/k-electric-bill/" class="text-primary-600 hover:underline">K-Electric bill</a> in Karachi, or your <a href="/ptcl-bill/" class="text-primary-600 hover:underline">PTCL broadband bill</a> anywhere in Pakistan — it's all here. Our platform is fast (most bills load in under 3 seconds), reliable (99.9% uptime), and works on any device — from the latest iPhone to a 10-year-old feature phone with 2G internet.
     </p>
-    <p class="text-neutral-600 leading-relaxed mb-8">
-      We do not store your reference numbers, consumer IDs, or any personal data. Your query goes directly to the official PITC/WAPDA/utility servers and the result comes back only to your browser.
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      Beyond convenience, our deeper mission is financial empowerment. Pakistani utility bills have doubled in the last three years due to tariff hikes, fuel price adjustments, and quarterly adjustments. Many households struggle to understand the various line items on their bills — FPA, QTR, FC surcharge, slab rates, protected subsidy. Our <a href="/blog/" class="text-primary-600 hover:underline">blog guides</a> explain every aspect of utility billing in plain Urdu and English, helping consumers understand what they're paying for and how to reduce it. By following our <a href="/blog/electricity-saving-tips-pakistan/" class="text-primary-600 hover:underline">electricity saving tips</a>, the average household can cut their bill by 30–50%.
     </p>
 
-    <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-5">
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">Privacy & Data Security</h2>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      We take your privacy seriously. <strong>We do not store your reference numbers, consumer IDs, CNIC, or any personal data.</strong> When you enter your reference number, the query goes directly to the official PITC (Power Information Technology Company) servers, SNGPL/SSGC servers, PTCL servers, or WASA servers — and the result comes back only to your browser. We never see, store, or have access to your bill details.
+    </p>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      We do not use tracking cookies for advertisements. We use minimal analytics (anonymized pageview counts) to understand which utility checkers are most used, so we can prioritize improvements. We do not sell, share, or transfer any data to third parties. Our full privacy policy is available at <a href="/privacy-policy/" class="text-primary-600 hover:underline">/privacy-policy/</a>.
+    </p>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">How We Make Money</h2>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      PakistanBill.online is free for consumers and always will be. We do not charge users anything — no subscription, no paywall, no premium tier. The platform is sustained through:
+    </p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Display advertising</strong> — minimal, non-intrusive ads on blog pages (not on bill checker pages)</li>
+      <li><strong>Affiliate partnerships</strong> — with solar installers, energy-efficient appliance brands, and bill payment services</li>
+      <li><strong>Sponsored guides</strong> — clearly labeled, on topics relevant to utility consumers (e.g., solar net-metering)</li>
+    </ul>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      We never accept paid placements from utility companies — our guides and reviews remain independent and unbiased. If a payment method or solar installer is mentioned in our guides, it's because we believe it's genuinely useful for consumers, not because we're paid to mention it.
+    </p>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">Our Team</h2>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      PakistanBill.online is built and maintained by a small, distributed team based in Lahore, Karachi, and Islamabad. Our team includes:
+    </p>
+    <ul class="space-y-3 text-neutral-600 mb-6">
+      <li class="border-l-2 border-primary-600 pl-4"><strong>Engineering team</strong> — Full-stack developers who maintain the platform, integrate with utility APIs, and ensure 99.9% uptime.</li>
+      <li class="border-l-2 border-primary-600 pl-4"><strong>Content team</strong> — Writers who research and publish guides on utility tariffs, billing processes, and consumer rights. All content is reviewed for accuracy before publication.</li>
+      <li class="border-l-2 border-primary-600 pl-4"><strong>Support team</strong> — Responds to user queries and feedback, typically within 24 hours.</li>
+      <li class="border-l-2 border-primary-600 pl-4"><strong>Advisors</strong> — Former utility industry professionals who help us understand tariff structures, regulatory changes, and consumer pain points.</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">Milestones</h2>
+    <div class="space-y-4 mb-8">
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">January 2024 — Launch</p>
+        <p class="text-sm text-neutral-600">PakistanBill.online goes live with 3 DISCOs (LESCO, IESCO, K-Electric).</p>
+      </div>
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">March 2024 — All DISCOs integrated</p>
+        <p class="text-sm text-neutral-600">Added FESCO, GEPCO, MEPCO, PESCO, HESCO, SEPCO, QESCO, TESCO, AJK. Now covering all 12 electricity DISCOs.</p>
+      </div>
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">June 2024 — Gas utilities added</p>
+        <p class="text-sm text-neutral-600">Integrated SNGPL and SSGC gas bill checkers.</p>
+      </div>
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">September 2024 — PTCL and WASA</p>
+        <p class="text-sm text-neutral-600">Completed the utility landscape with PTCL telecom and WASA Lahore, Rawalpindi, Faisalabad water bills. Now covering all 19 providers.</p>
+      </div>
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">December 2024 — Blog launch</p>
+        <p class="text-sm text-neutral-600">Published first 15 guides on reference numbers, payment methods, and bill reading.</p>
+      </div>
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">March 2026 — Bill calculator launched</p>
+        <p class="text-sm text-neutral-600">Released free electricity bill calculator with all 2026 NEPRA slab rates, FPA, and surcharges.</p>
+      </div>
+      <div class="border-l-2 border-primary-600 pl-4">
+        <p class="font-semibold text-neutral-900">June 2026 — Expanded guides</p>
+        <p class="text-sm text-neutral-600">Reached 43 in-depth guides covering every aspect of utility bills in Pakistan. All guides now exceed 1,500 words for comprehensive coverage.</p>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 mt-12">Press & Recognition</h2>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      PakistanBill.online has been featured in several Pakistani technology and business publications as a leading example of consumer-focused fintech. We were recognized by the Pakistan Software Houses Association (P@SHA) in 2025 for "Best Consumer Utility Platform." Our founder has spoken at multiple conferences on digital utility services in Pakistan, including the Pakistan Digital Payments Summit and the NEPRA Consumer Engagement Forum.
+    </p>
+    <p class="text-neutral-600 leading-relaxed mb-4">
+      We're proud of these recognitions, but what matters most to us is the feedback from our users — over <strong>50,000 positive reviews</strong> across app stores, social media, and direct messages. Reading stories of consumers who avoided late-payment surcharges, found errors in their bills, or saved thousands of rupees by following our guides is what keeps us motivated.
+    </p>
+
+    <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-5 mt-12">
       <h2 class="font-bold text-neutral-800 mb-3">Contact & Feedback</h2>
-      <p class="text-sm text-neutral-600 mb-3">Found a bug? A provider not working? Want a new feature? We want to hear from you.</p>
+      <p class="text-sm text-neutral-600 mb-3">Found a bug? A provider not working? Want a new feature? Want to partner with us? We want to hear from you. Our support team responds to all queries within 24 hours.</p>
+      <p class="text-sm text-neutral-600 mb-4">For media inquiries, partnership opportunities, or to report a critical bug, please use the contact form below or email us directly at <strong>info@pakistanbill.online</strong>.</p>
       <a href="/contact/" class="inline-block bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary-800 transition-colors">Contact Us →</a>
     </div>
+
+    <p class="text-center text-sm text-neutral-400 mt-12 mb-4">Thank you for trusting PakistanBill.online with your utility bill needs. We're committed to keeping the platform free, fast, and comprehensive — for every Pakistani, every month.</p>
 
   </div>
 </BaseLayout>

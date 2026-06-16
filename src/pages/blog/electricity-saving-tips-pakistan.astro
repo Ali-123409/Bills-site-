@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/electricity-saving-tips-pakistan/#article",
-    "headline": "How to Reduce Electricity Bill in Pakistan — 15 Proven Tips",
-    "description": "Practical tips to reduce electricity bill in Pakistan. AC, fridge, fans, inverter tips. Stay Protected consumer status. Cut your bill by 30-50% with these changes.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "Electricity Saving Tips Pakistan — Reduce Your Bill 30-50% 2026",
+    "description": "Practical tips to reduce your electricity bill in Pakistan by 30-50%. AC usage, geyser settings, LED bulbs, NEPRA protected subsidy, peak hour strategy.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"How to stay a Protected consumer in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"To stay Protected, keep your average monthly consumption at or below 200 units over 6 months. Switch off high-consumption appliances (AC, geyser, washing machine) in peak summer. Even 1-2 months above 200 units can shift you to Unprotected status."}},
-      {"@type":"Question","name":"Which appliances use the most electricity in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Air conditioners use 1,500-2,000W per hour. Geysers use 2,000-3,000W. Refrigerators use 100-200W continuously. Washing machines use 500-700W per cycle. These four appliances cause most Pakistani households to exceed 200 units/month."}},
-      {"@type":"Question","name":"Does inverter AC really save electricity?","acceptedAnswer":{"@type":"Answer","text":"Yes. A 1.5-ton inverter AC uses 700-900W when running (vs 1,500-1,800W for non-inverter). Over a summer month running 8hrs/day, an inverter AC saves 150-200 units — potentially keeping you in the Protected tariff bracket."}}
+      {"@type":"Question","name":"How can I reduce my electricity bill in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Reduce your bill by: (1) staying under 200 units/month to qualify for NEPRA Protected Consumer subsidy (30-40% discount), (2) setting AC to 26°C instead of 22°C, (3) using LED bulbs, (4) unplugging devices when not in use, (5) using ceiling fans instead of AC when possible, (6) running washing machine on full load only."}},
+      {"@type":"Question","name":"What temperature should I set my AC to save electricity?","acceptedAnswer":{"@type":"Answer","text":"Set AC to 26°C for optimal comfort and electricity savings. Each degree below 26°C adds approximately 6-8% to AC power consumption. Going from 22°C to 26°C saves about 25-30% on AC electricity use."}},
+      {"@type":"Question","name":"What is NEPRA Protected Consumer subsidy?","acceptedAnswer":{"@type":"Answer","text":"NEPRA Protected Consumer subsidy is a discounted tariff for households using 200 units or less per month for 6 consecutive months. Protected consumers pay about Rs. 7-9 per unit instead of Rs. 25-35 per unit. Saving 30-40% on your bill."}},
+      {"@type":"Question","name":"Does unplugging devices save electricity in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Devices on standby (TV, microwave, charger, gaming console) consume 'phantom load' — about 5-10% of total household electricity. Unplugging when not in use can save Rs. 200-500 per month on your bill."}},
+      {"@type":"Question","name":"Are LED bulbs worth the cost in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Yes. LED bulbs use 80% less electricity than incandescent and 50% less than CFL. A 9W LED produces same light as 60W incandescent. Replacing 10 bulbs saves Rs. 300-500/month. LED cost (Rs. 200-400 each) recovers in 3-6 months."}}
     ]
   },
   {
@@ -25,27 +27,27 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"How to Reduce Electricity Bill in Pakistan — 15 Proven Tips","item":"https://pakistanbill.online/blog/electricity-saving-tips-pakistan/"}
+      {"@type":"ListItem","position":3,"name":"Electricity Saving Tips Pakistan","item":"https://pakistanbill.online/blog/electricity-saving-tips-pakistan/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="How to Reduce Electricity Bill in Pakistan — 15 Tips 2026"
-  description="Practical tips to reduce electricity bill in Pakistan. AC, fridge, fans, inverter tips. Stay Protected consumer status. Cut your bill by 30-50% with these changes."
+  title="Electricity Saving Tips Pakistan — Reduce Your Bill 30-50% 2026"
+  description="Practical tips to reduce your electricity bill in Pakistan by 30-50%. AC usage, geyser settings, LED bulbs, NEPRA protected subsidy, peak hour strategy."
   canonical="/blog/electricity-saving-tips-pakistan/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium truncate">How to Reduce Electricity Bill in Pakist...</span>
+        <span class="text-neutral-800 font-medium">Electricity Saving Tips</span>
       </nav>
     </div>
   </div>
@@ -55,25 +57,167 @@ const schema = [
       <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Reduce Electricity Bill in Pakistan — 15 Proven Tips</h1>
-    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">With electricity rates as high as Rs 48.84/unit for heavy users, reducing your consumption is more important than ever. These 15 tips are specifically for Pakistan's tariff structure — focusing on staying Protected consumer status and beating the slab system.</p>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">Electricity Saving Tips Pakistan — Reduce Your Bill 30-50% 2026</h1>
 
-    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <p class="text-neutral-600 text-lg mb-4">Electricity bills in Pakistan have doubled in the last three years due to NEPRA tariff hikes, fuel price adjustments (FPA) surges, and quarterly adjustments. A typical middle-class household in Lahore or Karachi that paid Rs. 8,000/month in 2022 now pays Rs. 18,000–25,000/month for the same usage. But here's the good news: with smart usage habits, you can cut your bill by <strong>30–50% — without major lifestyle changes</strong>. This guide covers the most effective, proven tips to reduce your electricity bill in Pakistan, ranked by impact. Most of these tips cost nothing to implement and pay off within the first month.</p>
+
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Win: <strong>Stay under 200 units/month</strong> to qualify for NEPRA's Protected Consumer subsidy. This single change saves 30–40% on your bill — Rs. 5,000–8,000 per month for an average household.</p>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">1. NEPRA Protected Consumer Subsidy (Saves 30–40%)</h2>
+    <p class="text-neutral-600 mb-4">The single biggest bill-reduction strategy in Pakistan is qualifying for NEPRA's <strong>Protected Consumer Subsidy</strong>. If your household uses <strong>200 units or less per month for 6 consecutive months</strong>, you automatically become a "Protected Consumer" and pay a heavily discounted tariff:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Consumer Type</th>
+            <th class="text-left p-3 border-b border-neutral-200">Units/Month</th>
+            <th class="text-left p-3 border-b border-neutral-200">Rate per Unit</th>
+            <th class="text-left p-3 border-b border-neutral-200">200-Unit Bill</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr class="bg-green-50"><td class="p-3 font-semibold">Protected</td><td class="p-3">≤ 200</td><td class="p-3">Rs. 7.74</td><td class="p-3">~Rs. 1,800</td></tr>
+          <tr><td class="p-3">Unprotected</td><td class="p-3">201–300</td><td class="p-3">Rs. 10.06–27.70</td><td class="p-3">~Rs. 4,200</td></tr>
+          <tr><td class="p-3">Unprotected</td><td class="p-3">301–700</td><td class="p-3">Rs. 18.84–35.22</td><td class="p-3">~Rs. 7,500</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-neutral-600 mb-6">The savings are massive. A 200-unit protected bill is ~Rs. 1,800; the same 200 units without protection is ~Rs. 4,200. That's a 60% difference — for the same electricity.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">2. Air Conditioner Optimization (Saves 15–25%)</h2>
+    <p class="text-neutral-600 mb-4">Air conditioners are the biggest electricity consumers in Pakistani households during summer. A 1.5-ton AC running 8 hours/day uses about 12 units — that's 360 units/month, more than enough to push you out of the protected subsidy. Optimize your AC usage:</p>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Set AC to 26°C</strong> instead of 22°C. Each degree below 26°C adds 6–8% to AC power consumption. Going from 22°C to 26°C saves 25–30%.</li>
+      <li><strong>Use ceiling fans alongside AC.</strong> Fans make the room feel 3–4°C cooler, letting you set AC higher. Fan uses 70W vs AC's 1500W.</li>
+      <li><strong>Service AC filters every 2 weeks.</strong> Dirty filters increase power consumption by 10–15%. Servicing is free if you do it yourself — just rinse the filter under tap water.</li>
+      <li><strong>Use AC only 4–6 hours/day</strong> instead of 8–12. Pre-cool the room with fan + open windows at sunset, then turn on AC only for sleeping hours.</li>
+      <li><strong>Buy inverter AC if upgrading.</strong> Inverter ACs use 30–40% less electricity than non-inverter. The price difference (Rs. 20,000–30,000 more) pays back in 18–24 months.</li>
+      <li><strong>Close doors and windows</strong> when AC is on. Cold air escapes through gaps under doors — install door sweeps (Rs. 200 each).</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">3. Lighting: Switch to LED Bulbs (Saves 5–10%)</h2>
+    <p class="text-neutral-600 mb-4">Replacing traditional incandescent and CFL bulbs with LED bulbs is one of the fastest payback investments in Pakistan:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Bulb Type</th>
+            <th class="text-left p-3 border-b border-neutral-200">Power (Watt)</th>
+            <th class="text-left p-3 border-b border-neutral-200">Light Output</th>
+            <th class="text-left p-3 border-b border-neutral-200">Yearly Cost*</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3">Incandescent</td><td class="p-3">60W</td><td class="p-3">800 lumens</td><td class="p-3">Rs. 4,500</td></tr>
+          <tr><td class="p-3">CFL</td><td class="p-3">15W</td><td class="p-3">800 lumens</td><td class="p-3">Rs. 1,100</td></tr>
+          <tr class="bg-green-50"><td class="p-3 font-semibold">LED</td><td class="p-3">9W</td><td class="p-3">800 lumens</td><td class="p-3">Rs. 650</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-neutral-600 mb-6"><em>*4 hours/day usage at Rs. 30/unit</em></p>
+    <p class="text-neutral-600 mb-6">A typical Pakistani household has 10–15 bulbs. Replacing all with LEDs saves Rs. 400–800 per month — LED cost (Rs. 200–400 each) pays back in 3–6 months.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">4. Eliminate Phantom Load (Saves 5–10%)</h2>
+    <p class="text-neutral-600 mb-4">"Phantom load" or "vampire power" refers to electricity consumed by devices when they're switched off but still plugged in. In a typical Pakistani household, phantom load can account for 5–10% of total electricity consumption:</p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>TV on standby:</strong> 5–10W (Rs. 25–50/month)</li>
+      <li><strong>Microwave clock:</strong> 3W (Rs. 15/month)</li>
+      <li><strong>Phone charger (plugged, not charging):</strong> 0.5–1W (Rs. 5/month)</li>
+      <li><strong>Gaming console standby:</strong> 1–2W (Rs. 10/month)</li>
+      <li><strong>WiFi router (always on):</strong> 6–10W (Rs. 30–50/month)</li>
+      <li><strong>Computer on sleep:</strong> 2–5W (Rs. 10–25/month)</li>
+    </ul>
+    <p class="text-neutral-600 mb-6">Total phantom load: Rs. 100–200/month. Eliminate by using power strips with on/off switches and turning them off when not in use.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">5. Geyser Optimization (Saves 5–15% in Winter)</h2>
+    <p class="text-neutral-600 mb-4">Electric geysers are the second-biggest electricity consumers in Pakistani households during winter. Optimize your geyser usage:</p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Lower thermostat to 50°C</strong> in summer, 60°C in winter. Default is often 70°C+ which wastes energy.</li>
+      <li><strong>Turn off geyser when not in use</strong> — many households leave it on 24/7. Use a geyser timer switch (Rs. 800–1,500) to auto-turn off after 1 hour.</li>
+      <li><strong>Insulate geyser and pipes</strong> with foam tube insulation (Rs. 200/meter). Reduces standby heat loss by 50%.</li>
+      <li><strong>Switch to gas geyser</strong> if you have an SNGPL/SSGC connection. Gas is 3–4x cheaper than electricity for water heating.</li>
+      <li><strong>Install solar water heater</strong> if you live in a sunny area (most of Pakistan). Pays back in 3–4 years.</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">6. Refrigerator Efficiency (Saves 5–10%)</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Set fridge to medium cooling,</strong> not maximum. Each degree colder adds 5% to power consumption.</li>
+      <li><strong>Don't open fridge door frequently.</strong> Each opening releases cold air, requiring 5–10 minutes of extra compressor work to recover.</li>
+      <li><strong>Clean condenser coils</strong> (back of fridge) every 6 months. Dust build-up reduces efficiency by 10–15%.</li>
+      <li><strong>Cool hot food before refrigerating.</strong> Putting hot food in fridge forces compressor to work harder.</li>
+      <li><strong>Check door seal</strong> by closing door on a paper note. If note slides out easily, seal needs replacement (Rs. 500–1,000).</li>
+      <li><strong>Buy inverter refrigerator</strong> if upgrading. Uses 30% less electricity than conventional.</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">7. Peak Hour Strategy (Saves 5–10%)</h2>
+    <p class="text-neutral-600 mb-4">NEPRA's Time-of-Use tariff (currently being rolled out nationwide) charges higher rates during peak hours (6 PM – 10 PM). Avoid high-wattage appliances during peak hours:</p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Run washing machine</strong> before 6 PM or after 10 PM</li>
+      <li><strong>Iron clothes</strong> in morning or late night</li>
+      <li><strong>Charge devices</strong> (phones, laptops, power banks) overnight</li>
+      <li><strong>Use water pump</strong> in early morning or afternoon</li>
+      <li><strong>Pre-cool room with AC</strong> before 6 PM, then turn off during peak hours and use fan</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">8. Solar Net-Metering (Saves 50–100%)</h2>
+    <p class="text-neutral-600 mb-4">If you have a 3 kW+ sanctioned load and rooftop space, install a <strong>3–5 kW solar system with net-metering</strong>. Net-metering allows you to sell excess solar electricity back to the grid during the day and draw from the grid at night — your bill can drop to near zero:</p>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>3 kW system cost:</strong> Rs. 600,000–800,000 (panels + inverter + installation)</li>
+      <li><strong>Monthly bill reduction:</strong> Rs. 8,000–15,000 (depends on sun hours and usage)</li>
+      <li><strong>Payback period:</strong> 4–6 years</li>
+      <li><strong>System lifespan:</strong> 25 years (panels), 10–15 years (inverter)</li>
+      <li><strong>Government subsidy:</strong> Available for some categories — check with NEPRA</li>
+    </ul>
+    <p class="text-neutral-600 mb-6">See our complete guide: <a href="/blog/solar-net-metering-pakistan-2026/" class="text-primary-600 underline">Solar Net-Metering in Pakistan 2026</a>.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Sample Monthly Bill Comparison</h2>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Scenario</th>
+            <th class="text-left p-3 border-b border-neutral-200">Units/Month</th>
+            <th class="text-left p-3 border-b border-neutral-200">Monthly Bill</th>
+            <th class="text-left p-3 border-b border-neutral-200">Yearly Savings</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3">Average household (no savings)</td><td class="p-3">350</td><td class="p-3">Rs. 18,500</td><td class="p-3">—</td></tr>
+          <tr><td class="p-3">+ AC optimization (26°C)</td><td class="p-3">290</td><td class="p-3">Rs. 13,200</td><td class="p-3">Rs. 63,600</td></tr>
+          <tr><td class="p-3">+ LED bulbs (all)</td><td class="p-3">270</td><td class="p-3">Rs. 11,800</td><td class="p-3">Rs. 80,400</td></tr>
+          <tr><td class="p-3">+ Phantom load elimination</td><td class="p-3">255</td><td class="p-3">Rs. 10,900</td><td class="p-3">Rs. 91,200</td></tr>
+          <tr class="bg-green-50"><td class="p-3 font-semibold">+ All tips applied</td><td class="p-3 font-semibold">195 (Protected!)</td><td class="p-3 font-semibold">Rs. 1,750</td><td class="p-3 font-semibold">Rs. 201,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-neutral-600 mb-6">A household that was paying Rs. 18,500/month can drop to Rs. 1,750/month — a <strong>90% reduction</strong> — by combining all the tips in this guide and staying under the protected subsidy threshold.</p>
+
+    <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">How to stay a Protected consumer in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">To stay Protected, keep your average monthly consumption at or below 200 units over 6 months. Switch off high-consumption appliances (AC, geyser, washing machine) in peak summer. Even 1-2 months above 200 units can shift you to Unprotected status.</div></details>
-      <details class="faq-item"><summary class="faq-question">Which appliances use the most electricity in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Air conditioners use 1,500-2,000W per hour. Geysers use 2,000-3,000W. Refrigerators use 100-200W continuously. Washing machines use 500-700W per cycle. These four appliances cause most Pakistani households to exceed 200 units/month.</div></details>
-      <details class="faq-item"><summary class="faq-question">Does inverter AC really save electricity?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. A 1.5-ton inverter AC uses 700-900W when running (vs 1,500-1,800W for non-inverter). Over a summer month running 8hrs/day, an inverter AC saves 150-200 units — potentially keeping you in the Protected tariff bracket.</div></details>
+      <details class="faq-item"><summary class="faq-question">How can I reduce my electricity bill in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Reduce your bill by: (1) staying under 200 units/month to qualify for NEPRA Protected Consumer subsidy (30-40% discount), (2) setting AC to 26°C instead of 22°C, (3) using LED bulbs, (4) unplugging devices when not in use, (5) using ceiling fans instead of AC when possible, (6) running washing machine on full load only.</div></details>
+      <details class="faq-item"><summary class="faq-question">What temperature should I set my AC to save electricity?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Set AC to 26°C for optimal comfort and electricity savings. Each degree below 26°C adds approximately 6-8% to AC power consumption. Going from 22°C to 26°C saves about 25-30% on AC electricity use.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is NEPRA Protected Consumer subsidy?</summary><div class="px-4 pb-4 text-sm text-neutral-600">NEPRA Protected Consumer subsidy is a discounted tariff for households using 200 units or less per month for 6 consecutive months. Protected consumers pay about Rs. 7-9 per unit instead of Rs. 25-35 per unit. Saving 30-40% on your bill.</div></details>
+      <details class="faq-item"><summary class="faq-question">Does unplugging devices save electricity in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. Devices on standby (TV, microwave, charger, gaming console) consume 'phantom load' — about 5-10% of total household electricity. Unplugging when not in use can save Rs. 200-500 per month on your bill.</div></details>
+      <details class="faq-item"><summary class="faq-question">Are LED bulbs worth the cost in Pakistan?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. LED bulbs use 80% less electricity than incandescent and 50% less than CFL. A 9W LED produces same light as 60W incandescent. Replacing 10 bulbs saves Rs. 300-500/month. LED cost (Rs. 200-400 each) recovers in 3-6 months.</div></details>
+      <details class="faq-item"><summary class="faq-question">How many units does a 1.5 ton AC use per hour?</summary><div class="px-4 pb-4 text-sm text-neutral-600">A 1.5-ton non-inverter AC uses about 1.5-1.8 units per hour. A 1.5-ton inverter AC uses about 1.0-1.2 units per hour after the room reaches set temperature. Running 8 hours/day means 8-14 units/day — 240-420 units/month, more than enough to push you out of the protected subsidy.</div></details>
+    </div>
+
+    <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Calculate Your Potential Savings</h2>
+      <p class="text-primary-700 mb-4 text-sm">Use our bill calculator to see how much you can save.</p>
+      <a href="/electricity-bill-calculator/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
+        Open Bill Calculator &rarr;
+      </a>
     </div>
 
     <div class="border-t border-neutral-200 pt-6">
-      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
       <div class="flex flex-wrap gap-2">
-        <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Calculate Your Bill →</a>
-        <a href="/blog/how-to-find-nepra-tariff-hike/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">NEPRA Tariff 2026 →</a>
-        <a href="/blog/fpa-charges-explained/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">FPA Charges Explained →</a>
-        <a href="/lesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">LESCO Bill Check →</a>
-        <a href="/mepco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">MEPCO Bill Check →</a>
-        <a href="/blog/peak-hours-all-discos/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Peak Hours Guide →</a>
+        <a href="/blog/how-to-reduce-electricity-bill/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">Full Bill Reduction Guide &rarr;</a>
+        <a href="/blog/solar-net-metering-pakistan-2026/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">Solar Net-Metering Guide &rarr;</a>
+        <a href="/blog/nepra-protected-consumer-subsidy-2026/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">NEPRA Protected Subsidy Guide &rarr;</a>
+        <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>
     </div>
   </div>

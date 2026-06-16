@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/qesco-reference-number/#article",
-    "headline": "QESCO Reference Number — Where is it on Your Bill?",
-    "description": "Find your QESCO 14-digit reference number: top-right of bill, labeled Ref. No. Check your Quetta, Balochistan electricity bill instantly.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "QESCO Reference Number — Where to Find It on Your Bill?",
+    "description": "Learn where the QESCO 14-digit reference number is printed on your Quetta electricity bill. Step-by-step guide for Quetta, Ziarat, Pishin, Chaman consumers.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"Where is the reference number on QESCO bill?","acceptedAnswer":{"@type":"Answer","text":"The QESCO reference number is at the top-right section of your bill, labeled Ref. No. It is a 14-digit number above the barcode. QESCO covers Quetta, Gwadar, Turbat, Khuzdar, Hub, and all Balochistan districts."}},
-      {"@type":"Question","name":"QESCO reference number format?","acceptedAnswer":{"@type":"Answer","text":"The QESCO reference number is always 14 digits. No letters or dashes. Same every month. Example: 01234567890123. Used for online bill checking and payments through JazzCash, EasyPaisa, or bank apps."}},
-      {"@type":"Question","name":"QESCO helpline for reference number?","acceptedAnswer":{"@type":"Answer","text":"Call QESCO helpline 081-9201445 or 118. Provide your CNIC and meter address. They will give you your reference number. QESCO also accepts queries via their Quetta head office on Brewery Road."}}
+      {"@type":"Question","name":"Where is the reference number on QESCO bill?","acceptedAnswer":{"@type":"Answer","text":"The QESCO reference number is a 14-digit number printed in bold on the top-right section of your QESCO electricity bill, labeled 'Ref. No.' or 'Reference No.', directly above the barcode. It contains only digits — no letters."}},
+      {"@type":"Question","name":"What is the QESCO reference number format?","acceptedAnswer":{"@type":"Answer","text":"The QESCO reference number is always exactly 14 digits. No letters, no spaces, no dashes. Example format: 01234567890123. It stays the same every month."}},
+      {"@type":"Question","name":"How to check QESCO bill without reference number?","acceptedAnswer":{"@type":"Answer","text":"If you don't have your QESCO reference number, call QESCO helpline 111-111-118 or 081-9201155 with your CNIC. You can also use the 10-digit Customer ID on our checker."}},
+      {"@type":"Question","name":"Which areas does QESCO cover?","acceptedAnswer":{"@type":"Answer","text":"QESCO covers Quetta, Ziarat, Pishin, Qila Abdullah, Chaman, Mastung, Kalat, Khuzdar (partial), and surrounding districts of northern Balochistan. Southern Balochistan is also QESCO's territory but service is limited in remote areas."}},
+      {"@type":"Question","name":"Can I use QESCO reference number at any bank?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 14-digit QESCO reference number is accepted at all major banks (HBL, UBL, MCB, NBP, Bank Alfalah), JazzCash, EasyPaisa, and 1Bill retailers across Pakistan. In Balochistan, also payable at Bank of Balochistan branches."}}
     ]
   },
   {
@@ -25,55 +27,154 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"QESCO Reference Number — Where is it on Your Bill?","item":"https://pakistanbill.online/blog/qesco-reference-number/"}
+      {"@type":"ListItem","position":3,"name":"QESCO Reference Number","item":"https://pakistanbill.online/blog/qesco-reference-number/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="QESCO Reference Number — Where is it on Your Bill?"
-  description="Find your QESCO 14-digit reference number: top-right of bill, labeled Ref. No. Check your Quetta, Balochistan electricity bill instantly."
+  title="QESCO Reference Number — Where to Find It on Your Bill?"
+  description="Where is the QESCO reference number on your bill? Top-right section, 14 digits, labeled Ref. No. Find it and check your QESCO Quetta electricity bill instantly."
   canonical="/blog/qesco-reference-number/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium truncate">QESCO Reference Number — Where is it on ...</span>
+        <span class="text-neutral-800 font-medium">QESCO Reference Number</span>
       </nav>
     </div>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="mb-6">
-      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">QESCO Guide</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">QESCO Reference Number — Where is it on Your Bill?</h1>
-    <p class="text-neutral-600 mb-8 text-lg leading-relaxed">The QESCO reference number is printed in bold on the top-right section of your electricity bill. QESCO serves all 34 districts of Balochistan. This guide shows exactly where to find your reference number on any QESCO bill.</p>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Find QESCO Reference Number — Where is it on Your Bill?</h1>
 
-    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Answer: The QESCO reference number is a <strong>14-digit number</strong> on the <strong>top-right of your bill</strong> labeled <strong>"Ref. No."</strong> — directly above the barcode. It contains only digits, no letters.</p>
+    </div>
+
+    <p class="text-neutral-600 mb-4">To check your <strong>Quetta Electric Supply Company (QESCO)</strong> electricity bill online — whether you live in Quetta, Ziarat, Pishin, Chaman, Mastung, Kalat, or any other Balochistan district — you need your 14-digit reference number. This is the unique identifier that lets any bill-checking service retrieve your account from QESCO's database. The reference number never changes for your connection, so once you've found it on any previous bill, you can use it forever. This guide shows exactly where on the bill to find it, what the number looks like, and how to recover it if you've lost all your old bills.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Where Exactly is the QESCO Reference Number?</h2>
+    <p class="text-neutral-600 mb-4">On every QESCO electricity bill, look at the <strong>top section of the page</strong>. On the <strong>right side</strong>, you will find a bold number labeled <strong>"Ref. No."</strong> or <strong>"Reference No."</strong> — this is your 14-digit reference number. It is always printed directly above or next to the barcode on the bill, in the same position every month.</p>
+
+    <div class="bg-neutral-900 text-green-400 font-mono rounded-xl p-5 mb-6 text-sm overflow-x-auto">
+      <p class="text-neutral-400 text-xs mb-2">// QESCO Bill — Top Right Section</p>
+      <p>┌─────────────────────────────────┐</p>
+      <p>│  QESCO Electricity Bill            │</p>
+      <p>│  Consumer: [Your Name]            │</p>
+      <p>│  District: Quetta                 │</p>
+      <p>│  ┌──────────────────────────┐   │</p>
+      <p class="text-yellow-300">│  │ <strong>Ref. No: 01234567890123</strong>  │   │ ← Here!</p>
+      <p>│  │ Customer ID: 1234567890  │   │</p>
+      <p>│  └──────────────────────────┘   │</p>
+      <p>│  [████████ BARCODE ████████]    │</p>
+      <p>└─────────────────────────────────┘</p>
+    </div>
+
+    <p class="text-neutral-600 mb-4">The reference number is printed in <strong>bold, larger font</strong> than the surrounding text. Position is identical across all QESCO bills — old bills from previous years have it in the same spot.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">What Does the QESCO Reference Number Look Like?</h2>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li>Always exactly <strong>14 digits</strong> — never more, never less</li>
+      <li>Only numbers — no letters (A, B, C) or dashes</li>
+      <li>Example: <code class="bg-neutral-100 px-2 py-0.5 rounded font-mono">01234567890123</code></li>
+      <li>Printed in <strong>bold</strong> near the top-right of your bill</li>
+      <li>Labeled <strong>"Ref. No."</strong> or <strong>"Reference No."</strong></li>
+      <li>Stays the same every month (only changes if feeder reassigned — very rare)</li>
+      <li>QESCO reference numbers typically begin with digits 7–9 (Balochistan regional prefix)</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Can't Find Your QESCO Reference Number?</h2>
+    <p class="text-neutral-600 mb-4">Postal delivery in Balochistan is challenging due to vast distances and sparse population. If you've lost all previous bills, here are the recovery options:</p>
+    <div class="space-y-3 mb-8">
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">1. Check any old bill</p>
+        <p class="text-sm text-neutral-600">Your reference number never changes. Any previous QESCO bill — even one from years ago — has the same reference number. Ask family, neighbors, or your landlord if they have an old bill from your connection.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">2. Use your 10-digit Customer ID</p>
+        <p class="text-sm text-neutral-600">The QESCO Customer ID also works on our bill checker. Click the "Customer ID" tab on <a href="/qesco-bill/" class="text-primary-600 underline">pakistanbill.online/qesco-bill/</a> and enter your 10-digit ID. The Customer ID is printed just below the reference number on every bill.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">3. Call QESCO helpline 111-111-118 or 081-9201155</p>
+        <p class="text-sm text-neutral-600">Provide your CNIC number, full name, and address. The customer service representative can retrieve your reference number after verifying your identity. Helpline is operational during business hours.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">4. Visit your nearest QESCO circle office</p>
+        <p class="text-sm text-neutral-600">Bring your CNIC and proof of residence. QESCO circle offices exist in Quetta (HQ, Zarghoon Road), Ziarat, Pishin, Chaman, Mastung, Khuzdar, and Turbat. The office can issue a duplicate bill printout.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">5. Check mobile wallet payment history</p>
+        <p class="text-sm text-neutral-600">If you've ever paid your QESCO bill via JazzCash, EasyPaisa, or a bank app, the reference number is saved in your payment history. Open the app → Payment History → look for past utility bill payments.</p>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">QESCO Reference Number vs Customer ID</h2>
+    <p class="text-neutral-600 mb-4">QESCO bills display two different identifiers. Knowing the difference helps when checking bills and filing complaints:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Feature</th>
+            <th class="text-left p-3 border-b border-neutral-200">Reference Number</th>
+            <th class="text-left p-3 border-b border-neutral-200">Customer ID</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">Length</td><td class="p-3">14 digits</td><td class="p-3">10 digits</td></tr>
+          <tr><td class="p-3 font-semibold">Position on bill</td><td class="p-3">Top-right (above barcode)</td><td class="p-3">Top-right (below reference)</td></tr>
+          <tr><td class="p-3 font-semibold">Changes over time?</td><td class="p-3">Only if feeder reassigned</td><td class="p-3">Never</td></tr>
+          <tr><td class="p-3 font-semibold">Used for</td><td class="p-3">Online bill check, payment</td><td class="p-3">Account identification, complaints</td></tr>
+          <tr><td class="p-3 font-semibold">Works on our checker?</td><td class="p-3">Yes (default tab)</td><td class="p-3">Yes (Customer ID tab)</td></tr>
+          <tr><td class="p-3 font-semibold">Accepted at banks?</td><td class="p-3">Yes</td><td class="p-3">No — banks need reference</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Common Mistakes When Entering the Reference Number</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Missing leading zero:</strong> When copy-pasting, the first "0" often gets cut off. Always count the digits — must be exactly 14.</li>
+      <li><strong>Entering the Customer ID by mistake:</strong> Customer ID is 10 digits and won't work in the reference number field. Use the Customer ID tab instead.</li>
+      <li><strong>Confusing meter number with reference number:</strong> Meter number is printed separately and identifies the physical meter. Reference number is digits-only and identifies your billing account.</li>
+      <li><strong>Entering dashes or spaces:</strong> The system rejects special characters. Enter 14 digits without any separators.</li>
+      <li><strong>Using a reference number from outside Balochistan:</strong> QESCO is the only DISCO for Balochistan. Don't try to use a QESCO reference on the SEPCO or PESCO checker — different databases, won't work.</li>
+    </ul>
+
+    <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">Where is the reference number on QESCO bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The QESCO reference number is at the top-right section of your bill, labeled Ref. No. It is a 14-digit number above the barcode. QESCO covers Quetta, Gwadar, Turbat, Khuzdar, Hub, and all Balochistan districts.</div></details>
-      <details class="faq-item"><summary class="faq-question">QESCO reference number format?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The QESCO reference number is always 14 digits. No letters or dashes. Same every month. Example: 01234567890123. Used for online bill checking and payments through JazzCash, EasyPaisa, or bank apps.</div></details>
-      <details class="faq-item"><summary class="faq-question">QESCO helpline for reference number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Call QESCO helpline 081-9201445 or 118. Provide your CNIC and meter address. They will give you your reference number. QESCO also accepts queries via their Quetta head office on Brewery Road.</div></details>
+      <details class="faq-item"><summary class="faq-question">Where is the reference number on QESCO bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The QESCO reference number is a 14-digit number printed in bold on the top-right section of your QESCO electricity bill, labeled 'Ref. No.' or 'Reference No.', directly above the barcode. It contains only digits — no letters.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is the QESCO reference number format?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The QESCO reference number is always exactly 14 digits. No letters, no spaces, no dashes. Example format: 01234567890123. It stays the same every month.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to check QESCO bill without reference number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">If you don't have your QESCO reference number, call QESCO helpline 111-111-118 or 081-9201155 with your CNIC. You can also use the 10-digit Customer ID on our checker.</div></details>
+      <details class="faq-item"><summary class="faq-question">Which areas does QESCO cover?</summary><div class="px-4 pb-4 text-sm text-neutral-600">QESCO covers Quetta, Ziarat, Pishin, Qila Abdullah, Chaman, Mastung, Kalat, Khuzdar (partial), and surrounding districts of northern Balochistan. Southern Balochistan is also QESCO's territory but service is limited in remote areas.</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I use QESCO reference number at any bank?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. The 14-digit QESCO reference number is accepted at all major banks (HBL, UBL, MCB, NBP, Bank Alfalah), JazzCash, EasyPaisa, and 1Bill retailers across Pakistan. In Balochistan, also payable at Bank of Balochistan branches.</div></details>
+      <details class="faq-item"><summary class="faq-question">Why does my QESCO bill sometimes arrive late?</summary><div class="px-4 pb-4 text-sm text-neutral-600">QESCO serves the largest geographic area of any DISCO in Pakistan but with the lowest consumer density. Meter readers in remote districts face long travel distances and weather challenges. Check your bill online instead — it's generated in Quetta's system 7-10 days before the printed bill reaches you.</div></details>
+    </div>
+
+    <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Got Your QESCO Reference Number?</h2>
+      <p class="text-primary-700 mb-4 text-sm">Enter it now to check your bill instantly.</p>
+      <a href="/qesco-bill/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
+        Check QESCO Bill &rarr;
+      </a>
     </div>
 
     <div class="border-t border-neutral-200 pt-6">
-      <h2 class="font-bold text-neutral-800 mb-4">Related Pages</h2>
       <div class="flex flex-wrap gap-2">
-        <a href="/qesco-bill/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Check QESCO Bill →</a>
-        <a href="/quetta/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">Quetta Utility Bills →</a>
-        <a href="/blog/how-to-find-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">All Reference Number Guides →</a>
-        <a href="/blog/hesco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">HESCO Reference Number →</a>
-        <a href="/blog/pesco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">PESCO Reference Number →</a>
-        <a href="/blog/iesco-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-primary-600 hover:underline font-medium">IESCO Reference Number →</a>
+        <a href="/qesco-bill/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">QESCO Checker &rarr;</a>
+        <a href="/blog/how-to-find-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">How to Find Reference Number &rarr;</a>
+        <a href="/electricity/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">All Electricity Bills &rarr;</a>
+        <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>
     </div>
   </div>

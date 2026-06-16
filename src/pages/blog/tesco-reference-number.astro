@@ -5,9 +5,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": "https://pakistanbill.online/blog/tesco-reference-number/#article",
-    "headline": "TESCO Reference Number — Find It on Your Bill",
-    "description": "Find your TESCO 14-digit reference number on your electricity bill. TESCO covers tribal districts KPK/FATA. Check TESCO bill online instantly.",
-    "datePublished": "2026-03-13", "dateModified": "2026-06-16",
+    "headline": "TESCO Reference Number — Where to Find It on Your Bill?",
+    "description": "Learn where the TESCO 14-digit reference number is printed on your Tribal Electricity bill. Step-by-step guide with bill layout for Bajaur, Kurram, Waziristan consumers.",
+    "datePublished": "2026-03-13", "dateModified": "2026-06-17",
     "author": {"@type":"Organization","name":"PakistanBill","@id":"https://pakistanbill.online/#organization"},
     "publisher": {"@id":"https://pakistanbill.online/#organization"}
   },
@@ -15,9 +15,11 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"Where is TESCO reference number on bill?","acceptedAnswer":{"@type":"Answer","text":"The TESCO reference number is at the top-right of your bill, labeled Ref. No. It is a 14-digit number above the barcode. TESCO (Tribal Areas Electric Supply Company) covers merged tribal districts formerly known as FATA in KPK."}},
-      {"@type":"Question","name":"TESCO reference number format?","acceptedAnswer":{"@type":"Answer","text":"The TESCO reference number is always 14 digits. No letters or dashes. Same every month. Used for online bill checking at pakistanbill.online/tesco-bill/ and for payments via JazzCash, EasyPaisa, or any bank."}},
-      {"@type":"Question","name":"TESCO helpline?","acceptedAnswer":{"@type":"Answer","text":"Call TESCO helpline 091-9213120 or national 118 number. TESCO head office is in Peshawar. For billing complaints in tribal districts, call TESCO or visit any TESCO sub-division office."}}
+      {"@type":"Question","name":"Where is the reference number on TESCO bill?","acceptedAnswer":{"@type":"Answer","text":"The TESCO reference number is a 14-digit number printed in bold on the top-right section of your TESCO electricity bill, labeled 'Ref. No.' or 'Reference No.', directly above the barcode. It contains only digits — no letters, no dashes."}},
+      {"@type":"Question","name":"What is the TESCO reference number format?","acceptedAnswer":{"@type":"Answer","text":"The TESCO reference number is always exactly 14 digits. No letters, no spaces, no dashes. Example format: 01234567890123. It stays the same every month and is unique to your connection."}},
+      {"@type":"Question","name":"How to check TESCO bill without reference number?","acceptedAnswer":{"@type":"Answer","text":"If you don't have your TESCO reference number, you can use your 10-digit TESCO Customer ID instead — both work on our bill checker. Alternatively call TESCO helpline 111-111-117 with your CNIC to retrieve your reference number."}},
+      {"@type":"Question","name":"Is TESCO reference number the same as Customer ID?","acceptedAnswer":{"@type":"Answer","text":"No. TESCO reference number is 14 digits and is used for online bill checking and payment. TESCO Customer ID is 10 digits and identifies your account. Both work for checking your bill online at pakistanbill.online/tesco-bill/."}},
+      {"@type":"Question","name":"My TESCO reference number has 13 digits — what's wrong?","acceptedAnswer":{"@type":"Answer","text":"Check the very first digit — it's likely a '0' that was cut off when copy-pasted. TESCO reference numbers are always 14 digits. Re-enter the number manually, including the leading zero, to retrieve your bill."}}
     ]
   },
   {
@@ -25,58 +27,150 @@ const schema = [
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://pakistanbill.online/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://pakistanbill.online/blog/"},
-      {"@type":"ListItem","position":3,"name":"TESCO Reference Number — Find It on Your Bill","item":"https://pakistanbill.online/blog/tesco-reference-number/"}
+      {"@type":"ListItem","position":3,"name":"TESCO Reference Number","item":"https://pakistanbill.online/blog/tesco-reference-number/"}
     ]
   }
 ];
 ---
 <BaseLayout
-  title="TESCO Reference Number — Find It on Your Bill"
-  description="Find your TESCO 14-digit reference number on your electricity bill. TESCO covers tribal districts KPK/FATA. Check TESCO bill online instantly."
+  title="TESCO Reference Number — Where to Find It on Your Bill?"
+  description="Where is the TESCO reference number on your bill? Top-right section, 14 digits, labeled Ref. No. Find it and check your TESCO tribal areas electricity bill instantly."
   canonical="/blog/tesco-reference-number/"
   schema={schema}
-  lastmod="2026-06-16"
+  lastmod="2026-06-17"
   pageType="article"
 >
   <div class="bg-neutral-100 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-      <nav class="flex items-center gap-2 text-sm text-neutral-500">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-neutral-500">
         <a href="/" class="hover:text-primary-600">Home</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <a href="/blog/" class="hover:text-primary-600">Blog</a>
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 font-medium">TESCO</span>
+        <span class="text-neutral-800 font-medium">TESCO Reference Number</span>
       </nav>
     </div>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="mb-4">
-      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Guides</span>
+    <div class="mb-6">
+      <span class="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">TESCO Guide</span>
       <span class="text-xs text-neutral-400 ml-3">Updated June 2026</span>
     </div>
-    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">TESCO Reference Number — Find It on Your Bill</h1>
+    <h1 class="text-3xl font-heading font-bold text-neutral-900 mb-4">How to Find TESCO Reference Number — Where is it on Your Bill?</h1>
+
+    <div class="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-lg mb-8">
+      <p class="font-semibold text-primary-800">Quick Answer: The TESCO reference number is a <strong>14-digit number</strong> on the <strong>top-right of your bill</strong> labeled <strong>"Ref. No."</strong> — directly above the barcode. It contains only digits, no letters.</p>
+    </div>
+
+    <p class="text-neutral-600 mb-4">If you're trying to check your <strong>Tribal Electric Supply Company (TESCO)</strong> electricity bill online — whether you live in Bajaur, Kurram, Khyber, Mohmand, Orakzai, North Waziristan, or South Waziristan — you need a 14-digit reference number to retrieve it. Without this number, no online bill checker (including ours) can locate your account. The good news is that once you find your reference number on any previous bill, it stays the same forever — so you only need to find it once. This guide shows you exactly where on the bill to look, what the number looks like, and what to do if you've lost all your previous bills.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Where Exactly is the TESCO Reference Number?</h2>
+    <p class="text-neutral-600 mb-4">On every TESCO electricity bill, look at the <strong>top section of the page</strong>. On the <strong>right side</strong>, you will find a bold number labeled <strong>"Ref. No."</strong> or <strong>"Reference No."</strong> — this is your 14-digit reference number. It is always printed directly above or next to the barcode on the bill, in the same position across all TESCO billing cycles.</p>
+
+    <div class="bg-neutral-900 text-green-400 font-mono rounded-xl p-5 mb-6 text-sm overflow-x-auto">
+      <p class="text-neutral-400 text-xs mb-2">// TESCO Bill — Top Right Section</p>
+      <p>┌─────────────────────────────────┐</p>
+      <p>│  TESCO Electricity Bill           │</p>
+      <p>│  Consumer: [Your Name]            │</p>
+      <p>│  District: Bajaur                 │</p>
+      <p>│  ┌──────────────────────────┐   │</p>
+      <p class="text-yellow-300">│  │ <strong>Ref. No: 01234567890123</strong>  │   │ ← Here!</p>
+      <p>│  │ Customer ID: 1234567890  │   │</p>
+      <p>│  └──────────────────────────┘   │</p>
+      <p>│  [████████ BARCODE ████████]    │</p>
+      <p>└─────────────────────────────────┘</p>
+    </div>
+
+    <p class="text-neutral-600 mb-4">The reference number is printed in <strong>bold, larger font</strong> than surrounding text so it stands out. On older TESCO bills (pre-2020), it may appear slightly lower — between the address and the meter details — but always on the right side, labeled the same way.</p>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">What Does the TESCO Reference Number Look Like?</h2>
+    <ul class="space-y-2 text-neutral-600 mb-6 list-disc list-inside">
+      <li>Always exactly <strong>14 digits</strong> — never more, never less</li>
+      <li>Only numbers — no letters (A, B, C) or dashes</li>
+      <li>Example: <code class="bg-neutral-100 px-2 py-0.5 rounded font-mono">01234567890123</code></li>
+      <li>Printed in <strong>bold</strong> near the top-right of your bill</li>
+      <li>Labeled <strong>"Ref. No."</strong> or <strong>"Reference No."</strong></li>
+      <li>Stays the same every month (only changes if WAPDA reassigns your meter to a different feeder)</li>
+      <li>Always begins with a digit between 0 and 5 (TESCO uses prefix 0–5 for tribal-area connections)</li>
+    </ul>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Can't Find Your TESCO Reference Number?</h2>
+    <p class="text-neutral-600 mb-4">If you've lost your previous bills or can't locate the reference number, here are the steps to recover it:</p>
+    <div class="space-y-3 mb-8">
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">1. Check any old bill</p>
+        <p class="text-sm text-neutral-600">Your reference number never changes. Any previous TESCO bill — even one from 3 years ago — will have the same reference number. Ask a family member, neighbor, or landlord if they have an old bill.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">2. Use your Customer ID instead</p>
+        <p class="text-sm text-neutral-600">The 10-digit TESCO Customer ID also works on our bill checker. Click the "Customer ID" tab on <a href="/tesco-bill/" class="text-primary-600 underline">pakistanbill.online/tesco-bill/</a> and enter your 10-digit ID. The Customer ID is printed right below the reference number on every bill.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">3. Call TESCO helpline 111-111-117</p>
+        <p class="text-sm text-neutral-600">Provide your CNIC number and address. The customer service representative can retrieve your reference number after verifying your identity. Have your CNIC ready.</p>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-4">
+        <p class="font-semibold text-neutral-800 mb-1">4. Visit your nearest TESCO circle office</p>
+        <p class="text-sm text-neutral-600">Bring your CNIC and proof of residence (utility bill in your name, tenancy agreement). The circle office can issue a duplicate bill printout with your reference number on it.</p>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">TESCO Reference Number vs Customer ID</h2>
+    <p class="text-neutral-600 mb-4">TESCO bills show two different identifiers for each consumer. Understanding the difference helps avoid confusion:</p>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border border-neutral-200 rounded-lg">
+        <thead class="bg-neutral-100">
+          <tr>
+            <th class="text-left p-3 border-b border-neutral-200">Feature</th>
+            <th class="text-left p-3 border-b border-neutral-200">Reference Number</th>
+            <th class="text-left p-3 border-b border-neutral-200">Customer ID</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-200">
+          <tr><td class="p-3 font-semibold">Length</td><td class="p-3">14 digits</td><td class="p-3">10 digits</td></tr>
+          <tr><td class="p-3 font-semibold">Position on bill</td><td class="p-3">Top-right (above barcode)</td><td class="p-3">Top-right (below reference)</td></tr>
+          <tr><td class="p-3 font-semibold">Changes over time?</td><td class="p-3">Only if feeder reassigned</td><td class="p-3">Never</td></tr>
+          <tr><td class="p-3 font-semibold">Used for</td><td class="p-3">Online bill check, payment</td><td class="p-3">Account identification, complaints</td></tr>
+          <tr><td class="p-3 font-semibold">Works on our checker?</td><td class="p-3">Yes (default tab)</td><td class="p-3">Yes (Customer ID tab)</td></tr>
+          <tr><td class="p-3 font-semibold">Accepted at banks?</td><td class="p-3">Yes</td><td class="p-3">No — banks need reference</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-2xl font-heading font-bold mt-8 mb-4">Common Mistakes When Entering the Reference Number</h2>
+    <ul class="space-y-3 text-neutral-600 mb-6 list-disc list-inside">
+      <li><strong>Missing leading zero:</strong> When copy-pasting, the first "0" often gets cut off. Always count the digits — must be exactly 14.</li>
+      <li><strong>Entering the Customer ID by mistake:</strong> Customer ID is 10 digits and won't work in the reference number field. Use the Customer ID tab instead.</li>
+      <li><strong>Confusing meter number with reference number:</strong> Meter number is printed separately on the bill, usually near the bottom, and starts with letters like "TES-". Reference number is digits-only.</li>
+      <li><strong>Entering dashes or spaces:</strong> The system rejects special characters. Enter 14 digits without any separators.</li>
+      <li><strong>Using the previous month's reference:</strong> The reference number stays the same every month, so this isn't actually a mistake — but don't use a reference number from a different consumer (each has a unique number).</li>
+    </ul>
 
     <h2 class="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">Frequently Asked Questions</h2>
     <div class="space-y-3 mb-10">
-      <details class="faq-item"><summary class="faq-question">Where is TESCO reference number on bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The TESCO reference number is at the top-right of your bill, labeled Ref. No. It is a 14-digit number above the barcode. TESCO (Tribal Areas Electric Supply Company) covers merged tribal districts formerly known as FATA in KPK.</div></details>
-      <details class="faq-item"><summary class="faq-question">TESCO reference number format?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The TESCO reference number is always 14 digits. No letters or dashes. Same every month. Used for online bill checking at pakistanbill.online/tesco-bill/ and for payments via JazzCash, EasyPaisa, or any bank.</div></details>
-      <details class="faq-item"><summary class="faq-question">TESCO helpline?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Call TESCO helpline 091-9213120 or national 118 number. TESCO head office is in Peshawar. For billing complaints in tribal districts, call TESCO or visit any TESCO sub-division office.</div></details>
+      <details class="faq-item"><summary class="faq-question">Where is the reference number on TESCO bill?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The TESCO reference number is a 14-digit number printed in bold on the top-right section of your TESCO electricity bill, labeled 'Ref. No.' or 'Reference No.', directly above the barcode. It contains only digits — no letters, no dashes.</div></details>
+      <details class="faq-item"><summary class="faq-question">What is the TESCO reference number format?</summary><div class="px-4 pb-4 text-sm text-neutral-600">The TESCO reference number is always exactly 14 digits. No letters, no spaces, no dashes. Example format: 01234567890123. It stays the same every month and is unique to your connection.</div></details>
+      <details class="faq-item"><summary class="faq-question">How to check TESCO bill without reference number?</summary><div class="px-4 pb-4 text-sm text-neutral-600">If you don't have your TESCO reference number, you can use your 10-digit TESCO Customer ID instead — both work on our bill checker. Alternatively call TESCO helpline 111-111-117 with your CNIC to retrieve your reference number.</div></details>
+      <details class="faq-item"><summary class="faq-question">Is TESCO reference number the same as Customer ID?</summary><div class="px-4 pb-4 text-sm text-neutral-600">No. TESCO reference number is 14 digits and is used for online bill checking and payment. TESCO Customer ID is 10 digits and identifies your account. Both work for checking your bill online at pakistanbill.online/tesco-bill/.</div></details>
+      <details class="faq-item"><summary class="faq-question">My TESCO reference number has 13 digits — what's wrong?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Check the very first digit — it's likely a '0' that was cut off when copy-pasted. TESCO reference numbers are always 14 digits. Re-enter the number manually, including the leading zero, to retrieve your bill.</div></details>
+      <details class="faq-item"><summary class="faq-question">Can I use the TESCO reference number at any bank for payment?</summary><div class="px-4 pb-4 text-sm text-neutral-600">Yes. The 14-digit TESCO reference number is universally accepted at all banks (HBL, UBL, MCB, NBP, Bank Alfalah, Meezan), JazzCash, EasyPaisa, and 1Bill retailers in KP and across Pakistan. Banks cannot process payment with Customer ID — they need the reference number.</div></details>
     </div>
 
     <div class="bg-primary-50 border border-primary-200 rounded-2xl p-6 mb-8 text-center">
-      <h2 class="font-bold text-xl text-primary-900 mb-2">Check Your TESCO Bill Now</h2>
-      <p class="text-primary-700 mb-4 text-sm">Free, instant, no login required.</p>
+      <h2 class="font-bold text-xl text-primary-900 mb-2">Got Your TESCO Reference Number?</h2>
+      <p class="text-primary-700 mb-4 text-sm">Enter it now to check your bill instantly.</p>
       <a href="/tesco-bill/" class="inline-block bg-primary-700 text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-primary-800 transition-colors">
-        Open TESCO Bill Checker &rarr;
+        Check TESCO Bill &rarr;
       </a>
     </div>
 
     <div class="border-t border-neutral-200 pt-6">
       <div class="flex flex-wrap gap-2">
         <a href="/tesco-bill/" class="text-sm bg-primary-50 border border-primary-200 rounded-lg px-3 py-2 text-primary-700 font-semibold hover:underline">TESCO Checker &rarr;</a>
+        <a href="/blog/tesco-bill-check-online/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">TESCO Bill Check Guide &rarr;</a>
+        <a href="/blog/how-to-find-reference-number/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">How to Find Reference Number &rarr;</a>
         <a href="/electricity/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">All Electricity Bills &rarr;</a>
-        <a href="/electricity-bill-calculator/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">Bill Calculator &rarr;</a>
         <a href="/blog/" class="text-sm bg-neutral-50 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-600 hover:underline">More Guides &rarr;</a>
       </div>
     </div>
